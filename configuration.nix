@@ -53,13 +53,13 @@
     networking = {
         hostName = "nixos";
         networkmanager.enable = true;
-        # extraHosts = ''
-        #     140.82.113.4	github.com
-        #     185.199.108.133 raw.githubusercontent.com
-        #     185.199.109.133 raw.githubusercontent.com
-        #     185.199.110.133 raw.githubusercontent.com
-        #     185.199.111.133 raw.githubusercontent.com
-        #     '';
+        extraHosts = ''
+            140.82.113.4	github.com
+            185.199.108.133 raw.githubusercontent.com
+            185.199.109.133 raw.githubusercontent.com
+            185.199.110.133 raw.githubusercontent.com
+            185.199.111.133 raw.githubusercontent.com
+            '';
     };
 
 # networking.hostName = "nixos"; # Define your hostname.
@@ -158,6 +158,9 @@
     environment.variables.EDITOR = "vim";
     users.defaultUserShell = pkgs.zsh;
 
+    # environment.shellAliases = {
+    # };
+
     programs = {
         hyprland = {
             enable = true;
@@ -170,6 +173,15 @@
             shellAliases = {
                 "vim" = "nvim";
                 "cls" = "clear";
+                "gs" = "git st";
+                "ga" = "git add .";
+                "gco" = "git co";
+                "gl" = "git lg";
+                # gac = 'git add . && git commit -m "update $(date "+%Y-%m-%d %H:%M:%S")"';
+                gacp = "gac && git push";
+                gpl = "git pull";
+                gps = "git push";
+                lg = "lazygit";
             };
             ohMyZsh = {
                 enable = true;
