@@ -81,11 +81,32 @@
     # List services that you want to enable:
     # Enable the OpenSSH daemon.
     services.openssh.enable = true;
-    services.keyd.enable = true;
     services.v2raya.enable = true;
 
-    # environment.etc."keyd/default.conf".source = /home/npc/.config/keyd/default.conf;
-    environment.etc."keyd/default.conf".text = builtins.readFile ./pkgs/keyd/default.conf;
+    services.keyd = {
+        enable = true;
+        keyboards = {
+            default = {
+                ids = ["*"];
+                settings = {
+                    main = {
+                        # capslock = "control"; # do not work
+                        capslock = "oneshot(control)";
+                        "'" = ''"'';
+                    };
+                    control = {
+                        h = "left";
+                        j = "down";
+                        k = "up";
+                        l = "right";
+                    };
+                    shift = {
+                        "'" = "'";
+                    };
+                };
+            };
+        };
+    };
 
     environment.variables.EDITOR = "vim";
     users.defaultUserShell = pkgs.zsh;
