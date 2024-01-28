@@ -159,7 +159,7 @@
         gnumake gcc9 cmake
         lsof fd ripgrep unzip which tree
         vscode
-        git lazygit
+        git lazygit delta
         vim neovim
         curl wget
         # tools
