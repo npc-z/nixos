@@ -5,6 +5,23 @@
         ./hardware-configuration.nix
     ];
 
+    i18n = {
+        defaultLocale = "en_US.UTF-8";
+        supportedLocales = [
+            "zh_CN.UTF-8/UTF-8"
+            "en_US.UTF-8/UTF-8"
+        ];
+        inputMethod = with pkgs; {
+            enabled = "fcitx5";
+            fcitx5 = {
+                addons = [
+                    fcitx5-chinese-addons
+                    fcitx5-configtool
+                    fcitx5-gtk
+                ];
+            };
+        };
+    };
 
     fonts.packages = with pkgs; [
         (nerdfonts.override {
@@ -43,11 +60,31 @@
         hostName = "nixos";
         networkmanager.enable = true;
         extraHosts = ''
-            140.82.113.4	github.com
-            185.199.108.133 raw.githubusercontent.com
-            185.199.109.133 raw.githubusercontent.com
-            185.199.110.133 raw.githubusercontent.com
-            185.199.111.133 raw.githubusercontent.com
+            # 140.82.113.4	github.com
+            # 185.199.108.133 raw.githubusercontent.com
+            # 185.199.109.133 raw.githubusercontent.com
+            # 185.199.110.133 raw.githubusercontent.com
+            # 185.199.111.133 raw.githubusercontent.com
+            # 20.201.28.151 github.com
+            # 20.205.243.166 github.com
+            # 20.87.245.0 github.com
+            # 20.248.137.48 github.com
+            # 20.207.73.82 github.com
+            # 20.27.177.113 github.com
+            # 20.200.245.247 github.com
+            # 20.175.192.147 github.com
+            # 20.233.83.145 github.com
+            # 20.29.134.23 github.com
+            # 20.201.28.152 github.com
+            # 20.205.243.160 github.com
+            # 20.87.245.4 github.com
+            # 20.248.137.50 github.com
+            # 20.207.73.83 github.com
+            # 20.27.177.118 github.com
+            # 20.200.245.248 github.com
+            # 20.175.192.146 github.com
+            # 20.233.83.149 github.com
+            # 20.29.134.19 github.com
             '';
     };
 
@@ -57,6 +94,10 @@
 
     # Enable sound.
     sound.enable = true;
+
+    hardware.bluetooth.enable = true; # enables support for Bluetooth
+    hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+
     hardware.pulseaudio.enable = false;
     services.pipewire = {
         enable = true;
@@ -127,11 +168,14 @@
                 "ga" = "git add .";
                 "gco" = "git co";
                 "gl" = "git lg";
-                # gac = 'git add . && git commit -m "update $(date "+%Y-%m-%d %H:%M:%S")"';
-                gacp = "gac && git push";
-                gpl = "git pull";
-                gps = "git push";
-                lg = "lazygit";
+                "gac" = ''git add . && git commit -m "update $(date "+%Y-%m-%d %H:%M:%S")"'';
+                "gacp" = "gac && git push";
+                "gpl" = "git pull";
+                "gps" = "git push";
+                "lg" = "lazygit";
+            };
+            autosuggestions = {
+                enable = true;
             };
             ohMyZsh = {
                 enable = true;
@@ -168,12 +212,13 @@
         netease-cloud-music-gtk
 
         neofetch btop
-        zsh keyd stow
+        zsh z-lua keyd stow
         # desktop
         microsoft-edge
-        hyprland waybar swaybg wofi
+        hyprland waybar swaybg wofi wlogout pamixer brightnessctl
+        #
         brightnessctl pamixer
-        fcitx5 v2raya
+        v2raya
     ];
 
     system.stateVersion = "24.05"; # Did you read the comment?
