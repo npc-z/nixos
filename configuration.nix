@@ -124,6 +124,8 @@
     services.openssh.enable = true;
     services.v2raya.enable = true;
 
+    virtualisation.docker.enable = true;
+
     services.keyd = {
         enable = true;
         keyboards = {
@@ -189,7 +191,8 @@
         description = "npc";
         extraGroups = [
             "networkmanager"
-                "wheel"
+            "wheel"
+            "docker"
         ];
         packages = with pkgs; [
             firefox
@@ -203,6 +206,9 @@
         gnumake gcc9 cmake
         lsof fd ripgrep unzip which tree
         vscode
+        # make dev env
+        devbox docker
+        # common tools
         git lazygit delta
         vim neovim
         curl wget
