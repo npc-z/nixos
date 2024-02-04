@@ -202,7 +202,7 @@
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
-        python311 python311Packages.pip go nodejs_20
+        python311 python311Packages.pip go nodejs_20 cargo
         gnumake gcc9 cmake
         lsof fd ripgrep unzip which tree
         vscode
