@@ -215,7 +215,7 @@
         # tools
         kitty foot
         cinnamon.nemo glow zathura
-        netease-cloud-music-gtk
+        netease-cloud-music-gtk playerctl
 
         neofetch btop
         zsh z-lua keyd stow

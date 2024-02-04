@@ -1,5 +1,3 @@
-#!/bin/bash
-
 jsonPath="$HOME/.cache/netease-cloud-music/StorageCache/webdata/file/queue"
 playerName="netease-cloud-music"
 playerShell="playerctl --player=$playerName"

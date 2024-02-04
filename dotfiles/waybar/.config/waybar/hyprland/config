@@ -1,9 +1,8 @@
 {
-	"layer": "top",
+    "layer": "top",
     "position": "top",
 
-	"modules-left": [
-        // "custom/arch",
+    "modules-left": [
         "hyprland/workspaces",
         "custom/lyric",
     ],
@@ -15,8 +14,7 @@
     },
 
     "custom/lyric": {
-        "exec": "~/.config/waybar/scripts/song.sh",
-        // "exec-if": "~/.config/waybar/scripts/is_playing_music.sh",
+        "exec": "bash ~/.config/waybar/scripts/song.sh",
         "on-click": "playerctl --player=netease-cloud-music next",
         "on-click-right": "playerctl --player=netease-cloud-music previous",
         "return-type": "json",
@@ -68,16 +66,14 @@
     "modules-center": [
         "wlr/taskbar",
     ],
-	"modules-right": [
-        // "custom/wallpaper",
-        // "cpu",
-        // "memory",
+
+    "modules-right": [
         "custom/netspeed",
         "network",
         "backlight",
         "pulseaudio",
         "battery",
-        // "bluetooth",
+        "bluetooth",
         "clock",
         "custom/notification",
         "tray",
@@ -85,7 +81,7 @@
     ],
 
     "custom/netspeed": {
-        "exec": "~/.config/waybar/scripts/netspeed.py",
+        "exec": "python ~/.config/waybar/scripts/netspeed.py",
         "return-type": "json",
         "escape": false,
         "min-length": 12,
@@ -100,7 +96,7 @@
         "format-disconnected": "󰖪 ",
         "tooltip": true,
         "tooltip-format": "{essid}: {ipaddr}/{cidr}"
-	},
+    },
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -121,13 +117,13 @@
         }
     },
 
-	"backlight": {
-		"tooltip": false,
-		"format": " {}%",
-		"interval":1,
+    "backlight": {
+        "tooltip": false,
+        "format": " {}%",
+        "interval":1,
         "on-scroll-up": "brightnessctl set 5%+",
         "on-scroll-down": "brightnessctl set 5%-",
-	},
+    },
 
     "battery": {
         "states": {
@@ -142,10 +138,10 @@
         "format-icons": ["", "", "", "", ""]
     },
 
-	"tray":{
-		"icon-size":18,
-		"spacing": 10
-	},
+    "tray":{
+        "icon-size":18,
+        "spacing": 10
+    },
 
     "clock": {
         "format": " {:%m-%d %H:%M:%OS}",
@@ -172,41 +168,20 @@
 
     },
 
-    "cpu": {
-        "interval": 15,
-        "format": " {}%",
-        "max-length": 10
-    },
-    "memory": {
-        "interval": 30,
-        "format": " {}%",
-        "max-length": 10
-    },
-
-    "custom/launcher":{
-        "format": " ",
-        "on-click": "rofi -show drun",
-        "on-click-right": "killall rofi"
-    },
     "custom/power":{
         "format": " ",
         "on-click": "wlogout"
     },
 
-//    "bluetooth": {
-//        "format": " {status}",
-//        "format-connected": " {device_alias}",
-//        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-//        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
-//        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-//        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-//        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-//        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
-//    },
-
-    "custom/wallpaper":{
-        "format":" ",
-        "on-click": "bash ~/.config/system_scripts/pkill_bc"
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
 
     "custom/notification": {

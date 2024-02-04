@@ -8,7 +8,7 @@
 
 window#waybar {
   /* background: transparent; */
-  background: #053B50;
+  background: #053b50;
 }
 
 window#waybar.hidden {
@@ -136,30 +136,6 @@ window#waybar.hidden {
   /*background: #1A1826;*/
 }
 
-#memory {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  margin-bottom: 0px;
-  padding-right: 10px;
-  border-radius: 10px;
-  transition: none;
-  color: #161320;
-  background: #ddb6f2;
-}
-
-#cpu {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  margin-bottom: 0px;
-  padding-right: 10px;
-  border-radius: 10px;
-  transition: none;
-  color: #161320;
-  background: #96cdfb;
-}
-
 #tray {
   margin-top: 6px;
   margin-left: 8px;
@@ -184,18 +160,6 @@ window#waybar.hidden {
   transition: none;
   color: #161320;
   background: #f28fad;
-}
-
-#custom-arch {
-  font-size: 20px;
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 5px;
-  border-radius: 10px;
-  transition: none;
-  color: #89dceb;
-  background: #161320;
 }
 
 #workspaces {
@@ -237,10 +201,6 @@ window#waybar.hidden {
   margin-left: 10px;
   color: #e6dede;
   font-weight: bold;
-}
-
-#taskbar {
-  /* margin-top: 6px; */
 }
 
 #custom-notification {
