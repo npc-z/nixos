@@ -1,0 +1,425 @@
+{
+    "files.autoSave": "afterDelay",
+    "workbench.iconTheme": "material-icon-theme",
+    "files.trimTrailingWhitespace": true,
+    "editor.suggestSelection": "recentlyUsed",
+    "files.insertFinalNewline": true,
+    "files.eol": "\n",
+    // 文件夹目录树缩进
+    "workbench.tree.indent": 12,
+    "editor.lineNumbers": "relative",
+    "editor.rulers": [
+        // 标尺竖线
+        88,
+        120
+    ],
+    // vim config
+    // "vim.smartRelativeLine": true,
+    // vim config
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": false,
+    "vim.leader": "<space>",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            // goto the last char of current line
+            "before": [
+                "<C-u>"
+            ],
+            "after": [
+                "<esc>",
+                "c",
+                "$"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                "p"
+            ],
+            "after": [
+                "\"",
+                "_",
+                "d",
+                "P"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            // 下一个 git 修改
+            "before": [
+                // "<leader>",
+                "g",
+                "j"
+            ],
+            "commands": [
+                "workbench.action.editor.nextChange"
+            ]
+        },
+        {
+            // 上一个 git 修改
+            "before": [
+                // "<leader>",
+                "g",
+                "k"
+            ],
+            "commands": [
+                "workbench.action.editor.previousChange"
+            ]
+        },
+        {
+            // pre buffer
+            "before": [
+                "<leader>",
+                "b",
+                "k"
+            ],
+            "after": [
+                ":",
+                "b",
+                "p",
+                "<CR>"
+            ]
+        },
+        {
+            // nex buffer
+            "before": [
+                "<leader>",
+                "b",
+                "j"
+            ],
+            "after": [
+                ":",
+                "b",
+                "n",
+                "<CR>"
+            ]
+        },
+        {
+            // 关闭到左侧
+            "before": [
+                "<leader>",
+                "b",
+                "h"
+            ],
+            "commands": [
+                "workbench.action.closeEditorsToTheLeft"
+            ]
+        },
+        {
+            // 关闭到右侧
+            "before": [
+                "<leader>",
+                "b",
+                "l"
+            ],
+            "commands": [
+                "workbench.action.closeEditorsToTheRight"
+            ]
+        },
+        {
+            // 返回上一个位置
+            "before": [
+                "<leader>",
+                "o"
+            ],
+            "commands": [
+                "workbench.action.navigateBack"
+            ]
+        },
+        {
+            // 前进一个位置
+            "before": [
+                "<leader>",
+                "i"
+            ],
+            "commands": [
+                "workbench.action.navigateForward"
+            ]
+        },
+        {
+            // 移动到折叠行时, 不会展开代码
+            "before": [
+                "j"
+            ],
+            "after": [
+                "g",
+                "j",
+                "z",
+                "z"
+            ]
+        },
+        {
+            // 移动到折叠行时, 不会展开代码
+            "before": [
+                "k"
+            ],
+            "after": [
+                "g",
+                "k",
+                "z",
+                "z"
+            ]
+        },
+        // {
+        //     // goto the first char of current line
+        //     "before": [
+        //         "<C-h>",
+        //     ],
+        //     "after": [
+        //         "^",
+        //         "i"
+        //     ],
+        // },
+        {
+            // goto the last char of current line
+            "before": [
+                "<C-l>"
+            ],
+            "after": [
+                "$",
+                "a"
+            ]
+        },
+        {
+            // 显示 vscode 的命令面板
+            "before": [
+                // "<leader>",
+                "g",
+                "c"
+            ],
+            "commands": [
+                "workbench.action.showCommands"
+            ]
+        },
+        {
+            // goto defininition
+            "before": [
+                // "<leader>",
+                "g",
+                "d"
+            ],
+            "commands": [
+                // "editor.action.revealDefinitionAside",
+                "editor.action.revealDefinition"
+            ],
+            "silent": true
+        },
+        {
+            // goto references
+            "before": [
+                // "<leader>",
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.goToReferences"
+            ],
+            "silent": true
+        },
+        {
+            // show hover tip
+            "before": [
+                // "<leader>",
+                "g",
+                "h"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ],
+            "silent": true
+        },
+        // {
+        //     // find in files
+        //     // workbench.action.closeAuxiliaryBar
+        //     "before": [
+        //         "<leader>",
+        //         "f",
+        //     ],
+        //     "commands": [
+        //         // "workbench.action.findInFiles",
+        //         "workbench.view.search"
+        //     ],
+        //     "silent": true,
+        // },
+        {
+            // 参数提示
+            "before": [
+                "<leader>",
+                "k"
+            ],
+            "commands": [
+                "editor.action.triggerParameterHints"
+            ],
+            "silent": true
+        },
+        {
+            // workbench.action.closeActiveEditor
+            "before": [
+                "<leader>",
+                "q"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ],
+            "silent": true
+        },
+        {
+            // rename
+            "before": [
+                "<leader>",
+                "r",
+                "n"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ],
+            "silent": true
+        },
+        {
+            // select all file content
+            "before": [
+                "<leader>",
+                "a"
+            ],
+            "after": [
+                "g",
+                "g",
+                "v",
+                "G"
+            ]
+        },
+        {
+            // prev buffer
+            "before": [
+                "H"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ],
+            "silent": true
+        },
+        {
+            // next buffer
+            "before": [
+                "L"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ],
+            "silent": true
+        }
+    ],
+    "vim.handleKeys": {
+        "<C-c>": false,
+        "<C-v>": false,
+        "<C-j>": false,
+        "<C-x>": false
+    },
+    // "vim.autoSwitchInputMethod.enable": true,
+    // "vim.autoSwitchInputMethod.defaultIM": "2052",
+    // "vim.autoSwitchInputMethod.obtainIMCmd": "C:\\app\\im-select\\im-select.exe",
+    // "vim.autoSwitchInputMethod.switchIMCmd": "C:\\app\\im-select\\im-select.exe {im}",
+    // golang settings
+    "go.goproxy": "https://goproxy.cn,direct",
+    "[go]": {
+        "editor.autoIndent": "advanced",
+        "editor.insertSpaces": true,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+            "source.fixAll": true
+        },
+        "editor.suggest.snippetsPreventQuickSuggestions": false
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "markdown-preview-enhanced.previewTheme": "vue.css",
+    "workbench.editor.enablePreview": false,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "todo-tree.general.tags": [
+        "fk"
+    ],
+    "diffEditor.ignoreTrimWhitespace": false,
+    // 配置 gitlens
+    // https://stackoverflow.com/questions/48401967/disable-annoying-source-code-modification-indication
+    "files.trimFinalNewlines": true,
+    "gitlens.hovers.annotations.over": "annotation",
+    "github.copilot.enable": {},
+    "editor.inlineSuggest.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.fontSize": 16,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.hovers.annotations.details": false,
+    "gitlens.hovers.annotations.changes": false,
+    "notebook.lineNumbers": "on",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "window.title": "${rootName}${separator}${separator}${activeEditorMedium}",
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.codeLens.recentChange.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.statusBar.enabled": false,
+    "gitlens.hovers.avatars": false,
+    "gitlens.hovers.pullRequests.enabled": false,
+    "gitlens.hovers.currentLine.changes": false,
+    "gitlens.hovers.currentLine.details": false,
+    "gitlens.hovers.annotations.enabled": false,
+    "extensions.autoUpdate": "onlyEnabledExtensions",
+    "editor.formatOnSave": true,
+    "rest-client.previewResponsePanelTakeFocus": false,
+    "editor.accessibilitySupport": "off",
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorWidth": 2,
+    "editor.cursorBlinking": "smooth",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.cursorWidth": 2,
+    "notebook.output.textLineLimit": 100,
+    "vscode-office.openOutline": true,
+    "bracket-pair-colorizer-2.depreciation-notice": false,
+    "editor.renderWhitespace": "all",
+    "window.commandCenter": true,
+    "terminal.integrated.shellIntegration.enabled": true,
+    "git.confirmSync": false,
+    "git.mergeEditor": false,
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "\\.go$",
+                "cmd": "golines ${file} -w"
+            }
+        ]
+    },
+    "go.inlayHints.constantValues": true,
+    "redhat.telemetry.enabled": false,
+    "tabnine.experimentalAutoImports": true,
+    "workbench.sideBar.location": "right",
+    "editor.foldingImportsByDefault": true,
+    "editor.stickyScroll.enabled": true,
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "terminal.integrated.smoothScrolling": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.quickSuggestions": {
+        "comments": "on",
+        "strings": "on"
+    },
+    "gitlens.views.commits.avatars": false
+}

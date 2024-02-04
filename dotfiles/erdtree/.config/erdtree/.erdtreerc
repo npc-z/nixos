@@ -1,0 +1,29 @@
+# Sort-order to display directory content [default: size]
+# [possible values: name, size, size-rev]
+--sort name
+
+# Sort directories above files
+--dirs-first
+
+# Print tree with the root directory at the topmost position
+--inverted
+
+# Display file icons
+--icons
+
+# Maximum depth to display
+--level 2
+
+
+# Print disk usage in human-readable format
+--human
+
+# follow symlinks
+--follow
+
+# show hidden files
+-.
+
+# but do not show .git dir
+--no-git
+

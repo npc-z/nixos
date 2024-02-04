@@ -1,0 +1,8 @@
+os:
+  editCommand: 'vim'
+
+git:
+  paging:
+    colorArg: always
+    # pager: diff-so-fancy --word-diff-regex=.
+    pager: delta --side-by-side --line-numbers
