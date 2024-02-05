@@ -7,6 +7,7 @@
 
     # programs
     imports = [
+        ./home/programs/bash
         ./home/programs/waybar
     ];
     # 递归将某个文件夹中的文件，链接到 Home 目录下的指定位置
@@ -41,20 +42,6 @@
     #     enable = true;
     # };
 
-    programs.bash = {
-        enable = true;
-        enableCompletion = true;
-        # 在这里添加你的自定义 bashrc 内容
-        bashrcExtra = ''
-            export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-            '';
-
-        # 设置一些别名方便使用，你可以根据自己的需要进行增删
-        shellAliases = {
-            urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
-            urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
-        };
-    };
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
