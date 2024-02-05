@@ -9,6 +9,9 @@
     imports = [
         ./home/programs/bash
         ./home/programs/waybar
+        # TODO 放入构建脚本中
+        # excute `bash ./dotfiles/config-git.sh `
+        # ./home/programs/git
     ];
     # 递归将某个文件夹中的文件，链接到 Home 目录下的指定位置
 
@@ -28,14 +31,6 @@
     # 建议将所有 GUI 软件，以及与 OS 关系不大的 CLI 软件，都通过 home.packages 安装
     home.packages = with pkgs;[
     ];
-
-    # git 相关配置
-    # programs.git = {
-    #     enable = true;
-    #     userName = "npc-z";
-    #     userEmail = "1763998996@qq.com";
-    # };
-
 
     # alacritty - 一个跨平台终端，带 GPU 加速功能
     # programs.alacritty = {
