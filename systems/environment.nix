@@ -29,10 +29,9 @@
         zsh z-lua keyd stow
         # desktop
         microsoft-edge
-        hyprland waybar swaybg wofi wlogout pamixer brightnessctl
+        swaybg wofi wlogout pamixer brightnessctl
         #
-        brightnessctl pamixer
+        brightnessctl pamixer networkmanagerapplet
         v2raya
     ];
-
 }
