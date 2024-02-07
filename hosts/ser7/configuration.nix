@@ -57,7 +57,7 @@
     };
 
     networking = {
-        hostName = "nixos";
+        hostName = "ser7-nixos";
         networkmanager.enable = true;
         extraHosts = ''
             # 140.82.113.4	github.com
@@ -106,6 +106,9 @@
     };
 
     security.rtkit.enable = true;
+    # TODO 以下行尝试解决不能弹出 dialog(没能解决)
+    security.polkit.enable = true;
+    # =====
 
     nix.settings = {
         experimental-features = [
@@ -222,6 +225,12 @@
     environment.systemPackages = with pkgs; [
         python311 python311Packages.pip go nodejs_20 cargo
         gnumake gcc9 cmake
+
+        # TODO 以下两行尝试解决不能弹出 dialog(没能解决)
+        xdg-desktop-portal-gtk xdg-desktop-portal-hyprland
+        polkit wayland-protocols wayland-utils
+        # =====
+
         lsof fd ripgrep unzip which tree
         vscode
         # make dev env

@@ -7,11 +7,13 @@
 
     # programs
     imports = [
-        ./home/programs/bash
-        ./home/programs/waybar
+        # ./home/programs/bash
+        ./../../apps/bash
+        # ./home/programs/waybar
+        ./../../apps/waybar
         # TODO 放入构建脚本中
         # excute `bash ./dotfiles/config-git.sh `
-        # ./home/programs/git
+        # ./../../apps/git
     ];
     # 递归将某个文件夹中的文件，链接到 Home 目录下的指定位置
 
