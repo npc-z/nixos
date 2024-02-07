@@ -163,6 +163,18 @@
         };
         zsh = {
             enable = true;
+            # z - jump around
+            # source ${pkgs.fetchurl {url = "https://github.com/rupa/z/raw/2ebe419ae18316c5597dd5fb84b5d8595ff1dde9/z.sh"; sha256 = "0ywpgk3ksjq7g30bqbhl9znz3jh6jfg8lxnbdbaiipzgsy41vi10";}}
+            # export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
+            # export ZSH_THEME="lambda"
+            # plugins=(git)
+            # source $ZSH/oh-my-zsh.sh
+            interactiveShellInit = ''
+                source ~/.config/nixos/dotfiles/shell/basic.sh
+
+                # z-lua 初始化
+                eval "$(z.lua  --init zsh)"
+                '';
             shellAliases = {
                 "vim" = "nvim";
                 "cls" = "clear";
