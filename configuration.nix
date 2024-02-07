@@ -155,6 +155,10 @@
     users.defaultUserShell = pkgs.zsh;
 
     programs = {
+        direnv = {
+            enable = true;
+            silent = true;
+        };
         hyprland = {
             enable = true;
         };
@@ -174,6 +178,8 @@
 
                 # z-lua 初始化
                 eval "$(z.lua  --init zsh)"
+
+                eval "$(direnv hook zsh)"
                 '';
             shellAliases = {
                 "vim" = "nvim";
