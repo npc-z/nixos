@@ -211,7 +211,7 @@
         # common tools
         git lazygit delta
         vim neovim
-        curl wget
+        curl wget wl-clipboard
         # tools
         kitty foot
         cinnamon.nemo glow zathura
