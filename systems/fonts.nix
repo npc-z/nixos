@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # all fonts are linked to /nix/var/nix/profiles/system/sw/share/X11/fonts
   fonts = {
     # use fonts specified by user rather than default ones
@@ -56,6 +51,13 @@
       monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
       emoji = ["Noto Color Emoji"];
     };
+  };
+
+  console = {
+    earlySetup = true;
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
+    packages = with pkgs; [terminus_font];
+    keyMap = "us";
   };
 
   # https://wiki.archlinux.org/title/KMSCON
