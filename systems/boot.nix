@@ -4,6 +4,9 @@
   pkgs,
   ...
 }: {
+  # Use latest kernel for the initial installation.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   boot.loader = {
     grub = {
       enable = true;
