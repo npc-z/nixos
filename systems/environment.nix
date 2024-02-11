@@ -25,6 +25,7 @@
     # =====
 
     lsof
+    fzf-zsh
     fd
     ripgrep
     unzip
