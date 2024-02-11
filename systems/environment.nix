@@ -32,6 +32,11 @@
     which
     tree
     vscode
+
+    # 截图
+    grim
+    slurp
+
     # formatter for nix
     alejandra
     # make dev env
