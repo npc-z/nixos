@@ -185,9 +185,9 @@ window#waybar.hidden {
 
 #workspaces button.active {
   font-size: 24px;
-  color: @subtext1;
-  background-color: @mantle;
-  border-bottom: 2px solid @subtext1;
+  /* color: @subtext1; */
+  /* background-color: @mantle; */
+  /* border-bottom: 2px solid @subtext1; */
 }
 
 #workspaces button.urgent {
