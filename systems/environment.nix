@@ -31,7 +31,6 @@
     unzip
     which
     tree
-    vscode
 
     # 截图
     grim

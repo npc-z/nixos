@@ -10,6 +10,7 @@
     # ./home/programs/waybar
     ./../../apps/waybar
     ./../../systems/fcitx5
+    ../../systems/vscode
     # TODO 放入构建脚本中
     # excute `bash ./dotfiles/config-git.sh `
     # ./../../apps/git
