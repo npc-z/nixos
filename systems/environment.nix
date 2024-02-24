@@ -25,7 +25,6 @@
     # =====
 
     lsof
-    fzf-zsh
     fd
     ripgrep
     unzip
@@ -61,8 +60,6 @@
 
     neofetch
     btop
-    zsh
-    z-lua
     keyd
     stow
     # desktop

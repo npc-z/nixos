@@ -11,6 +11,7 @@
     ./nix-conf.nix
     ./services.nix
     ./programs.nix
+    ./zsh.nix
     ./security.nix
     ./environment.nix
   ];
