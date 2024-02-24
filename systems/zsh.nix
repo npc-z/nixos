@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  basic-shell = ./../dotfiles/shell/basic.sh;
+in {
   environment.systemPackages = with pkgs; [
     zsh
     z-lua
@@ -17,7 +19,7 @@
       # plugins=(git)
       # source $ZSH/oh-my-zsh.sh
       interactiveShellInit = ''
-        source ~/.config/nixos/dotfiles/shell/basic.sh
+        source ${basic-shell}
 
         # z-lua 初始化
         eval "$(z.lua  --init zsh)"
