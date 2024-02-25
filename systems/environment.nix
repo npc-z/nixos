@@ -54,6 +54,8 @@
     foot
     cinnamon.nemo
     glow
+    tldr
+    eza
     zathura
     netease-cloud-music-gtk
     playerctl

@@ -30,9 +30,8 @@
         modules = [
           ./hosts/ser7/configuration.nix
 
-          # 添加如下内嵌 module 定义
-          #   这里将 modules 的所有参数 args 都传递到了 overlays 中
-          # (args: {nixpkgs.overlays = import ./overlays args;})
+          # 引入定义了 overlays 的 Module
+          (import ./overlays)
 
           home-manager.nixosModules.home-manager
           {

@@ -1,13 +1,15 @@
 {pkgs, ...}: let
-  basic-shell = ./../dotfiles/shell/basic.sh;
+  basic_sh = ./../dotfiles/shell/basic.sh;
+  fzf_zsh = ./../dotfiles/shell/fzf.zsh;
+  zinit_sh = ./../dotfiles/shell/zinit.sh;
 in {
   environment.systemPackages = with pkgs; [
     zsh
     z-lua
     fzf-zsh
     zsh-fzf-tab
-    # A cat(1) clone with syntax highlighting and Git integration
-    bat
+    bat # A cat(1) clone with syntax highlighting and Git integration
+    zinit # zsh plugin mamanger
   ];
   programs = {
     zsh = {
@@ -19,12 +21,16 @@ in {
       # plugins=(git)
       # source $ZSH/oh-my-zsh.sh
       interactiveShellInit = ''
-        source ${basic-shell}
+        source ${basic_sh}
+        source ${fzf_zsh}
 
         # z-lua 初始化
         eval "$(z.lua  --init zsh)"
 
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+
+        source "${pkgs.zinit}/share/zinit/zinit.zsh"
+        source ${zinit_sh}
       '';
       shellAliases = {
         "vim" = "nvim";
@@ -38,6 +44,8 @@ in {
         "gpl" = "git pull";
         "gps" = "git push";
         "lg" = "lazygit";
+        ll = "eza -1 --icons=auto --color-scale-mode=gradient --color=auto -l";
+        ls = "eza --icons=auto --color-scale-mode=gradient --color=auto";
       };
       autosuggestions = {
         enable = true;

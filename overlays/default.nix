@@ -1,10 +1,62 @@
-args:
-# import 当前文件夹下所有的 nix 文件，并以 args 为参数执行它们
-# 返回值是一个所有执行结果的列表，也就是 overlays 的列表
-builtins.map
-# map 的第一个参数，是一个 import 并执行 nix 文件的函数
-(f: (import (./. + "/${f}") args))
-# map 的第二个参数，它返回一个当前文件夹下除 default.nix 外所有 nix 文件的列表
-(builtins.filter
-  (f: f != "default.nix")
-  (builtins.attrNames (builtins.readDir ./.)))
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  nixpkgs.overlays = [
+    # zsh plugin manager
+    (import ./zinit)
+
+    # =============================================================
+    #                     示例 3 个
+    # 参考
+    # https://nixos-and-flakes.thiscute.world/zh/nixpkgs/overlays
+    # =============================================================
+
+    # =============================================================
+    #     overlayer1 - 参数名用 self 与 super，表达继承关系
+    # =============================================================
+
+    # Overlay 1 修改了 google-chrome 的 Derivation，增加了一个代理服务器的命令行参数。
+    # (self: super: {
+    #   google-chrome = super.google-chrome.override {
+    #     commandLineArgs = "--proxy-server='https=127.0.0.1:3128;http=127.0.0.1:3128'";
+    #   };
+    # })
+
+    # =============================================================
+    #     overlayer2 - 还可以使用 extend 来继承其他 overlay
+    # =============================================================
+
+    # Overlay 2 修改了 steam 的 Derivation，增加了额外的包和环境变量。
+    # 这里改用 final 与 prev，表达新旧关系
+    # (final: prev: {
+    #   steam = prev.steam.override {
+    #     extraPkgs = pkgs:
+    #       with pkgs; [
+    #         keyutils
+    #         libkrb5
+    #         libpng
+    #         libpulseaudio
+    #         libvorbis
+    #         stdenv.cc.cc.lib
+    #         xorg.libXcursor
+    #         xorg.libXi
+    #         xorg.libXinerama
+    #         xorg.libXScrnSaver
+    #       ];
+    #     extraProfile = "export GDK_SCALE=2";
+    #   };
+    # })
+
+    # =============================================================
+    #       overlay3 - 也可以将 overlay 定义在其他文件中
+    # =============================================================
+
+    # 这里 ./overlays/overlay3/default.nix 中的内容格式与上面的一致
+    # 都是 `final: prev: { xxx = prev.xxx.override { ... }; }`
+    # Overlay 3 被定义在一个单独的文件 ./overlays/overlay3/default.nix 中。
+    # (import ./overlay3)
+  ];
+}
