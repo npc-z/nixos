@@ -48,10 +48,13 @@
     neovim
     curl
     wget
+    jq
     wl-clipboard
     # tools
     kitty
     foot
+    alacritty
+    thefuck
     cinnamon.nemo
     glow
     tldr
