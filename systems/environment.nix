@@ -15,6 +15,9 @@
     gnumake
     gcc9
     cmake
+    # lua
+    stylua
+    lua-language-server
 
     # TODO 以下两行尝试解决不能弹出 dialog(没能解决)
     xdg-desktop-portal-gtk
