@@ -60,6 +60,8 @@
     thefuck
     cinnamon.nemo
     glow
+    imv # view image
+    mpv # view video
     tldr
     eza
     zathura
