@@ -21,8 +21,10 @@ function proxy() {
   export HTTPS_PROXY="$HTTP_PROXY_ADDR"
 
   # git
-  git config --global http.proxy "$SOCKS5_PROXY_ADDR"
-  git config --global https.proxy "$SOCKS5_PROXY_ADDR"
+  # git config --global http.proxy "$SOCKS5_PROXY_ADDR"
+  # git config --global https.proxy "$SOCKS5_PROXY_ADDR"
+
+  # git config --global http.https://github.com.proxy "$SOCKS5_PROXY_ADDR"
 
   # declare
   echo "current proxy status: using $HTTP_PROXY_ADDR and $SOCKS5_PROXY_ADDR proxying"
@@ -36,6 +38,8 @@ function unproxy() {
   # git
   git config --global --unset http.proxy
   git config --global --unset https.proxy
+
+  git config --global --unset http.https://github.com.proxy
 
   # declare
   echo "current proxy status:  direct connect, not proxying"
