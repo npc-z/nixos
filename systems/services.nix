@@ -19,9 +19,19 @@
             j = "down";
             k = "up";
             l = "right";
+            # a = "home";
+            # e = "end";
           };
           shift = {
             "'" = "'";
+          };
+          "control+shift" = {
+            # select all
+            # "a" = "C-a";
+            # del to end of line
+            # "k" = "C-k";
+            # "h" = "backspace";
+            # "d" = "delete";
           };
         };
       };
