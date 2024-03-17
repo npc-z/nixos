@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   environment.variables.EDITOR = "vim";
 
   environment.systemPackages = with pkgs; [
@@ -53,6 +48,7 @@
     wget
     jq
     wl-clipboard
+    clipse
     # tools
     kitty
     foot
