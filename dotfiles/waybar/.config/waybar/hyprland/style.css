@@ -42,8 +42,8 @@ window#waybar.hidden {
 #custom-netspeed {
   margin-top: 6px;
   margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 6px;
+  padding-right: 6px;
   margin-bottom: 0px;
   border-radius: 10px;
   transition: none;
@@ -185,6 +185,8 @@ window#waybar.hidden {
 
 #workspaces button.active {
   font-size: 24px;
+  background-color: #e178c5; /* pink */
+  border-radius: 10px;
   /* color: @subtext1; */
   /* background-color: @mantle; */
   /* border-bottom: 2px solid @subtext1; */
@@ -196,9 +198,9 @@ window#waybar.hidden {
 }
 
 #window {
-  font-size: 14px;
-  margin-top: 6px;
-  margin-left: 10px;
+  font-size: 24px;
+  /* margin-top: 10px; */
+  margin-left: 80px;
   color: #e6dede;
   font-weight: bold;
 }

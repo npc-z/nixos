@@ -3,18 +3,16 @@ import sys
 import time
 from typing import Tuple, Union
 
-UNITS = "KMGTPEZY"
+UNITS = "BKMGTPEZY"
 
 
 def filesize_ex(size: int) -> Tuple[Union[float, int], str]:
     left: Union[int, float] = abs(size)
-    unit = -1
+    unit = 0
     n = len(UNITS)
     while left > 1100 and unit < n:
         left = left / 1024
         unit += 1
-    if unit == -1:
-        return size, ""
     else:
         if size < 0:
             left = -left
@@ -60,9 +58,7 @@ def format_size(s):
         t = f"{f:.1f}{u}"
     else:
         t = f"{f}"
-    c = COLORS.get(u, "#9857d9")
     return f"{t:6}"
-    return f'<span color="{c}">{t:>6}</span>'
 
 
 def gen_text():

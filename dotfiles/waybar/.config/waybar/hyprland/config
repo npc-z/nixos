@@ -4,7 +4,8 @@
 
     "modules-left": [
         "hyprland/workspaces",
-        "custom/lyric",
+        // "custom/lyric",
+        "wlr/taskbar",
     ],
 
     "custom/arch": {
@@ -64,7 +65,6 @@
     },
 
     "modules-center": [
-        "wlr/taskbar",
     ],
 
     "modules-right": [
