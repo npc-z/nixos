@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   basic_sh = ./../dotfiles/shell/basic.sh;
   fzf_zsh = ./../dotfiles/shell/fzf.zsh;
-  zinit_sh = ./../dotfiles/shell/zinit.sh;
+  # zinit_sh = ./../dotfiles/shell/zinit.sh;
 in {
   environment.systemPackages = with pkgs; [
     zsh
@@ -9,7 +9,7 @@ in {
     fzf-zsh
     zsh-fzf-tab
     bat # A cat(1) clone with syntax highlighting and Git integration
-    zinit # zsh plugin mamanger
+    # zinit # zsh plugin mamanger
   ];
   programs = {
     zsh = {
@@ -20,6 +20,9 @@ in {
       # export ZSH_THEME="lambda"
       # plugins=(git)
       # source $ZSH/oh-my-zsh.sh
+
+      # source "${pkgs.zinit}/share/zinit/zinit.zsh"
+      # source ${zinit_sh}
       interactiveShellInit = ''
         source ${basic_sh}
         source ${fzf_zsh}
@@ -28,9 +31,6 @@ in {
         eval "$(z.lua  --init zsh)"
 
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-
-        source "${pkgs.zinit}/share/zinit/zinit.zsh"
-        source ${zinit_sh}
       '';
       shellAliases = {
         "vim" = "nvim";
