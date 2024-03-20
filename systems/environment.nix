@@ -28,6 +28,9 @@
     unzip
     which
     tree
+    udisks
+    udiskie
+    usbutils
 
     # 截图
     grim
