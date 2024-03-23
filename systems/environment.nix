@@ -64,7 +64,7 @@
     tldr
     eza
     zathura
-    netease-cloud-music-gtk
+    # netease-cloud-music-gtk
     playerctl
 
     neofetch

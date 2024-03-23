@@ -18,10 +18,18 @@
     };
   };
 
+  # 引入 nixos-cn flake 作为 inputs
+  inputs.nixos-cn = {
+    url = "github:nixos-cn/flakes";
+    # 强制 nixos-cn 和该 flake 使用相同版本的 nixpkgs
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    nixos-cn,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -32,6 +40,8 @@
 
           # 引入定义了 overlays 的 Module
           (import ./overlays)
+
+          (import ./nixoscn-apps/default.nix {nixos-cn = nixos-cn;})
 
           home-manager.nixosModules.home-manager
           {
