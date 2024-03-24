@@ -7,8 +7,8 @@
   imports = [
     # ./home/programs/bash
     ./../../apps/bash
-    # ./home/programs/waybar
-    ./../../apps/waybar
+    # give up manage waybar config by home-manager
+    # ./../../apps/waybar
     ./../../systems/fcitx5
     ./../../systems/vscode
     ./../../systems/theme

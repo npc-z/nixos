@@ -187,14 +187,21 @@ window#waybar.hidden {
   font-size: 24px;
   background-color: #e178c5; /* pink */
   border-radius: 10px;
-  /* color: @subtext1; */
-  /* background-color: @mantle; */
-  /* border-bottom: 2px solid @subtext1; */
 }
 
 #workspaces button.urgent {
   border-color: #c9545d;
   color: #c9545d;
+}
+
+#taskbar {
+  margin-top: 6px;
+  margin-left: 80px;
+}
+
+#taskbar button.active {
+  background-color: #e178c5;
+  border-radius: 10px;
 }
 
 #window {
