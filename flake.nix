@@ -16,6 +16,11 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # 添加 NUR 仓库
+    nur.url = "github:nix-community/NUR";
+    # 强制 NUR 和该 flake 使用相同版本的 nixpkgs
+    nur.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # 引入 nixos-cn flake 作为 inputs
@@ -30,6 +35,7 @@
     nixpkgs,
     home-manager,
     nixos-cn,
+    nur,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -42,6 +48,10 @@
           (import ./overlays)
 
           (import ./nixoscn-apps/default.nix {nixos-cn = nixos-cn;})
+
+          # 启用 NUR
+          nur.nixosModules.nur
+          (import ./nur)
 
           home-manager.nixosModules.home-manager
           {

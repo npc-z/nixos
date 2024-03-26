@@ -1,6 +1,19 @@
 {pkgs, ...}: {
   environment.variables.EDITOR = "vim";
 
+  # MUSIC=...
+  # PICTURES=...
+  # VIDEOS=...
+  # DESKTOP=path/relative/to/home
+  # DOWNLOAD=...
+  # TEMPLATES=...
+  # PUBLICSHARE=...
+  environment.etc = {
+    "xdg/user-dirs.defaults".text = ''
+      DOCUMENTS=/home/npc/Documents"
+    '';
+  };
+
   environment.systemPackages = with pkgs; [
     python311
     python311Packages.pip
@@ -19,6 +32,7 @@
     xdg-desktop-portal-hyprland
     polkit
     swaynotificationcenter
+    xdg-user-dirs
 
     wayland-protocols
     wayland-utils
