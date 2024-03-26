@@ -18,6 +18,8 @@
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
     polkit
+    swaynotificationcenter
+
     wayland-protocols
     wayland-utils
     # =====
