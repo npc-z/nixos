@@ -31,6 +31,7 @@
     udisks
     udiskie
     usbutils
+    killall
 
     # 截图
     grim
@@ -41,6 +42,8 @@
     # make dev env
     devbox
     docker
+    kubectl
+    minikube
     # common tools
     git
     lazygit
