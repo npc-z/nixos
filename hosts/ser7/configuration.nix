@@ -1,16 +1,17 @@
-{ config, lib, pkgs, ... }:
+{...}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./../../systems
+  ];
 
-{
-    imports = [
-        # Include the results of the hardware scan.
-        ./hardware-configuration.nix
-        ./../../systems
-    ];
+  networking = {
+    hostName = "ser7-nixos";
+  };
 
-    virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
-    nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
-    system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
-
