@@ -51,7 +51,21 @@
 
           # 启用 NUR
           nur.nixosModules.nur
-          (import ./nur)
+          ({config, ...}: {
+            nixpkgs.config.permittedInsecurePackages = [
+              # 提示这个版本的 ssl 不安全，此时临时信任
+              # 被 wechat-uos 依赖
+              "openssl-1.1.1w"
+            ];
+
+            # https://github.com/nix-community/NUR
+            # https://nur.nix-community.org/
+            environment.systemPackages = [
+              config.nur.repos.xddxdd.wechat-uos
+              config.nur.repos.xddxdd.qq
+            ];
+          })
+          # (import ./nur)
 
           home-manager.nixosModules.home-manager
           {
@@ -76,7 +90,21 @@
 
           # 启用 NUR
           nur.nixosModules.nur
-          (import ./nur)
+          ({config, ...}: {
+            nixpkgs.config.permittedInsecurePackages = [
+              # 提示这个版本的 ssl 不安全，此时临时信任
+              # 被 wechat-uos 依赖
+              "openssl-1.1.1w"
+            ];
+
+            # https://github.com/nix-community/NUR
+            # https://nur.nix-community.org/
+            environment.systemPackages = [
+              config.nur.repos.xddxdd.wechat-uos
+              config.nur.repos.xddxdd.qq
+            ];
+          })
+          # (import ./nur)
 
           home-manager.nixosModules.home-manager
           {
