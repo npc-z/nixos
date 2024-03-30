@@ -152,12 +152,12 @@
       # 自动回滚反而适得其反，因此建议关闭
       magicRollback = false;
       nodes = {
-        "start-nixos" = {
+        "r9000p-nixos" = {
           # 目标机器的地址，IP 或域名或 .ssh/config 中配置的别名均可
           hostname = "172.20.10.6";
           profiles.system = {
             # 调用上面的 nixosConfigurations."nixos"
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations."start-nixos";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations."r9000p-nixos";
           };
         };
       };
