@@ -95,7 +95,9 @@
     playerctl
 
     neofetch
+    htop
     btop
+    nethogs
     keyd
     stow
     # desktop
