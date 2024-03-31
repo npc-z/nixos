@@ -103,5 +103,6 @@
     networkmanagerapplet
     v2raya
     # (pkgs.callPackage ./../nur/osdlyrics/default.nix {})
+    feishu
   ];
 }
