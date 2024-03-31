@@ -81,9 +81,11 @@
           # 引入定义了 overlays 的 Module
           (import ./overlays)
 
+          (import ./nixoscn-apps/default.nix {nixos-cn = nixos-cn;})
+
           # 启用 NUR
           {nixpkgs.overlays = [nur.overlay];}
-          ./nur
+          # ./nur
 
           home-manager.nixosModules.home-manager
           {
