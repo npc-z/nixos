@@ -59,7 +59,7 @@
           (import ./nixoscn-apps/default.nix {nixos-cn = nixos-cn;})
 
           # 启用 NUR
-          # {nixpkgs.overlays = [nur.overlay];}
+          {nixpkgs.overlays = [nur.overlay];}
           # ./nur
 
           home-manager.nixosModules.home-manager

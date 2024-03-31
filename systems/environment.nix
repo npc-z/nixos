@@ -66,6 +66,9 @@
     docker
     kubectl
     minikube
+    dbeaver
+
+    wpsoffice
     # common tools
     git
     lazygit

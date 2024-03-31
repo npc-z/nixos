@@ -40,6 +40,9 @@
       source-serif # 衬线字体，不含汉字。字族名叫 Source Code Pro，以及带字重的变体
       source-han-sans # 思源黑体
       source-han-serif # 思源宋体
+
+      # Symbol fonts required by wps-office
+      nur.repos.rewine.ttf-wps-fonts
     ];
 
     # user defined fonts
