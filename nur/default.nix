@@ -7,8 +7,9 @@
 
   # https://github.com/nix-community/NUR
   # https://nur.nix-community.org/
-  environment.systemPackages = [
-    pkgs.nur.repos.xddxdd.wechat-uos
-    pkgs.nur.repos.xddxdd.qq
+  environment.systemPackages = with pkgs; [
+    nur.repos.xddxdd.wechat-uos
+    nur.repos.xddxdd.qq
+    nur.repos.xddxdd.netease-cloud-music
   ];
 }
