@@ -18,9 +18,18 @@
     };
 
     # 添加 NUR 仓库
-    nur.url = "github:nix-community/NUR";
-    # 强制 NUR 和该 flake 使用相同版本的 nixpkgs
-    nur.inputs.nixpkgs.follows = "nixpkgs";
+    nur = {
+      url = "github:nix-community/NUR";
+      # 强制 NUR 和该 flake 使用相同版本的 nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # 引入 nixos-cn flake 作为 inputs
+    nixos-cn = {
+      url = "github:nixos-cn/flakes";
+      # 强制 nixos-cn 和该 flake 使用相同版本的 nixpkgs
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # 远程部署
     deploy-rs = {
@@ -29,17 +38,11 @@
     };
   };
 
-  # 引入 nixos-cn flake 作为 inputs
-  # inputs.nixos-cn = {
-  #   url = "github:nixos-cn/flakes";
-  #   # 强制 nixos-cn 和该 flake 使用相同版本的 nixpkgs
-  #   inputs.nixpkgs.follows = "nixpkgs";
-  # };
-
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    nixos-cn,
     nur,
     deploy-rs,
     ...
@@ -53,11 +56,11 @@
           # 引入定义了 overlays 的 Module
           (import ./overlays)
 
-          # (import ./nixoscn-apps/default.nix {nixos-cn = nixos-cn;})
+          (import ./nixoscn-apps/default.nix {nixos-cn = nixos-cn;})
 
           # 启用 NUR
-          {nixpkgs.overlays = [nur.overlay];}
-          ./nur
+          # {nixpkgs.overlays = [nur.overlay];}
+          # ./nur
 
           home-manager.nixosModules.home-manager
           {

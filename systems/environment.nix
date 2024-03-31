@@ -14,6 +14,12 @@
     '';
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    # 提示这个版本的 ssl 不安全，此时临时信任
+    # 被 wechat-uos 依赖
+    "openssl-1.1.1w"
+  ];
+
   environment.systemPackages = with pkgs; [
     python311
     python311Packages.pip
@@ -83,7 +89,6 @@
     tldr
     eza
     zathura
-    # netease-cloud-music-gtk
     playerctl
 
     neofetch
@@ -104,5 +109,7 @@
     v2raya
     # (pkgs.callPackage ./../nur/osdlyrics/default.nix {})
     feishu
+    qq
+    wechat-uos # need override license, use overlay or use nur version
   ];
 }
