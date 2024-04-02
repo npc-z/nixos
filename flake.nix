@@ -100,7 +100,7 @@
       "thinkpad-e14-nixos" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/thinkpad-e14-nixos/configuration.nix
+          ./hosts/thinkpad-e14/configuration.nix
 
           # 引入定义了 overlays 的 Module
           (import ./overlays)
