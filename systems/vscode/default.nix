@@ -7,7 +7,6 @@
       eamodio.gitlens
       ms-python.python
       ms-python.vscode-pylance
-      ms-pyright.pyright
       pkief.material-icon-theme
       pkief.material-icon-theme
     ];
