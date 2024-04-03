@@ -43,7 +43,6 @@
     wayland-protocols
     wayland-utils
     # =====
-    hyprlock
 
     lsof
     fd
@@ -106,6 +105,8 @@
     swaybg
     wofi
     wlogout
+    hyprlock
+    hypridle
     pamixer
     brightnessctl
     #
