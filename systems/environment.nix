@@ -97,6 +97,7 @@
     neofetch
     htop
     btop
+    cron
     nethogs
     keyd
     stow
