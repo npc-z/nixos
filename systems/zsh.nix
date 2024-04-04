@@ -1,7 +1,6 @@
 {pkgs, ...}: let
   basic_sh = ./../dotfiles/shell/basic.sh;
   fzf_zsh = ./../dotfiles/shell/fzf.zsh;
-  # zinit_sh = ./../dotfiles/shell/zinit.sh;
 in {
   environment.systemPackages = with pkgs; [
     zsh

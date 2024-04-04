@@ -7,14 +7,9 @@
   imports = [
     # ./home/programs/bash
     ./../../apps/bash
-    # give up manage waybar config by home-manager
-    # ./../../apps/waybar
     ./../../systems/fcitx5
     ./../../systems/vscode
     ./../../systems/theme
-    # TODO 放入构建脚本中
-    # excute `bash ./dotfiles/config-git.sh `
-    # ./../../apps/git
   ];
   # 递归将某个文件夹中的文件，链接到 Home 目录下的指定位置
 

@@ -5,9 +5,6 @@
   ...
 }: {
   nixpkgs.overlays = [
-    # zsh plugin manager
-    (import ./zinit)
-
     (import ./weixin)
 
     # =============================================================
