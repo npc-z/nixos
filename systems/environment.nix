@@ -38,6 +38,7 @@
     xdg-desktop-portal-hyprland
     polkit
     swaynotificationcenter
+    libnotify # notify-send
     xdg-user-dirs
 
     wayland-protocols
