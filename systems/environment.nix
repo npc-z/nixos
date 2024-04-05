@@ -68,6 +68,7 @@
     kubectl
     minikube
     dbeaver
+    just # 提供一种保存和运行项目特有命令的便捷方式
 
     wpsoffice
     # common tools
