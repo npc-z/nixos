@@ -41,6 +41,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-stable,
     home-manager,
     nixos-cn,
     nur,
@@ -51,7 +52,26 @@
 
     # 将所有 inputs 参数设为所有子模块的特殊参数，
     # 这样就能直接在子模块中使用 inputs 中的所有依赖项了
-    specialArgs = {inherit inputs;};
+    specialArgs = {
+      inherit inputs;
+
+      # 将非默认的 nixpkgs 数据源传到其他 modules 中
+      # 注意每次 import 都会生成一个新的 nixpkgs 实例
+      # 这里我们直接在 flake.nix 中创建实例， 再传递到其他子 modules 中使用
+      # 这样能有效重用 nixpkgs 实例，避免 nixpkgs 实例泛滥。
+      # 在其他模块中的使用方式，例如
+      # {pkgs-stable,...}: {
+      #   environment.systemPackages = with pkgs-stable; [
+      #     foot
+      #   ];
+      # }
+      pkgs-stable = import nixpkgs-stable {
+        # 这里递归引用了外部的 system 属性
+        inherit system;
+        # 允许安装非自由软件
+        config.allowUnfree = true;
+      };
+    };
   in {
     nixosConfigurations = {
       "ser7-nixos" = nixpkgs.lib.nixosSystem {
