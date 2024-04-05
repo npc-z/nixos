@@ -46,10 +46,18 @@
     nur,
     deploy-rs,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    system = "x86_64-linux";
+
+    # 将所有 inputs 参数设为所有子模块的特殊参数，
+    # 这样就能直接在子模块中使用 inputs 中的所有依赖项了
+    specialArgs = {inherit inputs;};
+  in {
     nixosConfigurations = {
       "ser7-nixos" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = "${system}";
+        specialArgs = specialArgs;
+
         modules = [
           ./hosts/ser7/configuration.nix
 
@@ -74,7 +82,9 @@
 
       #
       "r9000p-nixos" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = "${system}";
+        specialArgs = specialArgs;
+
         modules = [
           ./hosts/r9000p/configuration.nix
 
@@ -98,7 +108,9 @@
       };
 
       "thinkpad-e14-nixos" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = "${system}";
+        specialArgs = specialArgs;
+
         modules = [
           ./hosts/thinkpad-e14/configuration.nix
 
@@ -123,7 +135,9 @@
 
       #
       "start-nixos" = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = "${system}";
+        specialArgs = specialArgs;
+
         modules = [
           # hardware configuration
           ./hosts/r9000p/hardware-configuration.nix
