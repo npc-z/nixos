@@ -112,9 +112,8 @@
     hypridle
     pamixer
     brightnessctl
+    pavucontrol # PulseAudio Volume Control
     #
-    brightnessctl
-    pamixer
     networkmanagerapplet
     v2raya
     # (pkgs.callPackage ./../nur/osdlyrics/default.nix {})
