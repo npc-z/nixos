@@ -3,6 +3,23 @@
   home.username = "npc";
   home.homeDirectory = "/home/npc";
 
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
+
+  # add environment variables
+  home.sessionVariables = {
+    # set default applications
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    BROWSER = "microsoft-edge";
+    TERMINAL = "foot";
+
+    # enable scrolling in git diff
+    DELTA_PAGER = "less -R";
+
+    MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+  };
+
   # programs
   imports = [
     ./../../apps/bash
