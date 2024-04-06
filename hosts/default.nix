@@ -7,15 +7,16 @@
   nur,
   ...
 }: let
-  system = "x86_64-linux";
+  _system = "x86_64-linux";
+  _home-manager = home-manager;
 
   pkgs-stable = import nixpkgs-stable {
     inherit inputs;
-    inherit system;
+    system = _system;
     config.allowUnfree = true;
   };
 
-  specialArgs = {
+  _specialArgs = {
     inherit pkgs-stable;
     inherit nixpkgs;
     inherit nixpkgs-stable;
@@ -23,27 +24,53 @@
     inherit nixos-cn;
     inherit nur;
   };
+
+  osTemplate = {
+    hostDir,
+    system ? _system,
+    specialArgs ? _specialArgs,
+    home-manager ? _home-manager,
+    ...
+  }:
+    nixpkgs.lib.nixosSystem {
+      inherit system;
+      inherit specialArgs;
+
+      modules = [
+        # 基础配置
+        ./base
+
+        # 导入主机的配置
+        ./${hostDir}/configuration.nix
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.npc = import ./${hostDir}/home.nix;
+          home-manager.extraSpecialArgs = specialArgs;
+        }
+      ];
+    };
 in {
-  "ser7-nixos" = nixpkgs.lib.nixosSystem {
-    inherit system;
-    inherit specialArgs;
+  # mini host
+  "ser7-nixos" = osTemplate {hostDir = "ser7";};
+
+  # laptop
+  "r9000p-nixos" = osTemplate {hostDir = "r9000p";};
+
+  # work
+  "thinkpad-e14-nixos" = osTemplate {hostDir = "thinkpad-e14";};
+
+  #
+  "start-nixos" = nixpkgs.lib.nixosSystem {
+    system = _system;
+    specialArgs = _specialArgs;
 
     modules = [
       # 基础配置
       ./base
-
-      ./ser7/configuration.nix
-
-      # 启用 NUR
-      # {nixpkgs.overlays = [nur.overlay];}
-
-      home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.npc = import ./ser7/home.nix;
-        home-manager.extraSpecialArgs = specialArgs;
-      }
+      ./hosts/start/start.nix
     ];
   };
 }

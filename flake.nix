@@ -59,48 +59,6 @@
       }
     );
 
-    # nixosConfigurations = {
-    #   #
-    #   "thinkpad-e14-nixos" = nixpkgs.lib.nixosSystem {
-    #     system = "${system}";
-    #     specialArgs = specialArgs;
-    #
-    #     modules = [
-    #       ./hosts/thinkpad-e14/configuration.nix
-    #
-    #       # 引入定义了 overlays 的 Module
-    #       (import ./overlays)
-    #
-    #       (import ./nixoscn-apps/default.nix {nixos-cn = nixos-cn;})
-    #
-    #       # 启用 NUR
-    #       {nixpkgs.overlays = [nur.overlay];}
-    #       # ./nur
-    #
-    #       home-manager.nixosModules.home-manager
-    #       {
-    #         home-manager.useGlobalPkgs = true;
-    #         home-manager.useUserPackages = true;
-    #         home-manager.users.npc = import ./hosts/r9000p/home.nix;
-    #         home-manager.extraSpecialArgs = inputs;
-    #       }
-    #     ];
-    #   };
-    #
-    #   #
-    #   "start-nixos" = nixpkgs.lib.nixosSystem {
-    #     system = "${system}";
-    #     specialArgs = specialArgs;
-    #
-    #     modules = [
-    #       # hardware configuration
-    #       ./hosts/r9000p/hardware-configuration.nix
-    #       # basic configuration
-    #       ./hosts/start/start.nix
-    #     ];
-    #   };
-    # }; #end nixosConfigurations
-
     # 远程部署
     deploy = {
       sshUser = "root"; # SSH 登录用户名
