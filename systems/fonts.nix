@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   # all fonts are linked to /nix/var/nix/profiles/system/sw/share/X11/fonts
   fonts = {
     # use fonts specified by user rather than default ones
@@ -42,7 +46,7 @@
       source-han-serif # 思源宋体
 
       # Symbol fonts required by wps-office
-      nur.repos.rewine.ttf-wps-fonts
+      config.nur.repos.rewine.ttf-wps-fonts
     ];
 
     # user defined fonts

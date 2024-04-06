@@ -29,17 +29,13 @@ in {
     inherit specialArgs;
 
     modules = [
+      # 基础配置
+      ./base
+
       ./ser7/configuration.nix
 
-      # 引入定义了 overlays 的 Module
-      (import ./../overlays)
-      # (import ./overlays)
-
-      ./../nixoscn-apps
-
       # 启用 NUR
-      {nixpkgs.overlays = [nur.overlay];}
-      # ./nur
+      # {nixpkgs.overlays = [nur.overlay];}
 
       home-manager.nixosModules.home-manager
       {
