@@ -47,125 +47,59 @@
     nur,
     deploy-rs,
     ...
-  } @ inputs: let
-    system = "x86_64-linux";
+  } @ inputs: {
+    nixosConfigurations = (
+      import ./hosts {
+        inherit inputs;
+        inherit nixpkgs;
+        inherit nixpkgs-stable;
+        inherit home-manager;
+        inherit nixos-cn;
+        inherit nur;
+      }
+    );
 
-    # 将所有 inputs 参数设为所有子模块的特殊参数，
-    # 这样就能直接在子模块中使用 inputs 中的所有依赖项了
-    specialArgs = {
-      inherit inputs;
-
-      # 将非默认的 nixpkgs 数据源传到其他 modules 中
-      # 注意每次 import 都会生成一个新的 nixpkgs 实例
-      # 这里我们直接在 flake.nix 中创建实例， 再传递到其他子 modules 中使用
-      # 这样能有效重用 nixpkgs 实例，避免 nixpkgs 实例泛滥。
-      # 在其他模块中的使用方式，例如
-      # {pkgs-stable,...}: {
-      #   environment.systemPackages = with pkgs-stable; [
-      #     foot
-      #   ];
-      # }
-      pkgs-stable = import nixpkgs-stable {
-        # 这里递归引用了外部的 system 属性
-        inherit system;
-        # 允许安装非自由软件
-        config.allowUnfree = true;
-      };
-    };
-  in {
-    nixosConfigurations = {
-      "ser7-nixos" = nixpkgs.lib.nixosSystem {
-        system = "${system}";
-        specialArgs = specialArgs;
-
-        modules = [
-          ./hosts/ser7/configuration.nix
-
-          # 引入定义了 overlays 的 Module
-          (import ./overlays)
-
-          (import ./nixoscn-apps/default.nix {nixos-cn = nixos-cn;})
-
-          # 启用 NUR
-          {nixpkgs.overlays = [nur.overlay];}
-          # ./nur
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.npc = import ./hosts/ser7/home.nix;
-            home-manager.extraSpecialArgs = inputs;
-          }
-        ];
-      };
-
-      #
-      "r9000p-nixos" = nixpkgs.lib.nixosSystem {
-        system = "${system}";
-        specialArgs = specialArgs;
-
-        modules = [
-          ./hosts/r9000p/configuration.nix
-
-          # 引入定义了 overlays 的 Module
-          (import ./overlays)
-
-          (import ./nixoscn-apps/default.nix {nixos-cn = nixos-cn;})
-
-          # 启用 NUR
-          {nixpkgs.overlays = [nur.overlay];}
-          # ./nur
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.npc = import ./hosts/r9000p/home.nix;
-            home-manager.extraSpecialArgs = inputs;
-          }
-        ];
-      };
-
-      "thinkpad-e14-nixos" = nixpkgs.lib.nixosSystem {
-        system = "${system}";
-        specialArgs = specialArgs;
-
-        modules = [
-          ./hosts/thinkpad-e14/configuration.nix
-
-          # 引入定义了 overlays 的 Module
-          (import ./overlays)
-
-          (import ./nixoscn-apps/default.nix {nixos-cn = nixos-cn;})
-
-          # 启用 NUR
-          {nixpkgs.overlays = [nur.overlay];}
-          # ./nur
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.npc = import ./hosts/r9000p/home.nix;
-            home-manager.extraSpecialArgs = inputs;
-          }
-        ];
-      };
-
-      #
-      "start-nixos" = nixpkgs.lib.nixosSystem {
-        system = "${system}";
-        specialArgs = specialArgs;
-
-        modules = [
-          # hardware configuration
-          ./hosts/r9000p/hardware-configuration.nix
-          # basic configuration
-          ./hosts/start/start.nix
-        ];
-      };
-    }; #end nixosConfigurations
+    # nixosConfigurations = {
+    #   #
+    #   "thinkpad-e14-nixos" = nixpkgs.lib.nixosSystem {
+    #     system = "${system}";
+    #     specialArgs = specialArgs;
+    #
+    #     modules = [
+    #       ./hosts/thinkpad-e14/configuration.nix
+    #
+    #       # 引入定义了 overlays 的 Module
+    #       (import ./overlays)
+    #
+    #       (import ./nixoscn-apps/default.nix {nixos-cn = nixos-cn;})
+    #
+    #       # 启用 NUR
+    #       {nixpkgs.overlays = [nur.overlay];}
+    #       # ./nur
+    #
+    #       home-manager.nixosModules.home-manager
+    #       {
+    #         home-manager.useGlobalPkgs = true;
+    #         home-manager.useUserPackages = true;
+    #         home-manager.users.npc = import ./hosts/r9000p/home.nix;
+    #         home-manager.extraSpecialArgs = inputs;
+    #       }
+    #     ];
+    #   };
+    #
+    #   #
+    #   "start-nixos" = nixpkgs.lib.nixosSystem {
+    #     system = "${system}";
+    #     specialArgs = specialArgs;
+    #
+    #     modules = [
+    #       # hardware configuration
+    #       ./hosts/r9000p/hardware-configuration.nix
+    #       # basic configuration
+    #       ./hosts/start/start.nix
+    #     ];
+    #   };
+    # }; #end nixosConfigurations
 
     # 远程部署
     deploy = {
