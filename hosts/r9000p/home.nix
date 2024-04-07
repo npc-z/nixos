@@ -7,9 +7,9 @@
   imports = [
     # ./home/programs/bash
     ./../../apps/bash
-    ./../../systems/fcitx5
-    ./../../systems/vscode
-    ./../../systems/theme
+    ./../../system/fcitx5
+    ./../../system/vscode
+    ./../../system/theme
   ];
   # 递归将某个文件夹中的文件，链接到 Home 目录下的指定位置
 

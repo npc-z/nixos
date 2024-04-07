@@ -16,6 +16,16 @@
     config.allowUnfree = true;
   };
 
+  # 是否启用模块
+  moduleEnableSettings = {
+    nur = true;
+    nixoscn = true;
+  };
+
+  userSettings = {};
+
+  systemSettings = {};
+
   _specialArgs = {
     inherit pkgs-stable;
     inherit nixpkgs;
@@ -23,6 +33,9 @@
     inherit home-manager;
     inherit nixos-cn;
     inherit nur;
+    inherit moduleEnableSettings;
+    inherit userSettings;
+    inherit systemSettings;
   };
 
   osTemplate = {
