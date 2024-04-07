@@ -26,10 +26,11 @@
 
   # programs
   imports = [
-    ./../../apps/bash
-    ./../../system/fcitx5
-    ./../../system/vscode
-    ./../../system/theme
+    ./../../user/bash
+    ./../../user/fcitx5
+    ./../../user/vscode
+    ./../../user/theme
+    ./../../user/git.nix
   ];
 
   # 递归将某个文件夹中的文件，链接到 Home 目录下的指定位置

@@ -24,6 +24,10 @@
 
   userSettings = {
     username = "npc";
+    git = {
+      userName = "npc-z";
+      userEmail = "1763998996@qq.com";
+    };
   };
 
   systemSettings = {};
