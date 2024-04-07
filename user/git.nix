@@ -1,8 +1,8 @@
 {userSettings, ...}: {
   programs.git = {
     enable = true;
-    userName = "${userSettings.git.userName}";
-    userEmail = "${userSettings.git.userEmail}";
+    # userName = "${userSettings.git.userName}";
+    # userEmail = "${userSettings.git.userEmail}";
     aliases = {
       st = "status";
       co = "checkout";
