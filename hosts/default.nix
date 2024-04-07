@@ -51,7 +51,7 @@
 
       modules = [
         # 基础配置
-        ./base
+        ./base/configuration.nix
 
         # 导入主机的配置
         ./${hostDir}/configuration.nix
