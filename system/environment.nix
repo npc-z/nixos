@@ -85,7 +85,6 @@
     # tools
     kitty
     foot
-    alacritty
     thefuck
     cinnamon.nemo
     glow

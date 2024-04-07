@@ -22,7 +22,9 @@
     nixoscn = true;
   };
 
-  userSettings = {};
+  userSettings = {
+    username = "npc";
+  };
 
   systemSettings = {};
 
