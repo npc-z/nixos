@@ -27,7 +27,7 @@ in {
         source ${fzf_zsh}
 
         # z-lua 初始化
-        eval "$(z.lua  --init zsh)"
+        eval "$(z.lua  --init zsh enhanced once echo fzf)"
 
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       '';
