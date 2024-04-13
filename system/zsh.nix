@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   basic_sh = ./../dotfiles/shell/basic.sh;
-  fzf_zsh = ./../dotfiles/shell/fzf.zsh;
+  # fzf_zsh = ./../dotfiles/shell/fzf.zsh;
 in {
   environment.systemPackages = with pkgs; [
     zsh
@@ -11,6 +11,9 @@ in {
     # zinit # zsh plugin mamanger
   ];
   programs = {
+    # fzf = {
+    #   enable = true;
+    # };
     zsh = {
       enable = true;
       # z - jump around
@@ -22,14 +25,12 @@ in {
 
       # source "${pkgs.zinit}/share/zinit/zinit.zsh"
       # source ${zinit_sh}
+      # source ${fzf_zsh}
       interactiveShellInit = ''
         source ${basic_sh}
-        source ${fzf_zsh}
 
         # z-lua 初始化
-        eval "$(z.lua  --init zsh enhanced once echo fzf)"
-
-        source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+        eval "$(z.lua  --init zsh enhanced once echo)"
       '';
       shellAliases = {
         "vim" = "nvim";
@@ -56,12 +57,6 @@ in {
           # "git"
         ];
       };
-    };
-
-    # A command-line fuzzy finder
-    fzf = {
-      fuzzyCompletion = true;
-      keybindings = true;
     };
   };
 }
