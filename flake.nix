@@ -36,6 +36,12 @@
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # hyprland env
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -46,6 +52,7 @@
     nixos-cn,
     nur,
     deploy-rs,
+    hyprlock,
     ...
   } @ inputs: {
     nixosConfigurations = (
@@ -56,6 +63,7 @@
         inherit home-manager;
         inherit nixos-cn;
         inherit nur;
+        inherit hyprlock;
       }
     );
 

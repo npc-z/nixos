@@ -5,6 +5,7 @@
   home-manager,
   nixos-cn,
   nur,
+  hyprlock,
   ...
 }: let
   _system = "x86_64-linux";
@@ -29,12 +30,14 @@
   systemSettings = {};
 
   _specialArgs = {
+    system = _system;
     inherit pkgs-stable;
     inherit nixpkgs;
     inherit nixpkgs-stable;
     inherit home-manager;
     inherit nixos-cn;
     inherit nur;
+    inherit hyprlock;
     inherit moduleEnableSettings;
     inherit userSettings;
     inherit systemSettings;
