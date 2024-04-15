@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   basic_sh = ./../dotfiles/shell/basic.sh;
-  # fzf_zsh = ./../dotfiles/shell/fzf.zsh;
+  fzf_zsh = ./../dotfiles/shell/fzf.zsh;
 in {
   environment.systemPackages = with pkgs; [
     zsh
@@ -11,26 +11,22 @@ in {
     # zinit # zsh plugin mamanger
   ];
   programs = {
-    # fzf = {
-    #   enable = true;
-    # };
+    # A command-line fuzzy finder
+    fzf = {
+      fuzzyCompletion = true;
+      keybindings = true;
+    };
+
     zsh = {
       enable = true;
-      # z - jump around
-      # source ${pkgs.fetchurl {url = "https://github.com/rupa/z/raw/2ebe419ae18316c5597dd5fb84b5d8595ff1dde9/z.sh"; sha256 = "0ywpgk3ksjq7g30bqbhl9znz3jh6jfg8lxnbdbaiipzgsy41vi10";}}
-      # export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh
-      # export ZSH_THEME="lambda"
-      # plugins=(git)
-      # source $ZSH/oh-my-zsh.sh
-
-      # source "${pkgs.zinit}/share/zinit/zinit.zsh"
-      # source ${zinit_sh}
-      # source ${fzf_zsh}
       interactiveShellInit = ''
         source ${basic_sh}
 
         # z-lua 初始化
-        eval "$(z.lua  --init zsh enhanced once echo)"
+        eval "$(z.lua  --init zsh enhanced once echo fzf)"
+
+        source ${fzf_zsh}
+        source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       '';
       shellAliases = {
         "vim" = "nvim";
