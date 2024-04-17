@@ -99,6 +99,7 @@
     eza
     zathura
     playerctl
+    localsend
 
     neofetch
     htop

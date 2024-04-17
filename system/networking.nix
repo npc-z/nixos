@@ -7,6 +7,8 @@
       allowedTCPPorts = [
         80
         443
+        # for localsend
+        53317
       ];
       allowedTCPPortRanges = [
         {
