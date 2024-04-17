@@ -1,5 +1,28 @@
 {...}: {
   networking = {
+    # firewall use nftables instea of iptables
+    nftables.enable = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        80
+        443
+      ];
+      allowedTCPPortRanges = [
+        {
+          from = 8000;
+          to = 9000;
+        }
+      ];
+      # allowedUDPPorts = [];
+      allowedUDPPortRanges = [
+        {
+          from = 8000;
+          to = 9000;
+        }
+      ];
+    };
+
     networkmanager.enable = true;
     extraHosts = ''
       # 140.82.113.4	github.com
