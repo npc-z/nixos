@@ -1,4 +1,10 @@
-{...}: {
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    # 开启热点
+    # https://nixos.wiki/wiki/Internet_Connection_Sharing
+    linux-wifi-hotspot
+  ];
+
   networking = {
     # firewall use nftables instea of iptables
     nftables.enable = true;
