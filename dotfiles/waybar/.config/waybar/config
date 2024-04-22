@@ -1,11 +1,11 @@
 {
-	"layer": "top",
+    "layer": "top",
     "position": "top",
 
-	"modules-left": [
-        // "custom/arch",
+    "modules-left": [
         "hyprland/workspaces",
         "custom/lyric",
+        "hyprland/window",
     ],
 
     "custom/arch": {
@@ -15,8 +15,7 @@
     },
 
     "custom/lyric": {
-        "exec": "~/.config/waybar/scripts/song.sh",
-        // "exec-if": "~/.config/waybar/scripts/is_playing_music.sh",
+        "exec": "bash ~/.config/waybar/scripts/song.sh",
         "on-click": "playerctl --player=netease-cloud-music next",
         "on-click-right": "playerctl --player=netease-cloud-music previous",
         "return-type": "json",
@@ -54,6 +53,8 @@
         "ignore-list": [
             "netease-cloud-music",
             "wlogout",
+            "QQ",
+            "wechat",
         ],
         "app_ids-mapping": {
             "firefoxdeveloperedition": "firefox-developer-edition"
@@ -61,18 +62,30 @@
     },
 
     "hyprland/window": {
-        "format": "{}",
-        "separate-outputs": true
+        "format": "{title}",
+        "rewrite": {
+            // vscode open with file
+            // e.g. filename - workspace name - Visual Studio Code
+            "(.*) - (.*) - Visual Studio Code": "$2",
+
+            // vscode open without file
+            // e.g. workspace name - Visual Studio Code
+            "(.*) - Visual Studio Code": "$1",
+
+            // 表示只有 Visual Studio Code 可以显示标题，其他应用显示空字符串
+            "^((?!Visual Studio Code).)*$": "",
+            // 下面示例表示只有 Code 和 Edge 可以显示标题
+            // "^((?!Code|Edge).)*$": "",
+        },
+        "separate-outputs": true,
     },
 
     "modules-center": [
         "wlr/taskbar",
     ],
-	"modules-right": [
-        // "custom/wallpaper",
-        // "cpu",
-        // "memory",
-        "custom/netspeed",
+
+    "modules-right": [
+        // "custom/netspeed",
         "network",
         "backlight",
         "pulseaudio",
@@ -85,22 +98,26 @@
     ],
 
     "custom/netspeed": {
-        "exec": "~/.config/waybar/scripts/netspeed.py",
+        "exec": "python ~/.config/waybar/scripts/netspeed.py",
         "return-type": "json",
         "escape": false,
         "min-length": 12,
     },
 
     "network": {
-        "interval": 5,
+        "interval": 1,
         // "format-wifi": " {essid} ({signalStrength}%)",
         "format-wifi": " ({signalStrength}%)",
         // "format-ethernet": "󰌘 {ifname}: {ipaddr}/{cidr}",
         "format-ethernet": "󰌘 {ifname}",
         "format-disconnected": "󰖪 ",
+        "format-disabled": "Disabled",
+        "format-alt": "↓{bandwidthDownBytes}|↑{bandwidthUpBytes}",
         "tooltip": true,
-        "tooltip-format": "{essid}: {ipaddr}/{cidr}"
-	},
+        "tooltip-format": "{essid}: {ipaddr}/{cidr}",
+        "on-click-middle": "nm-connection-editor",
+        "on-click-right": "foot nmtui",
+    },
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -121,13 +138,13 @@
         }
     },
 
-	"backlight": {
-		"tooltip": false,
-		"format": " {}%",
-		"interval":1,
+    "backlight": {
+        "tooltip": false,
+        "format": " {}%",
+        "interval":1,
         "on-scroll-up": "brightnessctl set 5%+",
         "on-scroll-down": "brightnessctl set 5%-",
-	},
+    },
 
     "battery": {
         "states": {
@@ -142,15 +159,16 @@
         "format-icons": ["", "", "", "", ""]
     },
 
-	"tray":{
-		"icon-size":18,
-		"spacing": 10
-	},
+    "tray":{
+        "icon-size":22,
+        "spacing": 10
+    },
 
     "clock": {
         "format": " {:%m-%d %H:%M:%OS}",
+        "format-alt": " {:%a %b %d, %G}",
         "interval": 1,
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode"          : "month",
             "mode-mon-col"  : 3,
@@ -172,41 +190,20 @@
 
     },
 
-    "cpu": {
-        "interval": 15,
-        "format": " {}%",
-        "max-length": 10
-    },
-    "memory": {
-        "interval": 30,
-        "format": " {}%",
-        "max-length": 10
-    },
-
-    "custom/launcher":{
-        "format": " ",
-        "on-click": "rofi -show drun",
-        "on-click-right": "killall rofi"
-    },
     "custom/power":{
         "format": " ",
         "on-click": "wlogout"
     },
 
-//    "bluetooth": {
-//        "format": " {status}",
-//        "format-connected": " {device_alias}",
-//        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-//        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
-//        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-//        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-//        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-//        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
-//    },
-
-    "custom/wallpaper":{
-        "format":" ",
-        "on-click": "bash ~/.config/system_scripts/pkill_bc"
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
 
     "custom/notification": {
@@ -223,10 +220,59 @@
             "dnd-inhibited-none": ""
         },
         "return-type": "json",
-        // "exec-if": "which swaync-client",
-        // "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t -sw",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        // todo remove the sleep
+        // https://github.com/ErikReider/SwayNotificationCenter/pull/336#issuecomment-1849163701
+        "on-click": "sleep 0.1; swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
     }
 }
+
+// 1. "^((?!Visual Studio Code).)*$"
+//
+// 这个正则表达式的作用是匹配不包含特定字符串 "Visual Studio Code" 的任何文本。
+// 让我们逐步解释这个正则表达式的各个部分：
+//
+// 1. `^`: 这表示匹配字符串的开头。
+// 2. `((?!Visual Studio Code).)`: 这是一个负向前瞻（negative lookahead）表达式，
+// 它使用 `(?!pattern)` 的语法来匹配不包含指定模式的文本。
+// 在这里，模式是 "Visual Studio Code"。`.` 匹配任意单个字符，
+// 因此 `((?!Visual Studio Code).)` 表示任何不以 "Visual Studio Code" 开头的字符。
+// 3. `*`: 这表示匹配前面的表达式零次或多次，
+// 即匹配任意数量的不包含 "Visual Studio Code" 的字符。
+// 4. `$`: 这表示匹配字符串的结尾。
+//
+// 因此，整个正则表达式的含义是：匹配整个字符串，
+// 其中不包含 "Visual Studio Code" 这个特定的子串。
+//
+// 2. 不包含 “vscode” 或者不包含 “foot”
+//
+// 你可以使用逻辑或（`|`）来表示多个不同的模式。
+// 下面是一个修改后的正则表达式，用于匹配不包含 "vscode" 或 "foot" 的字符串：
+//
+// ```regex
+// "^((?!vscode|foot).)*$"
+// 字符穿包含空格时
+// ^((?!good job)|(?=hard work).)*$
+// ```
+//
+// 这个正则表达式的含义是：匹配整个字符串，其中不包含 "vscode" 或 "foot" 这两个特定的子串。 `(?!vscode|foot)` 表示不允许 "vscode" 或 "foot" 出现在文本中，`.` 匹配任意单个字符，`*` 表示前面的表达式可以重复零次或多次，`^` 和 `$` 分别表示字符串的开头和结尾。
+//
+//
+// 3. 不包含 vscode 且同时不包含 foot
+//
+// 你可以使用两个负向前瞻来实现这一点。以下是一个正则表达式，
+// 可以匹配不包含 "vscode" 且不包含 "foot" 的字符串：
+//
+// ```regex
+// ^((?!vscode)(?!foot).)*$
+// 字符穿包含空格时
+// ^((?!good job|hard work).)*$
+// ```
+//
+// 这个正则表达式的含义是：匹配整个字符串，其中不包含 "vscode" 且不包含 "foot"
+// 这两个特定的子串。`(?!vscode)` 和 `(?!foot)` 分别表示不允许 "vscode" 和 "foot"
+// 出现在文本中，`.` 匹配任意单个字符，`*` 表示前面的表达式可以重复零次或多次，
+// `^` 和 `$` 分别表示字符串的开头和结尾。

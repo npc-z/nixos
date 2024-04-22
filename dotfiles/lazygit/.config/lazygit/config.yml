@@ -1,8 +1,15 @@
 os:
-  editCommand: 'vim'
+  edit: "nvim"
+
+refresher:
+  refreshInterval: 10 # File/submodule refresh interval in seconds. Auto-refresh can be disabled via option 'git.autoRefresh'.
+  fetchInterval: 30 # Re-fetch interval in seconds. Auto-fetch can be disabled via option 'git.autoFetch'.
 
 git:
+  autoFetch: true
+  autoRefresh: true
+  fetchAll: true # Pass --all flag when running git fetch. Set to false to fetch only origin (or the current branch's upstream remote if there is one)
   paging:
     colorArg: always
     # pager: diff-so-fancy --word-diff-regex=.
-    pager: delta --side-by-side --line-numbers
+    # pager: delta --side-by-side --line-numbers

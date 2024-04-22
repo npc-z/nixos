@@ -73,4 +73,3 @@ alias vz="vim ~/.zshrc"
 
 alias vi=vim
 alias vim=nvim
-

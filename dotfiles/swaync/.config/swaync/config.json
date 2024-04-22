@@ -1,5 +1,4 @@
 {
-  "$schema": "/etc/xdg/swaync/configSchema.json",
   "positionX": "right",
   "positionY": "top",
   "layer": "top",
@@ -25,10 +24,6 @@
   "hide-on-action": true,
   "script-fail-notify": true,
   "scripts": {
-    "example-script": {
-      "exec": "echo 'Do something...'",
-      "urgency": "Normal"
-    },
     "example-action-script": {
       "exec": "echo 'Do something actionable!'",
       "urgency": "Normal",
@@ -42,12 +37,7 @@
       "app-name": "Spotify"
     }
   },
-  "widgets": [
-    "inhibitors",
-    "title",
-    "dnd",
-    "notifications"
-  ],
+  "widgets": ["inhibitors", "title", "dnd", "notifications"],
   "widget-config": {
     "inhibitors": {
       "text": "Inhibitors",

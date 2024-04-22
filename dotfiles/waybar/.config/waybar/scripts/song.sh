@@ -10,6 +10,7 @@ while [ true ]; do
 	if [ "$status" != "Playing" ]; then
 		# 非播放状态时, 不显示歌词条
 		echo ""
+	    sleep 10s
 		continue
 	fi
 	# 歌曲标题
