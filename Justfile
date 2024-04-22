@@ -39,3 +39,20 @@ gc:
   sudo nix store gc --debug
   sudo nix-collect-garbage --delete-old
 
+# link dotfiles to config
+stow:
+    cd ./dotfiles && \
+    stow -t $HOME \
+    -R alacritty \
+    -R foot \
+    -R hypr \
+    -R keyd \
+    -R kitty \
+    -R lazygit \
+    -R swaync \
+    -R wallpapers \
+    -R waybar \
+    -R wlogout \
+    -R wofi \
+    -R zathura
+
