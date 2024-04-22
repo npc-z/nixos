@@ -6,15 +6,15 @@
 #
 ############################################################################
 
-# rebuid
+# rebuild
 deploy:
   nixos-rebuild switch --flake . --use-remote-sudo
 
-# rebuid with debug
+# rebuild with debug
 debug:
   nixos-rebuild switch --flake . --use-remote-sudo --show-trace --verbose
 
-# updat flake
+# update flake
 up:
   nix flake update
 
