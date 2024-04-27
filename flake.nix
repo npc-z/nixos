@@ -38,6 +38,9 @@
     };
 
     # hyprland env
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
     hyprlock = {
       url = "github:hyprwm/hyprlock";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,6 +55,7 @@
     nixos-cn,
     nur,
     deploy-rs,
+    hyprland,
     hyprlock,
     ...
   } @ inputs: {
@@ -63,6 +67,7 @@
         inherit home-manager;
         inherit nixos-cn;
         inherit nur;
+        inherit hyprland;
         inherit hyprlock;
       }
     );

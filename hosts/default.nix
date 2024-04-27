@@ -5,6 +5,7 @@
   home-manager,
   nixos-cn,
   nur,
+  hyprland,
   hyprlock,
   ...
 }: let
@@ -37,6 +38,7 @@
     inherit home-manager;
     inherit nixos-cn;
     inherit nur;
+    inherit hyprland;
     inherit hyprlock;
     inherit moduleEnableSettings;
     inherit userSettings;
