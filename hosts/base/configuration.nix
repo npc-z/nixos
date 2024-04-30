@@ -9,6 +9,7 @@
       ./../../overlays
 
       # system
+      ./../../system/dbus.nix
       ./../../system/bluetooth.nix
       ./../../system/boot.nix
       ./../../system/environment.nix
