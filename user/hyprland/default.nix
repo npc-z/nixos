@@ -27,6 +27,14 @@ in {
     systemd.variables = ["--all"];
 
     plugins = [
+      # official plugins
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+
+      # third-party plugins
+      inputs.hycov.packages.${pkgs.system}.hycov
+      # inputs.hyprland-easymotion.packages.${pkgs.system}.hypreasymotion
+      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
 
     extraConfig = ''
