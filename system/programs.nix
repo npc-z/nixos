@@ -13,8 +13,8 @@
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       xwayland.enable = true;
     };
-    waybar = {
-      enable = true;
-    };
+    # waybar = {
+    #   enable = true;
+    # };
   };
 }
