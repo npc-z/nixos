@@ -1,11 +1,11 @@
 {
   config,
-  nur,
+  inputs,
   ...
 }: {
   imports = [
     # 启用 nur
-    nur.nixosModules.nur
+    inputs.nur.nixosModules.nur
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

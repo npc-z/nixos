@@ -55,25 +55,13 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-stable,
-    home-manager,
-    nixos-cn,
-    nur,
     deploy-rs,
-    hyprland,
-    hyprlock,
     ...
   } @ inputs: {
     nixosConfigurations = (
       import ./hosts {
         inherit inputs;
         inherit nixpkgs;
-        inherit nixpkgs-stable;
-        inherit home-manager;
-        inherit nixos-cn;
-        inherit nur;
-        inherit hyprland;
-        inherit hyprlock;
       }
     );
 

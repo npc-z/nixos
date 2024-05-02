@@ -1,7 +1,6 @@
 {
+  inputs,
   pkgs,
-  hyprlock,
-  system,
   ...
 }: {
   environment.variables.EDITOR = "vim";
@@ -113,7 +112,7 @@
     swaybg
     wofi
     wlogout
-    hyprlock.packages.${system}.hyprlock
+    inputs.hyprlock.packages.${pkgs.system}.hyprlock
     hypridle
     pamixer
     brightnessctl

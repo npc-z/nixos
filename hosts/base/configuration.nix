@@ -1,6 +1,6 @@
 {
   lib,
-  moduleEnableSettings,
+  settings,
   ...
 }: {
   imports =
@@ -26,6 +26,6 @@
       ./../../system/nix-ld.nix
     ]
     # 通过 lib.optionals 来决定是否导入（启用）
-    ++ (lib.optionals moduleEnableSettings.nur [./../../nur])
-    ++ (lib.optionals moduleEnableSettings.nixoscn [./../../nixoscn-apps]);
+    ++ (lib.optionals settings.module.nur.enable [./../../nur])
+    ++ (lib.optionals settings.module.nixoscn.enable [./../../nixoscn-apps]);
 }

@@ -1,55 +1,39 @@
 {
   inputs,
   nixpkgs,
-  nixpkgs-stable,
-  home-manager,
-  nixos-cn,
-  nur,
-  hyprland,
-  hyprlock,
   ...
 }: let
-  _system = "x86_64-linux";
-  _home-manager = home-manager;
+  system = "x86_64-linux";
 
-  pkgs-stable = import nixpkgs-stable {
+  settings = {
+    # system variables
+    system = {};
+
+    # user variables
+    user = {
+      username = "npc";
+    };
+
+    # 是否启用模块
+    module = {
+      nixoscn = {
+        enable = true;
+      };
+      nur = {
+        enable = true;
+      };
+    };
+  };
+
+  specialArgs = {
     inherit inputs;
-    system = _system;
-    config.allowUnfree = true;
-  };
-
-  # 是否启用模块
-  moduleEnableSettings = {
-    nur = true;
-    nixoscn = true;
-  };
-
-  userSettings = {
-    username = "npc";
-  };
-
-  systemSettings = {};
-
-  _specialArgs = {
-    system = _system;
-    inherit pkgs-stable;
-    inherit nixpkgs;
-    inherit nixpkgs-stable;
-    inherit home-manager;
-    inherit nixos-cn;
-    inherit nur;
-    inherit hyprland;
-    inherit hyprlock;
-    inherit moduleEnableSettings;
-    inherit userSettings;
-    inherit systemSettings;
+    inherit settings;
   };
 
   osTemplate = {
     hostDir,
-    system ? _system,
-    specialArgs ? _specialArgs,
-    home-manager ? _home-manager,
+    system,
+    specialArgs,
     ...
   }:
     nixpkgs.lib.nixosSystem {
@@ -63,7 +47,7 @@
         # 导入主机的配置
         ./${hostDir}/configuration.nix
 
-        home-manager.nixosModules.home-manager
+        inputs.home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -74,18 +58,27 @@
     };
 in {
   # mini host
-  "ser7-nixos" = osTemplate {hostDir = "ser7";};
+  "ser7-nixos" = osTemplate {
+    hostDir = "ser7";
+    inherit system specialArgs;
+  };
 
   # laptop
-  "r9000p-nixos" = osTemplate {hostDir = "r9000p";};
+  "r9000p-nixos" = osTemplate {
+    hostDir = "r9000p";
+    inherit system specialArgs;
+  };
 
   # work
-  "thinkpad-e14-nixos" = osTemplate {hostDir = "thinkpad-e14";};
+  "thinkpad-e14-nixos" = osTemplate {
+    hostDir = "thinkpad-e14";
+    inherit system specialArgs;
+  };
 
   #
   "start-nixos" = nixpkgs.lib.nixosSystem {
-    system = _system;
-    specialArgs = _specialArgs;
+    inherit system;
+    inherit specialArgs;
 
     modules = [
       # 基础配置
