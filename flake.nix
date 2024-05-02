@@ -9,6 +9,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
     # home-manager，用于管理用户配置
     home-manager = {
@@ -39,9 +40,10 @@
 
     # hyprland env
     hyprland = {
-      # url = "github:hyprwm/Hyprland/";
-      # pin on the latest version v0.39.1
-      url = "github:hyprwm/Hyprland/fe7b748eb668136dd0558b7c8279bfcd7ab4d759";
+      url = "github:hyprwm/Hyprland/v0.39.1";
+      inputs.nixpkgs.follows = "nixpkgs-small";
+      # or
+      # url = "github:hyprwm/Hyprland";
     };
 
     hyprlock = {
