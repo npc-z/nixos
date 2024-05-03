@@ -20,6 +20,7 @@
       ./../../system/nix-conf.nix
       ./../../system/programs.nix
       ./../../system/services.nix
+      ./../../system/virt
       ./../../system/security.nix
       ./../../system/user.nix
       ./../../system/zsh.nix

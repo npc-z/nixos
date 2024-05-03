@@ -7,6 +7,4 @@
   networking = {
     hostName = "ser7-nixos";
   };
-
-  virtualisation.docker.enable = true;
 }

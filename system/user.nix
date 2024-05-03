@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   users.defaultUserShell = pkgs.zsh;
 
   # forbid `useradd` to add user
@@ -16,7 +11,6 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "docker"
     ];
     packages = with pkgs; [
       firefox

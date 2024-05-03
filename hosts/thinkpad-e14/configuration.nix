@@ -9,6 +9,4 @@
   networking = {
     hostName = "thinkpad-e14-nixos";
   };
-
-  virtualisation.docker.enable = true;
 }

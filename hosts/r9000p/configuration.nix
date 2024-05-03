@@ -9,6 +9,4 @@
   networking = {
     hostName = "r9000p-nixos";
   };
-
-  virtualisation.docker.enable = true;
 }
