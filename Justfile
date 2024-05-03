@@ -50,8 +50,10 @@ stow:
     -R kitty \
     -R lazygit \
     -R swaync \
+    -R swaylock \
     -R wallpapers \
     -R waybar \
+    -R vscode \
     -R wlogout \
     -R wofi \
     -R zathura
