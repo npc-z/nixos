@@ -32,6 +32,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    devenv = {
+      url = "github:cachix/devenv/v1.0.5";
+      inputs.nixpkgs.follows = "nixpkgs-small";
+    };
+
     # 远程部署
     deploy-rs = {
       url = "github:serokell/deploy-rs";
