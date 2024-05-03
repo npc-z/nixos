@@ -29,4 +29,8 @@
     # 通过 lib.optionals 来决定是否导入（启用）
     ++ (lib.optionals settings.module.nur.enable [./../../nur])
     ++ (lib.optionals settings.module.nixoscn.enable [./../../nixoscn-apps]);
+
+  nixpkgs.config.allowUnfree = true;
+
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
