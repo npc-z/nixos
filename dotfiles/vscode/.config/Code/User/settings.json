@@ -85,10 +85,7 @@
     "xlsxwriter",
     "Zlando"
   ],
-  "editor.rulers": [
-    88,
-    120
-  ],
+  "editor.rulers": [88, 120],
   "editor.fontSize": 16,
   "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', Consolas, 'Courier New', monospace",
   "vim.commandLineModeKeyBindings": [],
@@ -103,42 +100,26 @@
   },
   "vim.insertModeKeyBindings": [
     {
-      "before": [
-        "j",
-        "j"
-      ],
-      "after": [
-        "<Esc>"
-      ]
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
     }
   ],
   "vim.normalModeKeyBindings": [
     {
       // prev buffer
-      "before": [
-        "H"
-      ],
-      "commands": [
-        "workbench.action.previousEditor"
-      ],
+      "before": ["H"],
+      "commands": ["workbench.action.previousEditor"],
       "silent": true
     },
     {
       // next buffer
-      "before": [
-        "L"
-      ],
-      "commands": [
-        "workbench.action.nextEditor"
-      ],
+      "before": ["L"],
+      "commands": ["workbench.action.nextEditor"],
       "silent": true
     },
     {
       // Go to Next Change
-      "before": [
-        "g",
-        "j"
-      ],
+      "before": ["g", "j"],
       "commands": [
         "workbench.action.editor.nextChange",
         "workbench.action.compareEditor.nextChange"
@@ -147,10 +128,7 @@
     },
     {
       // Go to Previous Change
-      "before": [
-        "g",
-        "k"
-      ],
+      "before": ["g", "k"],
       "commands": [
         "workbench.action.editor.previousChange",
         "workbench.action.compareEditor.previousChange"
@@ -159,35 +137,20 @@
     },
     {
       // showHover
-      "before": [
-        "g",
-        "h"
-      ],
-      "commands": [
-        "editor.action.showHover"
-      ],
+      "before": ["g", "h"],
+      "commands": ["editor.action.showHover"],
       "silent": true
     },
     {
       // goToReferences
-      "before": [
-        "g",
-        "r"
-      ],
-      "commands": [
-        "editor.action.goToReferences"
-      ],
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"],
       "silent": true
     },
     {
       // go back
-      "before": [
-        "g",
-        "o"
-      ],
-      "commands": [
-        "editor.action.goToReferences"
-      ],
+      "before": ["g", "o"],
+      "commands": ["editor.action.goToReferences"],
       "silent": true
     }
   ],
@@ -204,9 +167,7 @@
   },
   "markdown-preview-enhanced.previewTheme": "vue.css",
   "markdown.preview.fontSize": 16,
-  "todo-tree.general.tags": [
-    "jk"
-  ],
+  "todo-tree.general.tags": ["jk"],
   "terminal.integrated.scrollback": 9999999999999,
   "database-client.capitalizeKeywordsWhenFormatting": true,
   "database-client.highlightSQLBlock": true,
@@ -344,5 +305,12 @@
   },
   "sql-formatter.uppercase": true,
   "sql-formatter.linesBetweenQueries": 4,
-  "notebook.lineNumbers": "on"
+  "notebook.lineNumbers": "on",
+  // "scm.inputFontSize": 20,
+  // "terminal.integrated.fontSize": 18,
+  // "editor.minimap.sectionHeaderFontSize": 16,
+  // "debug.console.fontSize": 20,
+  // "workbench.tree.indent": 16,
+  "window.zoomLevel": 2,
+  "editor.cursorBlinking": "smooth"
 }
