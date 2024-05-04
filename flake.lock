@@ -420,6 +420,27 @@
         "type": "github"
       }
     },
+    "hyprscroller": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ]
+      },
+      "locked": {
+        "lastModified": 1714826985,
+        "narHash": "sha256-jfpvEiGR99WyPCild9c1aOMFWfo4FrRgxQGZecg5Wxs=",
+        "owner": "npc-z",
+        "repo": "hyprscroller",
+        "rev": "e4c7c69f5bac5cc7aad4879097f0640c5135d1ef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "npc-z",
+        "ref": "feat/flake-support",
+        "repo": "hyprscroller",
+        "type": "github"
+      }
+    },
     "nix": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -722,6 +743,7 @@
         "hycov": "hycov",
         "hyprland": "hyprland",
         "hyprlock": "hyprlock",
+        "hyprscroller": "hyprscroller",
         "nixos-cn": "nixos-cn",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-small": "nixpkgs-small",

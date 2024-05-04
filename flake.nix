@@ -66,6 +66,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    hyprscroller = {
+      url = "github:npc-z/hyprscroller/feat/flake-support";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     # Hyprspace = {
     #   url = "github:KZDKM/Hyprspace";
     #   inputs.hyprland.follows = "hyprland";

@@ -12,7 +12,7 @@ deploy:
 
 # rebuild with debug
 debug:
-  nixos-rebuild switch --flake . --use-remote-sudo --show-trace --verbose
+  nixos-rebuild switch --flake . --use-remote-sudo --show-trace --print-build-logs --verbose
 
 # update flake
 up:
