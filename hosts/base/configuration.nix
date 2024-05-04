@@ -12,7 +12,10 @@
       ./../../system/dbus.nix
       ./../../system/bluetooth.nix
       ./../../system/boot.nix
+
       ./../../system/environment.nix
+      ./../../system/media.nix
+
       ./../../system/fonts.nix
       ./../../system/hardware.nix
       ./../../system/il8n.nix
