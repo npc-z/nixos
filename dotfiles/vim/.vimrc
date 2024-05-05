@@ -1,30 +1,13 @@
-set nu
-set filetype=on
+let mapleader = " "      " 定义<leader>键
 
 inoremap jj <Esc>
 nnoremap j jzz
 nnoremap k kzz
 
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :q<cr>
+
 set foldmethod=marker
-
-function Fk()
-  :let l:filepath = @%
-  :let l:r = shell((filepath | grep "vimrc") != "")
-  echo l:r
-  echo l:filepath
-
-endfunction
-
-function ZhPunctuation2US()
-  echo "Switch Chinese punctuation to English"
-  :%s/（/(/g
-  :%s/）/)/g
-  :%s/，/,/g
-  :%s/。/./g
-  :%s/【/[/g
-  :%s/】/]/g
-endfunction
-
 
 function SqlUp()
   :%s/\<select\>/SELECT/g
@@ -71,13 +54,10 @@ endfunction
 "  \ \__|    \ \_\  \ \_\ \ \_\  \ \_\    \ \_\ \_\  \/\_____\    \ \_\
 "   \/_/      \/_/   \/_/  \/_/   \/_/     \/_/\/_/   \/_____/     \/_/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" chenxuan的个人Vim配置(无插件版本)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 通用设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader = " "      " 定义<leader>键
 set nocompatible         " 设置不兼容原始vi模式
 filetype on              " 设置开启文件类型侦测
 filetype plugin on       " 设置加载对应文件类型的插件
@@ -175,16 +155,6 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-buffer
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent><c-p> :bp<bar>if &bt!=''<bar>bp<bar>endif<cr>
-nnoremap <silent><c-n> :bn<bar>if &bt!=''<bar>bn<bar>endif<cr>
-nnoremap <silent><leader>d :bd<cr>
-nnoremap <silent><expr><c-m> &bt==''?":w<cr>":
-			\ getwininfo(win_getid())[0]["quickfix"]!=0?"\<cr>:cclose<cr>":
-			\ getwininfo(win_getid())[0]["loclist"]!=0?"\<cr>:lclose<cr>":"\<cr>"
-
-" reload .vimrc
-nnoremap <leader><leader>s :source $MYVIMRC<cr>
-nnoremap <leader><leader>S :source <c-r>=expand('%:p')<cr><cr>
 
 " load vim default plugin
 runtime macros/matchit.vim
@@ -194,8 +164,6 @@ if !has('patch-8.0.1453')
 	echom "WARNING:vim is too old,so it can support some feature!"|finish
 endif
 
-" update self
-command! -nargs=0 UpdateSelf echo "Updating,please wait..."|call system('curl https://gitee.com/mirrorvim/vim-fast/raw/master/shell/websimple.sh | bash')|qa
 
 " 插入模式下的光标移动
 imap <c-j> <down>
@@ -233,18 +201,6 @@ func! s:CtrlB()
 	endif
 endfunc
 
-" 插入模式删除
-inoremap <c-q> <c-o>dd
-snoremap <c-q> <c-o>dd
-
-" 定位装置
-nnoremap <c-y> /{<cr>:noh<cr>va}<c-g>
-nnoremap <c-t> ?}<cr>:noh<cr>va{<c-g>
-inoremap <c-y> <c-[>/{<cr>:noh<cr>va}<c-g>
-vnoremap <c-y> <c-[>/{<cr>:noh<cr>va}<c-g>
-vnoremap <c-t> <c-[>?}<cr>:noh<cr>va{<c-g>
-inoremap <c-t> <c-[>?}<cr>:noh<cr>va{<c-g>
-
 
 " 复制当前选中到系统剪切板
 vnoremap <leader><leader>y "+y
@@ -255,109 +211,6 @@ nnoremap <leader><leader>P "+P
 vnoremap <leader><leader>p "+p
 vnoremap <leader><leader>P "+P
 
-augroup ReadPost
-	au!
-	autocmd BufEnter * redrawt
-	autocmd QuickFixCmdPost * copen
-	autocmd TerminalOpen * setlocal norelativenumber|setlocal nonumber
-	autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | execute "normal! zz" | endif
-	autocmd BufDelete * if expand('%:p')!=''&& &bt==""|let g:map_recent_close[expand('%:p')] =
-				\{'lnum':line('.'),'col':col('.'),'text':'close at '.strftime("%H:%M"),'time':localtime()}
-				\|endif
-augroup END
-
-" 打开最近关闭的buffer
-let g:map_recent_close={}
-func! s:GetRecentClose()
-	let s:list=[]
-	for [key,value] in items(g:map_recent_close)
-		let value['filename']=key
-		call insert(s:list,value)
-	endfor
-	let s:func={m1,m2 -> m1['time']>m2['time']?-1:1}
-	call sort(s:list,s:func)
-	call setqflist(s:list,'r')
-	copen
-endfunc
-nnoremap <silent><nowait><space>q :call <sid>GetRecentClose()<cr>
-
-" termdebug
-nnoremap <leader><leader>d :set mouse=a<cr>:packadd termdebug<cr>:Termdebug<space>
-nnoremap <F5> :set mouse=a<cr>:packadd termdebug<cr>:Termdebug<space>
-let g:termdebug_wide=1
-nnoremap <F6> :Break<cr>
-nnoremap <F7> :Over<cr>
-nnoremap <F8> :Step<cr>
-
-" easy to add time
-func Time()
-	return "update by chenxuan ".strftime("%Y-%m-%d %H:%M:%S")
-endfunc
-
-" term console
-func! Tapi_EditFile(bufnum,arglist)
-	execute ":wincmd p"
-	if filereadable(a:arglist[0])
-		execute ":edit " . a:arglist[0]
-	elseif isdirectory(a:arglist[0])
-		execute ":cd " . a:arglist[0]
-	endif
-	if len(a:arglist)>1|call term_sendkeys(a:bufnum,a:arglist[1]."\<cr>")|endif
-	if len(gettabinfo())>1|tabclose|if filereadable(a:arglist[0])|execute ":edit " . a:arglist[0]|endif|endif
-endfunc
-tnoremap <c-\> <c-\><c-n>
-tnoremap <c-o> printf '\033]51;["call","Tapi_EditFile",["%s/%s"]]\007' $PWD<space>
-tnoremap <c-]> printf '\033]51;["call","Tapi_EditFile",["%s/%s","exit"]]\007' $PWD<space>
-tnoremap <c-z> exit<cr>
-nnoremap <leader><leader>T :bo term ++rows=6<CR>
-nnoremap <leader><leader>t :vert term<CR>
-nnoremap <silent><space><space>t :tabe<cr>:execute ":vert term ++curwin ++close " <cr>
-nnoremap <silent><space><space>T :let @s=expand('%:p:h')<cr>:tabe<cr>:call term_start("bash",{"cwd":"<c-r>=@s<cr>","curwin":1,"term_finish":"close"})<cr>
-
-" lazygit
-nnoremap <silent><space>g :call <sid>LazyGitFile(0)<cr>:tabe<cr>:call term_start("lazygit",{"close_cb":"<sid>LazyGitFile","curwin":1,"term_finish":"close"})<cr>
-nnoremap <silent><space>G :let @s=expand('%')<cr>:tabe<cr>:vert term ++curwin ++close lazygit -f <c-r>s<cr>
-func! s:LazyGitFile(close) abort
-	if type(a:close)==0
-		if !exists("s:lazygit_file")||getenv("LAZYGIT_FILE")==v:null
-			let s:lazygit_file=tempname()|call setenv("LAZYGIT_FILE",s:lazygit_file)
-		endif
-		return
-	endif
-	tabclose
-	if exists("s:lazygit_file")&&filereadable(expand(s:lazygit_file))&&getenv("LAZYGIT_FILE")==s:lazygit_file&&filereadable(expand(s:lazygit_file))
-		for line in readfile(s:lazygit_file)
-			let msg=split(line)|let file=termtask#Term_get_dir()."/".msg[0]
-			execute ":edit ".file
-			if msg[1]!=1|call cursor(msg[1],0)|endif
-		endfor
-	endif
-endfunc
-
-" fzf self defile
-func! s:FzfFind(command)
-	vert call term_start('bash',{'term_finish':"close"})
-	call term_sendkeys(term_list()[0],a:command."\<cr>")
-endfunc
-let g:fzf_temp_file=""
-func! Tapi_Fzf(bufnum,arglist)
-	wincmd p|let temp=getenv("FZF_VIM")
-	if len(a:arglist)>1|call term_sendkeys(a:bufnum,a:arglist[1]."\<cr>")|endif
-	if temp!=v:null
-		for line in readfile(g:fzf_temp_file)
-			let list=matchstr(line,"\/\^.*")
-			if a:arglist[0]=="0"|let @/="\\V\\^".line."\\$"|else|let @/="\\V".escape(strpart(list,1,len(list)-2),"^$")|endif
-			call feedkeys('n','in')|set hlsearch
-		endfor
-	endif
-endfunc
-nnoremap <silent><space>z :call <sid>FzfFind('printf "\033]51;[\"call\",\"Tapi_EditFile\",[\"%s/%s\",\"exit\"]]\007" $PWD `fzf --layout=reverse --preview-window=down --preview "head -64 {}"`')<cr>
-nnoremap <silent><space>Z :let fzf_temp_file=tempname()<cr>:call setenv("FZF_VIM",g:fzf_temp_file)<cr>:call <sid>FzfFind('ctags -x --_xformat="%N     %P" -f - <c-r>=expand('%:p')<cr><bar>fzf > $FZF_VIM;printf "\033]51;[\"call\",\"Tapi_Fzf\",[\"$FZF_VIM\",\"exit\"]]\007"')<cr>
-
-" lf config define
-nnoremap <silent><space>E :tabe<cr>:vert term ++curwin ++close lf <c-r>=getenv('HOME')<cr><cr>
-nnoremap <silent><space>e :tabe<cr>:vert term ++curwin ++close lf .<cr>
-
 " set pair baket
 inoremap ( ()<left>
 inoremap [ []<left>
@@ -366,288 +219,11 @@ cnoremap ( ()<left>
 cnoremap [ []<left>
 cnoremap { {}<left>
 
-" jump
-func! s:Judge(ch,mode)
-	if a:mode!='c'
-		let ch=getline('.')[col('.')-1]
-	else
-		let ch=getcmdline()[getcmdpos()-1]
-	endif
-	if a:ch=='"'||a:ch=="'"||a:ch=='`'
-		if ch!=a:ch
-			return a:ch.a:ch."\<left>"
-		endif
-	endif
-	if ch==a:ch
-		return "\<right>"
-	endif
-	return a:ch
-endfunc
-inoremap <expr><silent>" <sid>Judge('"','i')
-inoremap <expr><silent>` <sid>Judge('`','i')
-inoremap <expr><silent>' <sid>Judge("'",'i')
-inoremap <expr><silent>> <sid>Judge('>','i')
-inoremap <expr><silent>) <sid>Judge(')','i')
-inoremap <expr><silent>} <sid>Judge('}','i')
-inoremap <expr><silent>] <sid>Judge(']','i')
-cnoremap <expr>" <sid>Judge('"','c')
-cnoremap <expr>` <sid>Judge('`','c')
-cnoremap <expr>' <sid>Judge("'",'c')
-cnoremap <expr>> <sid>Judge('>','c')
-cnoremap <expr>) <sid>Judge(')','c')
-cnoremap <expr>} <sid>Judge('}','c')
-cnoremap <expr>] <sid>Judge(']','c')
-" set backspace
-inoremap <expr><bs> <sid>Backspace('i')
-cnoremap <expr><bs> <sid>Backspace('c')
-func! s:Backspace(mode)
-	if a:mode!='c'
-		let s:pair=getline('.')[col('.')-1]|let s:pair_l=getline('.')[col('.')-2]
-	else
-		let s:pair=getcmdline()[getcmdpos()-1]|let s:pair_l=getcmdline()[getcmdpos()-2]
-	endif
-	if has_key(g:pair_map, s:pair_l)&&(g:pair_map[s:pair_l]==s:pair)
-		return "\<right>\<bs>\<bs>"
-	else
-		return "\<bs>"
-	endif
-endfunc
-
 " yank and paste
 nnoremap <leader>p "0p
 vnoremap <leader>p "0p
 nnoremap <leader>P "0P
 vnoremap <leader>P "0P
-
-" vimdiff tool
-cab <expr>Diff "Diff ".expand('%:p:h')."/"
-command! -nargs=1 -bang -complete=file Diff exec ":vert diffsplit ".<q-args>
-command! -nargs=0 Remote :diffg RE
-command! -nargs=0 Base   :diffg BA
-command! -nargs=0 Local  :diffg LO
-
-" edit binrary
-func! s:BinraryEdit(args) abort
-	if join(readfile(expand('%:p'), 'b', 5), '\n') !~# '[\x00-\x08\x10-\x1a\x1c-\x1f]\{2,}'
-		echo "not a bin file"|return
-	endif
-	if &readonly|execute ":edit ++bin".expand('%')|endif|setlocal bin
-	setlocal bin
-	if !executable('xxd')|echoerr "xxd not find,install it first"|endif
-	echo "transform...please wait..."
-	let g:xxd_cmd=":%!xxd ".a:args
-	silent! execute g:xxd_cmd|let &modified=0|redraw!
-	augroup Binrary
-		au!
-		autocmd BufWritePre  <buffer> let g:bin_pos_now=getcurpos()|silent! exec ":%!xxd -r"
-		autocmd BufWritePost <buffer> silent! exec g:xxd_cmd|call cursor([g:bin_pos_now[1],g:bin_pos_now[2]])
-		autocmd BufDelete    <buffer> au! Binrary
-	augroup END
-endfunc
-command! -nargs=? Binrary :call <sid>BinraryEdit(<q-args>)
-
-" change window width
-nnoremap <c-up> <c-w>+
-nnoremap <c-down> <c-w>-
-nnoremap <c-left> <c-w><
-nnoremap <c-right> <c-w>>
-
-" change window in normal
-nnoremap <c-k> <c-w>k
-nnoremap <c-j> <c-w>j
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-nnoremap <s-up>    <c-w>k
-nnoremap <s-down>  <c-w>j
-nnoremap <s-left>  <c-w>h
-nnoremap <s-right> <c-w>l
-
-" change window location
-nnoremap <c-s-up> <c-w>K
-nnoremap <c-s-down> <c-w>J
-nnoremap <c-s-left> <c-w>H
-nnoremap <c-s-right> <c-w>L
-
-" quick fix
-nnoremap [q :cnext<cr>
-nnoremap ]q :cprevious<cr>
-nnoremap \q :cclose<cr>
-nnoremap =q :copen<cr>
-nnoremap ]Q :cnext<cr>:call <sid>Qfpopup()<cr>
-nnoremap [Q :cprevious<cr>:call <sid>Qfpopup()<cr>
-func! s:Qfpopup()abort
-	let dict=getqflist({'all':1})|let pos=dict['idx']|let item=dict['items']|let len=len(dict['items'])
-	if len==0||(pos==1&&item[pos-1]['lnum']==0)|cclose|return|endif|let show=[item[pos-1]['text']]
-	while pos<len&&item[pos]['lnum']==0|let show=add(show,item[pos]['text'])|let pos+=1|endwhile
-	let show=show[0:-2]|call popup_atcursor(show,{})
-endfunc
-
-" set mouse
-func MouseConfig()
-	set mouse=a
-	set mousemodel=popup_setpos
-	" you can define menu self
-	" visual model
-	vnoremenu PopUp.Yank\ Text "+y
-	vnoremenu PopUp.Cut\ Text "+d
-	vnoremenu PopUp.Del\ Text "_d
-	vnoremenu PopUp.Paste\ Text "+p
-	" normal model
-	nnoremenu PopUp.Paste\ Text "+p
-	nnoremenu PopUp.Select\ All ggVG
-	nnoremenu PopUp.Back\ Pos <c-o>zz
-	nnoremenu PopUp.Next\ Pos <c-i>zz
-	" fold
-	nnoremenu PopUp.Open\ Fold  zO
-	nnoremenu PopUp.Close\ Fold zC
-	" close
-	nnoremenu PopUp.-Sep- :<cr>
-	nnoremenu PopUp.Close\ Mouse :set mouse=""<cr>
-endfunc
-call MouseConfig() " default set mouse enable
-nnoremap <silent><nowait>=m :call MouseConfig()<cr>
-nnoremap <silent><nowait>\m :set mouse=""<cr>
-
-" show indent line
-nnoremap <silent><nowait>=i :set list lcs=tab:¦\<space> <cr>
-nnoremap <silent><nowait>\i :set nolist<cr>
-
-" set spell
-nnoremap <silent><nowait>=s :setlocal spell<cr>
-nnoremap <silent><nowait>\s :setlocal nospell<cr>
-" z= is list of change
-
-" set wrap
-nnoremap <silent><nowait>=r :setlocal wrap<cr>:noremap<buffer> j gj<cr>:noremap<buffer> k gk<cr>
-nnoremap <silent><nowait>\r :setlocal nowrap<cr>:unmap<buffer> j<cr>:unmap<buffer> k<cr>
-
-" set line number
-nnoremap <silent><nowait>=n :setlocal norelativenumber<cr>
-nnoremap <silent><nowait>\n :setlocal relativenumber<cr>
-
-" close/open number
-nnoremap <silent><nowait>=N :setlocal norelativenumber<cr>:setlocal nonumber<cr>
-nnoremap <silent><nowait>\N :setlocal relativenumber<cr>:setlocal number<cr>
-
-" set fold auto
-nnoremap <silent><nowait>=z :setlocal fdm=indent<cr>:setlocal fen<cr>
-nnoremap <silent><nowait>\z :setlocal fdm=manual<cr>:setlocal nofen<cr>
-nnoremap <silent><nowait>=o zO
-nnoremap <silent><nowait>\o zC
-nnoremap <silent><nowait><expr><bs> foldlevel('.')>0?"zc":"\<bs>"
-
-" tab ctrl
-nnoremap <silent><nowait>=t :tabnew<cr>
-nnoremap <silent><nowait>\t :tabc<cr>
-nnoremap <silent><nowait>[t :tabp<cr>
-nnoremap <silent><nowait>]t :tabn<cr>
-
-" set search noh
-nnoremap <silent><nowait>\h :noh<cr>
-nnoremap <silent><nowait>=h :set hlsearch<cr>
-
-" set auto indent file
-nnoremap <silent>=<tab> :call <sid>IndentSet()<cr>
-func! s:IndentSet()
-	let line=matchstr(getline(line('.')),"^\\s*")
-	if len(line)!=0&&line[0]==' '|exec "setlocal shiftwidth=".len(line)|setlocal expandtab|endif|echo 'indent get ok'
-endfunc
-
-" delete <space> in end of line
-nnoremap <silent><nowait>d<space> :%s/ *$//g<cr>:noh<cr><c-o>
-
-" select search
-xmap g/ "sy/\V<c-r>=@s<cr>
-
-" run macro in visual model
-xnoremap @ :normal @
-
-" repeat for macro
-nnoremap <silent><c-q> @@
-
-" use select area to replace
-xnoremap s  :<c-u>execute "normal! gv\"sy"<cr>:%s/\V<c-r>=@s<cr>/<c-r>=@s<cr>/gn<left><left><left>
-nnoremap gs :%s/<c-r>=@/<cr>//gn<left><left><left>
-
-" indent buffer
-nnoremap <silent><nowait> =e gg=G<c-o><c-o>zz
-onoremap <silent>ie :<c-u>normal! ggVG<cr>
-xnoremap <silent>ie :<c-u>normal! ggVG<cr>
-onoremap <silent>ae :<c-u>normal! ggVG<cr>
-xnoremap <silent>ae :<c-u>normal! ggVG<cr>
-
-" object line
-onoremap <silent>il :<c-u>normal! ^v$BE<cr>
-xnoremap <silent>il :<c-u>normal! ^v$<cr><left>
-onoremap <silent>al :<c-u>normal! 0v$<cr>
-xnoremap <silent>al :<c-u>normal! 0v$<cr>
-
-" object argc
-onoremap <silent>aa :<c-u>call <sid>GetArgs('a')<cr>
-onoremap <silent>ia :<c-u>call <sid>GetArgs('i')<cr>
-xnoremap <silent>aa :<c-u>call <sid>GetArgs('a')<cr>
-xnoremap <silent>ia :<c-u>call <sid>GetArgs('i')<cr>
-func! s:GetArgs(model)
-	let model=a:model
-	let line=line('.')|let col=col('.')|let i=col-1|let now=getline('.')
-	let begin=-1|let end=-1|let pos0=-1|let pos1=-1
-	let buket=0|let flag=0
-	while i>0
-		let temp=now[i]|let flag=0
-		if temp==')'|let buket+=1|endif
-		if temp=='('|let buket-=1|let flag=1|endif
-		if (buket>0)||(buket==0&&flag)|let i-=1|continue|endif
-		if temp=='('|| temp==','|let begin=temp|let pos0=i|break|endif
-		let i-=1
-	endwhile
-	let i=col|let buket=0|let flag=0
-	while i<col('$')
-		let temp=now[i]|let flag=0
-		if temp=='('|let buket+=1|endif
-		if temp==')'|let buket-=1|let flag=1|endif
-		if (buket>0)||(buket==0&&flag)|let i+=1|continue|endif
-		if temp==')'|| temp==','|let end=temp|let pos1=i|break|endif
-		let i+=1
-	endwhile
-	if model=='i'
-		let pos0+=1|let pos1-=1
-	else
-		if begin=='('|let pos0+=1|else|let pos1-=1|endif
-	endif
-	call cursor([line,pos0+1])
-	let pos1-=pos0|echom end
-	execute "normal! v".pos1."l"
-endfunc
-
-" easy to get obj
-onoremap <silent>i, i<
-onoremap <silent>a, a<
-xnoremap <silent>i, i<
-xnoremap <silent>a, a<
-onoremap <silent>i; i"
-onoremap <silent>a; a"
-xnoremap <silent>i; i"
-xnoremap <silent>a; a"
-onoremap <silent>in i{
-onoremap <silent>an a{
-xnoremap <silent>in i{
-xnoremap <silent>an a{
-
-" sudo to write file
-cab w!! w !sudo tee % >/dev/null
-
-" quick to change dir
-cab cdn cd <c-r>=expand('%:p:h')<cr>
-cab cdr cd <c-r>=<sid>FindRoot()<cr>
-func! s:FindRoot()
-	let s:gitdir = finddir(".git", getcwd() .';')
-	if !empty(s:gitdir)
-		if s:gitdir==".git"|let s:gitdir=getcwd()
-		else|let s:gitdir=strpart(s:gitdir,0,strridx(s:gitdir,"/"))
-		endif
-		return s:gitdir
-	endif
-endfunc
 
 " cmd emacs model
 cnoremap <c-a> <home>
@@ -657,136 +233,6 @@ cnoremap <c-h> <left>
 cnoremap <c-l> <right>
 cnoremap <c-b> <s-left>
 cnoremap <c-f> <s-right>
-
-" set cursor middle
-nnoremap <c-o> <c-o>zz
-nnoremap <c-i> <c-i>zz
-
-" enhance gf
-nnoremap gf gF
-vnoremap gf gF
-
-" set split window
-nnoremap <silent><nowait>_ :vsp<cr>:bn<cr>
-nnoremap <silent><nowait>+ :sp<cr>:bn<cr>
-
-" edit file
-nnoremap e         :edit<space><c-r>=getcwd()<cr>/
-nnoremap E         :edit<space><c-r>=expand('%:p:h')<cr>/
-nnoremap <leader>e :edit<space>~/
-
-" open : quick
-nnoremap <space>; :
-
-" bs to delete
-xnoremap <silent><bs> d
-
-" add empty line
-nnoremap <silent><nowait>U :call append(line('.')-1,"")<cr>
-nnoremap <silent><nowait>M :call append(line('.'),"")<cr>
-
-" make move easy
-nnoremap <silent><c-e> $
-vnoremap <silent><c-e> $
-nnoremap <silent><expr><c-a> getline('.')[col('.')-1]>='0'&&getline('.')[col('.')-1]<='9'?"\<c-a>":"^"
-vnoremap <silent><expr><c-a> mode()==#'v'&&line('.')==line('v')?"^":"\<c-a>"
-
-" enhance c-a and c-x
-nnoremap <silent><expr>g<c-a> getline('.')[col('.')-1]=='9'?"r0":"r".(getline('.')[col('.')-1]+1)
-nnoremap <silent><expr>g<c-x> getline('.')[col('.')-1]=='0'?"r9":"r".(getline('.')[col('.')-1]-1)
-
-" add space
-func! s:AddSpace()
-	execute("normal! i ")|redraw|let ch=nr2char(getchar())
-	while ch==' '|execute("normal! i ")|redraw|let ch=nr2char(getchar())|endwhile
-	call feedkeys(ch,'in')
-endfunc
-nnoremap <silent><leader><space> :call <sid>AddSpace()<cr>
-
-" scroll in other window
-nnoremap <silent>\u <c-w>p<c-u><c-w>p
-nnoremap <silent>\d <c-w>p<c-d><c-w>p
-
-" redraw the screen
-nnoremap <silent>R :redr!<cr>
-
-" ctrl file system
-command! -nargs=? -bang Reload exec ":edit ".<q-args>." ".expand('%')
-nnoremap <silent>S :edit<space><c-r>=expand('%')<cr><cr>
-command! -nargs=0 -bang Delete if filereadable(expand('%'))|call delete(expand('%'))|execute ":bd"|execute ":bn"|endif
-command! -nargs=1 -bang -complete=file Rename let @s=expand('%')|f <args>|w<bang>|call delete(@s)
-cab Rename Rename <c-r>=expand('%:p:h')<cr>/
-command! -nargs=1 -bang -complete=file Mkdir echo mkdir(<f-args>)
-cab Mkdir Mkdir <c-r>=expand('%:p:h')<cr>/
-command! -nargs=1 -bang -complete=file Rmdir echo delete(<f-args>,"d")
-cab Rmdir Rmdir <c-r>=expand('%:p:h')<cr>/
-" use cd to change dir
-
-" select move
-xnoremap <silent><up>    :move '<-2<cr>gv
-xnoremap <silent><down>  :move '>+1<cr>gv
-xnoremap <silent><right> y<c-w>lo<c-[>Vpgv
-xnoremap <silent><left>  y<c-w>ho<c-[>Vpgv
-xnoremap <silent><c-j>   :move '>+1<cr>gv
-xnoremap <silent><c-k>   :move '<-2<cr>gv
-xnoremap <silent><c-l>   y<c-w>lo<c-[>Vpgv
-xnoremap <silent><c-h>   y<c-w>ho<c-[>Vpgv
-
-" open link
-" is default in vim by gx
-func! s:GotoLink()
-	let s:list=matchstrpos(getline('.'),'https*://\S[^][(){}]*',0)
-	let s:link=s:list[0]
-	while s:list[0]!=''&&(s:list[1]>col('.')||s:list[2]<col('.'))
-		let s:list=matchstrpos(getline('.'),'https*://\S[^][(){}]*',s:list[2])
-	endwhile
-	if s:list[0]!=''|let s:link=s:list[0]|endif
-	let s:browser=get(g:,'default_browser','firefox')
-	if s:link!=''
-		call job_start(s:browser.' '.s:link)
-	else
-		echo 'cannot find link'
-	endif
-endfunc
-nnoremap <silent><nowait>gl :call <sid>GotoLink()<cr>
-
-" set alias
-iab ;e 1607772321@qq.com
-iab ;n chenxuan
-nnoremap \a :iabc<cr>
-nnoremap =a :ab<cr>
-
-" remap {
-xnoremap { ,
-nnoremap { ,
-
-" config complete {{{
-inoremap <silent><expr>/ complete_info(["selected"])["selected"]!=-1&&getline(line('.'))[col('.')-2]=='/'?
-			\ "\<bs>/\<c-x>\<c-f>":
-			\ "/\<c-x>\<c-f>"
-let g:cmpX=-1
-let g:cmpY=-1
-function! s:feed_popup()
-	if getline('.')[col('.')-1]=='/'|return|endif
-	let x = col('.') - 1|let y = line('.') - 1
-	if g:cmpX==x&&g:cmpY==y|return|endif
-	let s:min_complete=2
-	let s:context=strpart(getline('.'), 0, col('.') - 1)
-	let s:match= matchlist(s:context, '\(\k\{' . s:min_complete . ',}\)$')
-	if empty(s:match)|return|endif
-	silent! call feedkeys("\<c-n>", 'n')
-	let g:cmpX=x|let g:cmpY=y
-	return
-endfunction
-augroup Complete
-	au!
-	au CursorMovedI * nested call s:feed_popup()
-	au FileType text setlocal spell|setlocal nospell
-augroup END
-inoremap <silent><expr><TAB>
-			\ pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-"}}}
 
 " set statusline {{{
 function GetMode()
@@ -837,31 +283,6 @@ nnoremap <leader>n :Lexplore<cr> " set netrw
 highlight VertSplit guibg=#1a1b26 guifg=#232433
 "}}}
 
-" slash {{{
-func! s:SlashCb()
-	if g:slash_able
-		set nohlsearch|autocmd! slash
-	else
-		set hlsearch|let g:slash_able=1
-	endif
-endf
-func! s:Slash(oper)
-	augroup slash
-		autocmd!
-		autocmd CursorMoved,CursorMovedI * call <sid>SlashCb()
-	augroup END
-	let g:slash_able=0
-	return a:oper."zz"
-endf
-nnoremap <silent><expr>n <sid>Slash('n')
-nnoremap <silent><expr>N <sid>Slash('N')
-xnoremap <silent>* "sy:let @/="\\V".@s<cr>:set hlsearch<cr>
-xnoremap <silent># "sy:let @/="\\V".@s<cr>:let v:searchforward=0<cr>:set hlsearch<cr>
-nnoremap <silent>* :let @/="\\<".expand('<cword>')."\\>"<cr>:set hlsearch<cr>
-nnoremap <silent># :let @/="\\<".expand('<cword>')."\\>"<cr>:let v:searchforward=0<cr>:set hlsearch<cr>
-xnoremap <silent>g8 "sy:let @/="\\V".@s<cr>:set hlsearch<cr>
-nnoremap <silent>g8 :let @/="\\<".expand('<cword>')."\\>"<cr>:set hlsearch<cr>
-"}}}
 
 " set tabline {{{
 let s:tab_after=""
@@ -960,105 +381,8 @@ nnoremap <silent>ds :call <sid>DelSourround()<cr>
 nnoremap <silent>cs :call <sid>ChangeSourround()<cr>
 "}}}
 
-" git config {{{
-command! -nargs=+ Git echo system("git ".<q-args>)
-nnoremap <leader>g :!git log --all --decorate --oneline --graph<cr>
 
-" make run
-command! -nargs=+ Run let command=strpart(<q-args>,0,stridx(<q-args>,' '))|
-			\exec "set makeprg=".command|
-			\exec ":make ".strpart(<q-args>,stridx(<q-args>,' '))|
-			\call <sid>Qfpopup()
-nnoremap <space>: :Run<space>
-"}}}
 
-" ctags config{{{
-command! -nargs=? TagCreate call s:CreateTags(<q-args>)
-command! -nargs=0 TagKind echo system("ctags --list-maps")
-command! -nargs=1 -complete=file TagSave if exists("g:tag_file")&&filereadable(g:tag_file)|call system("cp ".g:tag_file." ".<q-args>)|endif
-nnoremap <space>c  :let temp=taglist(input("Enter regex find:"))<bar>redraw<bar>echo temp<cr>
-nnoremap <space>C  :TagCreate<cr>
-nnoremap <leader>u <c-]>
-func! s:CreateTags(arg)
-	if exists("g:tag_file")|exec "set tags-=".g:tag_file|endif|let g:tag_file=tempname()
-	if a:arg!=""|let arg=" --languages=".a:arg|else|let arg=" "|endif
-	call job_start("ctags -f ".g:tag_file.arg." --tag-relative=always -R .",
-				\{"close_cb":"CreateTagCB","err_cb":"CreateTagErrCB"})
-	exec "set tags+=".g:tag_file
-endfunc
-func! CreateTagErrCB(chan,msg)
-	echoerr a:msg
-endfunc
-func! CreateTagCB(chan)
-	call popup_create("tags create success", #{pos:'botright',time: 1000,highlight: 'WarningMsg',border: [],close: 'click',})
-endfunc
-"}}}
-
-" like leaderf {{{
-set wildignore+=*/bin/*,.git*,*.out,*.gz
-func! s:ExludeIgnore()
-	let s:ignore_loaded=get(s:,"ignore_loaded",0)
-	if !s:ignore_loaded|let file=findfile(".gitignore",".;")|if file!=""|for line in readfile(file)|if line!=""&&match(line,"^#")==-1|exec ":set wildignore+=".line|endif|endfor|endif|endif
-endfunc
-nnoremap <silent><nowait><space>b :call setqflist(getbufinfo({'buflisted':1}),'r')<cr>:copen<cr>
-nnoremap <silent><space>f :call <sid>FzfFind('printf "\033]51;[\"call\",\"Tapi_EditFile\",[\"%s/%s\",\"exit\"]]\007" $PWD `fzf --layout=reverse --preview-window=down --preview "head -64 {}"`')<cr>
-nnoremap <nowait><space>h :help<space>
-xnoremap <silent><space>h "sy:<c-u>help <c-r>=@s<cr><cr>
-nnoremap <nowait><space>a :call <sid>ExludeIgnore()<cr>:vimgrep /\V/j<space>./**<s-left><left><left><left>
-xnoremap <nowait><space>a "sy:call <sid>ExludeIgnore()<cr>:vimgrep /\V<c-r>=@s<cr>/j<space>./**<cr>:copen<cr>
-nnoremap <silent><space>t :let fzf_temp_file=tempname()<cr>:call setenv("FZF_VIM",g:fzf_temp_file)<cr>:call <sid>FzfFind('ctags -x --_xformat="%N     %P" -f - <c-r>=expand('%:p')<cr><bar>fzf --layout=reverse > $FZF_VIM;printf "\033]51;[\"call\",\"Tapi_Fzf\",[\"$FZF_VIM\",\"exit\"]]\007"')<cr>
-nnoremap <silent><space>j :let fzf_temp_file=tempname()<cr>:call setenv("FZF_VIM",g:fzf_temp_file)<cr>:call <sid>FzfFind('ctags -x --_xformat="%N     %P" -f - <c-r>=expand('%:p')<cr><bar>fzf --layout=reverse > $FZF_VIM;printf "\033]51;[\"call\",\"Tapi_Fzf\",[\"$FZF_VIM\",\"exit\"]]\007"')<cr>
-nnoremap <silent><space>/ :let fzf_temp_file=tempname()<cr>:call setenv("FZF_VIM",g:fzf_temp_file)<cr>:call <sid>FzfFind('cat <c-r>=expand('%:p')<cr><bar>fzf --layout=reverse > $FZF_VIM;printf "\033]51;[\"call\",\"Tapi_Fzf\",[\"0\",\"exit\"]]\007"')<cr>
-nnoremap <silent><space>b :call setqflist(getbufinfo({'buflisted':1}),'r')<cr>:copen<cr>
-nnoremap <silent><space>k :call setqflist(getjumplist()[0], 'r')<cr>:copen<cr>
-command! -nargs=0 Fzfinstall      echo system("sudo apt install -y fzf")
-command! -nargs=0 Fzfinstallweb   echo system("wget https://gitee.com/mirrorvim/userful-tools-2/releases/download/cmdv1.0.0/fzf-0.36.0-linux_amd64.tar.gz")
-command! -nargs=0 Ctagsinstall    echo system("sudo apt install -y ctags")
-" }}}
-
-" like easy motion {{{
-let s:easymotion_key=['j','l','k','h','a','s','d','f','g','q','w','e','r','u','i','o','p','c','v','b','n','m','t','y','z','x']
-let s:easymotion_leader=[';',',',' ',"'",'.','/','[','\',']']|let s:easymotion_leader_dict={';':0,',':0,'.':0,"'":0,' ':0,'/':0,'[':0,'\':0,']':0}
-func! s:EasyMotion()abort
-	echo "input key:"|let ch=nr2char(getchar())|let s:easymotion={}|let llen=len(s:easymotion_leader)+1
-	let ch=tolower(ch)|if ch>='a'&&ch<='z'|let up=toupper(ch)|else|let up=""|endif
-	let info=winsaveview()|let info["endline"]=winheight(0)+info["topline"]|let width=winwidth(0)|let num=0|let old=ch|let pos=0|let klen=len(s:easymotion_key)
-	if ch=="\<c-[>"|return|endif|if &fen|setlocal nofen|endif
-	let lines=getbufline("%",info["topline"],info["endline"])|let bak=copy(lines)|set nohlsearch
-	let hlcomment=[]|let begin=info["topline"]|let end=info["endline"]
-	while end-begin>=8|call add(hlcomment,matchaddpos("comment",range(begin,end)))|let begin+=8|endwhile
-	call add(hlcomment,matchaddpos("comment",range(begin,end)))
-	let listl=range(0,len(lines)-1)|let nowline=info["lnum"]-info["topline"]|call sort(listl,{arg1,arg2 -> abs(arg2-nowline)-abs(arg1-nowline)})
-	for i in listl
-		" if i+info["topline"]==info["lnum"]|continue|endif
-		while 1
-			let pos=stridx(lines[i],ch,pos)
-			if up!=""|let postemp=stridx(lines[i],up,pos)|if postemp!=-1&&(postemp<pos||pos==-1)|let pos=postemp|endif|endif
-			if pos!=-1&&(pos<width||&wrap)
-				if num<klen|let req=s:easymotion_key[num]
-				elseif num<llen*klen|let req=s:easymotion_leader[num/klen-1].s:easymotion_key[num%klen]
-				else|break
-				endif
-				let m= matchaddpos("incsearch", [[i+info["topline"],pos+1,len(req)]])
-				let s:easymotion[req]={"line":i,"pos":pos,"hl":m}
-				let lines[i]=strpart(lines[i],0,pos).req.strpart(lines[i],pos+len(req))
-				let num+=1|let pos+=2|if num>=llen*klen|break|endif
-			else|let pos=0|break
-			endif
-		endwhile
-		if num>=llen*klen|break|endif
-	endfor
-	if len(s:easymotion)==0|echo "cannot find"|endif
-	silent! undojoin|call setline(info["topline"],lines)|redraw!|echo "target key:"| let ch=nr2char(getchar())
-	if has_key(s:easymotion_leader_dict,ch)|let ch=ch.nr2char(getchar())|endif
-	if has_key(s:easymotion, ch)|let temp=s:easymotion[ch]|call cursor(temp["line"]+info["topline"],temp["pos"]+1)|endif
-	for [key,val] in items(s:easymotion)|let i=val["line"]|let pos=val["pos"]|let hl=val["hl"]|call matchdelete(hl)|endfor
-	for hlnow in hlcomment|call matchdelete(hlnow)|endfor
-	silent! undojoin|call setline(info["topline"],bak)|setlocal nomodified
-endfunc
-nnoremap <silent>s :call <sid>EasyMotion()<cr>
-inoremap <silent><c-s> <c-o>:call <sid>EasyMotion()<cr>
-" }}}
 
 " tokyonight color inside,donnot change it {{{
 set termguicolors
@@ -1296,6 +620,4 @@ let s:terminal = {
 let g:terminal_ansi_colors = [s:terminal.black[0], s:terminal.red[0], s:terminal.green[0], s:terminal.yellow[0],
 			\ s:terminal.blue[0], s:terminal.purple[0], s:terminal.cyan[0], s:terminal.white[0], s:terminal.black[0], s:terminal.red[0],
 			\ s:terminal.green[0], s:terminal.yellow[0], s:terminal.blue[0], s:terminal.purple[0], s:terminal.cyan[0], s:terminal.white[0]]
-
-" vim: set fen ft=vim fdm={{{,}}}:
 

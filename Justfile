@@ -53,6 +53,7 @@ stow:
     -R swaylock \
     -R wallpapers \
     -R waybar \
+    -R vim \
     -R vscode \
     -R wlogout \
     -R wofi \
