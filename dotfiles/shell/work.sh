@@ -75,56 +75,6 @@ function fmt() {
 alias klog="kubectl -c backend -ndos-test logs --since=1m -f "
 alias kpod="kubectl get -n dos-test pod | grep "
 
-
-
-# ##########################################
-# run projects shortcuts
-# ##########################################
-
-alias "rqiye"='source ~/doc/env/qiye-web.sh && echo SERVER_NAME is $SERVER_NAME && echo database is $SQLALCHEMY_DATABASE_URI && python manage.py runserver -h 0.0.0.0 -p $PORT'
-
-# alias "rbi"='source ~/doc/env/corp-bi.sh && echo SERVER_NAME is $SERVER_NAME && echo database is $SQLALCHEMY_DATABASE_URI && python manage.py runserver -h 0.0.0.0 -p $PORT'
-alias "rbi"='source ~/doc/env/corp-bi.sh && echo SERVER_NAME is $SERVER_NAME && echo database is $SQLALCHEMY_DATABASE_URI && flask run -h 0.0.0.0 -p $PORT'
-
-alias "rcar"='source ~/doc/env/car-backend.sh && workon car-backend && echo SERVER_NAME is $SERVER_NAME && echo database is $SQLALCHEMY_DATABASE_URI && flask run -h 0.0.0.0 -p $PORT'
-
-# alias "rboss"=' source ~/doc/env/boss-web.sh && echo SERVER_NAME is $SERVER_NAME && echo database is $SQLALCHEMY_DATABASE_URI && pipenv run  python manage.py runserver -h 0.0.0.0 -p $PORT'
-alias "rboss"=' source ~/doc/env/boss-web.sh && echo SERVER_NAME is $SERVER_NAME && echo database is $SQLALCHEMY_DATABASE_URI && gunicorn -b 0.0.0.0:$PORT -k gevent wsgi:application --reload'
-
-alias "rusedcarweb"="source ~/doc/env/usedcar-web.sh && echo SERVER_NAME is '$SERVER_NAME' && echo database is '$SQLALCHEMY_DATABASE_URI' && gunicorn -b 0.0.0.0:$PORT -k gevent wsgi:application --reload"
-
-alias "rreport"="source ~/doc/env/report.sh && echo SERVER_NAME is $SERVER_NAME && echo database is $SQLALCHEMY_DATABASE_URI && gunicorn -b 0.0.0.0:$PORT -k gevent wsgi:application --reload"
-
-alias "rretail"="make clean && make build-linux && build/linux/geteway -c /doc/env/usedcar-retail.yaml"
-
-alias "renquiry"="make clean && make build-linux && build/linux/gateway -c /doc/env/usedcar-enquiry.yaml"
-
-alias "rretail-web"="source ~/doc/env/retail-web.sh && echo SERVER_NAME is $SERVER_NAME && echo DATABASE IS '$SQLALCHEMY_DATABASE_URI'  &&  gunicorn -b 0.0.0.0:$PORT -k gevent wsgi:application --reload"
-
-alias "rusedcar-transfer"="make clean && make debug && ./build/gateway -c /doc/env/usedcar-transfer.yaml --log-output-level debug"
-
-alias "rstore"="make clean && make debug && ./build/gateway -c /doc/env/store.yaml"
-
-alias "rsubscriber"="make clean && make debug && ./build/gateway -c /doc/env/usedcar-subscriber.yaml"
-# alias "rsubscriber"="make clean && make build-linux && ./build/linux/gateway -c /doc/env/usedcar-subscriber.yaml"
-
-alias "rusedcar-retail"="make build-linux && ./build/linux/gateway -c /doc/env/usedcar-retail.yaml"
-
-alias "rfixedprice"="make build-linux && ./build/linux/gateway -c /doc/env/usedcar-fixed-price.yaml"
-
-alias "rdealer"="make build-linux-debug && ./build/linux/gateway -c /doc/env/dealer.yaml"
-
-alias "rsub"="make clean && make build-linux-debug && ./build/linux/gateway -c /doc/env/subscriber.yaml"
-
-alias "rstock"="make clean && make build-linux-debug && ./build/linux/gateway -c /doc/env/usedcar-stock.yaml"
-
-alias "rmerchant"='source ~/doc/env/merchant-web.sh && echo SERVER_NAME is $SERVER_NAME && echo database is $SQLALCHEMY_DATABASE_URI && gunicorn -b 0.0.0.0:$PORT -k gevent wsgi:application --reload'
-
-alias "rcorp"='source ~/doc/env/corp-backend.sh && echo SERVER_NAME is $SERVER_NAME && echo database is $SQLALCHEMY_DATABASE_URI && gunicorn -b 0.0.0.0:$PORT -k gevent wsgi:application --reload'
-
-alias "rauction-web"='source ~/doc/env/auction-web.sh && echo SERVER_NAME is $SERVER_NAME && echo database is $SQLALCHEMY_DATABASE_URI && gunicorn -b 0.0.0.0:$PORT -k gevent wsgi:application --reload'
-
-
 # ##########################################
 # dev env vars
 # ##########################################

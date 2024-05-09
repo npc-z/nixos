@@ -73,3 +73,9 @@ alias vz="vim ~/.zshrc"
 
 alias vi=vim
 alias vim=nvim
+
+# ##########################################
+# envs
+# ##########################################
+
+export TERM=xterm-256color
