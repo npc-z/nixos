@@ -4,4 +4,4 @@
 # month（月份）：可以设置1-12月
 # day of week（星期）：可以设置0-7星期几，其中0和7都代表星期天，也可以使用名称来表示星期天到星期一，例如sun表示星期天，mon表示星期一
 
-0 9,12,15,18,21 * * * ~/.dotfiles/cron/git-commit-doc-everyday.sh
+0 9,12,15,18,21 * * * ~/.config/nixos/dotfiles/cron/git-commit-doc-everyday.sh
