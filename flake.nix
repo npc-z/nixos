@@ -32,11 +32,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    devenv = {
-      url = "github:cachix/devenv/v1.0.5";
-      inputs.nixpkgs.follows = "nixpkgs-small";
-    };
-
     # 远程部署
     deploy-rs = {
       url = "github:serokell/deploy-rs";
@@ -45,7 +40,7 @@
 
     # hyprland env
     hyprland = {
-      url = "github:hyprwm/Hyprland/v0.39.1";
+      url = "github:hyprwm/Hyprland/v0.40.0";
       inputs.nixpkgs.follows = "nixpkgs-small";
       # or
       # url = "github:hyprwm/Hyprland";
@@ -67,7 +62,7 @@
     };
 
     hyprscroller = {
-      url = "github:npc-z/hyprscroller/feat/flake-support";
+      url = "github:dawsers/hyprscroller";
       inputs.hyprland.follows = "hyprland";
     };
 

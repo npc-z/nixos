@@ -67,8 +67,7 @@
     # formatter for nix
     alejandra
     # make dev env
-    devbox
-    inputs.devenv.packages.${pkgs.system}.devenv
+    devenv
 
     dbeaver
     just # 提供一种保存和运行项目特有命令的便捷方式
