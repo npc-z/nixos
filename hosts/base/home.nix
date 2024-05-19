@@ -13,9 +13,9 @@
   # add environment variables
   home.sessionVariables = {
     # set default applications
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    BROWSER = "microsoft-edge";
+    # EDITOR = "nvim";
+    # VISUAL = "nvim";
+    # BROWSER = "microsoft-edge";
     TERMINAL = "foot";
 
     # enable scrolling in git diff
