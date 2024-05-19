@@ -3,7 +3,8 @@
   pkgs,
   ...
 }: {
-  environment.variables.EDITOR = "vim";
+  environment.variables.EDITOR = "nvim";
+  environment.variables.BROWSER = "microsoft-edge";
 
   # MUSIC=...
   # PICTURES=...
