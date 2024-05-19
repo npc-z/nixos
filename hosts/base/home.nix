@@ -31,6 +31,8 @@
     ./../../user/vscode
     ./../../user/theme
     ./../../user/hyprland
+
+    ./../../user/appimage
   ];
 
   # 递归将某个文件夹中的文件，链接到 Home 目录下的指定位置
