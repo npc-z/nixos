@@ -30,6 +30,7 @@
       ./../../system/nix-ld.nix
       ./../../system/swaylock.nix
       ./../../system/keyd.nix
+      ./../../system/patched-feishu.nix
     ]
     # 通过 lib.optionals 来决定是否导入（启用）
     ++ (lib.optionals settings.module.nur.enable [./../../nur])
