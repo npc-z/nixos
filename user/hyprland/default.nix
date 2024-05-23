@@ -41,7 +41,7 @@ in {
       # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
 
       # third-party plugins
-      inputs.hycov.packages.${pkgs.system}.hycov
+      # inputs.hycov.packages.${pkgs.system}.hycov
       inputs.hyprscroller.packages.${pkgs.system}.hyprscroller
 
       # inputs.hyprland-easymotion.packages.${pkgs.system}.hypreasymotion
