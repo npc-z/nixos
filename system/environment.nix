@@ -123,5 +123,7 @@
     qq
     wechat-uos # need override license, use overlay or use nur version
     libreoffice
+    rustdesk
+    rustdesk-flutter
   ];
 }
