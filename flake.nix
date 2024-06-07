@@ -2,12 +2,9 @@
   description = "npc's NixOS Flake";
 
   inputs = {
-    # NixOS 官方软件源，这里使用 nixos-23.11 分支
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
-
     # Official NixOS package source, using nixos's unstable branch by default
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
@@ -25,7 +22,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # 引入 nixos-cn flake 作为 inputs
     nixos-cn = {
       url = "github:nixos-cn/flakes";
       # 强制 nixos-cn 和该 flake 使用相同版本的 nixpkgs
