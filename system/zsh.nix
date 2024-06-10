@@ -29,6 +29,13 @@ in {
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 
         # export NIX_LD=$(nix eval --impure --raw --expr 'let pkgs = import <nixpkgs> {}; NIX_LD = pkgs.lib.fileContents "${pkgs.stdenv.cc}/nix-support/dynamic-linker"; in NIX_LD')
+
+        # https://wiki.hyprland.org/0.40.0/Configuring/Uncommon-tips--tricks/#minimize-steam-instead-of-killing
+        # if [ "$(hyprctl activewindow -j | jq -r ".class")" = "Steam" ]; then
+        #     xdotool getactivewindow windowunmap
+        # else
+        #     hyprctl dispatch killactive ""
+        # fi
       '';
       shellAliases = {
         "vim" = "nvim";
