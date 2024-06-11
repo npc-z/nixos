@@ -49,6 +49,7 @@ stow:
     -R keyd \
     -R kitty \
     -R lazygit \
+    -R neofetch \
     -R swaync \
     -R swaylock \
     -R wallpapers \
