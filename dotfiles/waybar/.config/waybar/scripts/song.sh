@@ -2,17 +2,37 @@ jsonPath="$HOME/.cache/netease-cloud-music/StorageCache/webdata/file/queue"
 playerName="netease-cloud-music"
 playerShell="playerctl --player=$playerName"
 lyricsPath="$HOME/.config/waybar/scripts/lyrics.lrc"
+envPath="$HOME/.config/waybar/scripts/.env"
+
+SHOW_LYRICS_AT_BAR=true
 
 while [ true ]; do
 	sleep 1s
+
+    # 检查.env文件是否存在
+    if [ -f $envPath ]; then
+        # 检查变量a是否在.env文件中定义
+        if grep -q "^SHOW_LYRICS_AT_BAR=" $envPath; then
+            # 导入.env文件
+            source $envPath
+        fi
+    fi
+
+    if [ "$SHOW_LYRICS_AT_BAR" = false ]; then
+        echo ""
+        sleep 10s
+        continue
+    fi
+
 	# 音乐播放器当前状态
 	status=$($playerShell status)
 	if [ "$status" != "Playing" ]; then
 		# 非播放状态时, 不显示歌词条
 		echo ""
-	    sleep 10s
+        sleep 10s
 		continue
 	fi
+
 	# 歌曲标题
 	title=$($playerShell metadata title)
 	if [ -n "$title" ]; then
