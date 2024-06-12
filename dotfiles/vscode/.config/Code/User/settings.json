@@ -306,11 +306,15 @@
   "sql-formatter.uppercase": true,
   "sql-formatter.linesBetweenQueries": 4,
   "notebook.lineNumbers": "on",
-  // "scm.inputFontSize": 20,
-  // "terminal.integrated.fontSize": 18,
-  // "editor.minimap.sectionHeaderFontSize": 16,
-  // "debug.console.fontSize": 20,
-  // "workbench.tree.indent": 16,
-  "window.zoomLevel": 2,
-  "editor.cursorBlinking": "smooth"
+  "editor.cursorBlinking": "smooth",
+  "markdown-preview-enhanced.revealjsTheme": "moon.css",
+  "markdown-preview-enhanced.codeBlockTheme": "vue.css",
+  "baidu.comate.linePreferMode": "auto",
+  "codeium.enableConfig": {
+    "*": true,
+    "markdown": true,
+    "http": true,
+    "plaintext": true
+  },
+  "codeium.enableCodeLens": false
 }
