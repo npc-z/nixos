@@ -347,5 +347,13 @@
   "notebook.lineNumbers": "on",
   "editor.cursorBlinking": "smooth",
   "markdown-preview-enhanced.revealjsTheme": "moon.css",
-  "markdown-preview-enhanced.codeBlockTheme": "vue.css"
+  "markdown-preview-enhanced.codeBlockTheme": "vue.css",
+  "baidu.comate.linePreferMode": "auto",
+  "codeium.enableConfig": {
+    "*": true,
+    "markdown": true,
+    "http": true,
+    "plaintext": true
+  },
+  "codeium.enableCodeLens": false
 }
