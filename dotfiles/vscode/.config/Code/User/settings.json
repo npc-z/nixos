@@ -355,5 +355,7 @@
     "http": true,
     "plaintext": true
   },
-  "codeium.enableCodeLens": false
+  "codeium.enableCodeLens": false,
+  "extensions.autoCheckUpdates": false,
+  "python.terminal.activateEnvironment": false
 }
