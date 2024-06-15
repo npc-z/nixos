@@ -11,7 +11,7 @@
 
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    # nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
     # home-manager，用于管理用户配置
     home-manager = {
@@ -44,7 +44,6 @@
     # hyprland env
     hyprland = {
       url = "github:hyprwm/Hyprland/v0.40.0";
-      inputs.nixpkgs.follows = "nixpkgs-small";
       # or
       # url = "github:hyprwm/Hyprland";
     };
@@ -59,15 +58,15 @@
     #   inputs.hyprland.follows = "hyprland";
     # };
 
-    hycov = {
-      url = "github:DreamMaoMao/hycov";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hyprscroller = {
-      url = "github:dawsers/hyprscroller";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hycov = {
+    #   url = "github:DreamMaoMao/hycov";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    #
+    # hyprscroller = {
+    #   url = "github:dawsers/hyprscroller";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
     # Hyprspace = {
     #   url = "github:KZDKM/Hyprspace";
