@@ -53,6 +53,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.npc = import ./${hostDir}/home.nix;
           home-manager.extraSpecialArgs = specialArgs;
+          home-manager.backupFileExtension = "backup";
         }
       ];
     };
