@@ -120,7 +120,8 @@
     networkmanagerapplet
     v2raya
     # (pkgs.callPackage ./../nur/osdlyrics/default.nix {})
-    feishu
+    # feishu
+    pkgs.unstable-feihsu.feishu
     qq
     wechat-uos # need override license, use overlay or use nur version
   ];

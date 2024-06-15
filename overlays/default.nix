@@ -15,6 +15,13 @@
       };
     })
 
+    (final: _prev: {
+      unstable-feihsu = import inputs.nixpkgs-feishu {
+        system = final.system;
+        config.allowUnfree = true;
+      };
+    })
+
     (import ./weixin)
 
     # =============================================================
