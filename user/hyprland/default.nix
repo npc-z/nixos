@@ -19,11 +19,17 @@ in {
     };
   };
 
+  config.home.packages = with pkgs; [
+    wayland-protocols
+    wayland-utils
+  ];
+
   # maybe i have to reconfig xdg
   config.xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
     ];
     config.common.default = "*";
   };

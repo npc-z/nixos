@@ -38,17 +38,10 @@
     stylua
     lua-language-server
 
-    # TODO 以下两行尝试解决不能弹出 dialog(没能解决)
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-hyprland
     polkit
     swaynotificationcenter
     libnotify # notify-send
     xdg-user-dirs
-
-    wayland-protocols
-    wayland-utils
-    # =====
 
     lsof
     fd
