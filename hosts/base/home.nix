@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   settings,
   ...
@@ -9,6 +10,61 @@
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
+
+  xdg = {
+    enable = true;
+
+    cacheHome = "${config.home.homeDirectory}/.cache";
+    configHome = "${config.home.homeDirectory}/.config";
+    dataHome = "${config.home.homeDirectory}/.local/share";
+    stateHome = "${config.home.homeDirectory}/.local/state";
+
+    mimeApps = {
+      enable = true;
+      # /etc/profiles/per-user/npc/share/applications
+      # /run/current-system/sw/share/applications
+      defaultApplications = let
+        browser = ["microsoft-edge.desktop" "firefox.desktop"];
+        editor = ["nvim.desktop" "code.desktop"];
+      in {
+        "application/json" = browser;
+        "application/pdf" = "org.pwmt.zathura.desktop";
+
+        "text/plain" = editor;
+        "text/html" = browser;
+        "text/xml" = browser;
+
+        "application/xml" = browser;
+        "application/xhtml+xml" = browser;
+        "application/xhtml_xml" = browser;
+        "application/rdf+xml" = browser;
+        "application/rss+xml" = browser;
+        "application/x-extension-htm" = browser;
+        "application/x-extension-html" = browser;
+        "application/x-extension-shtml" = browser;
+        "application/x-extension-xht" = browser;
+        "application/x-extension-xhtml" = browser;
+        "application/x-wine-extension-ini" = editor;
+
+        "x-scheme-handler/about" = browser; # open `about:` url with `browser`
+        "x-scheme-handler/ftp" = browser; # open `ftp:` url with `browser`
+        "x-scheme-handler/http" = browser;
+        "x-scheme-handler/https" = browser;
+
+        "audio/*" = ["mpv.desktop"];
+        "video/*" = ["mpv.desktop"];
+
+        "image/*" = ["imv-dir.desktop"];
+        "image/gif" = ["imv-dir.desktop"];
+        "image/jpeg" = ["imv-dir.desktop"];
+        "image/png" = ["imv-dir.desktop"];
+        "image/webp" = ["imv-dir.desktop"];
+
+        "x-scheme-handler/vscode" = ["code-url-handler.desktop"]; # open `vscode://` url with `code-url-handler.desktop`
+        "x-scheme-handler/tg" = ["org.telegram.desktop.desktop "];
+      };
+    };
+  };
 
   # add environment variables
   home.sessionVariables = {
@@ -63,7 +119,19 @@
     # mitschemeX11
     telegram-desktop
     swaynotificationcenter
+
+    # terminal
     alacritty
+    kitty
+    foot
+
+    # file manager
+    cinnamon.nemo
+    # xfce.thunar
+
+    # web browser
+    microsoft-edge
+    firefox
   ];
 
   programs = {

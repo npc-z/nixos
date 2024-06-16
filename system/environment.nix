@@ -4,7 +4,6 @@
   ...
 }: {
   environment.variables.EDITOR = "nvim";
-  environment.variables.BROWSER = "microsoft-edge";
 
   # MUSIC=...
   # PICTURES=...
@@ -80,10 +79,7 @@
     wl-clipboard
     clipse
     # tools
-    kitty
-    foot
     thefuck
-    cinnamon.nemo
     glow
 
     tldr
@@ -100,7 +96,6 @@
     keyd
     stow
     # desktop
-    microsoft-edge
     swaybg
     wofi
     wlogout
