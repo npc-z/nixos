@@ -87,6 +87,7 @@
     ./../../user/vscode
     ./../../user/theme
     ./../../user/hyprland
+    ./../../user/dwm
 
     ./../../user/appimage
   ];
