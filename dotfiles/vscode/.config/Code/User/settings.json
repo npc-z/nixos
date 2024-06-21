@@ -357,5 +357,9 @@
   },
   "codeium.enableCodeLens": false,
   "extensions.autoCheckUpdates": false,
-  "python.terminal.activateEnvironment": false
+  "python.terminal.activateEnvironment": false,
+  "comments.visible": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
