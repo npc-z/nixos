@@ -316,5 +316,10 @@
     "http": true,
     "plaintext": true
   },
-  "codeium.enableCodeLens": false
+  "codeium.enableCodeLens": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "extensions.autoCheckUpdates": false,
+  "comments.visible": false
 }
