@@ -3,11 +3,7 @@
 
   inputs = {
     # Official NixOS package source, using nixos's unstable branch by default
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    # this commit dont broke screen share
-    nixpkgs.url = "github:nixos/nixpkgs?rev=5710852ba686cc1fd0d3b8e22b3117d43ba374c2";
-    nixpkgs-feishu.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -16,9 +12,7 @@
     # home-manager，用于管理用户配置
     home-manager = {
       # url = "github:nix-community/home-manager/release-23.11";
-      # url = "github:nix-community/home-manager/master";
-      # match the nixpkgs
-      url = "github:nix-community/home-manager?rev=850cb322046ef1a268449cf1ceda5fd24d930b05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
