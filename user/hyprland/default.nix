@@ -9,6 +9,8 @@ with lib; let
   cfg = config.hypr.settings;
 in {
   options.hypr.settings = {
+    enable = mkEnableOption "enable hyprland";
+
     host = mkOption {
       default = "r9000p";
       example = "r9000p";
@@ -19,47 +21,49 @@ in {
     };
   };
 
-  config.home.packages = with pkgs; [
-    wayland-protocols
-    wayland-utils
-  ];
-
-  # maybe i have to reconfig xdg
-  config.xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-    ];
-    config.common.default = "*";
-  };
-
-  config.wayland.windowManager.hyprland = {
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    enable = true;
-    xwayland.enable = true;
-    systemd.enable = true;
-    systemd.variables = ["--all"];
-
-    plugins = [
-      # official plugins
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-
-      # third-party plugins
-      # inputs.hycov.packages.${pkgs.system}.hycov
-      # inputs.hyprscroller.packages.${pkgs.system}.hyprscroller
-
-      # inputs.hyprland-easymotion.packages.${pkgs.system}.hypreasymotion
-      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+  config = mkIf cfg.enable {
+    home.packages = with pkgs; [
+      wayland-protocols
+      wayland-utils
     ];
 
-    extraConfig = ''
-      source = ~/.config/hypr/base.conf
+    # maybe i have to reconfig xdg
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+      ];
+      config.common.default = "*";
+    };
 
-      # host-based config
-      source = ~/.config/hypr/hosts/${cfg.host}.conf
+    wayland.windowManager.hyprland = {
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      enable = true;
+      xwayland.enable = true;
+      systemd.enable = true;
+      systemd.variables = ["--all"];
 
-    '';
+      plugins = [
+        # official plugins
+        # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+        # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+
+        # third-party plugins
+        # inputs.hycov.packages.${pkgs.system}.hycov
+        # inputs.hyprscroller.packages.${pkgs.system}.hyprscroller
+
+        # inputs.hyprland-easymotion.packages.${pkgs.system}.hypreasymotion
+        # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      ];
+
+      extraConfig = ''
+        source = ~/.config/hypr/base.conf
+
+        # host-based config
+        source = ~/.config/hypr/hosts/${cfg.host}.conf
+
+      '';
+    };
   };
 }
