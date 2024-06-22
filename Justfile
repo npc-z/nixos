@@ -18,9 +18,9 @@ debug:
 up:
   nix flake update
 
-# Update specific input. Usage: make upp i=home-manager
-upp:
-  nix flake lock --update-input $(i)
+# Update specific input. Usage: just upp home-manager
+upp input:
+  nix flake lock --update-input {{input}}
 
 # history of profile
 history:
