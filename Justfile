@@ -50,6 +50,7 @@ stow:
     -R kitty \
     -R lazygit \
     -R neofetch \
+    -R rofi \
     -R swaync \
     -R swaylock \
     -R wallpapers \
