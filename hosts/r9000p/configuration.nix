@@ -6,7 +6,15 @@
     ./../../system/laptop
   ];
 
-  networking = {
-    hostName = "r9000p-nixos";
+  config = {
+    networking = {
+      hostName = "r9000p-nixos";
+    };
+  };
+
+  # for dwm config
+  config.dwm.settings = {
+    enable = true;
+    enable_startx = true;
   };
 }

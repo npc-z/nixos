@@ -41,6 +41,13 @@
       inherit specialArgs;
 
       modules = [
+        {
+          nixpkgs.overlays = [
+            inputs.dwm.overlays.default
+            # inputs.picom.overlays.default
+          ];
+        }
+
         # 基础配置
         ./base/configuration.nix
 

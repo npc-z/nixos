@@ -35,6 +35,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # 当然也可以直接依赖本地的 git 仓库
+    dwm.url = "github:npc-z/dwm";
+    # dwm.url = "git+file:/home/npc/github/dwm?shallow=1";
+    # picom.url = "git+file:/home/npc/github/picom?shallow=1";
+    # picom.url = "github:yshui/picom";
+
+    # mydwm
+    # dwm.url = "git+file:/home/npc/mydwm?shallow=1";
+    # picom.url = "github:DreamMaoMao/mypicom";
+
     # hyprland env
     hyprland = {
       url = "github:hyprwm/Hyprland/v0.40.0";
