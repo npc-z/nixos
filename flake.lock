@@ -129,6 +129,32 @@
         "type": "github"
       }
     },
+    "hyprland-plugins": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ],
+        "systems": [
+          "hyprland-plugins",
+          "hyprland",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1714862850,
+        "narHash": "sha256-j1DPSl7FMy3JeWpmzXxcmZhxXbIOfteTozSfqtZ7KBQ=",
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
+        "rev": "fd133914bf1921db2a26627698f914478f6a9471",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprwm",
+        "repo": "hyprland-plugins",
+        "rev": "fd133914bf1921db2a26627698f914478f6a9471",
+        "type": "github"
+      }
+    },
     "hyprland-protocols": {
       "inputs": {
         "nixpkgs": [
@@ -386,6 +412,7 @@
         "deploy-rs": "deploy-rs",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "hyprland-plugins": "hyprland-plugins",
         "hyprlock": "hyprlock",
         "nixos-cn": "nixos-cn",
         "nixpkgs": "nixpkgs_2",
