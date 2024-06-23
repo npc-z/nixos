@@ -51,6 +51,7 @@ stow:
     -R lazygit \
     -R neofetch \
     -R rofi \
+    -R ssh \
     -R swaync \
     -R swaylock \
     -R wallpapers \
