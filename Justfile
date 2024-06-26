@@ -44,6 +44,7 @@ stow:
     cd ./dotfiles && \
     stow -t $HOME \
     -R alacritty \
+    -R clipse \
     -R foot \
     -R hypr \
     -R keyd \
