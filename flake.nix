@@ -71,10 +71,11 @@
     #   inputs.hyprland.follows = "hyprland";
     # };
     #
-    # hyprscroller = {
-    #   url = "github:dawsers/hyprscroller";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    hyprscroller = {
+      # work with hyprland v0.40.0
+      url = "github:dawsers/hyprscroller/5f3d0d7848afc581dda4ab20c7edb12e2e82d208";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     # Hyprspace = {
     #   url = "github:KZDKM/Hyprspace";

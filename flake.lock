@@ -291,6 +291,27 @@
         "type": "github"
       }
     },
+    "hyprscroller": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ]
+      },
+      "locked": {
+        "lastModified": 1718122616,
+        "narHash": "sha256-abmDCjxpE4D/FmS1jqp0BdDyTfUtIDvVnLMiKK5RW84=",
+        "owner": "dawsers",
+        "repo": "hyprscroller",
+        "rev": "5f3d0d7848afc581dda4ab20c7edb12e2e82d208",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dawsers",
+        "repo": "hyprscroller",
+        "rev": "5f3d0d7848afc581dda4ab20c7edb12e2e82d208",
+        "type": "github"
+      }
+    },
     "hyprutils": {
       "inputs": {
         "nixpkgs": [
@@ -464,6 +485,7 @@
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
         "hyprlock": "hyprlock",
+        "hyprscroller": "hyprscroller",
         "nixos-cn": "nixos-cn",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": "nixpkgs-stable",
