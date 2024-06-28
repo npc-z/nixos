@@ -64,3 +64,5 @@ stow:
     -R wofi \
     -R zathura
 
+    # dont need this in nixos
+    rm ~/default.conf
