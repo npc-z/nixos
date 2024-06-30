@@ -45,6 +45,7 @@ stow:
     stow -t $HOME \
     -R alacritty \
     -R clipse \
+    -R dwm \
     -R foot \
     -R hypr \
     -R keyd \
