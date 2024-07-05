@@ -6,7 +6,13 @@
     ./../../system/laptop
   ];
 
-  networking = {
+  config.networking = {
     hostName = "thinkpad-e14-nixos";
+  };
+
+  # for dwm config
+  config.dwm.settings = {
+    enable = true;
+    enable_startx = true;
   };
 }
