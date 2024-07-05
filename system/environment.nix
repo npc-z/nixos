@@ -59,6 +59,7 @@
     # 截图
     grim
     slurp
+    swappy # Wayland native snapshot editing tool
 
     # formatter for nix
     alejandra

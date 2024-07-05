@@ -57,6 +57,7 @@ stow:
     -R swaync \
     -R swaylock \
     -R wallpapers \
+    -R swappy \
     -R waybar \
     -R vim \
     -R vscode \
