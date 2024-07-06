@@ -113,6 +113,8 @@
     feishu
     qq
     wechat-uos # need override license, use overlay or use nur version
+    yesplaymusic
+
     libreoffice
     rustdesk
     rustdesk-flutter

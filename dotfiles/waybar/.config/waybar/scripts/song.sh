@@ -1,10 +1,16 @@
 jsonPath="$HOME/.cache/netease-cloud-music/StorageCache/webdata/file/queue"
-playerName="netease-cloud-music"
+playerName="netease-cloud-music,yesplaymusic"
 playerShell="playerctl --player=$playerName"
-lyricsPath="$HOME/.config/waybar/scripts/lyrics.lrc"
+# lyricsPath="$HOME/.config/waybar/scripts/lyrics.lrc"
 envPath="$HOME/.config/waybar/scripts/.env"
 
 SHOW_LYRICS_AT_BAR=true
+
+albumCachePath="${HOME}/.cache/album"
+mkdir -p $albumCachePath
+
+lyricsPath="${HOME}/.cache/waybar-lyrics.lrc"
+touch $lyricsPath
 
 while [ true ]; do
 	sleep 1s
@@ -48,8 +54,24 @@ while [ true ]; do
 			artist=$($playerShell metadata artist)
 			# 专辑名称C8FFE0
 			album=$($playerShell metadata album)
-			# 歌曲本地图片
-			icon=$($playerShell metadata mpris:artUrl)
+			# 歌曲图片
+			iconPath=$($playerShell metadata mpris:artUrl)
+            # echo $iconPath
+            # 判断是否以 "http" 开头
+            if [[ $iconPath == http* ]]; then
+                filename=$(basename "${iconPath%%\?*}") # 提取 URL 的路径部分，并去掉问号及其后面的内容
+                title_="${title// /-}" # 歌曲名中空格替换为 `-`
+                localIcon="${albumCachePath}/${title_}-${filename}"
+                icon="file://${localIcon}"
+                if ! [ -f "${localIcon}" ]; then
+                    wget -O "${localIcon}" "$iconPath"
+                fi
+            elif [[ ${iconPath} == file* ]]; then
+                # 本地文件
+                icon=${iconPath}
+            else
+                icon=""
+            fi
 			# 弹出提示框
 			# dunstify -h string:x-dunst-stack-tag:music "$title-$artist" $album -t 5000 --icon $icon
 			notify-send -h string:x-dunst-stack-tag:music "$title-$artist" $album -t 5000 --icon $icon
