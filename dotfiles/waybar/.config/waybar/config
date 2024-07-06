@@ -60,6 +60,8 @@
         "icon-size": 26,
         "icon-theme": "Numix-Circle",
         "tooltip-format": "{title}",
+        // https://github.com/Alexays/Waybar/issues/3284
+        // maybe fixed at hyprland v0.41.2
         "on-click": "activate",
         "on-click-middle": "",
         "ignore-list": [

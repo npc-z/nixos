@@ -7,10 +7,10 @@ envPath="$HOME/.config/waybar/scripts/.env"
 SHOW_LYRICS_AT_BAR=true
 
 albumCachePath="${HOME}/.cache/album"
-mkdir -p $albumCachePath
+test -d $albumCachePath || mkdir -p $albumCachePath
 
 lyricsPath="${HOME}/.cache/waybar-lyrics.lrc"
-touch $lyricsPath
+test -f $lyricsPath || touch $lyricsPath
 
 while [ true ]; do
 	sleep 1s
