@@ -75,7 +75,6 @@
     lazygit
     delta
     vim
-    neovim
     curl
     wget
     jq

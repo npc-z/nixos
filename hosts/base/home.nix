@@ -84,6 +84,7 @@
   imports = [
     ./../../user/bash
     ./../../user/fcitx5
+    ./../../user/neovim
     ./../../user/vscode
     ./../../user/theme
     ./../../user/hyprland
