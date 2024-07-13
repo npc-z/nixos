@@ -73,7 +73,11 @@
     wl-clipboard
     clipse
     # tools
-    thefuck
+
+    # NOTE: build thefuck error: ModuleNotFoundError: No module named 'imp'
+    # Use python 3.11. imp is deprecated and is turned into importlib in 3.12.
+    # thefuck
+
     glow
 
     tldr

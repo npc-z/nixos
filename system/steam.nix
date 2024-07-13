@@ -25,11 +25,11 @@ in {
   };
 
   # misc
-  hardware.opengl = {
+  hardware.graphics = {
     package = hypr-pkgs.mesa.drivers;
 
     # if you also want 32-bit support (e.g for Steam)
-    driSupport32Bit = true;
+    enable32Bit = true;
     package32 = hypr-pkgs.pkgsi686Linux.mesa.drivers;
   };
 }
