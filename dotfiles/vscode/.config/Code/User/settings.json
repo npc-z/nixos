@@ -88,6 +88,7 @@
   "editor.rulers": [88, 120],
   "editor.fontSize": 16,
   "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', Consolas, 'Courier New', monospace",
+  "vim.flash.enable": true,
   "vim.commandLineModeKeyBindings": [],
   // vim config
   "vim.useCtrlKeys": false,
