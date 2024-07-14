@@ -25,11 +25,13 @@ in {
   };
 
   # misc
-  hardware.graphics = {
-    package = hypr-pkgs.mesa.drivers;
-
-    # if you also want 32-bit support (e.g for Steam)
-    enable32Bit = true;
-    package32 = hypr-pkgs.pkgsi686Linux.mesa.drivers;
-  };
+  # hardware.opengl -> hardware.graphics
+  # 更新之后导致 firefox 崩溃，网易云不能启动，没有测试 steam
+  # hardware.graphics = {
+  #   package = hypr-pkgs.mesa.drivers;
+  #
+  #   # if you also want 32-bit support (e.g for Steam)
+  #   enable32Bit = true;
+  #   package32 = hypr-pkgs.pkgsi686Linux.mesa.drivers;
+  # };
 }
