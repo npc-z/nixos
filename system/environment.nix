@@ -14,7 +14,7 @@
   # PUBLICSHARE=...
   environment.etc = {
     "xdg/user-dirs.defaults".text = ''
-      DOCUMENTS=/home/npc/Documents"
+      DOCUMENTS=/home/npc/Documents
     '';
   };
 
