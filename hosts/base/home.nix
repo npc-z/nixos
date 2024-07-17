@@ -66,6 +66,11 @@
     };
   };
 
+  # Mason works if you enable .local/bin
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
+
   # add environment variables
   home.sessionVariables = {
     # set default applications
