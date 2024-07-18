@@ -42,20 +42,20 @@
     # picom.url = "github:DreamMaoMao/mypicom";
 
     # hyprland env
-    hyprland = {
-      url = "github:hyprwm/Hyprland/v0.40.0";
-      # or
-      # url = "github:hyprwm/Hyprland";
-    };
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland/v0.40.0";
+    #   # or
+    #   # url = "github:hyprwm/Hyprland";
+    # };
 
-    hyprland-plugins = {
-      # https://github.com/hyprwm/hyprland-plugins/issues/178
-      # match hyprland v0.40.0
-      # url = "github:hyprwm/hyprland-plugins/dcbdc9a";
-      # not work well for hyprbars
-      url = "github:hyprwm/hyprland-plugins/fd133914bf1921db2a26627698f914478f6a9471";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland-plugins = {
+    #   # https://github.com/hyprwm/hyprland-plugins/issues/178
+    #   # match hyprland v0.40.0
+    #   # url = "github:hyprwm/hyprland-plugins/dcbdc9a";
+    #   # not work well for hyprbars
+    #   url = "github:hyprwm/hyprland-plugins/fd133914bf1921db2a26627698f914478f6a9471";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
     # hyprland-easymotion = {
     #   url = "github:DreamMaoMao/hyprland-easymotion";
@@ -67,11 +67,11 @@
     #   inputs.hyprland.follows = "hyprland";
     # };
     #
-    hyprscroller = {
-      # work with hyprland v0.40.0
-      url = "github:dawsers/hyprscroller/5f3d0d7848afc581dda4ab20c7edb12e2e82d208";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprscroller = {
+    #   # work with hyprland v0.40.0
+    #   url = "github:dawsers/hyprscroller/5f3d0d7848afc581dda4ab20c7edb12e2e82d208";
+    #   # inputs.hyprland.follows = "nixpkgs";
+    # };
 
     # Hyprspace = {
     #   url = "github:KZDKM/Hyprspace";
