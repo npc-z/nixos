@@ -13,6 +13,6 @@
   # for dwm config
   config.dwm.settings = {
     enable = true;
-    enable_startx = true;
+    enable_startx = false;
   };
 }

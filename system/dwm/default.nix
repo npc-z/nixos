@@ -36,6 +36,10 @@ in {
 
       # Window switcher, run dialog and dmenu replacement
       rofi
+      # looking lockscreen for linux systems
+      # betterlockscreen
+      i3lock
+      # dunst
 
       numlockx
       # 电池电量
