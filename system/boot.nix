@@ -20,12 +20,15 @@
       # boot.loader.systemd-boot.configurationLimit = 10;
       configurationLimit = 10;
       efiSupport = true;
-      extraEntries = ''
-        menuentry "Windows" {
-            search --file --no-floppy --set=root /EFI/Microsoft/Boot/bootmgfw.efi
-                chainloader (''${root})/EFI/Microsoft/Boot/bootmgfw.efi
-        }
-      '';
+      useOSProber = true;
+      # 使用 OSProber 代替手动设置 extraEntries
+      # 否侧 default = saved 设置项不起作用
+      # extraEntries = ''
+      #   menuentry "Windows" {
+      #       search --file --no-floppy --set=root /EFI/Microsoft/Boot/bootmgfw.efi
+      #           chainloader (''${root})/EFI/Microsoft/Boot/bootmgfw.efi
+      #   }
+      # '';
     };
     efi = {
       canTouchEfiVariables = true;
