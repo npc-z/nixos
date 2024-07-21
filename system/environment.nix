@@ -106,6 +106,8 @@
     pamixer
     brightnessctl
     pavucontrol # PulseAudio Volume Control
+    # email
+    thunderbird
     #
     networkmanagerapplet
     v2raya
