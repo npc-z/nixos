@@ -29,15 +29,9 @@
     python311Packages.pip
     python311Packages.isort
     python311Packages.black
-    go
-    nodejs_20
-    cargo
     gnumake
     gcc9
     cmake
-    # lua
-    stylua
-    lua-language-server
 
     polkit
     swaynotificationcenter
@@ -61,8 +55,6 @@
     slurp
     swappy # Wayland native snapshot editing tool
 
-    # formatter for nix
-    alejandra
     # make dev env
     devenv
 
