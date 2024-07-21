@@ -30,6 +30,7 @@
       ./../../system/nix-ld.nix
       ./../../system/swaylock.nix
       ./../../system/keyd.nix
+      ./../../system/eudic.nix
 
       # DE
       ./../../system/dwm
