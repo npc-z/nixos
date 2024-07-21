@@ -17,11 +17,7 @@
     };
 
     # 添加 NUR 仓库
-    nur = {
-      url = "github:nix-community/NUR";
-      # 强制 NUR 和该 flake 使用相同版本的 nixpkgs
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nur.url = "github:nix-community/NUR";
 
     nixos-cn = {
       url = "github:nixos-cn/flakes";
