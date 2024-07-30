@@ -323,5 +323,8 @@
   "comments.visible": false,
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.fontLigatures": true,
 }

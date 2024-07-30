@@ -22,7 +22,7 @@ exec_once() {
 	pkill -f xdg-desktop-portal-hyprland
 	pkill -f xdg-desktop-portal-gnome
 
-	# echo "Xft.dpi: 140" | xrdb -merge                      #dpi缩放
+	echo "Xft.dpi: 96" | xrdb -merge                      #dpi缩放
 	# fcitx &
 
 	systemctl --user unmask xdg-desktop-portal-gnome
