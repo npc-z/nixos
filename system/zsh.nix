@@ -9,6 +9,7 @@ in {
     zsh-fzf-tab
     bat # A cat(1) clone with syntax highlighting and Git integration
     # zinit # zsh plugin mamanger
+    thefuck
   ];
   programs = {
     # A command-line fuzzy finder

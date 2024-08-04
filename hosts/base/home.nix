@@ -132,7 +132,7 @@
     foot
 
     # file manager
-    cinnamon.nemo
+    nemo
     # xfce.thunar
 
     # web browser
