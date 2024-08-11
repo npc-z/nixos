@@ -56,22 +56,22 @@ while [ true ]; do
 			album=$($playerShell metadata album)
 			# 歌曲图片
 			iconPath=$($playerShell metadata mpris:artUrl)
-            # echo $iconPath
-            # 判断是否以 "http" 开头
-            if [[ $iconPath == http* ]]; then
-                filename=$(basename "${iconPath%%\?*}") # 提取 URL 的路径部分，并去掉问号及其后面的内容
-                title_="${title// /-}" # 歌曲名中空格替换为 `-`
-                localIcon="${albumCachePath}/${title_}-${filename}"
-                icon="file://${localIcon}"
-                if ! [ -f "${localIcon}" ]; then
-                    wget -O "${localIcon}" "$iconPath"
-                fi
-            elif [[ ${iconPath} == file* ]]; then
-                # 本地文件
-                icon=${iconPath}
-            else
-                icon=""
-            fi
+        # echo $iconPath
+        # 判断是否以 "http" 开头
+        if [[ $iconPath == http* ]]; then
+          filename=$(basename "${iconPath%%\?*}") # 提取 URL 的路径部分，并去掉问号及其后面的内容
+          title_="${title// /-}" # 歌曲名中空格替换为 `-`
+          localIcon="${albumCachePath}/${title_}-${filename}"
+          icon="file://${localIcon}"
+          if ! [ -f "${localIcon}" ]; then
+              wget -o /dev/null -O "${localIcon}" "$iconPath"
+          fi
+        elif [[ ${iconPath} == file* ]]; then
+          # 本地文件
+          icon=${iconPath}
+        else
+          icon=""
+        fi
 			# 弹出提示框
 			# dunstify -h string:x-dunst-stack-tag:music "$title-$artist" $album -t 5000 --icon $icon
 			notify-send -h string:x-dunst-stack-tag:music "$title-$artist" $album -t 5000 --icon $icon
