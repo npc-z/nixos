@@ -18,6 +18,14 @@
 
   users.users.${settings.user.username}.extraGroups = ["libvirtd"];
 
+  # fix 网络问题
+  # https://www.reddit.com/r/NixOS/comments/18qtsoz/comment/kez0f1b/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_buttong
+  networking.firewall.trustedInterfaces = [
+    # find these names by cmd `ifconfig`
+    "virbr0"
+    "virbr1"
+  ];
+
   environment.systemPackages = with pkgs; [
     spice
     spice-gtk
