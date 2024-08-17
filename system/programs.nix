@@ -4,10 +4,10 @@
   ...
 }: {
   programs = {
-    direnv = {
-      enable = true;
-      silent = true;
-    };
+    # direnv = {
+    #   enable = true;
+    #   silent = true;
+    # };
     hyprland = {
       enable = true;
       # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
