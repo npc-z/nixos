@@ -8,7 +8,8 @@ ignore-empty-password
 # datestr=%a, %e of %B
 
 indicator-caps-lock
-image=~/.config/wallpapers/sunset-illustration-6000x4000-12659.jpg
+# image=~/.config/wallpapers/sunset-illustration-6000x4000-12659.jpg
+image=~/.config/wallpapers/水彩年华.jpg
 
 scaling=fill
 font=monospace term
