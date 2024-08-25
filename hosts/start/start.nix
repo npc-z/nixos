@@ -12,12 +12,15 @@
       enable = true;
       device = "nodev";
       efiSupport = true;
-      extraEntries = ''
-        menuentry "Windows" {
-            search --file --no-floppy --set=root /EFI/Microsoft/Boot/bootmgfw.efi
-                chainloader (''${root})/EFI/Microsoft/Boot/bootmgfw.efi
-        }
-      '';
+      useOSProber = true;
+      # use OSProber instead of set extraEntries,
+      # or the  default = saved option dont work
+      # extraEntries = ''
+      #   menuentry "Windows" {
+      #       search --file --no-floppy --set=root /EFI/Microsoft/Boot/bootmgfw.efi
+      #           chainloader (''${root})/EFI/Microsoft/Boot/bootmgfw.efi
+      #   }
+      # '';
     };
     efi = {
       canTouchEfiVariables = true;
@@ -26,6 +29,7 @@
   };
 
   networking = {
+    # NOTE: update hostName
     hostName = "r9000p-nixos";
     networkmanager.enable = true;
   };
@@ -34,7 +38,9 @@
   time.timeZone = "Asia/Shanghai";
 
   # Enable sound.
-  sound.enable = true;
+  # NOTE: this is no longer has any effect
+  # sound.enable = true;
+
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
@@ -60,7 +66,7 @@
   services = {
     openssh = {
       enable = true;
-      permitRootLogin = "yes";
+      settings.PermitRootLogin = "yes";
     };
   };
 
@@ -68,6 +74,7 @@
 
   users.users.npc = {
     isNormalUser = true;
+    hashedPassword = "$y$j9T$hzAVLzc8eIFShnzWJiye/0$Wo5QHjsi98zBMcUqlUZ8Ehe6JKcekiI/rBcWLgDCuh9";
     description = "npc";
     extraGroups = [
       "networkmanager"
