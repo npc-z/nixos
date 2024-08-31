@@ -3,6 +3,7 @@
     "position": "top",
 
     "modules-left": [
+        "custom/arch",
         "hyprland/workspaces",
         "custom/lyric",
         "hyprland/window",
