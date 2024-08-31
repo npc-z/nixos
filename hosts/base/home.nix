@@ -133,6 +133,9 @@
 
     # file manager
     nemo
+    spacedrive
+    # terminal file manager
+    yazi
     # xfce.thunar
 
     # web browser
