@@ -53,7 +53,10 @@ in {
         # third-party plugins
         # inputs.hycov.packages.${pkgs.system}.hycov
         # inputs.hyprscroller.packages.${pkgs.system}.hyprscroller
-        pkgs.hyprlandPlugins.hyprscroller
+
+        # https://github.com/dawsers/hyprscroller/issues/43
+        # NOTE: incompatible with hyprbar now
+        # pkgs.hyprlandPlugins.hyprscroller
 
         # inputs.hyprland-easymotion.packages.${pkgs.system}.hypreasymotion
         # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
