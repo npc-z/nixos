@@ -5,7 +5,9 @@
     ./../../system/steam.nix
   ];
 
-  networking = {
-    hostName = "ser7-nixos";
+  config = {
+    networking = {
+      hostName = "ser7-nixos";
+    };
   };
 }

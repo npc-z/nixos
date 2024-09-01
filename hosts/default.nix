@@ -7,7 +7,15 @@
 
   settings = {
     # system variables
-    system = {};
+    system = {
+      host = {
+        ser7 = {
+          hypr_xorg = {
+            enable = false;
+          };
+        };
+      };
+    };
 
     # user variables
     user = {

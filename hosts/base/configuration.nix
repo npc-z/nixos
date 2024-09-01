@@ -33,9 +33,12 @@
       ./../../system/eudic.nix
 
       # DE
+      # xorg
       ./../../system/dwm
+      # ./../../system/hypr
     ]
     # 通过 lib.optionals 来决定是否导入（启用）
+    ++ (lib.optionals settings.system.host.ser7.hypr_xorg.enable [./../../system/hypr])
     ++ (lib.optionals settings.module.nur.enable [./../../nur])
     ++ (lib.optionals settings.module.nixoscn.enable [./../../nixoscn-apps]);
 
