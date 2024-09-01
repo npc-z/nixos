@@ -5,7 +5,7 @@
     "modules-left": [
         "custom/arch",
         "hyprland/workspaces",
-        "custom/lyric",
+        "wlr/taskbar",
         "hyprland/window",
     ],
 
@@ -82,14 +82,14 @@
         "rewrite": {
             // vscode open with file
             // e.g. filename - workspace name - Visual Studio Code
-            "(.*) - (.*) - Visual Studio Code": "$2",
+            // "(.*) - (.*) - Visual Studio Code": "$2",
 
             // vscode open without file
             // e.g. workspace name - Visual Studio Code
-            "(.*) - Visual Studio Code": "$1",
+            // "(.*) - Visual Studio Code": "$1",
 
             // 表示只有 Visual Studio Code 可以显示标题，其他应用显示空字符串
-            "^((?!Visual Studio Code).)*$": "",
+            // "^((?!Visual Studio Code).)*$": "",
             // 下面示例表示只有 Code 和 Edge 可以显示标题
             // "^((?!Code|Edge).)*$": "",
         },
@@ -97,7 +97,7 @@
     },
 
     "modules-center": [
-        "wlr/taskbar",
+        "custom/lyric",
     ],
 
     "modules-right": [
