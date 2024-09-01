@@ -141,6 +141,9 @@
     # web browser
     microsoft-edge
     firefox
+
+    # editor
+    helix
   ];
 
   programs = {

@@ -109,7 +109,7 @@
     yesplaymusic
 
     libreoffice
-    rustdesk
-    rustdesk-flutter
+    # NOTE: broken in unstable
+    pkgs.stable.rustdesk
   ];
 }
