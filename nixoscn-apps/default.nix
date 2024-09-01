@@ -1,8 +1,8 @@
 {inputs, ...}: {
   # 使用 nixos-cn flake 提供的包
-  # TODO trace: warning: `vendorSha256` is deprecated. Use `vendorHash` instead
   environment.systemPackages = [
-    inputs.nixos-cn.legacyPackages.x86_64-linux.netease-cloud-music
+    # NOTE: not work now
+    # inputs.nixos-cn.legacyPackages.x86_64-linux.netease-cloud-music
   ];
   # 使用 nixos-cn 的 binary cache
   # nix.settings.trusted-public-keys = [

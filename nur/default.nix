@@ -17,7 +17,7 @@
   # https://nur.nix-community.org/
   environment.systemPackages = [
     # 只能最小化退出, 仍旧使用 nixos-cn 版本
-    # nur.repos.xddxdd.netease-cloud-music
+    config.nur.repos.xddxdd.netease-cloud-music
     config.nur.repos.mic92.hello-nur
   ];
 }
