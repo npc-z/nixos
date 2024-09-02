@@ -38,7 +38,7 @@ in {
     };
 
     wayland.windowManager.hyprland = {
-      # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       enable = true;
       xwayland.enable = true;
       systemd.enable = true;
@@ -52,10 +52,8 @@ in {
 
         # third-party plugins
         # inputs.hycov.packages.${pkgs.system}.hycov
-        # inputs.hyprscroller.packages.${pkgs.system}.hyprscroller
 
-        # https://github.com/dawsers/hyprscroller/issues/43
-        # NOTE: incompatible with hyprbar now
+        inputs.hyprscroller.packages.${pkgs.system}.hyprscroller
         # pkgs.hyprlandPlugins.hyprscroller
 
         # inputs.hyprland-easymotion.packages.${pkgs.system}.hypreasymotion

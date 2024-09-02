@@ -42,11 +42,11 @@
     # picom.url = "github:DreamMaoMao/mypicom";
 
     # hyprland env
-    # hyprland = {
-    #   url = "github:hyprwm/Hyprland/v0.40.0";
-    #   # or
-    #   # url = "github:hyprwm/Hyprland";
-    # };
+    hyprland = {
+      # NOTE: hyprscroller 更新到 unstable 之后，再切换到 pkgs 版本
+      # v0.42.0
+      url = "git+https://github.com/hyprwm/Hyprland/?rev=9a09eac79b85c846e3a865a9078a3f8ff65a9259&submodules=1";
+    };
 
     # hyprland-plugins = {
     #   # https://github.com/hyprwm/hyprland-plugins/issues/178
@@ -66,12 +66,11 @@
     #   url = "github:DreamMaoMao/hycov";
     #   inputs.hyprland.follows = "hyprland";
     # };
-    #
-    # hyprscroller = {
-    #   # work with hyprland v0.40.0
-    #   url = "github:dawsers/hyprscroller/5f3d0d7848afc581dda4ab20c7edb12e2e82d208";
-    #   # inputs.hyprland.follows = "nixpkgs";
-    # };
+
+    hyprscroller = {
+      url = "github:dawsers/hyprscroller/5fe29fcbd7103782d55cfb50482c64c31189f02a";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     # Hyprspace = {
     #   url = "github:KZDKM/Hyprspace";

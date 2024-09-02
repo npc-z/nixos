@@ -6,7 +6,6 @@
         "custom/arch",
         "hyprland/workspaces",
         "wlr/taskbar",
-        "hyprland/window",
     ],
 
     "custom/arch": {
