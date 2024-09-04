@@ -290,7 +290,8 @@
     "enableInlineDocstring": false,
     "enableInlineSplit": false,
     "enableInlineComment": false,
-    "enableInlineOptimize": false
+    "enableInlineOptimize": false,
+    "enableInlineLog": false
   },
   "files.watcherExclude": {
     "**/.mypy_cache/*/**": true,
@@ -327,4 +328,8 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "editor.fontLigatures": true,
+  "baidu.comate.privateService": "",
+  "workbench.editorAssociations": {
+    "{git,gitlens}:/**/*.{md,csv,svg}": "default"
+  },
 }
