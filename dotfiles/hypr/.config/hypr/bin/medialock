@@ -11,8 +11,11 @@
 # shellcheck disable=SC1090
 source ~/.config/hypr/bin/rsum.sh
 
+lyricsPath="${HOME}/.cache/waybar-lyrics.lrc"
+test -f $lyricsPath || touch $lyricsPath
+
 function main {
-  local what="${1:?Need something do: \{hwman,artup,artdown,title,artist,album,player,elapsed\}}"
+  local what="${1:?Need something do: \{hwman,artup,artdown,title,artist,album,player,lyric,elapsed\}}"
   shift 1
 
   # Icon is the action to be made, not the status, except stop
@@ -119,6 +122,13 @@ function media-metadata-get {
       else
         printf '%s' "${METAINFO,,}"
       fi
+      ;;
+    'lyric'*)
+        curLyric=$(sed -n 2p $lyricsPath)
+        # remove the `\n` or `\r`
+        curLyric=$(echo $curLyric | sed s/\\n//g)
+        curLyric=$(echo $curLyric | sed s/\\r//g)
+        printf '%s' "${curLyric}"
       ;;
   esac
 }
