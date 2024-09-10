@@ -50,6 +50,12 @@
       url = "git+https://github.com/hyprwm/Hyprland/?rev=9a09eac79b85c846e3a865a9078a3f8ff65a9259&submodules=1";
     };
 
+    # Community scripts and utilities for Hypr projects
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # hyprland-plugins = {
     #   # https://github.com/hyprwm/hyprland-plugins/issues/178
     #   # match hyprland v0.40.0

@@ -65,6 +65,11 @@
         "on-click": "activate",
         "on-click-middle": "",
         "ignore-list": [
+            // start by hdrop with `--class xxx`, see the `binds.conf`
+            // these are app_ids
+            "kitty_i",
+            "kitty_o",
+
             "netease-cloud-music",
             "yesplaymusic",
             "wlogout",
