@@ -24,7 +24,9 @@
       wget
       curl
 
+      # sql
       vimPlugins.nvim-dbee
+      sleek
     ];
 
     plugins = with pkgs.vimPlugins; [
