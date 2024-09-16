@@ -56,8 +56,8 @@ in {
         # third-party plugins
         # inputs.hycov.packages.${pkgs.system}.hycov
 
-        inputs.hyprscroller.packages.${pkgs.system}.hyprscroller
-        # pkgs.hyprlandPlugins.hyprscroller
+        # inputs.hyprscroller.packages.${pkgs.system}.hyprscroller
+        pkgs.hyprlandPlugins.hyprscroller
 
         # inputs.hyprland-easymotion.packages.${pkgs.system}.hypreasymotion
         # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
