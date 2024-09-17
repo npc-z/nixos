@@ -1,0 +1,19 @@
+swipe:
+  3:
+    left:
+      # command: "hyprctl dispatch movefocus l"
+      command: "hyprctl dispatch scroller:movefocus l"
+    right:
+      # command: "hyprctl dispatch movefocus r"
+      command: "hyprctl dispatch scroller:movefocus r"
+    up:
+      command: "hyprctl dispatch scroller:toggleoverview"
+    down:
+      command: "hyprctl dispatch scroller:toggleoverview"
+
+threshold:
+  pinch: 0.3
+
+interval:
+  swipe: 0.3
+  pinch: 0.5

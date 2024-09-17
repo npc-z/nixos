@@ -47,6 +47,7 @@ stow:
     -R clipse \
     -R dwm \
     -R foot \
+    -R fusuma \
     -R hypr \
     -R keyd \
     -R kitty \
