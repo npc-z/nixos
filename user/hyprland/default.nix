@@ -26,7 +26,8 @@ in {
       wayland-protocols
       wayland-utils
       # Fusuma is multitouch gesture recognizer
-      fusuma
+      # fusuma
+      libinput-gestures
 
       # Run, show and hide programs via keybind. Emulates tdrop in Hyprland
       inputs.hyprland-contrib.packages.${pkgs.system}.hdrop
