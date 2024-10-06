@@ -7,7 +7,7 @@
 
   networking = {
     # firewall use nftables instea of iptables
-    nftables.enable = true;
+    nftables.enable = false;
     firewall = {
       enable = true;
       allowedTCPPorts = [
