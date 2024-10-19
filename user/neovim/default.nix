@@ -24,6 +24,9 @@
       wget
       curl
 
+      # for neovim & rust
+      graphviz # Graph visualization tools
+
       # sql
       vimPlugins.nvim-dbee
       sleek
