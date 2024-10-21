@@ -60,6 +60,9 @@ alias gac='git add . && git commit -m "update $(date "+%Y-%m-%d %H:%M:%S")"'
 alias gacp="gac && git push"
 alias gpl="git pull"
 alias gps="git push"
+alias gss="git add . && git stash save"
+alias gsl="git stash list"
+alias gsp="git stash pop"
 alias lg=lazygit
 
 # ##########################################
