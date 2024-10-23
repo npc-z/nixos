@@ -113,8 +113,8 @@
     wechat-uos # need override license, use overlay or use nur version
     yesplaymusic
 
-    libreoffice
+    # libreoffice
     # NOTE: broken in unstable
-    pkgs.stable.rustdesk
+    # pkgs.stable.rustdesk
   ];
 }
