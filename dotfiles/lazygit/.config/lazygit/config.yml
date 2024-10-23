@@ -1,6 +1,11 @@
 os:
   edit: "nvim"
 
+gui:
+  # Fraction of the total screen width to use for the left side section. You may want to pick a small number (e.g. 0.2) if you're using a narrow screen, so that you can see more of the main section.
+  # Number from 0 to 1.0.
+  sidePanelWidth: 0.2
+
 refresher:
   refreshInterval: 10 # File/submodule refresh interval in seconds. Auto-refresh can be disabled via option 'git.autoRefresh'.
   fetchInterval: 30 # Re-fetch interval in seconds. Auto-fetch can be disabled via option 'git.autoFetch'.
