@@ -144,6 +144,9 @@
 
     # editor
     helix
+
+    # Day/night gamma adjustments for Wayland
+    wlsunset
   ];
 
   programs = {
