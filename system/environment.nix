@@ -82,9 +82,6 @@
     tldr
     eza
 
-    zathura
-    foliate
-
     playerctl
     localsend
 

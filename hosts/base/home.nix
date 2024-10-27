@@ -28,7 +28,7 @@
         editor = ["nvim.desktop" "code.desktop"];
       in {
         "application/json" = browser;
-        "application/pdf" = "org.pwmt.zathura.desktop";
+        "application/pdf" = "org.kde.okular.desktop";
 
         "text/plain" = editor;
         "text/html" = browser;
@@ -139,6 +139,12 @@
     # terminal file manager
     yazi
     # xfce.thunar
+
+    # pdf viewer
+    libsForQt5.okular
+    zathura
+
+    flameshot
 
     # web browser
     microsoft-edge
