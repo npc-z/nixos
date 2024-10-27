@@ -12,11 +12,12 @@
   # DOWNLOAD=...
   # TEMPLATES=...
   # PUBLICSHARE=...
-  environment.etc = {
-    "xdg/user-dirs.defaults".text = ''
-      DOCUMENTS=/home/npc/Documents
-    '';
-  };
+  # FIXME: environment.etc
+  # environment.etc = {
+  #   "xdg/user-dirs.defaults".text = ''
+  #     DOCUMENTS=/home/npc/Documents
+  #   '';
+  # };
 
   nixpkgs.config.permittedInsecurePackages = [
     # 提示这个版本的 ssl 不安全，此时临时信任
