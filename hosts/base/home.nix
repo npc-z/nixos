@@ -126,6 +126,8 @@
     telegram-desktop
     swaynotificationcenter
 
+    eudic
+
     # terminal
     alacritty
     kitty
