@@ -71,6 +71,7 @@
     delta
     vim
     curl
+    httpie
     wget
     jq
     wl-clipboard
