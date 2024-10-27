@@ -44,6 +44,7 @@ stow:
     cd ./dotfiles && \
     stow -t $HOME \
     -R alacritty \
+    -R antimicrox \
     -R clipse \
     -R dwm \
     -R foot \
