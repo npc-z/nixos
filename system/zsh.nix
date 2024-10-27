@@ -20,8 +20,17 @@ in {
 
     zsh = {
       enable = true;
+      histSize = 9999;
+
       interactiveShellInit = ''
         source ${basic_sh}
+
+        # 将新命令追加到历史文件，而不是覆盖它
+        setopt append_history
+        # 允许不同 shell 会话共享历史命令
+        setopt share_history
+        # 每次命令执行后立即将其追加到历史文件中
+        setopt inc_append_history
 
         # z-lua 初始化
         eval "$(z.lua  --init zsh enhanced once fzf)"
