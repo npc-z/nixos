@@ -134,8 +134,8 @@
     foot
 
     # file manager
-    nemo
-    spacedrive
+    nemo # NOTE: remove this one
+    nautilus
     # terminal file manager
     yazi
     # xfce.thunar
