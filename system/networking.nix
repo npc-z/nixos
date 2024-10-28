@@ -58,8 +58,6 @@
       # 20.175.192.146 github.com
       # 20.233.83.149 github.com
       # 20.29.134.19 github.com
-      119.23.218.175	jump
-      10.0.2.9	prodjump
     '';
   };
 }

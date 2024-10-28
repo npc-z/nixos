@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
 
     ./../../system/laptop
+    ./networking.nix
   ];
 
   config.networking = {
