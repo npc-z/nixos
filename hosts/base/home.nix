@@ -24,7 +24,7 @@
       # /etc/profiles/per-user/npc/share/applications
       # /run/current-system/sw/share/applications
       defaultApplications = let
-        browser = ["microsoft-edge.desktop" "firefox.desktop"];
+        browser = ["firefox.desktop" "microsoft-edge.desktop"];
         editor = ["nvim.desktop" "code.desktop"];
       in {
         "application/json" = browser;
