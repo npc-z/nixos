@@ -58,9 +58,6 @@
     slurp
     swappy # Wayland native snapshot editing tool
 
-    # make dev env
-    devenv
-
     dbeaver-bin
     just # 提供一种保存和运行项目特有命令的便捷方式
 
