@@ -1,8 +1,20 @@
 {pkgs, ...}: {
+  programs = {
+    clash-verge = {
+      package = pkgs.clash-verge-rev;
+      enable = true;
+      autoStart = true;
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     # 开启热点
     # https://nixos.wiki/wiki/Internet_Connection_Sharing
     linux-wifi-hotspot
+    networkmanagerapplet
+    # FIXME: 暂时失去网络连接时，内存泄露
+    # https://github.com/v2fly/v2ray-core/issues/3167
+    # v2raya
   ];
 
   networking = {

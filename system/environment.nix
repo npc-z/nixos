@@ -104,11 +104,6 @@
     pavucontrol # PulseAudio Volume Control
     # email
     thunderbird
-    #
-    networkmanagerapplet
-    # FIXME: 暂时失去网络连接时，内存泄露
-    # https://github.com/v2fly/v2ray-core/issues/3167
-    # v2raya
 
     feishu
     qq
