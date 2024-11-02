@@ -7,6 +7,8 @@
     };
   };
 
+  # services.v2raya.enable = true;
+
   environment.systemPackages = with pkgs; [
     # 开启热点
     # https://nixos.wiki/wiki/Internet_Connection_Sharing
