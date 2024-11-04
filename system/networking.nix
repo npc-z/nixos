@@ -1,13 +1,14 @@
 {pkgs, ...}: {
   programs = {
-    clash-verge = {
-      package = pkgs.clash-verge-rev;
-      enable = true;
-      autoStart = true;
-    };
+    # clash-verge = {
+    #   package = pkgs.clash-nyanpasu;
+    #   enable = true;
+    #   autoStart = true;
+    # };
   };
 
-  # services.v2raya.enable = true;
+  services.v2raya.enable = true;
+  # services.mihomo.webui = pkgs.metacubexd;
 
   environment.systemPackages = with pkgs; [
     # 开启热点
@@ -17,6 +18,10 @@
     # FIXME: 暂时失去网络连接时，内存泄露
     # https://github.com/v2fly/v2ray-core/issues/3167
     # v2raya
+
+    # clash-meta
+    # metacubexd
+    # clash-nyanpasu
   ];
 
   networking = {
