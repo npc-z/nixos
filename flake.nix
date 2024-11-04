@@ -9,6 +9,10 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
     # home-manager，用于管理用户配置
     home-manager = {
       # url = "github:nix-community/home-manager/release-23.11";
@@ -95,6 +99,8 @@
     self,
     nixpkgs,
     deploy-rs,
+    nix-darwin,
+    nix-homebrew,
     ...
   } @ inputs: {
     nixosConfigurations = (
@@ -103,6 +109,39 @@
         inherit nixpkgs;
       }
     );
+
+    # Install Nix
+    # sh <(curl -L https://nixos.org/nix/install)
+
+    # build
+    # nix run nix-darwin --extra-experimental-features = "nix-command flakes" -- switch --flake ./#mini
+
+    # Build darwin flake using:
+    # darwin-rebuild build --flake .#mini
+    darwinConfigurations."mini" = nix-darwin.lib.darwinSystem {
+      specialArgs = {
+        inherit inputs;
+        inherit nixpkgs;
+      };
+
+      modules = [
+        ./hosts/darwin/mini/configuration.nix
+
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            # Apple Silicon Only
+            enableRosetta = true;
+            # User owning the Homebrew prefix
+            user = "npc";
+          };
+        }
+      ];
+    };
+
+    # Expose the package set, including overlays, for convenience.
+    darwinPackages = self.darwinConfigurations."mini".pkgs;
 
     # 远程部署
     deploy = import ./deploy.nix {
