@@ -3,6 +3,7 @@ window {
   border: 5px solid #111019;
   background-color: rgba(11, 10, 16, 0.9);
   border-radius: 15px;
+  color: #fff;
 }
 
 #input {
@@ -11,7 +12,7 @@ window {
   padding: 4px 10px;
   margin: 4px;
   border: none;
-  color: #e2e0ec;
+  color: #fff;
   font-weight: bold;
   background-color: #161420;
   outline: none;
@@ -42,8 +43,12 @@ window {
   margin-bottom: 5px;
 }
 
+#text {
+  padding-left: 20px;
+}
+
 #text:selected {
-  color: #f1f0f5;
+  color: black;
   margin: 0px 0px;
   border: none;
   border-radius: 15px;
@@ -60,6 +65,5 @@ window {
   margin: 0px 0px;
   border: none;
   border-radius: 15px;
-  background: linear-gradient(90deg, #E97193 0%, #f09db5 100%);
+  background: linear-gradient(90deg, #e97193 0%, #f09db5 100%);
 }
-
