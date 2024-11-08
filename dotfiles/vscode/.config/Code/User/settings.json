@@ -332,4 +332,6 @@
   "workbench.editorAssociations": {
     "{git,gitlens}:/**/*.{md,csv,svg}": "default"
   },
+  "redhat.telemetry.enabled": false,
+  "terminal.integrated.defaultProfile.linux": "zsh",
 }
