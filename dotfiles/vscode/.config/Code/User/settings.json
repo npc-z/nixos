@@ -334,4 +334,7 @@
   },
   "redhat.telemetry.enabled": false,
   "terminal.integrated.defaultProfile.linux": "zsh",
+  "python.analysis.inlayHints.callArgumentNames": "partial",
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.variableTypes": true,
 }
