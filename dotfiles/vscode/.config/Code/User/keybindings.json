@@ -65,4 +65,8 @@
     "command": "-workbench.action.terminal.paste",
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
+  {
+    "key": "ctrl+e",
+    "command": "-workbench.action.quickOpen"
+  },
 ]
