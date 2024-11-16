@@ -4,6 +4,7 @@
   ...
 }: let
   linux-system = "x86_64-linux";
+  darwin-system = "aarch64-darwin";
 
   settings = {
     # system variables
@@ -64,6 +65,48 @@
         }
       ];
     };
+
+  darwinTemplate = {
+    hostDir,
+    system,
+    specialArgs,
+    ...
+  }:
+    inputs.nix-darwin.lib.darwinSystem {
+      inherit system;
+      inherit specialArgs;
+
+      modules = [
+        {
+          nixpkgs.overlays = [
+            #
+          ];
+        }
+
+        # 导入主机的配置
+        ./${hostDir}/configuration.nix
+
+        inputs.darwin-home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.${settings.user.username} = import ./${hostDir}/home.nix;
+          home-manager.extraSpecialArgs = specialArgs;
+        }
+
+        # 全新安装时，先注释此处
+        inputs.nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            # Apple Silicon Only
+            enableRosetta = true;
+            # User owning the Homebrew prefix
+            user = "${settings.user.username}";
+          };
+        }
+      ];
+    };
 in {
   nixosConfigurations = {
     # mini host
@@ -97,6 +140,14 @@ in {
         ./base
         ./hosts/start/start.nix
       ];
+    };
+  };
+
+  darwinConfigurations = {
+    "work-macbook-pro" = darwinTemplate {
+      hostDir = "work-macbook-pro";
+      inherit specialArgs;
+      system = darwin-system;
     };
   };
 }

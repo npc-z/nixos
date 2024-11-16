@@ -14,6 +14,14 @@ deploy:
 debug:
   nixos-rebuild switch --flake . --use-remote-sudo --show-trace --print-build-logs --verbose
 
+# deploy darwin
+deploy-darwin:
+  darwin-rebuild switch --flake . --show-trace --print-build-logs --verbose
+
+# install darwin
+install-darwin:
+  nix run nix-darwin --extra-experimental-features  "nix-command flakes" -- switch --flake .
+
 # update flake
 up:
   nix flake update
