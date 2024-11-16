@@ -9,9 +9,9 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    # nix-darwin.url = "github:LnL7/nix-darwin";
+    # nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    # nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
     # home-manager，用于管理用户配置
     home-manager = {
@@ -99,16 +99,13 @@
     self,
     nixpkgs,
     deploy-rs,
-    nix-darwin,
-    nix-homebrew,
     ...
   } @ inputs: {
-    nixosConfigurations = (
-      import ./hosts {
-        inherit inputs;
-        inherit nixpkgs;
-      }
-    );
+    # nixos hosts
+    nixosConfigurations = (import ./hosts {inherit inputs nixpkgs;}).nixosConfigurations;
+
+    # darwin hosts
+    # darwinConfigurations = (import ./hosts {inherit inputs nixpkgs;}).darwinConfigurations;
 
     # Install Nix
     # sh <(curl -L https://nixos.org/nix/install)
@@ -118,30 +115,30 @@
 
     # Build darwin flake using:
     # darwin-rebuild build --flake .#mini
-    darwinConfigurations."mini" = nix-darwin.lib.darwinSystem {
-      specialArgs = {
-        inherit inputs;
-        inherit nixpkgs;
-      };
-
-      modules = [
-        ./hosts/darwin/mini/configuration.nix
-
-        nix-homebrew.darwinModules.nix-homebrew
-        {
-          nix-homebrew = {
-            enable = true;
-            # Apple Silicon Only
-            enableRosetta = true;
-            # User owning the Homebrew prefix
-            user = "npc";
-          };
-        }
-      ];
-    };
+    # darwinConfigurations."mini" = nix-darwin.lib.darwinSystem {
+    #   specialArgs = {
+    #     inherit inputs;
+    #     inherit nixpkgs;
+    #   };
+    #
+    #   modules = [
+    #     ./hosts/darwin/mini/configuration.nix
+    #
+    #     nix-homebrew.darwinModules.nix-homebrew
+    #     {
+    #       nix-homebrew = {
+    #         enable = true;
+    #         # Apple Silicon Only
+    #         enableRosetta = true;
+    #         # User owning the Homebrew prefix
+    #         user = "npc";
+    #       };
+    #     }
+    #   ];
+    # };
 
     # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."mini".pkgs;
+    # darwinPackages = self.darwinConfigurations."mini".pkgs;
 
     # 远程部署
     deploy = import ./deploy.nix {

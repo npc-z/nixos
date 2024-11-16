@@ -3,7 +3,7 @@
   nixpkgs,
   ...
 }: let
-  system = "x86_64-linux";
+  linux-system = "x86_64-linux";
 
   settings = {
     # system variables
@@ -65,33 +65,38 @@
       ];
     };
 in {
-  # mini host
-  "ser7-nixos" = osTemplate {
-    hostDir = "ser7";
-    inherit system specialArgs;
-  };
+  nixosConfigurations = {
+    # mini host
+    "ser7-nixos" = osTemplate {
+      hostDir = "ser7";
+      inherit specialArgs;
+      system = linux-system;
+    };
 
-  # laptop
-  "r9000p-nixos" = osTemplate {
-    hostDir = "r9000p";
-    inherit system specialArgs;
-  };
+    # laptop
+    "r9000p-nixos" = osTemplate {
+      hostDir = "r9000p";
+      inherit specialArgs;
+      system = linux-system;
+    };
 
-  # work
-  "thinkpad-e14-nixos" = osTemplate {
-    hostDir = "thinkpad-e14";
-    inherit system specialArgs;
-  };
+    # work
+    "thinkpad-e14-nixos" = osTemplate {
+      hostDir = "thinkpad-e14";
+      inherit specialArgs;
+      system = linux-system;
+    };
 
-  #
-  "start-nixos" = nixpkgs.lib.nixosSystem {
-    inherit system;
-    inherit specialArgs;
+    #
+    "start-nixos" = nixpkgs.lib.nixosSystem {
+      system = linux-system;
+      inherit specialArgs;
 
-    modules = [
-      # 基础配置
-      ./base
-      ./hosts/start/start.nix
-    ];
+      modules = [
+        # 基础配置
+        ./base
+        ./hosts/start/start.nix
+      ];
+    };
   };
 }
