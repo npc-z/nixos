@@ -20,7 +20,8 @@ deploy-darwin:
 
 # install darwin
 install-darwin:
-  nix run nix-darwin --extra-experimental-features  "nix-command flakes" -- switch --flake .
+  nix run nix-darwin --extra-experimental-features  "nix-command flakes" -- switch --flake . --show-trace --print-build-logs --verbose
+
 
 # update flake
 up:

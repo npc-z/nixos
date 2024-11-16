@@ -28,7 +28,7 @@
       graphviz # Graph visualization tools
 
       # sql
-      vimPlugins.nvim-dbee # not support on darwin
+      # vimPlugins.nvim-dbee # not support on darwin
       sleek
     ];
 

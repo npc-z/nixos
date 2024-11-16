@@ -4,8 +4,10 @@ in {
   # import sub modules
   imports = [
     ./home/core.nix
-    ./home/git.nix
-    ./home/shell.nix
+
+    ./../../modules/darwin/neovim.nix
+    ./../../user/vscode
+    ./../../user/git.nix
   ];
 
   # Home Manager needs a bit of information about you and the

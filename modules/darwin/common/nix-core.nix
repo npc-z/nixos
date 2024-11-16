@@ -15,8 +15,6 @@
   # don't wan't the daemon service to be managed for you.
   # nix.useDaemon = true;
 
-  nix.package = pkgs.nix;
-
   # do garbage collection weekly to keep disk usage low
   nix.gc = {
     automatic = lib.mkDefault true;

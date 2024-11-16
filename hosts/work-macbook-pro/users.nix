@@ -16,7 +16,6 @@ in {
   users.users."${username}" = {
     home = "/Users/${username}";
     description = username;
-    hashedPassword = "$y$j9T$hzAVLzc8eIFShnzWJiye/0$Wo5QHjsi98zBMcUqlUZ8Ehe6JKcekiI/rBcWLgDCuh9";
   };
 
   nix.settings.trusted-users = [username];

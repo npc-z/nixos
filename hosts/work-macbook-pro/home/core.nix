@@ -26,25 +26,11 @@
 
     # productivity
     glow # markdown previewer in terminal
+    kitty
+    devenv
   ];
 
   programs = {
-    # modern vim
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      vimAlias = true;
-    };
-
-    # A modern replacement for ‘ls’
-    # useful in bash/zsh prompt, not in nushell.
-    eza = {
-      enable = true;
-      git = true;
-      icons = true;
-      enableZshIntegration = true;
-    };
-
     # terminal file manager
     yazi = {
       enable = true;

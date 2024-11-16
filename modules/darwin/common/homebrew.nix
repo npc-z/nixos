@@ -52,11 +52,14 @@
     casks = [
       "firefox"
       "google-chrome"
-      # "visual-studio-code"
+      "wpsoffice"
 
       # IM & audio & remote desktop & meeting
       # "telegram"
       # "discord"
+      "feishu"
+      "wechat"
+      "neteasemusic"
 
       # "anki"
       # "iina" # video player
@@ -67,6 +70,7 @@
       # Development
       # "insomnia" # REST client
       # "wireshark" # network analyzer
+      "visual-studio-code"
     ];
   };
 }
