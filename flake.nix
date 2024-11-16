@@ -142,39 +142,6 @@
     # darwin hosts
     darwinConfigurations = (import ./hosts {inherit inputs nixpkgs;}).darwinConfigurations;
 
-    # Install Nix
-    # sh <(curl -L https://nixos.org/nix/install)
-
-    # build
-    # nix run nix-darwin --extra-experimental-features = "nix-command flakes" -- switch --flake ./#mini
-
-    # Build darwin flake using:
-    # darwin-rebuild build --flake .#mini
-    # darwinConfigurations."mini" = nix-darwin.lib.darwinSystem {
-    #   specialArgs = {
-    #     inherit inputs;
-    #     inherit nixpkgs;
-    #   };
-    #
-    #   modules = [
-    #     ./hosts/darwin/mini/configuration.nix
-    #
-    #     nix-homebrew.darwinModules.nix-homebrew
-    #     {
-    #       nix-homebrew = {
-    #         enable = true;
-    #         # Apple Silicon Only
-    #         enableRosetta = true;
-    #         # User owning the Homebrew prefix
-    #         user = "npc";
-    #       };
-    #     }
-    #   ];
-    # };
-
-    # Expose the package set, including overlays, for convenience.
-    # darwinPackages = self.darwinConfigurations."mini".pkgs;
-
     # 远程部署
     deploy = import ./deploy.nix {
       sshUser = "root";
