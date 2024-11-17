@@ -36,6 +36,7 @@
     gnumake
     gcc9
     cmake
+    nixd
 
     polkit
     swaynotificationcenter

@@ -18,6 +18,7 @@
     python311Packages.isort
     python311Packages.black
     gnumake
+    nixd
 
     just # use Justfile to simplify nix-darwin's commands
     stow
