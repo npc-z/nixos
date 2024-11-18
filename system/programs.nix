@@ -3,6 +3,9 @@
   pkgs,
   ...
 }: {
+  # 使用 home manage 配置也需要开启 zsh
+  programs.zsh.enable = true;
+
   programs = {
     # direnv = {
     #   enable = true;

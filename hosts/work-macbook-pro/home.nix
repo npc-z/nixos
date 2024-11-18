@@ -4,6 +4,7 @@ in {
   # import sub modules
   imports = [
     ./../../home/base/git.nix
+    ./../../home/base/shell
 
     ./home/core.nix
 

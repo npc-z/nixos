@@ -26,7 +26,6 @@
       ./../../system/virt
       ./../../system/security.nix
       ./../../system/user.nix
-      ./../../system/zsh.nix
       ./../../system/nix-ld.nix
       ./../../system/swaylock.nix
       ./../../system/keyd.nix

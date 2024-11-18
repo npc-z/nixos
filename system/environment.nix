@@ -78,6 +78,8 @@
 
     tldr
     eza
+    # shows the type of files
+    file
 
     playerctl
     localsend
