@@ -87,6 +87,8 @@
 
   # programs
   imports = [
+    ./../../home/base/git.nix
+
     ./../../user/bash
     ./../../user/fcitx5
     ./../../user/neovim

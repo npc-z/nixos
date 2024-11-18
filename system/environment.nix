@@ -65,9 +65,6 @@
 
     wpsoffice
     # common tools
-    git
-    lazygit
-    delta
     vim
     curl
     httpie

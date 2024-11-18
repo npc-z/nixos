@@ -26,9 +26,13 @@
     };
   };
 
+  # 逐步替换 settings
+  myvars = import ./../vars {};
+
   specialArgs = {
     inherit inputs;
     inherit settings;
+    inherit myvars;
   };
 
   osTemplate = {
