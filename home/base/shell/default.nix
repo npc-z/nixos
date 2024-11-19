@@ -122,6 +122,8 @@ in {
     initExtra = ''
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 
+      eval $(thefuck --alias)
+
       # =====================
       # fzf-tab common config
       # =====================
