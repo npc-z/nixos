@@ -93,6 +93,8 @@ in {
     enableCompletion = true;
     bashrcExtra = ''
       export PATH="$PATH:${localBin}:${goBin}:${rustBin}"
+
+      export TERM=xterm-256color
     '';
   };
 
@@ -183,6 +185,8 @@ in {
       # command
       zstyle ':fzf-tab:complete:-command-:*' fzf-preview \
         '(out=$(tldr --color always "$word") 2>/dev/null && echo $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word") 2>/dev/null && echo $out) || (out=$(which "$word") && echo $out) || echo "''${(P)word}"'
+
+      export TERM=xterm-256color
     '';
   };
 }
