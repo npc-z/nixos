@@ -10,16 +10,11 @@
     fontDir.enable = true;
 
     packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          # symbols icon only
-          "NerdFontsSymbolsOnly"
-
-          # Characters
-          "JetBrainsMono"
-          "FiraCode"
-        ];
-      })
+      # symbols icon only
+      nerd-fonts.symbols-only
+      # Characters
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
 
       julia-mono
       dejavu_fonts
