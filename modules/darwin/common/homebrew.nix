@@ -50,9 +50,25 @@
     # `brew install --cask`
     # TODO Feel free to add your favorite apps here.
     casks = [
+      # web
       "firefox"
       "google-chrome"
-      "wpsoffice"
+      "microsoft-edge"
+
+      # dev
+      "dbeaver-community"
+
+      # office
+      "wpsoffice-cn"
+
+      # "nikitabobko/tap/aerospace"
+
+      # vpn
+      "clash-verge-rev"
+
+      # terminals
+      "alacritty"
+      "kitty"
 
       # IM & audio & remote desktop & meeting
       # "telegram"
@@ -66,6 +82,11 @@
       # "raycast" # (HotKey: alt/option + space)search, caculate and run scripts(with many plugins)
       # "stats" # beautiful system monitor
       # "eudic" # 欧路词典
+
+      # key remapper for macOS
+      "karabiner-elements"
+      # Lightweight clipboard manager for macOS
+      "maccy"
 
       # Development
       # "insomnia" # REST client

@@ -26,8 +26,9 @@
 
     # productivity
     glow # markdown previewer in terminal
-    kitty
     devenv
+    jetbrains.idea-community
+    eza
   ];
 
   programs = {

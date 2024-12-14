@@ -16,6 +16,7 @@
   environment.systemPackages = with pkgs; [
     btop
     htop
+    kitty
   ];
   environment.variables.EDITOR = "nvim";
 
