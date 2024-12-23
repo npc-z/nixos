@@ -22,7 +22,17 @@
     # clash-meta
     # metacubexd
     # clash-nyanpasu
+    clash-verge-rev
   ];
+
+  systemd.services.clash-verge-rev = {
+    enable = true;
+    description = "clash verge rev";
+    serviceConfig = {
+      ExecStart = "${pkgs.clash-verge-rev}/bin/clash-verge-service";
+    };
+    wantedBy = ["multi-user.target"];
+  };
 
   networking = {
     # firewall use nftables instea of iptables

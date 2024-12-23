@@ -146,7 +146,6 @@
     foot
 
     # file manager
-    nemo # NOTE: remove this one
     nautilus
     # terminal file manager
     yazi
