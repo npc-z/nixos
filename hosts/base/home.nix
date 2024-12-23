@@ -83,6 +83,11 @@
     DELTA_PAGER = "less -R";
 
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+
+    # FIXME: https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#GTK_IM_MODULE
+    # https://discourse.nixos.org/t/unsetting-gtk-im-module-environment-variable/49331/4
+    # use this pr: https://github.com/nix-community/home-manager/pull/5431
+    GTK_IM_MODULE = pkgs.lib.mkForce "";
   };
 
   # programs
