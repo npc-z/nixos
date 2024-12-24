@@ -59,7 +59,8 @@
       "dbeaver-community"
 
       # office
-      "wpsoffice-cn"
+      # "wpsoffice-cn"
+      "wpsoffice"
 
       # "nikitabobko/tap/aerospace"
 
@@ -87,11 +88,14 @@
       "karabiner-elements"
       # Lightweight clipboard manager for macOS
       "maccy"
+      # Application uninstaller
+      "appcleaner"
 
       # Development
       # "insomnia" # REST client
       # "wireshark" # network analyzer
       "visual-studio-code"
+      "docker"
     ];
   };
 }
