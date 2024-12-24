@@ -29,7 +29,7 @@
 
     # git stash
     gss = "git add . && git stash save";
-    gsl = "git stash list";
+    gsl = "git stash list --relative-date";
     gsa = "git stash apply ";
 
     lg = "lazygit";
