@@ -17,6 +17,7 @@
     btop
     htop
     kitty
+    tldr
   ];
   environment.variables.EDITOR = "nvim";
 

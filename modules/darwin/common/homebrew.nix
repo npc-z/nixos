@@ -96,6 +96,10 @@
       # "wireshark" # network analyzer
       "visual-studio-code"
       "docker"
+
+      "rustdesk"
+      # pin a window to the top
+      "lihaoyun6/tap/topit"
     ];
   };
 }
