@@ -84,7 +84,7 @@
     playerctl
     localsend
 
-    neofetch
+    fastfetch
     htop
     btop
     cron

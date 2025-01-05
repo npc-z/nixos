@@ -62,7 +62,6 @@ stow:
     -R keyd \
     -R kitty \
     -R lazygit \
-    -R neofetch \
     -R rofi \
     -R ssh \
     -R swaync \
