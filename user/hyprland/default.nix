@@ -21,6 +21,10 @@ in {
     };
   };
 
+  imports = [
+    ./hypridle.nix
+  ];
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       wayland-protocols

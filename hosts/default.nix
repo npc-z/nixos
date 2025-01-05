@@ -116,21 +116,33 @@ in {
     # mini host
     "ser7-nixos" = osTemplate {
       hostDir = "ser7";
-      inherit specialArgs;
+      specialArgs =
+        specialArgs
+        // {
+          hostname = "ser7-nixos";
+        };
       system = linux-system;
     };
 
     # laptop
     "r9000p-nixos" = osTemplate {
       hostDir = "r9000p";
-      inherit specialArgs;
+      specialArgs =
+        specialArgs
+        // {
+          hostname = "r9000p-nixos";
+        };
       system = linux-system;
     };
 
     # work
     "thinkpad-e14-nixos" = osTemplate {
       hostDir = "thinkpad-e14";
-      inherit specialArgs;
+      specialArgs =
+        specialArgs
+        // {
+          hostname = "thinkpad-e14-nixos";
+        };
       system = linux-system;
     };
 
