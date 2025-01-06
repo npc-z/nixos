@@ -41,7 +41,7 @@
       source-han-serif # 思源宋体
 
       # Symbol fonts required by wps-office
-      config.nur.repos.rewine.ttf-wps-fonts
+      pkgs.nur.repos.rewine.ttf-wps-fonts
     ];
 
     # user defined fonts

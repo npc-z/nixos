@@ -81,14 +81,6 @@
     # picom.url = "github:DreamMaoMao/mypicom";
 
     # hyprland env
-    # hyprland = {
-    # NOTE: hyprscroller 更新到 unstable 之后，再切换到 pkgs 版本
-    # 使用这种方式引入不能启动
-    # just for hyprscroller follows
-    # v0.42.0
-    # url = "git+https://github.com/hyprwm/Hyprland/?rev=9a09eac79b85c846e3a865a9078a3f8ff65a9259&submodules=1";
-    # };
-
     # Community scripts and utilities for Hypr projects
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
@@ -123,11 +115,6 @@
     #   url = "github:KZDKM/Hyprspace";
     #   inputs.hyprland.follows = "hyprland";
     # };
-
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {

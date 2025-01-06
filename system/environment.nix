@@ -95,7 +95,7 @@
     swaybg
     wofi
     wlogout
-    inputs.hyprlock.packages.${pkgs.system}.hyprlock
+    hyprlock
     hypridle
     pamixer
     brightnessctl
@@ -106,7 +106,6 @@
     feishu
     qq
     wechat-uos # need override license, use overlay or use nur version
-    yesplaymusic
 
     # libreoffice
     # NOTE: broken in unstable

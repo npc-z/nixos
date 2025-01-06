@@ -8,6 +8,9 @@
       # 引入定义了 overlays 的 Module
       ./../../overlays
 
+      # common
+      ./../../modules/common/ollama
+
       # system
       ./../../system/dbus.nix
       ./../../system/bluetooth.nix

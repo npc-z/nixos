@@ -1,5 +1,5 @@
 jsonPath="$HOME/.cache/netease-cloud-music/StorageCache/webdata/file/queue"
-playerName="netease-cloud-music,yesplaymusic,io.bassi.Amberol"
+playerName="netease-cloud-music,io.bassi.Amberol"
 playerShell="playerctl --player=$playerName"
 # lyricsPath="$HOME/.config/waybar/scripts/lyrics.lrc"
 envPath="$HOME/.config/waybar/scripts/.env"

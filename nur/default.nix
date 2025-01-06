@@ -1,11 +1,11 @@
 {
-  config,
   inputs,
+  pkgs,
   ...
 }: {
   imports = [
     # 启用 nur
-    inputs.nur.nixosModules.nur
+    inputs.nur.modules.nixos.default
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -19,9 +19,9 @@
   # https://github.com/nix-community/NUR
   # https://nur.nix-community.org/
   environment.systemPackages = [
-    # 只能最小化退出, 仍旧使用 nixos-cn 版本
-    config.nur.repos.xddxdd.netease-cloud-music
-    config.nur.repos.mic92.hello-nur
-    config.nur.repos.xddxdd.baidunetdisk
+    # pkgs.nur.repos.xddxdd.netease-cloud-music # failed to build, not work now
+    pkgs.nur.repos.Freed-Wu.netease-cloud-music
+    pkgs.nur.repos.mic92.hello-nur
+    pkgs.nur.repos.xddxdd.baidunetdisk
   ];
 }

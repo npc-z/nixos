@@ -8,3 +8,16 @@ echo "dotfiles/hypr/.config/hypr/hypridle.conf" >> .git/info/exclude
 
 git update-index --assume-unchanged dotfiles/hypr/.config/hypr/hyprlock.conf
 ```
+
+## change log
+
+### 2025-01-06 update system
+
+- remove yesplaymusic
+- remove useless code and comments
+- the way of using nur
+- hardware.pulseaudio has been renamed to services.pulseaudio
+- nur.repos.xddxdd.netease-cloud-music failed to build, use this nur.repos.Freed-Wu.netease-cloud-music
+- use hyprlock from pkgs
+- move ollama to modules and disable it
+- todo: remove nixoscn

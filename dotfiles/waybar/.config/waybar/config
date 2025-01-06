@@ -16,8 +16,8 @@
 
     "custom/lyric": {
         "exec": "bash ~/.config/waybar/scripts/song.sh",
-        "on-click": "playerctl --player=netease-cloud-music,yesplaymusic next",
-        "on-click-right": "playerctl --player=netease-cloud-music,yesplaymusic previous",
+        "on-click": "playerctl --player=netease-cloud-music next",
+        "on-click-right": "playerctl --player=netease-cloud-music previous",
         "return-type": "json",
         "escape": false,
     },
@@ -71,7 +71,6 @@
             "kitty_o",
 
             "netease-cloud-music",
-            "yesplaymusic",
             "wlogout",
             "QQ",
             "wechat",

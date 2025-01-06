@@ -2,11 +2,7 @@
   inputs,
   pkgs,
   ...
-}: let
-  # Reference:
-  # https://wiki.hyprland.org/Nix/Hyprland-on-NixOS/
-  hypr-pkgs = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in {
+}: {
   # https://wiki.archlinux.org/title/steam
   # Games installed by Steam works fine on NixOS, no other configuration needed.
   programs.steam = {
@@ -20,18 +16,13 @@ in {
       # https://wiki.hyprland.org/0.40.0/Configuring/Performance/#my-games-work-poorly-especially-proton-ones
       enable = true;
       # gamescopeSession = "gamescope";
-      # gamescopeSession = "mangohud";}
+      # gamescopeSession = "mangohud";
     };
   };
 
   # misc
-  # hardware.opengl -> hardware.graphics
-  # 更新之后导致 firefox 崩溃，网易云不能启动，没有测试 steam
-  # hardware.graphics = {
-  #   package = hypr-pkgs.mesa.drivers;
-  #
-  #   # if you also want 32-bit support (e.g for Steam)
-  #   enable32Bit = true;
-  #   package32 = hypr-pkgs.pkgsi686Linux.mesa.drivers;
-  # };
+  hardware.graphics = {
+    # if you also want 32-bit support (e.g for Steam)
+    enable32Bit = true;
+  };
 }
