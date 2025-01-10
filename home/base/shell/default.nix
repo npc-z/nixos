@@ -48,6 +48,10 @@
     vim = "nvim";
   };
 in {
+  imports = [
+    ./starship.nix
+  ];
+
   home.packages = with pkgs; [
     # A cat(1) clone with syntax highlighting and Git integration
     bat
