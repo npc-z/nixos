@@ -54,15 +54,17 @@
     };
 
     aliases = {
-      # common aliases
       br = "branch";
+
+      cm = "commit -m";
       co = "checkout";
-      st = "status";
+      cp = "cherry-pick";
+
       last = "log -1";
       lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr [%ad]) %C(bold blue)<%an>%Creset' --abbrev-commit --date=format:'%Y-%m-%d %H:%M:%S'";
-      # commit via `git cm <message>`
-      cm = "commit -m";
       llog = "log --graph --name-status --pretty=format:'%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset' --date=relative";
+
+      st = "status";
     };
   };
 }
