@@ -77,3 +77,11 @@ stow:
 
     # dont need this in nixos
     rm ~/default.conf
+
+
+# stow for mac
+stow-mac:
+    cd ./dotfiles && \
+    stow -t $HOME \
+    -R karabiner
+
