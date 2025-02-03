@@ -6,6 +6,11 @@
 #
 ############################################################################
 
+
+default:
+  just --list
+
+
 # rebuild
 deploy:
   nixos-rebuild switch --flake . --use-remote-sudo
@@ -48,40 +53,47 @@ gc:
   sudo nix store gc --debug
   sudo nix-collect-garbage --delete-old
 
+
 # link dotfiles to config
-stow:
+stow-common:
     cd ./dotfiles && \
     stow -t $HOME \
     -R alacritty \
+    -R foot \
+    -R kitty \
+    -R lazygit \
+    -R ssh \
+    -R wallpapers \
+    -R vim \
+
+    # dont need this in nixos
+    rm -f ~/default.conf
+
+
+# stow for linux
+stow-linux: stow-common
+    cd ./dotfiles && \
+    stow -t $HOME \
     -R antimicrox \
     -R clipse \
     -R dwm \
-    -R foot \
     -R libinput-gestures \
     -R hypr \
     -R keyd \
-    -R kitty \
-    -R lazygit \
     -R rofi \
-    -R ssh \
     -R swaync \
     -R swaylock \
-    -R wallpapers \
     -R swappy \
     -R waybar \
-    -R vim \
     -R vscode \
     -R wlogout \
     -R wofi \
-    -R zathura
-
-    # dont need this in nixos
-    rm ~/default.conf
+    -R zathura \
 
 
 # stow for mac
-stow-mac:
+stow-mac: stow-common
     cd ./dotfiles && \
     stow -t $HOME \
-    -R karabiner
+    -R karabiner \
 
