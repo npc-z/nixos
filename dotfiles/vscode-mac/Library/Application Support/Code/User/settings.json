@@ -1,0 +1,392 @@
+{
+  // "emeraldwalk.runonsave": {
+  //     "commands": [
+  //         {
+  //             "match": ".py",
+  //             "cmd": "/home/npc/.virtualenvs/ksher-doc/bin/darker ."
+  //         }
+  //     ]
+  // },
+  "update.mode": "manual",
+  "workbench.startupEditor": "none",
+  "workbench.sideBar.location": "right",
+  "remote.SSH.remotePlatform": {
+    "s.com": "linux"
+  },
+  "files.autoSave": "afterDelay",
+  "gitlens.hovers.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "editor.unicodeHighlight.allowedLocales": {
+    "zh-hant": true
+  },
+  "cSpell.userWords": [
+    "apifox",
+    "autofetch",
+    "BNINIDJA",
+    "callerframerecord",
+    "dateutil",
+    "defajultdict",
+    "dingtalk",
+    "dspread",
+    "duitku",
+    "duitkui",
+    "enddot",
+    "Farman",
+    "funcfilter",
+    "funcs",
+    "fxadapter",
+    "gevent",
+    "hashids",
+    "hdel",
+    "hget",
+    "hgetall",
+    "hset",
+    "ICBC",
+    "Inno",
+    "ipdb",
+    "isnot",
+    "isort",
+    "itertuples",
+    "Jalen",
+    "jsonify",
+    "KGSMAP",
+    "ksher",
+    "lazada",
+    "maybank",
+    "mypy",
+    "NEGARA",
+    "onupdate",
+    "Openapi",
+    "outerjoin",
+    "pdfkit",
+    "PUBLICKEY",
+    "puml",
+    "pydantic",
+    "pymysql",
+    "rabbitmq",
+    "relativedelta",
+    "sadd",
+    "setex",
+    "setnx",
+    "SHOPEE",
+    "smembers",
+    "sqlalchemy",
+    "startdot",
+    "supervisorctl",
+    "templating",
+    "tiktok",
+    "tmpl",
+    "tongdun",
+    "varchar",
+    "venv",
+    "werkzeug",
+    "xlsxwriter",
+    "Zlando"
+  ],
+  "editor.rulers": [88, 120],
+  "editor.fontSize": 16,
+  "editor.fontFamily": "'JetBrainsMono Nerd Font Mono', Consolas, 'Courier New', monospace",
+  "vim.flash.enable": true,
+  "vim.commandLineModeKeyBindings": [],
+  // vim config
+  "vim.useCtrlKeys": false,
+  "vim.handleKeys": {
+    "<C-c>": false,
+    "<C-v>": false,
+    "<C-d>": true
+    // "<C-o>": true,
+    // "<C-i>": true
+  },
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      // prev buffer
+      "before": ["H"],
+      "commands": ["workbench.action.previousEditor"],
+      "silent": true
+    },
+    {
+      // next buffer
+      "before": ["L"],
+      "commands": ["workbench.action.nextEditor"],
+      "silent": true
+    },
+    {
+      // Go to Next Change
+      "before": ["g", "j"],
+      "commands": [
+        "workbench.action.editor.nextChange",
+        "workbench.action.compareEditor.nextChange"
+      ],
+      "silent": true
+    },
+    {
+      // Go to Previous Change
+      "before": ["g", "k"],
+      "commands": [
+        "workbench.action.editor.previousChange",
+        "workbench.action.compareEditor.previousChange"
+      ],
+      "silent": true
+    },
+    {
+      // showHover
+      "before": ["g", "h"],
+      "commands": ["editor.action.showHover"],
+      "silent": true
+    },
+    {
+      // goToReferences
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"],
+      "silent": true
+    },
+    {
+      // go back
+      "before": ["g", "o"],
+      "commands": ["editor.action.goToReferences"],
+      "silent": true
+    }
+  ],
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.lineNumbers": "relative",
+  "tabnine.experimentalAutoImports": true,
+  "workbench.tree.enableStickyScroll": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "markdown-preview-enhanced.previewTheme": "vue.css",
+  "markdown.preview.fontSize": 16,
+  "todo-tree.general.tags": ["jk", "FIXME"],
+  "terminal.integrated.scrollback": 9999999999999,
+  "database-client.capitalizeKeywordsWhenFormatting": true,
+  "database-client.highlightSQLBlock": true,
+  "database-client.createResultViewForEachQuery": true,
+  "baidu.comate.username": "goodjob",
+  "baidu.comate.langSuggestion": {
+    "all": true,
+    "cpp": true,
+    "css": true,
+    "go": true,
+    "html": true,
+    "java": true,
+    "javascript": true,
+    "less": true,
+    "perl": true,
+    "php": true,
+    "python": true,
+    "ruby": true,
+    "shell": true,
+    "swift": true,
+    "typescript": true,
+    "others": true,
+    "vue": true,
+    "san": true,
+    "sass": true,
+    "scss": true,
+    "vhdl": true,
+    "lua": true,
+    "mermaid": true,
+    "pug": true,
+    "swan": true,
+    "stylus": true,
+    "rust": true,
+    "kotlin": true,
+    "graphql": true,
+    "objectivec": true,
+    "ada": true,
+    "agda": true,
+    "alloy": true,
+    "antlr": true,
+    "applescript": true,
+    "assembly": true,
+    "augeas": true,
+    "awk": true,
+    "batchfile": true,
+    "bluespec": true,
+    "csharp": true,
+    "clojure": true,
+    "cmake": true,
+    "coffeescript": true,
+    "commonlisp": true,
+    "cuda": true,
+    "dart": true,
+    "dockerfile": true,
+    "elixir": true,
+    "elm": true,
+    "emacslisp": true,
+    "erlang": true,
+    "fsharp": true,
+    "fortran": true,
+    "glsl": true,
+    "groovy": true,
+    "haskell": true,
+    "idris": true,
+    "isabelle": true,
+    "javaserverpages": true,
+    "json": true,
+    "julia": true,
+    "lean": true,
+    "literateagda": true,
+    "literatecoffeescript": true,
+    "literatehaskell": true,
+    "makefile": true,
+    "maple": true,
+    "markdown": true,
+    "mathematica": true,
+    "matlab": true,
+    "ocaml": true,
+    "pascal": true,
+    "powershell": true,
+    "prolog": true,
+    "protocolbuffer": true,
+    "r": true,
+    "racket": true,
+    "restructuredtext": true,
+    "rmarkdown": true,
+    "sas": true,
+    "scala": true,
+    "scheme": true,
+    "smalltalk": true,
+    "solidity": true,
+    "sparql": true,
+    "sql": true,
+    "stan": true,
+    "standardml": true,
+    "stata": true,
+    "systemverilog": true,
+    "tcl": true,
+    "tcsh": true,
+    "tex": true,
+    "thrift": true,
+    "verilog": true,
+    "visualbasic": true,
+    "xslt": true,
+    "yacc": true,
+    "yaml": true,
+    "zig": true,
+    "jupyter": true,
+    "xml": true
+  },
+  "baidu.comate.license": "307f3fed-3f3e-415a-b870-f9cf97cf7483",
+  "outline.showVariables": false,
+  "workbench.editor.enablePreview": false,
+  "gitlens.views.searchAndCompare.files.layout": "list",
+  "git.autofetch": true,
+  "baidu.comate.enableCodelens": {
+    "enableInlineUnitTest": false,
+    "enableInlineExplain": false,
+    "enableInlineDocstring": false,
+    "enableInlineSplit": false,
+    "enableInlineComment": false,
+    "enableInlineOptimize": false,
+    "enableInlineLog": false
+  },
+  "files.watcherExclude": {
+    "**/.mypy_cache/*/**": true,
+    "**/.venv/**": true
+  },
+  "editor.smoothScrolling": true,
+  "workbench.list.smoothScrolling": true,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "terminal.integrated.smoothScrolling": true,
+  "baidu.comate.enableSecurityEnhancement": false,
+  "[sql]": {
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  },
+  "sql-formatter.uppercase": true,
+  "sql-formatter.linesBetweenQueries": 4,
+  "notebook.lineNumbers": "on",
+  "editor.cursorBlinking": "smooth",
+  "markdown-preview-enhanced.revealjsTheme": "sky.css",
+  "markdown-preview-enhanced.codeBlockTheme": "vue.css",
+  "baidu.comate.linePreferMode": "auto",
+  "codeium.enableConfig": {
+    "*": true,
+    "markdown": true,
+    "http": true,
+    "plaintext": true
+  },
+  "codeium.enableCodeLens": false,
+  "extensions.autoCheckUpdates": false,
+  "python.terminal.activateEnvironment": false,
+  "comments.visible": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.fontLigatures": true,
+  "baidu.comate.privateService": "",
+  "workbench.editorAssociations": {
+    "{git,gitlens}:/**/*.{md,csv,svg}": "default"
+  },
+  "redhat.telemetry.enabled": false,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash",
+      "args": ["-l"],
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      "args": ["-l"]
+    },
+    "fish": {
+      "path": "fish",
+      "args": ["-l"]
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    },
+    "zsh (2)": {
+      "path": "/run/current-system/sw/bin/zsh"
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "baidu.comate.beta": {},
+  "database-client.autoSync": true,
+  "gitlens.views.scm.grouped.views": {
+    "commits": false,
+    "branches": false,
+    "remotes": true,
+    "stashes": false,
+    "tags": true,
+    "worktrees": true,
+    "contributors": true,
+    "repositories": true,
+    "searchAndCompare": false,
+    "launchpad": false
+  },
+  "jupyter.askForKernelRestart": false,
+  "python.defaultInterpreterPath": "/Users/npc/work/KgpMIS/.devenv/state/venv",
+  "gitlens.advanced.fileHistoryShowMergeCommits": true,
+  "cSpell.ignorePaths": [
+    "package-lock.json",
+    "node_modules",
+    "vscode-extension",
+    ".git/{info,lfs,logs,refs,objects}/**",
+    ".git/{index,*refs,*HEAD}",
+    ".vscode",
+    ".vscode-insiders",
+    ".devenv"
+  ],
+  "editor.formatOnSave": true,
+  "chat.commandCenter.enabled": false,
+  "baidu.comate.docstringOutputPosition": "editor"
+}

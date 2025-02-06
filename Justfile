@@ -95,5 +95,6 @@ stow-linux: stow-common
 stow-mac: stow-common
     cd ./dotfiles && \
     stow -t $HOME \
+    -R vscode-mac \
     -R karabiner \
 
