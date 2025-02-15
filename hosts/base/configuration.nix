@@ -37,8 +37,7 @@
       ./../../system/dwm
     ]
     # 通过 lib.optionals 来决定是否导入（启用）
-    ++ (lib.optionals settings.module.nur.enable [./../../nur])
-    ++ (lib.optionals settings.module.nixoscn.enable [./../../nixoscn-apps]);
+    ++ (lib.optionals settings.module.nur.enable [./../../nur]);
 
   nixpkgs.config.allowUnfree = true;
 

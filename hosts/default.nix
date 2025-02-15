@@ -17,9 +17,6 @@
 
     # 是否启用模块
     module = {
-      nixoscn = {
-        enable = true;
-      };
       nur = {
         enable = true;
       };
