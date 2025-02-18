@@ -3,9 +3,17 @@
     ./../base/home.nix
   ];
 
-  # for hypyland config
-  config.hypr.settings = {
-    enable = true;
-    host = "ser7";
+  config = {
+    # for hypyland config
+    hypr.settings = {
+      enable = true;
+      host = "ser7";
+    };
+
+    modules = {
+      direnv = {
+        enable = true;
+      };
+    };
   };
 }

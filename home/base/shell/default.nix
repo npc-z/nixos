@@ -50,6 +50,7 @@
 in {
   imports = [
     ./starship.nix
+    ./direnv.nix
   ];
 
   home.packages = with pkgs; [
