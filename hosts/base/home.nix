@@ -128,6 +128,7 @@
     # make dev env
     # devbox
     devenv
+    cargo
 
     # mitschemeX11
     telegram-desktop
@@ -151,6 +152,7 @@
     zathura
 
     flameshot
+    rustdesk-flutter
 
     # web browser
     microsoft-edge
@@ -182,7 +184,7 @@
         grim -g "$(slurp -w 0 -b eebebed2)" /tmp/ocr-"$id".png
 
         echo "Running OCR..."
-        tesseract /tmp/ocr-"$id".png - | wl-copy
+        tesseract /tmp/ocr-"$id".png - -l eng+chi_sim | wl-copy
         echo -en "File saved to /tmp/ocr-'$id'.png\n"
 
 
