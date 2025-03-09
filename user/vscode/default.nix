@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       # adpyke.vscode-sql-formatter  # install from vscode-extensions market
       christian-kohler.path-intellisense
       # codeium.codeium
