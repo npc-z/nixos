@@ -12,6 +12,7 @@
 
       go
       cargo
+      luajit # required by plugin's building
       stylua
       lua-language-server
 
