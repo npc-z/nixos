@@ -89,6 +89,7 @@
   imports = [
     ./../../home/base/git.nix
     ./../../home/base/shell
+    ./../../home/base/tools
 
     ./../../user/fcitx5
     ./../../user/neovim

@@ -5,6 +5,7 @@ in {
   imports = [
     ./../../home/base/git.nix
     ./../../home/base/shell
+    ./../../home/base/tools
 
     ./home/core.nix
 
