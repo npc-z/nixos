@@ -21,6 +21,7 @@
     "zh-hant": true
   },
   "cSpell.userWords": [
+    "aliyun",
     "apifox",
     "autofetch",
     "BNINIDJA",
@@ -33,6 +34,7 @@
     "duitkui",
     "enddot",
     "Farman",
+    "feishu",
     "funcfilter",
     "funcs",
     "fxadapter",
@@ -43,6 +45,7 @@
     "hgetall",
     "hset",
     "ICBC",
+    "incrby",
     "Inno",
     "ipdb",
     "isnot",
@@ -64,7 +67,10 @@
     "puml",
     "pydantic",
     "pymysql",
+    "pytools",
+    "qiye",
     "rabbitmq",
+    "Randstr",
     "relativedelta",
     "sadd",
     "setex",
@@ -75,9 +81,13 @@
     "startdot",
     "supervisorctl",
     "templating",
+    "tencentcloud",
+    "tencentcloudapi",
     "tiktok",
     "tmpl",
     "tongdun",
+    "unpad",
+    "urandom",
     "varchar",
     "venv",
     "werkzeug",
@@ -325,7 +335,7 @@
   },
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "editor.fontLigatures": true,
+  "editor.fontLigatures": false,
   "baidu.comate.privateService": "",
   "workbench.editorAssociations": {
     "{git,gitlens}:/**/*.{md,csv,svg}": "default"
@@ -359,7 +369,12 @@
     }
   },
   "terminal.integrated.defaultProfile.osx": "zsh",
-  "baidu.comate.beta": {},
+  "baidu.comate.beta": {
+    "enableFullStackIntelligence": false,
+    "enableSecurityIntelligence": false,
+    "enableCompletionIntelligence": false,
+    "enableDebugIntelligence": false
+  },
   "database-client.autoSync": true,
   "gitlens.views.scm.grouped.views": {
     "commits": false,
@@ -388,5 +403,6 @@
   ],
   "editor.formatOnSave": true,
   "chat.commandCenter.enabled": false,
-  "baidu.comate.docstringOutputPosition": "editor"
+  "baidu.comate.docstringOutputPosition": "editor",
+  "baidu.comate.inlineSuggestionMode": "extremeAccurate"
 }
