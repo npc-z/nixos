@@ -59,8 +59,8 @@
       "dbeaver-community"
 
       # office
-      # "wpsoffice-cn"
-      "wpsoffice"
+      "wpsoffice-cn"
+      # "wpsoffice"
 
       # "nikitabobko/tap/aerospace"
 
@@ -88,8 +88,6 @@
       "karabiner-elements"
       # Lightweight clipboard manager for macOS
       "maccy"
-      # Application uninstaller
-      "appcleaner"
 
       # Development
       # "insomnia" # REST client
@@ -99,7 +97,10 @@
 
       "rustdesk"
       # pin a window to the top
-      "lihaoyun6/tap/topit"
+      # "lihaoyun6/tap/topit"
+
+      # Mac Mouse Fix is an app that makes your mouse better
+      "mac-mouse-fix@2"
     ];
   };
 }
