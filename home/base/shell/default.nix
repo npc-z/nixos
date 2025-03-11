@@ -6,9 +6,10 @@
   localBin = "${config.home.homeDirectory}/.local/bin";
   goBin = "${config.home.homeDirectory}/go/bin";
   rustBin = "${config.home.homeDirectory}/.cargo/bin";
+  networkFunc = builtins.readFile ./scripts/network.sh;
 
   shellAliases = {
-    public_ip = "curl -i cip.cc";
+    public_ip = "curl ipinfo.io --silent | jq";
 
     # ##########################################
     # git alias
@@ -127,6 +128,8 @@ in {
     };
 
     initExtra = ''
+      ${networkFunc}
+
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 
       eval $(thefuck --alias)
