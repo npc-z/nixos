@@ -90,7 +90,6 @@
     ./../../home/base/git.nix
     ./../../home/base/shell
 
-    ./../../user/bash
     ./../../user/fcitx5
     ./../../user/neovim
     ./../../user/vscode

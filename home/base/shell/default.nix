@@ -101,9 +101,11 @@ in {
     enable = true;
     enableCompletion = true;
     bashrcExtra = ''
-      export PATH="$PATH:${localBin}:${goBin}:${rustBin}"
+      ${networkFunc}
 
       export TERM=xterm-256color
+      export PATH="$PATH:${localBin}:${goBin}:${rustBin}"
+      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
     '';
   };
 
@@ -140,6 +142,8 @@ in {
       eval $(thefuck --alias)
 
       export TERM=xterm-256color
+      export PATH="$PATH:${localBin}:${goBin}:${rustBin}"
+      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
     '';
   };
 }
