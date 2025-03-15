@@ -61,6 +61,7 @@
     "Openapi",
     "outerjoin",
     "pdfkit",
+    "pkgs",
     "PUBLICKEY",
     "puml",
     "pydantic",
@@ -337,4 +338,5 @@
   "python.analysis.inlayHints.callArgumentNames": "partial",
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.variableTypes": true,
+  "chat.commandCenter.enabled": false
 }
