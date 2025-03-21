@@ -66,6 +66,9 @@ in {
         # inputs.hyprscroller.packages.${pkgs.system}.hyprscroller
         pkgs.hyprlandPlugins.hyprscroller
 
+        # make Hyprland cursor more realistic(shake to find)
+        pkgs.hyprlandPlugins.hypr-dynamic-cursors
+
         # inputs.hyprland-easymotion.packages.${pkgs.system}.hypreasymotion
         # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
       ];
