@@ -19,6 +19,22 @@ in {
         hyprland config based on host
       '';
     };
+
+    hypridle = {
+      lock_timeout = mkOption {
+        description = "lock screen timeout in seconds";
+        default = 300;
+        example = 300;
+        type = types.int;
+      };
+
+      dpms_off_timeout = mkOption {
+        description = "dpms off timeout in seconds";
+        default = 600;
+        example = 600;
+        type = types.int;
+      };
+    };
   };
 
   imports = [
