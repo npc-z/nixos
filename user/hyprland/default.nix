@@ -48,6 +48,8 @@ in {
       # Fusuma is multitouch gesture recognizer
       # fusuma
       libinput-gestures
+      # hyprsunset a blue-light filter on Hyprland
+      hyprsunset
 
       # Run, show and hide programs via keybind. Emulates tdrop in Hyprland
       inputs.hyprland-contrib.packages.${pkgs.system}.hdrop
