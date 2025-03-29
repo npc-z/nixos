@@ -1,6 +1,41 @@
 # CHANGELOG
 
-2025-03-08 20:39:44 周六
+# 2025-03-29 10:21:15 周六
+
+```bash
+• Updated input 'darwin-home-manager':
+    'github:nix-community/home-manager/26f6b862645ff281f3bada5d406e8c20de8d837c?narHash=sha256-iqRxCsRxE/Q/3W1RHxQMthPKEda0hhY65uxEpE5TNk4%3D' (2025-03-08)
+  → 'github:nix-community/home-manager/1efd2503172016a6742c87b47b43ca2c8145607d?narHash=sha256-uwaVrKgi6g1TUq56247j6QvvFtYHloCkjCrEpGBvV54%3D' (2025-03-28)
+• Updated input 'home-manager':
+    'github:nix-community/home-manager/26f6b862645ff281f3bada5d406e8c20de8d837c?narHash=sha256-iqRxCsRxE/Q/3W1RHxQMthPKEda0hhY65uxEpE5TNk4%3D' (2025-03-08)
+  → 'github:nix-community/home-manager/1efd2503172016a6742c87b47b43ca2c8145607d?narHash=sha256-uwaVrKgi6g1TUq56247j6QvvFtYHloCkjCrEpGBvV54%3D' (2025-03-28)
+• Updated input 'hyprland-contrib':
+    'github:hyprwm/contrib/0e40ccfc2d6772f9b7d5e1b50c56fb5e468a18fb?narHash=sha256-inSG4OUSdCHXSJZhLNcCUA1s0Ebomr5%2Bv4x3FE/XQ3M%3D' (2025-03-06)
+  → 'github:hyprwm/contrib/bd81329944be53b0ffb99e05864804b95f1d7c65?narHash=sha256-I8JVdQRu8eWvY5W8XWYZkdd5pojDHkxeqQV7mMIsbhs%3D' (2025-03-17)
+• Updated input 'nix-darwin':
+    'github:LnL7/nix-darwin/adf5c88ba1fe21af5c083b4d655004431f20c5ab?narHash=sha256-0HwrTDXp9buEwal/1ymK9uQmzUD5ozIA7CJGqnT/gLs%3D' (2025-03-06)
+  → 'github:LnL7/nix-darwin/75f8e4dbc553d3052f917e66ee874f69d49c9981?narHash=sha256-TA/xYqZbBwCCprXf8ABORDsjJy0Idw6OdQNqYQhgKCM%3D' (2025-03-28)
+• Updated input 'nix-homebrew':
+    'github:zhaofengli-wip/nix-homebrew/a82c55b07f670a01da5a72b7a07fe41c256a4380?narHash=sha256-s9YOBz8vAxPlI4wORma3D7km8wZOEe/7Hg/u3brmwUQ%3D' (2025-03-03)
+  → 'github:zhaofengli-wip/nix-homebrew/04b0536479d2d2e8d71dc8c8ee97c2b61f0c9987?narHash=sha256-8uwIBjbKxeJ7u0VACSNs634HwtgRLxP6/%2BcIkUXmuyI%3D' (2025-03-22)
+• Updated input 'nix-homebrew/brew-src':
+    'github:Homebrew/brew/64efed206deeb9c2304d9e5b5910dcbf0a509c15?narHash=sha256-2lRLfb6qwoUAsX/XtYmt/ETxtGid6/VaBeFiRsoVMtU%3D' (2025-03-02)
+  → 'github:Homebrew/brew/f3bd91d3afe086824d24708230e1f0c7f943135a?narHash=sha256-Gn7ruyb3NDFr%2BSsHBfA2NsJI8YkkWdECqLRj/xcjt%2BE%3D' (2025-03-20)
+• Updated input 'nixpkgs':
+    'github:nixos/nixpkgs/10069ef4cf863633f57238f179a0297de84bd8d3?narHash=sha256-Q6pMP4a9ed636qilcYX8XUguvKl/0/LGXhHcRI91p0U%3D' (2025-03-06)
+  → 'github:nixos/nixpkgs/5e5402ecbcb27af32284d4a62553c019a3a49ea6?narHash=sha256-gWd4urRoLRe8GLVC/3rYRae1h%2BxfQzt09xOfb0PaHSk%3D' (2025-03-27)
+• Updated input 'nixpkgs-unstable':
+    'github:nixos/nixpkgs/10069ef4cf863633f57238f179a0297de84bd8d3?narHash=sha256-Q6pMP4a9ed636qilcYX8XUguvKl/0/LGXhHcRI91p0U%3D' (2025-03-06)
+  → 'github:nixos/nixpkgs/5e5402ecbcb27af32284d4a62553c019a3a49ea6?narHash=sha256-gWd4urRoLRe8GLVC/3rYRae1h%2BxfQzt09xOfb0PaHSk%3D' (2025-03-27)
+• Updated input 'nur':
+    'github:nix-community/NUR/cce0d2dc897c6a4fde930f6b3776338570a11c7f?narHash=sha256-pcCPwxDZfsN7%2BqU/mZ6q/AtxYBD1i68rwz%2BwqmlrvXU%3D' (2025-03-08)
+  → 'github:nix-community/NUR/1cdadc8f79bd816245316af3f4c9d85319e8741c?narHash=sha256-aUUQW1G0qMwV%2BfN5mVoKYvCKoo8HwyZjdX1gA1I6aN0%3D' (2025-03-29)
+• Updated input 'nur/nixpkgs':
+    'github:nixos/nixpkgs/10069ef4cf863633f57238f179a0297de84bd8d3?narHash=sha256-Q6pMP4a9ed636qilcYX8XUguvKl/0/LGXhHcRI91p0U%3D' (2025-03-06)
+  → 'github:nixos/nixpkgs/5e5402ecbcb27af32284d4a62553c019a3a49ea6?narHash=sha256-gWd4urRoLRe8GLVC/3rYRae1h%2BxfQzt09xOfb0PaHSk%3D' (2025-03-27)
+```
+
+# 2025-03-08 20:39:44 周六
 
 ```bash
 • Updated input 'darwin-home-manager':

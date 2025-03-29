@@ -108,7 +108,5 @@
     wechat-uos # need override license, use overlay or use nur version
 
     # libreoffice
-    # NOTE: broken in unstable
-    # pkgs.stable.rustdesk
   ];
 }

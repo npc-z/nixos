@@ -152,7 +152,9 @@
     zathura
 
     flameshot
-    rustdesk-flutter
+    # NOTE: broken in unstable https://github.com/NixOS/nixpkgs/issues/391971
+    # rustdesk-flutter
+    pkgs.stable.rustdesk
 
     # web browser
     microsoft-edge
