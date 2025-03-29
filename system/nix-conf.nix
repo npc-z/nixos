@@ -1,5 +1,6 @@
-{...}: {
+{inputs, ...}: {
   nix = {
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     settings = {
       # Optimise storage
       # you can alse optimise the store manually via:
