@@ -6,11 +6,14 @@
   linux-system = "x86_64-linux";
   darwin-system = "aarch64-darwin";
 
+  inherit (inputs.nixpkgs) lib;
+  mylib = import ./../lib {inherit lib;};
   myvars = import ./../vars {};
 
   specialArgs = {
     inherit inputs;
     inherit myvars;
+    inherit mylib;
   };
 
   osTemplate = {

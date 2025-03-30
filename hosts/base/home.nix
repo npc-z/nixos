@@ -1,6 +1,7 @@
 {
   config,
   myvars,
+  mylib,
   pkgs,
   ...
 }: {
@@ -32,10 +33,8 @@
 
   # programs
   imports = [
-    ./../../home/base/git.nix
-    ./../../home/base/shell
-    ./../../home/base/tools
-    ./../../home/base/mutable-homefiles
+    (mylib.relativeToRoot "home/base")
+    (mylib.relativeToRoot "home/linux/base")
 
     ./../../user/fcitx5
     ./../../user/neovim
