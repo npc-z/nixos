@@ -97,22 +97,14 @@ in {
     # mini host
     "ser7-nixos" = osTemplate {
       hostDir = "ser7";
-      specialArgs =
-        specialArgs
-        // {
-          hostname = "ser7-nixos";
-        };
+      inherit specialArgs;
       system = linux-system;
     };
 
     # laptop
     "r9000p-nixos" = osTemplate {
       hostDir = "r9000p";
-      specialArgs =
-        specialArgs
-        // {
-          hostname = "r9000p-nixos";
-        };
+      inherit specialArgs;
       system = linux-system;
     };
   };
