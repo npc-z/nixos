@@ -1,6 +1,6 @@
-{...}: {
+{mylib, ...}: {
   imports = [
-    ./../base/home.nix
+    (mylib.relativeToRoot "home/linux/home.nix")
   ];
 
   config = {
