@@ -36,7 +36,6 @@
     (mylib.relativeToRoot "home/base")
     (mylib.relativeToRoot "home/linux/base")
 
-    ./../../user/fcitx5
     ./../../user/neovim
     ./../../user/vscode
     ./../../user/theme
