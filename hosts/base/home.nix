@@ -11,61 +11,6 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  xdg = {
-    enable = true;
-
-    cacheHome = "${config.home.homeDirectory}/.cache";
-    configHome = "${config.home.homeDirectory}/.config";
-    dataHome = "${config.home.homeDirectory}/.local/share";
-    stateHome = "${config.home.homeDirectory}/.local/state";
-
-    mimeApps = {
-      enable = true;
-      # /etc/profiles/per-user/npc/share/applications
-      # /run/current-system/sw/share/applications
-      defaultApplications = let
-        browser = ["firefox.desktop" "microsoft-edge.desktop"];
-        editor = ["nvim.desktop" "code.desktop"];
-      in {
-        "application/json" = browser;
-        "application/pdf" = "org.kde.okular.desktop";
-
-        "text/plain" = editor;
-        "text/html" = browser;
-        "text/xml" = browser;
-
-        "application/xml" = browser;
-        "application/xhtml+xml" = browser;
-        "application/xhtml_xml" = browser;
-        "application/rdf+xml" = browser;
-        "application/rss+xml" = browser;
-        "application/x-extension-htm" = browser;
-        "application/x-extension-html" = browser;
-        "application/x-extension-shtml" = browser;
-        "application/x-extension-xht" = browser;
-        "application/x-extension-xhtml" = browser;
-        "application/x-wine-extension-ini" = editor;
-
-        "x-scheme-handler/about" = browser; # open `about:` url with `browser`
-        "x-scheme-handler/ftp" = browser; # open `ftp:` url with `browser`
-        "x-scheme-handler/http" = browser;
-        "x-scheme-handler/https" = browser;
-
-        "audio/*" = ["mpv.desktop"];
-        "video/*" = ["mpv.desktop"];
-
-        "image/*" = ["imv-dir.desktop"];
-        "image/gif" = ["imv-dir.desktop"];
-        "image/jpeg" = ["imv-dir.desktop"];
-        "image/png" = ["imv-dir.desktop"];
-        "image/webp" = ["imv-dir.desktop"];
-
-        "x-scheme-handler/vscode" = ["code-url-handler.desktop"]; # open `vscode://` url with `code-url-handler.desktop`
-        "x-scheme-handler/tg" = ["org.telegram.desktop.desktop "];
-      };
-    };
-  };
-
   # Mason works if you enable .local/bin
   home.sessionPath = [
     "$HOME/.local/bin"
@@ -90,6 +35,7 @@
     ./../../home/base/git.nix
     ./../../home/base/shell
     ./../../home/base/tools
+    ./../../home/base/mutable-homefiles
 
     ./../../user/fcitx5
     ./../../user/neovim
@@ -99,21 +45,6 @@
 
     ./../../user/appimage
   ];
-
-  # 递归将某个文件夹中的文件，链接到 Home 目录下的指定位置
-
-  #  home.file.".config/waybar/scripts" = {
-  #    source = ./../../dotfiles/waybar/.config/waybar/scripts;
-  #    recursive = true; # 递归整个文件夹
-  #    executable = true; # 将其中所有文件添加「执行」权限
-  #  };
-
-  # 直接以 text 的方式，在 nix 配置文件中硬编码文件内容
-  # home.file.".xxx".text = ''
-  #     xxx
-  # '';
-  #  home.file.".config/waybar/config".source = ./../../dotfiles/waybar/.config/waybar/config;
-  #  home.file.".config/waybar/style.css".source = ./../../dotfiles/waybar/.config/waybar/style.css;
 
   # 设置鼠标指针大小以及字体 DPI（适用于 4K 显示器）
   # xresources.properties = {
