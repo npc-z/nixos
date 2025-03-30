@@ -1,7 +1,8 @@
 {
-  inputs,
   config,
+  inputs,
   lib,
+  mylib,
   pkgs,
   ...
 }:
@@ -37,9 +38,7 @@ in {
     };
   };
 
-  imports = [
-    ./hypridle.nix
-  ];
+  imports = mylib.scanPaths ./.;
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [

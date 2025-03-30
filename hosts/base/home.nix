@@ -35,13 +35,7 @@
   imports = [
     (mylib.relativeToRoot "home/base")
     (mylib.relativeToRoot "home/linux/base")
-
-    ./../../user/neovim
-    ./../../user/vscode
-    ./../../user/theme
-    ./../../user/hyprland
-
-    ./../../user/appimage
+    (mylib.relativeToRoot "home/linux/hyprland")
   ];
 
   # 设置鼠标指针大小以及字体 DPI（适用于 4K 显示器）
