@@ -115,29 +115,6 @@ in {
         };
       system = linux-system;
     };
-
-    # work
-    "thinkpad-e14-nixos" = osTemplate {
-      hostDir = "thinkpad-e14";
-      specialArgs =
-        specialArgs
-        // {
-          hostname = "thinkpad-e14-nixos";
-        };
-      system = linux-system;
-    };
-
-    #
-    "start-nixos" = nixpkgs.lib.nixosSystem {
-      system = linux-system;
-      inherit specialArgs;
-
-      modules = [
-        # 基础配置
-        ./base
-        ./hosts/start/start.nix
-      ];
-    };
   };
 
   darwinConfigurations = {
