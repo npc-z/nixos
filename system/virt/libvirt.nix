@@ -1,6 +1,6 @@
 {
   pkgs,
-  settings,
+  myvars,
   ...
 }: {
   virtualisation = {
@@ -16,7 +16,7 @@
     spiceUSBRedirection.enable = true;
   };
 
-  users.users.${settings.user.username}.extraGroups = ["libvirtd"];
+  users.users.${myvars.username}.extraGroups = ["libvirtd"];
 
   # fix 网络问题
   # https://www.reddit.com/r/NixOS/comments/18qtsoz/comment/kez0f1b/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_buttong
@@ -36,7 +36,7 @@
   ];
   programs.virt-manager.enable = true;
 
-  home-manager.users.${settings.user.username} = {
+  home-manager.users.${myvars.username} = {
     dconf.settings = {
       "org/virt-manager/virt-manager/connections" = {
         autoconnect = ["qemu:///system"];

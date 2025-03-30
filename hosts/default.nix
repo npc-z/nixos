@@ -6,29 +6,10 @@
   linux-system = "x86_64-linux";
   darwin-system = "aarch64-darwin";
 
-  settings = {
-    # system variables
-    system = {};
-
-    # user variables
-    user = {
-      username = "npc";
-    };
-
-    # 是否启用模块
-    module = {
-      nur = {
-        enable = true;
-      };
-    };
-  };
-
-  # 逐步替换 settings
   myvars = import ./../vars {};
 
   specialArgs = {
     inherit inputs;
-    inherit settings;
     inherit myvars;
   };
 
@@ -91,7 +72,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${settings.user.username} = import ./${hostDir}/home.nix;
+          home-manager.users.${myvars.username} = import ./${hostDir}/home.nix;
           home-manager.extraSpecialArgs = specialArgs;
         }
 
@@ -103,7 +84,7 @@
             # Apple Silicon Only
             enableRosetta = true;
             # User owning the Homebrew prefix
-            user = "${settings.user.username}";
+            user = "${myvars.username}";
           };
         }
       ];

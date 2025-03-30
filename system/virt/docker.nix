@@ -1,6 +1,6 @@
 {
+  myvars,
   pkgs,
-  settings,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -15,5 +15,5 @@
   };
 
   # User permissions
-  users.users.${settings.user.username}.extraGroups = ["docker"];
+  users.users.${myvars.username}.extraGroups = ["docker"];
 }

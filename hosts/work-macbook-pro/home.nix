@@ -1,5 +1,5 @@
-{settings, ...}: let
-  username = settings.user.username;
+{myvars, ...}: let
+  username = myvars.username;
 in {
   # import sub modules
   imports = [

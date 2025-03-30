@@ -1,7 +1,7 @@
 {
   inputs,
+  myvars,
   pkgs,
-  settings,
   ...
 }: {
   nixpkgs.overlays = [
@@ -63,8 +63,8 @@
     rsync
   ];
 
-  users.users.${settings.user.username} = {
-    # description = settings.user.username;
+  users.users.${myvars.username} = {
+    # description = myvars.username;
   };
 
   nix.settings = {
@@ -75,7 +75,7 @@
     #    1. `nixConfig.substituers` in `flake.nix`
     #    2. command line args `--options substituers http://xxx`
     trusted-users = [
-      settings.user.username
+      myvars.username
     ];
 
     # substituers that will be considered before the official ones(https://cache.nixos.org)

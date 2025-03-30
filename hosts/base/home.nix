@@ -1,12 +1,12 @@
 {
   config,
+  myvars,
   pkgs,
-  settings,
   ...
 }: {
   # 注意修改这里的用户名与用户目录
-  home.username = "${settings.user.username}";
-  home.homeDirectory = "/home/${settings.user.username}";
+  home.username = "${myvars.username}";
+  home.homeDirectory = "/home/${myvars.username}";
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
