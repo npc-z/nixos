@@ -1,16 +1,15 @@
-{myvars, ...}: let
+{
+  mylib,
+  myvars,
+  ...
+}: let
   username = myvars.username;
 in {
-  # import sub modules
   imports = [
-    ./../../home/base/git.nix
-    ./../../home/base/shell
-    ./../../home/base/tools
-
+    (mylib.relativeToRoot "home/base")
     ./home/core.nix
 
     ./../../modules/darwin/neovim.nix
-    ./../../user/vscode
   ];
 
   config = {
