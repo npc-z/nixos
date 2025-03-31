@@ -1,8 +1,14 @@
-{pkgs, ...}: {
+{
+  mylib,
+  pkgs,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./../../system/steam.nix
+
+    (mylib.relativeToRoot "modules/linux/configuration.nix")
   ];
 
   config = {

@@ -1,6 +1,6 @@
-{...}: {
+{mylib, ...}: {
   imports = [
-    ./../../modules/darwin/base.nix
+    (mylib.relativeToRoot "modules/darwin/configuration.nix")
     ./users.nix
   ];
 }

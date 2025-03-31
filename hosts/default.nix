@@ -35,6 +35,7 @@
         }
 
         # 基础配置
+        # TODO: remove this file
         ./base/configuration.nix
 
         # 导入主机的配置

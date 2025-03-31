@@ -5,9 +5,6 @@
     # nur
     ./../../nur
 
-    # common
-    ./../../modules/common/ollama
-
     # system
     ./../../system/dbus.nix
     ./../../system/bluetooth.nix
@@ -16,7 +13,6 @@
     ./../../system/environment.nix
     ./../../system/media.nix
 
-    ./../../system/fonts.nix
     ./../../system/hardware.nix
     ./../../system/il8n.nix
     ./../../system/networking.nix
