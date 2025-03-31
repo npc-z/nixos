@@ -1,5 +1,6 @@
 {
   config,
+  mylib,
   pkgs,
   ...
 }: let
@@ -52,10 +53,7 @@
     vim = "nvim";
   };
 in {
-  imports = [
-    ./starship.nix
-    ./direnv.nix
-  ];
+  imports = mylib.scanPaths ./.;
 
   home.packages = with pkgs; [
     # A cat(1) clone with syntax highlighting and Git integration
