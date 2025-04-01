@@ -61,7 +61,6 @@ stow-common:
     -R alacritty \
     -R foot \
     -R kitty \
-    -R lazygit \
     -R ssh \
     -R wallpapers \
     -R vim \
@@ -80,6 +79,7 @@ stow-linux: stow-common
     -R libinput-gestures \
     -R hypr \
     -R keyd \
+    -R lazygit \
     -R rofi \
     -R swaync \
     -R swaylock \
@@ -97,4 +97,6 @@ stow-mac: stow-common
     stow -t $HOME \
     -R vscode-mac \
     -R karabiner \
+
+    ln -sf ~/.config/nixos/dotfiles/lazygit/.config/lazygit/config.yml "/Users/npc/Library/Application Support/lazygit/config.yml" \
 
