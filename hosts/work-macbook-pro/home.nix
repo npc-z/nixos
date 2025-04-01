@@ -8,8 +8,6 @@ in {
   imports = [
     (mylib.relativeToRoot "home/base")
     ./home/core.nix
-
-    ./../../modules/darwin/neovim.nix
   ];
 
   config = {
