@@ -338,5 +338,6 @@
   "python.analysis.inlayHints.callArgumentNames": "partial",
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.variableTypes": true,
-  "chat.commandCenter.enabled": false
+  "chat.commandCenter.enabled": false,
+  "diffEditor.ignoreTrimWhitespace": false
 }
