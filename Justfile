@@ -44,6 +44,12 @@ history:
 repl:
   nix repl -f flake:nixpkgs
 
+
+# repl the configurations
+repl-configurations:
+  nix repl --extra-experimental-features 'flakes repl-flake' .
+
+
 # remove all generations older than 7 days
 clean:
   sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
