@@ -59,8 +59,8 @@
       "dbeaver-community"
 
       # office
-      "wpsoffice-cn"
-      # "wpsoffice"
+      # "wpsoffice-cn"
+      "wpsoffice"
 
       # "nikitabobko/tap/aerospace"
 
