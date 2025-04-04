@@ -29,8 +29,6 @@
       modules = [
         {
           nixpkgs.overlays = [
-            inputs.dwm.overlays.default
-            # inputs.picom.overlays.default
           ];
         }
 

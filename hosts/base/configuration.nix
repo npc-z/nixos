@@ -24,9 +24,6 @@
     ./../../system/nix-ld.nix
     ./../../system/swaylock.nix
     ./../../system/keyd.nix
-
-    # DE
-    ./../../system/dwm
   ];
 
   nixpkgs.config.allowUnfree = true;
