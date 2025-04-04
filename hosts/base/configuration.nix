@@ -15,7 +15,6 @@
     ./../../system/networking.nix
     ./../../system/programs.nix
     ./../../system/services.nix
-    ./../../system/virt
     ./../../system/user.nix
     ./../../system/nix-ld.nix
     ./../../system/swaylock.nix
