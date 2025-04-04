@@ -5,7 +5,7 @@
 
     ./../../system/laptop
 
-    (mylib.relativeToRoot "modules/linux/configuration.nix")
+    (mylib.relativeToRoot "modules/linux")
   ];
 
   config = {

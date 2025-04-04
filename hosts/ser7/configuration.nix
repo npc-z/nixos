@@ -8,7 +8,7 @@
     ./hardware-configuration.nix
     ./../../system/steam.nix
 
-    (mylib.relativeToRoot "modules/linux/configuration.nix")
+    (mylib.relativeToRoot "modules/linux")
   ];
 
   config = {

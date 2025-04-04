@@ -7,7 +7,7 @@
   hostname = "work-macbook-pro";
 in {
   imports = [
-    (mylib.relativeToRoot "modules/darwin/configuration.nix")
+    (mylib.relativeToRoot "modules/darwin")
   ];
 
   config = {
