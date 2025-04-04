@@ -1,7 +1,4 @@
 {...}: {
-  # Set your time zone.
-  time.timeZone = "Asia/Shanghai";
-
   services.pipewire = {
     enable = true;
     alsa.enable = true;
