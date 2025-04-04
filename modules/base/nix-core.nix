@@ -1,19 +1,31 @@
-{inputs, ...}: {
+{
+  inputs,
+  myvars,
+  ...
+}: {
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   nix = {
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    # this is useful for nixd(lsp of nix)
+    nixPath = [
+      "nixpkgs=${inputs.nixpkgs}"
+    ];
 
     settings = {
-      # Optimise storage
-      # you can alse optimise the store manually via:
-      #    nix-store --optimise
-      # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
-      auto-optimise-store = true;
       experimental-features = [
         "nix-command"
         "flakes"
       ];
 
-      trusted-users = ["npc"];
+      # given the users in this list the right to specify additional substituters via:
+      #    1. `nixConfig.substituers` in `flake.nix`
+      #    2. command line args `--options substituers http://xxx`
+      trusted-users = [
+        myvars.username
+      ];
+
+      # substituers that will be considered before the official ones(https://cache.nixos.org)
       substituters = [
         # cache mirror located in China
         # status: https://mirror.sjtu.edu.cn/
@@ -44,13 +56,6 @@
         # hyprland
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       ];
-    };
-
-    # do garbage collection weekly to keep disk usage low
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 2w";
     };
   };
 }

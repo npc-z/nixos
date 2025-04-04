@@ -16,7 +16,6 @@
     ./../../system/hardware.nix
     ./../../system/il8n.nix
     ./../../system/networking.nix
-    ./../../system/nix-conf.nix
     ./../../system/programs.nix
     ./../../system/services.nix
     ./../../system/virt
