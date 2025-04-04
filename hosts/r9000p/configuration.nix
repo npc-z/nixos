@@ -3,7 +3,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    (mylib.relativeToRoot "modules/linux")
+    (mylib.relativeToRoot "modules/linux/desktop")
   ];
 
   config = {
