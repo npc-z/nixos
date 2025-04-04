@@ -1,6 +1,7 @@
 {...}: let
-  keydConfig = builtins.readFile ./../dotfiles/keyd/default.conf;
+  keydConfig = builtins.readFile ./../../../dotfiles/keyd/default.conf;
 in {
+  # Key remapping daemon for Linux
   environment.etc."keyd/default.conf".text = keydConfig;
 
   services.keyd = {

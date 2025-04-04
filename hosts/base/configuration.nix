@@ -23,7 +23,6 @@
     ./../../system/user.nix
     ./../../system/nix-ld.nix
     ./../../system/swaylock.nix
-    ./../../system/keyd.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
