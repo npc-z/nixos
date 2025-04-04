@@ -37,7 +37,7 @@ in {
       add_newline = false;
       line_break.disabled = false;
 
-      format = "${elemsConcatted}\n$character";
+      # format = "${elemsConcatted}\n$character";
 
       hostname = {
         ssh_only = true;
