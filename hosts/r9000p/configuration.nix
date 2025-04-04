@@ -12,6 +12,9 @@
     };
 
     modules = {
+      # NOTE:
+      usrEnv.isWayland = true;
+
       cpu = {
         type = "amd";
         amd = {
@@ -21,6 +24,7 @@
           zenpower.enable = true;
         };
       };
+      gpu.type = "hybrid-nv";
 
       laptop.enable = true;
     };

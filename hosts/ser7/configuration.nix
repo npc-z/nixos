@@ -16,6 +16,9 @@
     };
 
     modules = {
+      # NOTE:
+      usrEnv.isWayland = true;
+
       cpu = {
         type = "amd";
         amd = {
@@ -25,6 +28,7 @@
           zenpower.enable = true;
         };
       };
+      gpu.type = "amd";
 
       ollama = {
         # enable = true;
