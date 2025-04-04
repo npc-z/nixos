@@ -6,7 +6,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./../../system/steam.nix
 
     (mylib.relativeToRoot "modules/linux")
   ];
@@ -20,6 +19,10 @@
       ollama = {
         # enable = true;
         package = pkgs.ollama-rocm;
+      };
+
+      game = {
+        enable = true;
       };
     };
   };
