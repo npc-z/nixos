@@ -6,7 +6,6 @@
     ./../../nur
 
     # system
-    ./../../system/dbus.nix
     ./../../system/boot.nix
 
     ./../../system/environment.nix
