@@ -6,7 +6,6 @@
     ./../../nur
 
     # system
-    ./../../system/boot.nix
 
     ./../../system/environment.nix
     ./../../system/media.nix
