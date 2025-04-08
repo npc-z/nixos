@@ -66,7 +66,4 @@
   users.users.${myvars.username} = {
     # description = myvars.username;
   };
-
-  # Set Git commit hash for configuration version.
-  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 }
