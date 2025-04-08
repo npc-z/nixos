@@ -128,5 +128,18 @@
     "key": "cmd+[",
     "command": "-editor.action.outdentLines",
     "when": "editorTextFocus && !editorReadonly"
-  }
+  },
+  {
+    // 在终端中选中文本时执行 "复制"
+    "key": "cmd+c",
+    "command": "editor.action.clipboardCopyAction",
+    "when": "terminalFocus && terminalTextSelectedInFocused"
+  },
+  {
+    // 在终端中 非选中文本时执行 "终止"
+    "key": "cmd+c",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0003" },
+    "when": "terminalFocus && !terminalTextSelectedInFocused"
+  },
 ]
