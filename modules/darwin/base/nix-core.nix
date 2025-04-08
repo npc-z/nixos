@@ -1,7 +1,4 @@
 {...}: {
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # do garbage collection weekly to keep disk usage low
   nix.gc = {
     automatic = true;
