@@ -13,7 +13,6 @@
     ./../../system/hardware.nix
     ./../../system/networking.nix
     ./../../system/programs.nix
-    ./../../system/services.nix
     ./../../system/user.nix
     ./../../system/nix-ld.nix
   ];
