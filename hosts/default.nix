@@ -27,16 +27,9 @@
       inherit specialArgs;
 
       modules = [
-        {
-          nixpkgs.overlays = [
-          ];
-        }
+        (mylib.relativeToRoot "overlays")
+        (mylib.relativeToRoot "nur")
 
-        # 基础配置
-        # TODO: remove this file
-        ./base/configuration.nix
-
-        # 导入主机的配置
         ./${hostDir}/configuration.nix
 
         inputs.home-manager.nixosModules.home-manager
