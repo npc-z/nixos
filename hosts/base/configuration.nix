@@ -8,7 +8,6 @@
     # system
 
     ./../../system/environment.nix
-    ./../../system/media.nix
 
     ./../../system/hardware.nix
     ./../../system/networking.nix
