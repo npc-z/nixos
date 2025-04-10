@@ -9,7 +9,6 @@
 
     ./../../system/environment.nix
 
-    ./../../system/hardware.nix
     ./../../system/networking.nix
     ./../../system/programs.nix
     ./../../system/user.nix

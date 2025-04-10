@@ -6,4 +6,11 @@
 
   services.gvfs.enable = true;
   services.udisks2.enable = true;
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+  };
 }
