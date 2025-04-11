@@ -63,7 +63,7 @@
         # 导入主机的配置
         ./${hostDir}/configuration.nix
 
-        inputs.darwin-home-manager.darwinModules.home-manager
+        inputs.home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

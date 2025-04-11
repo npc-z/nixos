@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## 2025-04-11 22:02:50 星期五
+
+- darwin 和 nixos 使用相同的 home-manager
+- nixpkgs-stable 使用 24.11 分支
+
+```log
+
+• Removed input 'darwin-home-manager'
+• Removed input 'darwin-home-manager/nixpkgs'
+• Updated input 'home-manager':
+    'github:nix-community/home-manager/1efd2503172016a6742c87b47b43ca2c8145607d?narHash=sha256-uwaVrKgi6g1TUq56247j6QvvFtYHloCkjCrEpGBvV54%3D' (2025-03-28)
+  → 'github:nix-community/home-manager/6bccb54a4f98408f22d2e45921bb401f393f2174?narHash=sha256-zT3zbkZjeKsjMktV7MAdruXQWpzpM7iVWHuhknYOuwY%3D' (2025-04-11)
+• Updated input 'hyprland-contrib':
+    'github:hyprwm/contrib/bd81329944be53b0ffb99e05864804b95f1d7c65?narHash=sha256-I8JVdQRu8eWvY5W8XWYZkdd5pojDHkxeqQV7mMIsbhs%3D' (2025-03-17)
+  → 'github:hyprwm/contrib/bc2ad24e0b2e66c3e164994c4897cd94a933fd10?narHash=sha256-YItzk1pj8Kz%2Bb7VlC9zN1pSZ6CuX35asYy3HuMQ3lBQ%3D' (2025-03-31)
+• Updated input 'nix-darwin':
+    'github:LnL7/nix-darwin/75f8e4dbc553d3052f917e66ee874f69d49c9981?narHash=sha256-TA/xYqZbBwCCprXf8ABORDsjJy0Idw6OdQNqYQhgKCM%3D' (2025-03-28)
+  → 'github:LnL7/nix-darwin/113883e37d985d26ecb65282766e5719f2539103?narHash=sha256-cqePj5nuC7flJWNncaVAFq1YZncU0PSyO0DEqGn%2BvYc%3D' (2025-04-09)
+• Updated input 'nixpkgs':
+    'github:nixos/nixpkgs/5e5402ecbcb27af32284d4a62553c019a3a49ea6?narHash=sha256-gWd4urRoLRe8GLVC/3rYRae1h%2BxfQzt09xOfb0PaHSk%3D' (2025-03-27)
+  → 'github:nixos/nixpkgs/f675531bc7e6657c10a18b565cfebd8aa9e24c14?narHash=sha256-gbl9hE39nQRpZaLjhWKmEu5ejtQsgI5TWYrIVVJn30U%3D' (2025-04-09)
+• Updated input 'nixpkgs-stable':
+    'github:nixos/nixpkgs/b134951a4c9f3c995fd7be05f3243f8ecd65d798?narHash=sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8%3D' (2024-12-30)
+  → 'github:nixos/nixpkgs/f9ebe33a928b5d529c895202263a5ce46bdf12f7?narHash=sha256-QZnNHM823am8apCqKSPdtnzPGTy2ZB4zIXOVoBp5%2BW0%3D' (2025-04-10)
+• Updated input 'nixpkgs-unstable':
+    'github:nixos/nixpkgs/5e5402ecbcb27af32284d4a62553c019a3a49ea6?narHash=sha256-gWd4urRoLRe8GLVC/3rYRae1h%2BxfQzt09xOfb0PaHSk%3D' (2025-03-27)
+  → 'github:nixos/nixpkgs/f675531bc7e6657c10a18b565cfebd8aa9e24c14?narHash=sha256-gbl9hE39nQRpZaLjhWKmEu5ejtQsgI5TWYrIVVJn30U%3D' (2025-04-09)
+• Updated input 'nur':
+    'github:nix-community/NUR/1cdadc8f79bd816245316af3f4c9d85319e8741c?narHash=sha256-aUUQW1G0qMwV%2BfN5mVoKYvCKoo8HwyZjdX1gA1I6aN0%3D' (2025-03-29)
+  → 'github:nix-community/NUR/3d57e02ef4ab6a22880b31ee279a627725993dfb?narHash=sha256-jVZIfFK4iHzl1d/8kGzU0%2BpjOepWyazNx1n7yyXdprg%3D' (2025-04-11)
+• Updated input 'nur/nixpkgs':
+    'github:nixos/nixpkgs/5e5402ecbcb27af32284d4a62553c019a3a49ea6?narHash=sha256-gWd4urRoLRe8GLVC/3rYRae1h%2BxfQzt09xOfb0PaHSk%3D' (2025-03-27)
+  → 'github:nixos/nixpkgs/f675531bc7e6657c10a18b565cfebd8aa9e24c14?narHash=sha256-gbl9hE39nQRpZaLjhWKmEu5ejtQsgI5TWYrIVVJn30U%3D' (2025-04-09)
+```
+
 # 2025-03-29 10:21:15 周六
 
 ```bash
