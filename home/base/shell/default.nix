@@ -99,6 +99,9 @@ in {
     enable = true;
     enableCompletion = true;
     bashrcExtra = ''
+      bind 'set show-all-if-ambiguous on'
+      bind 'TAB:menu-complete'
+
       ${networkFunc}
 
       export TERM=xterm-256color
