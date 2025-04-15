@@ -20,5 +20,8 @@ in {
       home = "/Users/${username}";
       description = username;
     };
+
+    # https://daiderd.com/nix-darwin/manual/index.html#opt-system.stateVersion
+    system.stateVersion = 5;
   };
 }
