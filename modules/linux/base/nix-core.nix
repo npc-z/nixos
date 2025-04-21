@@ -4,7 +4,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 2w";
+      options = "--delete-older-than 14d";
     };
 
     # remove nix-channel related tools & configs, we use flakes instead.
