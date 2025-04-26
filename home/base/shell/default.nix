@@ -133,7 +133,7 @@ in {
       ];
     };
 
-    initExtra = ''
+    initContent = ''
       ${networkFunc}
 
       ${fzfCfg}

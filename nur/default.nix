@@ -19,7 +19,7 @@
   # https://github.com/nix-community/NUR
   # https://nur.nix-community.org/
   environment.systemPackages = [
-    # pkgs.nur.repos.xddxdd.netease-cloud-music # failed to build, not work now
+    pkgs.nur.repos.xddxdd.netease-cloud-music
     # pkgs.nur.repos.Freed-Wu.netease-cloud-music # failed to build, not work now
     pkgs.nur.repos.mic92.hello-nur
     pkgs.nur.repos.xddxdd.baidunetdisk
