@@ -4,6 +4,10 @@
 
     withNodeJs = true;
     withPython3 = true;
+    extraPython3Packages = pyPkgs:
+      with pyPkgs; [
+        autopep8
+      ];
 
     # defaultEditor = true;
     extraPackages = with pkgs; [
