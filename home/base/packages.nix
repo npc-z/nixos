@@ -2,6 +2,8 @@
   home.packages = with pkgs; [
     # Fuzzy search for Nix packages
     nix-search-tv
+    # Collection of common network programs
+    inetutils
   ];
 
   home.shellAliases = {
