@@ -2,7 +2,8 @@
 size = 16
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+# family = "JetBrainsMono Nerd Font"
+family = "Maple Mono Normal"
 style = "Bold"
 
 [font.glyph_offset]
@@ -10,11 +11,13 @@ x = 0
 y = 0
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+# family = "JetBrainsMono Nerd Font"
+family = "Maple Mono Normal"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+# family = "JetBrainsMono Nerd Font"
+family = "Maple Mono Normal"
 style = "Regular"
 
 

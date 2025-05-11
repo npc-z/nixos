@@ -13,6 +13,22 @@
     fira-code
     fira-code-symbols
 
+    # https://github.com/subframe7536/maple-font
+    # Maple Mono (Ligature TTF unhinted)
+    maple-mono.truetype
+    # Maple Mono NF (Ligature unhinted)
+    maple-mono.NF-unhinted
+    # Maple Mono NF CN (Ligature unhinted)
+    maple-mono.NF-CN-unhinted
+    # Maple Mono Normal NF (Ligature hinted)
+    maple-mono.Normal-NF
+    # Maple Mono Normal (Ligature TTF unhinted)
+    maple-mono.Normal-TTF
+    # Maple Mono Normal NF (No-Ligature hinted)
+    maple-mono.NormalNL-NF
+    # Maple Mono Normal (No-Ligature TTF unhinted)
+    maple-mono.NormalNL-TTF
+
     # icon fonts
     material-design-icons
     font-awesome
