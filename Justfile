@@ -15,6 +15,10 @@ default:
 deploy:
   nixos-rebuild switch --flake . --use-remote-sudo
 
+# Build the configuration and activate it, but don't add it to the bootloader menu
+test:
+  nixos-rebuild test --flake . --use-remote-sudo
+
 # rebuild with debug
 debug:
   nixos-rebuild switch --flake . --use-remote-sudo --show-trace --print-build-logs --verbose
