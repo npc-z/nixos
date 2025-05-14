@@ -11,7 +11,10 @@
   fzfCfg = builtins.readFile ./scripts/fzf.zsh;
 
   shellAliases = {
-    public_ip = "curl ipinfo.io --silent | jq";
+    public_ip = let
+      # api = "https://ipinfo.io/json"; # 备用 API
+      api = "http://ip-api.com/json?lang=zh-CN";
+    in ''curl -s "${api}" | jq'';
 
     # ##########################################
     # git alias

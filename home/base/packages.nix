@@ -1,9 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    # Fuzzy search for Nix packages
-    nix-search-tv
-    # Collection of common network programs
-    inetutils
+    dig # Domain name server
+    nix-search-tv # Fuzzy search for Nix packages
+    inetutils # Collection of common network programs
     lsd # Next gen ls command
     erdtree # File-tree visualizer and disk usage analyzer
   ];
