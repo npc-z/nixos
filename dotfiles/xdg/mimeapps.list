@@ -37,6 +37,7 @@ x-scheme-handler/tg=org.telegram.desktop.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 x-scheme-handler/vscode=code-url-handler.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
+x-scheme-handler/clash=clash-verge.desktop
 
 
 [Removed Associations]
