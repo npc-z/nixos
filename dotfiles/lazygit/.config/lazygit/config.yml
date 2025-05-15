@@ -1,5 +1,5 @@
 os:
-  edit: "nvim"
+  edit: "nvim {{filename}}"
 
 gui:
   # Fraction of the total screen width to use for the left side section. You may want to pick a small number (e.g. 0.2) if you're using a narrow screen, so that you can see more of the main section.
@@ -13,6 +13,7 @@ refresher:
 git:
   autoFetch: true
   autoRefresh: true
+  autoForwardBranches: none
   fetchAll: true # Pass --all flag when running git fetch. Set to false to fetch only origin (or the current branch's upstream remote if there is one)
   paging:
     colorArg: always
