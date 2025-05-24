@@ -80,8 +80,8 @@ in {
         # third-party plugins
         # inputs.hycov.packages.${pkgs.system}.hycov
 
-        # inputs.hyprscroller.packages.${pkgs.system}.hyprscroller
-        pkgs.hyprlandPlugins.hyprscroller
+        # official plugin, but WIP
+        # pkgs.hyprlandPlugins.hyprscrolling
 
         # make Hyprland cursor more realistic(shake to find)
         pkgs.hyprlandPlugins.hypr-dynamic-cursors

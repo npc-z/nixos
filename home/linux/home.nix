@@ -80,8 +80,10 @@
     pkgs.stable.rustdesk
 
     # web browser
-    microsoft-edge
+    # 因为无人维护，从 unstable 分支移除了
+    pkgs.stable.microsoft-edge
     firefox
+    google-chrome
 
     # editor
 

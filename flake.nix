@@ -2,14 +2,14 @@
   description = "npc's NixOS Flake";
 
   # the nixConfig here only affects the flake itself, not the system configuration!
-  # 在初次安装系统的时候使用, 安装完成系统之后注释掉
-  # nixConfig = {
-  #   substituters = [
-  #     # Query the mirror of USTC first, and then the official cache.
-  #     "https://mirrors.ustc.edu.cn/nix-channels/store"
-  #     "https://cache.nixos.org"
-  #   ];
-  # };
+  nixConfig = {
+    abort-on-warn = true;
+    substituters = [
+      # Query the mirror of USTC first, and then the official cache.
+      # "https://mirrors.ustc.edu.cn/nix-channels/store"
+      # "https://cache.nixos.org"
+    ];
+  };
 
   inputs = {
     # Official NixOS package source, using nixos's unstable branch by default
@@ -47,35 +47,6 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # hyprland-plugins = {
-    #   # https://github.com/hyprwm/hyprland-plugins/issues/178
-    #   # match hyprland v0.40.0
-    #   # url = "github:hyprwm/hyprland-plugins/dcbdc9a";
-    #   # not work well for hyprbars
-    #   url = "github:hyprwm/hyprland-plugins/fd133914bf1921db2a26627698f914478f6a9471";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-
-    # hyprland-easymotion = {
-    #   url = "github:DreamMaoMao/hyprland-easymotion";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-
-    # hycov = {
-    #   url = "github:DreamMaoMao/hycov";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-
-    # hyprscroller = {
-    #   url = "github:dawsers/hyprscroller/5fe29fcbd7103782d55cfb50482c64c31189f02a";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-
-    # Hyprspace = {
-    #   url = "github:KZDKM/Hyprspace";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
   };
 
   outputs = {
