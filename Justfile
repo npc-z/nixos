@@ -23,9 +23,14 @@ test:
 debug:
   nixos-rebuild switch --flake . --use-remote-sudo --show-trace --print-build-logs --verbose
 
+
 # deploy darwin
 deploy-darwin:
   darwin-rebuild switch --flake . --show-trace --print-build-logs --verbose
+  # activateSettings -u will reload the settings from the database and apply them to the current session,
+  # so we do not need to logout and login again to make the changes take effect.
+  # /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+
 
 # install darwin
 install-darwin:
