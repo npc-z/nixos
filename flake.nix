@@ -4,20 +4,16 @@
   # the nixConfig here only affects the flake itself, not the system configuration!
   nixConfig = {
     abort-on-warn = true;
-    substituters = [
-      # Query the mirror of USTC first, and then the official cache.
-      # "https://mirrors.ustc.edu.cn/nix-channels/store"
-      # "https://cache.nixos.org"
-    ];
+    # substituters = [
+    # Query the mirror of USTC first, and then the official cache.
+    # "https://mirrors.ustc.edu.cn/nix-channels/store"
+    # "https://cache.nixos.org"
+    # ];
   };
 
   inputs = {
-    # Official NixOS package source, using nixos's unstable branch by default
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
     # home-manager，用于管理用户配置
     home-manager = {

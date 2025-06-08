@@ -75,13 +75,11 @@
     zathura
 
     flameshot
-    # NOTE: broken in unstable https://github.com/NixOS/nixpkgs/issues/391971
-    # rustdesk-flutter
-    pkgs.stable.rustdesk
+    rustdesk-flutter
 
     # web browser
     # 因为无人维护，从 unstable 分支移除了
-    pkgs.stable.microsoft-edge
+    # microsoft-edge
     firefox
     google-chrome
 

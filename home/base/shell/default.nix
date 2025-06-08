@@ -61,7 +61,7 @@ in {
   home.packages = with pkgs; [
     # A cat(1) clone with syntax highlighting and Git integration
     bat
-    thefuck
+    pay-respects
 
     # zsh-forgit
     # zsh-fzf-history-search
@@ -72,11 +72,16 @@ in {
   # only works in bash/zsh, not nushell
   home.shellAliases = shellAliases;
 
-  programs.thefuck = {
+  # Command suggestions, command-not-found and thefuck replacement written in Rust
+  programs.pay-respects = {
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
     enableFishIntegration = true;
+    options = [
+      "--alias"
+      "fuck"
+    ];
   };
 
   programs.fzf = {
@@ -142,8 +147,6 @@ in {
       ${fzfCfg}
 
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-
-      eval $(thefuck --alias)
 
       export TERM=xterm-256color
       export PATH="$PATH:${localBin}:${goBin}:${rustBin}"
