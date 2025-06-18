@@ -3,16 +3,16 @@
 --sort name
 
 # Sort directories above files
---dirs-first
+--dir-order first
 
 # Print tree with the root directory at the topmost position
---inverted
+--layout inverted
 
 # Display file icons
 --icons
 
 # Maximum depth to display
---level 2
+--level 3
 
 
 # Print disk usage in human-readable format
