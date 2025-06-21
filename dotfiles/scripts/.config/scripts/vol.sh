@@ -11,7 +11,7 @@ adjust_all_sinks() {
     down)
       flag="-d"
       ;;
-    mute)
+    toggle_mute)
       pamixer --list-sinks \
         | tail -n +2 \
         | awk '{print $2}' \
@@ -20,7 +20,7 @@ adjust_all_sinks() {
       return
       ;;
     *)
-      echo "Usage: $0 {up|down|mute} [amount]" >&2
+      echo "Usage: $0 { up | down | toggle_mute } [amount]" >&2
       exit 1
       ;;
   esac

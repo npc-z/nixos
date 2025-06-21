@@ -142,9 +142,9 @@
         "format": "{icon} {volume}%",
         "tooltip": false,
         "format-muted": " Muted",
-        "on-click": "bash ~/.config/waybar/scripts/vol.sh mute",
-        "on-scroll-up": "bash ~/.config/waybar/scripts/vol.sh up 5",
-        "on-scroll-down": "bash ~/.config/waybar/scripts/vol.sh down 5",
+        "on-click": "bash ~/.config/scripts/vol.sh toggle_mute",
+        "on-scroll-up": "bash ~/.config/scripts/vol.sh up 5",
+        "on-scroll-down": "bash ~/.config/scripts/vol.sh down 5",
         "scroll-step": 5,
         "format-icons": {
             "headphone": "",

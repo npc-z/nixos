@@ -96,6 +96,7 @@ stow-linux: stow-common
     -R keyd \
     -R lazygit \
     -R rofi \
+    -R scripts \
     -R swaync \
     -R swaylock \
     -R swappy \
