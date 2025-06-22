@@ -17,7 +17,7 @@
     # clash-nyanpasu
     clash-verge-rev
   ];
-  services.v2raya.enable = true;
+  # services.v2raya.enable = true;
   # services.mihomo.webui = pkgs.metacubexd;
 
   systemd.services.clash-verge-rev = {
@@ -33,6 +33,7 @@
   # https://github.com/v2fly/v2ray-core/issues/3167
   # auto restart or stop v2raya.service when network status changed
   systemd.services.network-monitor = {
+    enable = false;
     # Packages added to the service’s PATH environment variable
     path = [
       "/run/current-system/sw"
