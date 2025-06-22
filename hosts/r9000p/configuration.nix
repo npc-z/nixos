@@ -26,7 +26,8 @@
       };
       gpu.type = "hybrid-nv";
 
-      laptop.enable = true;
+      # FIXME: config gpu
+      # laptop.enable = true;
     };
 
     # This option defines the first version of NixOS you have installed on this particular machine,
