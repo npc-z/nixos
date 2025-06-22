@@ -7,7 +7,7 @@
 
   options.modules.usrEnv = {
     isWayland = lib.mkOption {
-      type = lib.bool;
+      type = lib.types.bool;
       # TODO: default = with env.desktops; (sway.enable || hyprland.enable);
       default = false;
       defaultText = "This will default to true if a Wayland compositor has been enabled";
