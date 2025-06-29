@@ -34,11 +34,39 @@
 
     extraConfig = {
       init.defaultBranch = "master";
-      # push.autoSetupRemote = true;
-      # pull.rebase = true;
-      core.editor = "nvim";
-      # 正确显示中文文件名
-      core.quotepath = false;
+
+      core = {
+        editor = "nvim";
+        quotepath = false; # 正确显示中文文件名
+      };
+
+      push = {
+        autoSetupRemote = true; # easier to push new branchs
+        default = "current"; # push only current branch by ddefault
+        followTags = true; # push also tags
+      };
+
+      pull = {
+        rebase = true;
+        default = "current";
+      };
+
+      rebase = {
+        autoStash = true;
+        missingCommitsCheck = "warn"; # warn if rebasing with missing commits
+      };
+
+      branch = {
+        sort = "-committerdate";
+      };
+
+      tag = {
+        sort = "-taggerdate";
+      };
+
+      iteractive = {
+        singleKey = true;
+      };
     };
 
     # A syntax-highlighting pager in Rust(2019 ~ Now)
