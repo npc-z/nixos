@@ -5,7 +5,25 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "exchange ' and \"",
+                        "description": "ctrl+left click to command+left click",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "modifiers": { "mandatory": ["left_control"] },
+                                    "pointing_button": "button1"
+                                },
+                                "to": [
+                                    {
+                                        "modifiers": ["command"],
+                                        "pointing_button": "button1"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "swap ' and \"",
                         "manipulators": [
                             {
                                 "conditions": [],
