@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
 
     (mylib.relativeToRoot "modules/linux/desktop")
+    (mylib.relativeToRoot "modules/linux/service")
   ];
 
   config = {
