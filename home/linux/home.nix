@@ -79,9 +79,9 @@
 
     # web browser
     # 因为无人维护，从 unstable 分支移除了
-    # microsoft-edge
+    microsoft-edge
     firefox
-    google-chrome
+    # google-chrome
 
     # editor
 
