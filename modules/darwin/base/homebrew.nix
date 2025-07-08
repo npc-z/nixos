@@ -110,7 +110,7 @@ in {
       # "insomnia" # REST client
       # "wireshark" # network analyzer
       "visual-studio-code"
-      "docker"
+      "docker-desktop"
 
       "rustdesk"
       # pin a window to the top
