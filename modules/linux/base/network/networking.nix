@@ -6,8 +6,19 @@
     networkmanagerapplet
   ];
 
+  # 不从 DHCP 获取 DNS
+  environment.etc."NetworkManager/conf.d/no-dhcp-dns.conf".text = ''
+    [main]
+    dns=none
+  '';
+
   networking = {
     networkmanager.enable = true;
+    nameservers = [
+      "1.1.1.1"
+      "8.8.8.8"
+    ];
+
     extraHosts = ''
       # 140.82.113.4	github.com
       # 185.199.108.133 raw.githubusercontent.com
