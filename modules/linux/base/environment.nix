@@ -29,10 +29,11 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    python311
-    python311Packages.pip
-    python311Packages.isort
-    python311Packages.black
+    python3Full
+    python313Packages.pip
+    python313Packages.isort
+    python313Packages.black
+
     gnumake
     gcc9
     cmake
