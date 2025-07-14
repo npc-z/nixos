@@ -29,7 +29,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    python3Full
+    python313Full
     python313Packages.pip
     python313Packages.isort
     python313Packages.black
