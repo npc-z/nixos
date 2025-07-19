@@ -31,6 +31,13 @@
     # 添加 NUR 仓库
     nur.url = "github:nix-community/NUR";
 
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
+      # to have it up-to-date or simply don't specify the nixpkgs input
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # 远程部署
     deploy-rs = {
       url = "github:serokell/deploy-rs";
