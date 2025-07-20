@@ -115,12 +115,6 @@
     })
   ];
 
-  programs = {
-    # alacritty.enable = true;
-    # https://www.reddit.com/r/NixOS/comments/191j6ta/programswaybarenable_spawns_waybar_twice_after/
-    waybar.enable = true;
-  };
-
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards

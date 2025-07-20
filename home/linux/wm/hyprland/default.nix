@@ -25,6 +25,7 @@ in {
     ./../addons/hypridle.nix
     ./../addons/hyprlock.nix
     ./../addons/hyprsunset.nix
+    ./../addons/waybar.nix
   ];
 
   config = mkIf cfg.enable {
@@ -32,6 +33,7 @@ in {
       hyprlock.enable = true;
       hyprsunset.enable = true;
       hypridle.enable = true;
+      waybar.enable = true;
     };
 
     home.packages = with pkgs; [
