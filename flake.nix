@@ -4,11 +4,11 @@
   # the nixConfig here only affects the flake itself, not the system configuration!
   nixConfig = {
     abort-on-warn = true;
-    # substituters = [
-    # Query the mirror of USTC first, and then the official cache.
-    # "https://mirrors.ustc.edu.cn/nix-channels/store"
-    # "https://cache.nixos.org"
-    # ];
+    substituters = [
+      # Query the mirror of USTC first, and then the official cache.
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      # "https://cache.nixos.org"
+    ];
   };
 
   inputs = {
@@ -50,6 +50,8 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    maomaowm.url = "github:DreamMaoMao/maomaowm";
   };
 
   outputs = {

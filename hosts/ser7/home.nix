@@ -5,10 +5,15 @@
 
   config = {
     wm = {
+      maomaowm = {
+        enable = true;
+      };
+
       hyprland = {
         enable = true;
         host = "ser7";
       };
+
       addons = {
         hypridle = {
           lock_timeout = 60 * 30; # 30 minutes

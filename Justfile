@@ -95,6 +95,7 @@ stow-linux: stow-common
     -R hypr \
     -R keyd \
     -R lazygit \
+    -R maomao \
     -R rofi \
     -R scripts \
     -R swaync \

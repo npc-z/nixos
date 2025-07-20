@@ -22,6 +22,7 @@ in {
   };
 
   imports = [
+    ./../wayland
     ./../addons/hypridle.nix
     ./../addons/hyprlock.nix
     ./../addons/hyprsunset.nix
@@ -36,13 +37,7 @@ in {
       waybar.enable = true;
     };
 
-    home.packages = with pkgs; [
-      wayland-protocols
-      wayland-utils
-      # Fusuma is multitouch gesture recognizer
-      # fusuma
-      libinput-gestures
-
+    home.packages = [
       # Run, show and hide programs via keybind. Emulates tdrop in Hyprland
       inputs.hyprland-contrib.packages.${pkgs.system}.hdrop
     ];
