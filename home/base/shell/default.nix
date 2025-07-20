@@ -46,6 +46,8 @@
     # other alias
     # ##########################################
 
+    cat = "bat --plain";
+
     # shortcut
     cls = "clear";
     sz = "source ~/.zshrc && echo source .zshrc done";
