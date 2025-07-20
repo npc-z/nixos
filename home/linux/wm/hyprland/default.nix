@@ -2,14 +2,13 @@
   config,
   inputs,
   lib,
-  mylib,
   pkgs,
   ...
 }:
 with lib; let
-  cfg = config.hypr.settings;
+  cfg = config.wm.hyprland;
 in {
-  options.hypr.settings = {
+  options.wm.hyprland = {
     enable = mkEnableOption "enable hyprland";
 
     host = mkOption {
@@ -20,35 +19,27 @@ in {
         hyprland config based on host
       '';
     };
-
-    hypridle = {
-      lock_timeout = mkOption {
-        description = "lock screen timeout in seconds";
-        default = 300;
-        example = 300;
-        type = types.int;
-      };
-
-      dpms_off_timeout = mkOption {
-        description = "dpms off timeout in seconds";
-        default = 600;
-        example = 600;
-        type = types.int;
-      };
-    };
   };
 
-  imports = mylib.scanPaths ./.;
+  imports = [
+    ./../addons/hypridle.nix
+    ./../addons/hyprlock.nix
+    ./../addons/hyprsunset.nix
+  ];
 
   config = mkIf cfg.enable {
+    wm.addons = {
+      hyprlock.enable = true;
+      hyprsunset.enable = true;
+      hypridle.enable = true;
+    };
+
     home.packages = with pkgs; [
       wayland-protocols
       wayland-utils
       # Fusuma is multitouch gesture recognizer
       # fusuma
       libinput-gestures
-      # hyprsunset a blue-light filter on Hyprland
-      hyprsunset
 
       # Run, show and hide programs via keybind. Emulates tdrop in Hyprland
       inputs.hyprland-contrib.packages.${pkgs.system}.hdrop

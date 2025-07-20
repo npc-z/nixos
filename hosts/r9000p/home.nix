@@ -4,10 +4,11 @@
   ];
 
   config = {
-    # for hypyland config
-    hypr.settings = {
-      enable = true;
-      host = "r9000p";
+    wm = {
+      hyprland = {
+        enable = true;
+        host = "r9000p";
+      };
     };
 
     modules = {

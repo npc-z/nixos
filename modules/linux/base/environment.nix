@@ -100,8 +100,6 @@
     swaybg
     wofi
     wlogout
-    hyprlock
-    hypridle
     pamixer
     brightnessctl
     pavucontrol # PulseAudio Volume Control

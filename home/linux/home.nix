@@ -35,8 +35,8 @@
   imports = [
     (mylib.relativeToRoot "home/base")
     (mylib.relativeToRoot "home/linux/base")
-    (mylib.relativeToRoot "home/linux/hyprland")
     (mylib.relativeToRoot "home/linux/apps")
+    (mylib.relativeToRoot "home/linux/wm")
   ];
 
   # 设置鼠标指针大小以及字体 DPI（适用于 4K 显示器）

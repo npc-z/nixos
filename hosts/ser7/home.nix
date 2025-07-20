@@ -4,13 +4,16 @@
   ];
 
   config = {
-    # for hypyland config
-    hypr.settings = {
-      enable = true;
-      host = "ser7";
-      hypridle = {
-        lock_timeout = 60 * 30; # in seconds
-        dpms_off_timeout = 60 * 60; # in seconds
+    wm = {
+      hyprland = {
+        enable = true;
+        host = "ser7";
+      };
+      addons = {
+        hypridle = {
+          lock_timeout = 60 * 30; # 30 minutes
+          dpms_off_timeout = 60 * 60; # 1 hour
+        };
       };
     };
 
