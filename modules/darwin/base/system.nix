@@ -49,7 +49,7 @@
         largesize = 64;
         persistent-apps = [
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
-          "/Applications/Firefox.app"
+          "/Applications/Zen.app"
           "/Applications/kitty.app"
         ];
 

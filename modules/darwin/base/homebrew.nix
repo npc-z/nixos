@@ -71,6 +71,7 @@ in {
       "firefox"
       "google-chrome"
       "microsoft-edge"
+      "zen"
 
       # dev
       "dbeaver-community"
