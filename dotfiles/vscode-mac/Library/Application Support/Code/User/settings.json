@@ -39,6 +39,7 @@
     "funcs",
     "fxadapter",
     "gevent",
+    "gunicorn",
     "hashids",
     "hdel",
     "hget",
@@ -176,7 +177,7 @@
   },
   "markdown-preview-enhanced.previewTheme": "vue.css",
   "markdown.preview.fontSize": 16,
-  "todo-tree.general.tags": ["jk", "FIXME"],
+  "todo-tree.general.tags": ["jk"],
   "terminal.integrated.scrollback": 9999999999999,
   "database-client.capitalizeKeywordsWhenFormatting": true,
   "database-client.highlightSQLBlock": true,
@@ -402,7 +403,15 @@
     ".devenv"
   ],
   "editor.formatOnSave": true,
-  "chat.commandCenter.enabled": false,
   "baidu.comate.docstringOutputPosition": "editor",
-  "baidu.comate.inlineSuggestionMode": "extremeAccurate"
+  "baidu.comate.inlineSuggestionMode": "extremeAccurate",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "python": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "baidu.comate.completionLength": "auto"
 }
