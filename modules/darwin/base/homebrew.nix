@@ -106,6 +106,8 @@ in {
       "karabiner-elements"
       # Lightweight clipboard manager for macOS
       "maccy"
+      # Utility to support moving and resizing using a modifier key and mouse drag
+      "easy-move+resize"
 
       # Development
       # "insomnia" # REST client
