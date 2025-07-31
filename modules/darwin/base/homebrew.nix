@@ -53,6 +53,7 @@ in {
 
     taps = [
       "homebrew/services"
+      "daipeihust/tap" # for im-select
     ];
 
     # `brew install`
@@ -62,6 +63,8 @@ in {
       # "curl" # no not install curl via nixpkgs, it's not working well on macOS!
       # "aria2" # download tool
       # "httpie" # http client
+      # Switch your input method through terminal
+      "im-select"
     ];
 
     # `brew install --cask`
