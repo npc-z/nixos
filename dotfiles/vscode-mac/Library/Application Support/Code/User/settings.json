@@ -101,6 +101,15 @@
   "vim.flash.enable": true,
   "vim.commandLineModeKeyBindings": [],
   // vim config
+  // If enabled, the input method switches automatically when the mode changes.
+  // "vim.autoSwitchInputMethod.enable": true,
+  // The input method for your normal mode, find more information [here](https://github.com/VSCodeVim/Vim#input-method).
+  "vim.autoSwitchInputMethod.defaultIM": "com.apple.keylayout.ABC",
+  // The shell command to get current input method.
+  "vim.autoSwitchInputMethod.obtainIMCmd": "/opt/homebrew/bin/im-select",
+  // The shell command to switch input method.
+  "vim.autoSwitchInputMethod.switchIMCmd": "/opt/homebrew/bin/im-select {im}",
+  "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": false,
   "vim.handleKeys": {
     "<C-c>": false,
@@ -406,11 +415,12 @@
   "baidu.comate.docstringOutputPosition": "editor",
   "baidu.comate.inlineSuggestionMode": "extremeAccurate",
   "github.copilot.enable": {
-    "*": false,
+    "*": true,
     "plaintext": false,
     "markdown": false,
     "scminput": false,
-    "python": false
+    "python": true,
+    "sql": false
   },
   "github.copilot.nextEditSuggestions.enabled": true,
   "baidu.comate.completionLength": "auto"
