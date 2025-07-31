@@ -50,11 +50,12 @@ def log(*args, **kw):
     print(now, *args, **kw)
 
 
+# WORK_DNS = "192.168.28.1"
 WORK_DNS = "192.168.10.1"
 
 get_dns_cmd = "networksetup -getdnsservers Wi-Fi".split()
 log(f"{get_dns_cmd=}")
-set_dns_cmd = 'networksetup -setdnsservers Wi-Fi 192.168.10.1 8.8.8.8 8.8.4.4'.split()
+set_dns_cmd = f'networksetup -setdnsservers Wi-Fi {WORK_DNS} 8.8.8.8 8.8.4.4'.split()
 log(f"{set_dns_cmd=}")
 
 
@@ -72,13 +73,17 @@ def run_cmd(cmd: List[str]):
 
 def fix_dns():
     "fix dns with work env"
+    log("start fix dns")
     while True:
-        time.sleep(10)
         cp = run_cmd(get_dns_cmd)
         cur_dns = cp.stdout.splitlines()
         log(f"{cur_dns=}")
         if WORK_DNS not in cur_dns and run_cmd(set_dns_cmd).returncode == 0:
+        # if run_cmd(set_dns_cmd).returncode == 0:
             log("DNS 已修复")
+            cur_dns = cp.stdout.splitlines()
+            log(f"{cur_dns=}")
 
+        time.sleep(2)
 
 fix_dns()
