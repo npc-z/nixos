@@ -76,6 +76,7 @@ stow-common:
     -R alacritty \
     -R foot \
     -R kitty \
+    -R scripts \
     -R ssh \
     -R wallpapers \
     -R vim \
@@ -96,7 +97,6 @@ stow-linux: stow-common
     -R keyd \
     -R lazygit \
     -R rofi \
-    -R scripts \
     -R swaync \
     -R swaylock \
     -R swappy \
@@ -114,7 +114,9 @@ stow-mac: stow-common
     -R vscode-mac \
     -R karabiner \
 
+    brew install lihaoyun6/tap/topit
+
     ln -sf ~/.config/nixos/dotfiles/lazygit/.config/lazygit/config.yml "/Users/npc/Library/Application Support/lazygit/config.yml" \
     #
-    ln -sf ~/.config/nixos/dotfiles/mac-mouse-fix/config.plist "/Users/npc/Library/Application Support/com.nuebling.mac-mouse-fix/config.plist" \
+    # ln -sf ~/.config/nixos/dotfiles/mac-mouse-fix/config.plist "/Users/npc/Library/Application Support/com.nuebling.mac-mouse-fix/config.plist" \
 

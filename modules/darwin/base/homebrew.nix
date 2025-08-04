@@ -65,6 +65,9 @@ in {
       # "httpie" # http client
       # Switch your input method through terminal
       "im-select"
+      "docker"
+      # pin a window to the top
+      # "lihaoyun6/tap/topit"
     ];
 
     # `brew install --cask`
@@ -116,11 +119,11 @@ in {
       # "insomnia" # REST client
       # "wireshark" # network analyzer
       "visual-studio-code"
-      "docker-desktop"
+      # Replacement for Docker Desktop
+      "orbstack"
+      # "docker-desktop"
 
       "rustdesk"
-      # pin a window to the top
-      # "lihaoyun6/tap/topit"
 
       # Mac Mouse Fix is an app that makes your mouse better
       "mac-mouse-fix@2"
