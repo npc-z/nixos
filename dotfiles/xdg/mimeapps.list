@@ -1,44 +1,48 @@
 [Added Associations]
-
+x-scheme-handler/http=zen-twilight.desktop;
+x-scheme-handler/https=zen-twilight.desktop;
+x-scheme-handler/chrome=zen-twilight.desktop;
+text/html=zen-twilight.desktop;
+application/x-extension-htm=zen-twilight.desktop;
+application/x-extension-html=zen-twilight.desktop;
+application/x-extension-shtml=zen-twilight.desktop;
+application/xhtml+xml=zen-twilight.desktop;
+application/x-extension-xhtml=zen-twilight.desktop;
+application/x-extension-xht=zen-twilight.desktop;
 
 [Default Applications]
 application/json=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
 application/pdf=org.kde.okular.desktop
 application/rdf+xml=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
 application/rss+xml=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
-application/x-extension-htm=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
-application/x-extension-html=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
-application/x-extension-shtml=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
-application/x-extension-xht=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
-application/x-extension-xhtml=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
+application/x-extension-htm=zen-twilight.desktop
+application/x-extension-html=zen-twilight.desktop
+application/x-extension-shtml=zen-twilight.desktop
+application/x-extension-xht=zen-twilight.desktop
+application/x-extension-xhtml=zen-twilight.desktop
 application/x-wine-extension-ini=nvim.desktop;code.desktop
-application/xhtml+xml=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
+application/xhtml+xml=zen-twilight.desktop
 application/xhtml_xml=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
 application/xml=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
-
 audio/*=mpv.desktop
 video/*=mpv.desktop
-
 image/*=imv-dir.desktop
 image/gif=imv-dir.desktop
 image/jpeg=imv-dir.desktop
 image/png=imv-dir.desktop
 image/webp=imv-dir.desktop
-
-text/html=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
+text/html=zen-twilight.desktop
 text/plain=nvim.desktop;code.desktop
 text/xml=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
-
 x-scheme-handler/about=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
 x-scheme-handler/ftp=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
-x-scheme-handler/http=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
-x-scheme-handler/https=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
+x-scheme-handler/http=zen-twilight.desktop
+x-scheme-handler/https=zen-twilight.desktop
 x-scheme-handler/tg=org.telegram.desktop.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 x-scheme-handler/vscode=code-url-handler.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
 x-scheme-handler/clash=clash-verge.desktop
-
+x-scheme-handler/chrome=zen-twilight.desktop
 
 [Removed Associations]
-
