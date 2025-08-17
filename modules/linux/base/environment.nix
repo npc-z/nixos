@@ -64,7 +64,9 @@
     dbeaver-bin
     just # 提供一种保存和运行项目特有命令的便捷方式
 
-    wpsoffice
+    # wpsoffice # cant build
+    libreoffice-qt6-fresh
+
     # common tools
     vim
     curl
@@ -109,8 +111,6 @@
     feishu
     qq
     wechat-uos # need override license, use overlay or use nur version
-
-    # libreoffice
   ];
 
   # 使用 home manage 配置也需要开启 zsh
