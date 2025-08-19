@@ -64,7 +64,11 @@
     nixosConfigurations = (import ./hosts {inherit inputs nixpkgs;}).nixosConfigurations;
 
     # darwin hosts
-    darwinConfigurations = (import ./hosts {inherit inputs darwin-nixpkgs;}).darwinConfigurations;
+    darwinConfigurations =
+      (import ./hosts {
+        inputs = inputs;
+        nixpkgs = darwin-nixpkgs;
+      }).darwinConfigurations;
 
     # 远程部署
     deploy = import ./deploy.nix {
