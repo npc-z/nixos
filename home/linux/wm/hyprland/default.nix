@@ -69,6 +69,7 @@ in {
         # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
         # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
         pkgs.hyprlandPlugins.hyprbars
+        pkgs.hyprlandPlugins.hyprscrolling
 
         # third-party plugins
         # inputs.hycov.packages.${pkgs.system}.hycov
