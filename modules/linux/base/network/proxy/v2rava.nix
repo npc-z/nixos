@@ -1,39 +1,17 @@
 {pkgs, ...}: {
-  programs = {
-    # clash-verge = {
-    #   package = pkgs.clash-nyanpasu;
-    #   enable = true;
-    #   autoStart = true;
-    # };
-  };
-
   environment.systemPackages = with pkgs; [
-    # FIXME: 暂时失去网络连接时，内存泄露
+    # 暂时失去网络连接时，内存泄露
     # https://github.com/v2fly/v2ray-core/issues/3167
-    # v2raya
-
-    # clash-meta
-    # metacubexd
-    # clash-nyanpasu
-    clash-verge-rev
+    v2raya
   ];
   # services.v2raya.enable = true;
   # services.mihomo.webui = pkgs.metacubexd;
 
-  systemd.services.clash-verge-rev = {
-    enable = true;
-    description = "clash verge rev";
-    serviceConfig = {
-      ExecStart = "${pkgs.clash-verge-rev}/bin/clash-verge-service";
-    };
-    wantedBy = ["multi-user.target"];
-  };
-
-  # FIXME: 失去网络连接时，内存泄露
+  # 失去网络连接时，内存泄露
   # https://github.com/v2fly/v2ray-core/issues/3167
   # auto restart or stop v2raya.service when network status changed
   systemd.services.network-monitor = {
-    enable = false;
+    # enable = false;
     # Packages added to the service’s PATH environment variable
     path = [
       "/run/current-system/sw"

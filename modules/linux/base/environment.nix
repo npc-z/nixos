@@ -29,13 +29,13 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    python313Full
-    python313Packages.pip
-    python313Packages.isort
-    python313Packages.black
+    python312
+    python312Packages.pip
+    python312Packages.isort
+    python312Packages.black
 
     gnumake
-    gcc9
+    gcc
     cmake
     nixd
 
@@ -110,7 +110,8 @@
 
     feishu
     qq
-    wechat-uos # need override license, use overlay or use nur version
+    # wechat-uos # pr: https://github.com/NixOS/nixpkgs/pull/445949
+    wechat
   ];
 
   # 使用 home manage 配置也需要开启 zsh

@@ -13,15 +13,15 @@ default:
 
 # rebuild
 deploy:
-  nixos-rebuild switch --flake . --use-remote-sudo
+  nixos-rebuild switch --flake . --sudo
 
 # Build the configuration and activate it, but don't add it to the bootloader menu
 test:
-  nixos-rebuild test --flake . --use-remote-sudo
+  nixos-rebuild test --flake . --sudo
 
 # rebuild with debug
 debug:
-  nixos-rebuild switch --flake . --use-remote-sudo --show-trace --print-build-logs --verbose
+  nixos-rebuild switch --flake . --sudo --show-trace --print-build-logs --verbose
 
 
 # deploy darwin

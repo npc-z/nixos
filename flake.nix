@@ -4,8 +4,8 @@
   # the nixConfig here only affects the flake itself, not the system configuration!
   nixConfig = {
     abort-on-warn = true;
-    # substituters = [
     # Query the mirror of USTC first, and then the official cache.
+    # substituters = [
     # "https://mirrors.ustc.edu.cn/nix-channels/store"
     # "https://cache.nixos.org"
     # ];

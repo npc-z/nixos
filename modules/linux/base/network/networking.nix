@@ -15,6 +15,10 @@
   networking = {
     networkmanager.enable = true;
     nameservers = [
+      # Adguard
+      "94.140.14.14"
+      "94.140.15.15"
+
       "1.1.1.1"
       "8.8.8.8"
     ];

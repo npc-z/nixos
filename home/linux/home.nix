@@ -72,8 +72,9 @@
     # xfce.thunar
 
     # pdf viewer
-    libsForQt5.okular
+    # libsForQt5.okular
     zathura
+    netease-cloud-music-gtk
 
     flameshot
     rustdesk-flutter
