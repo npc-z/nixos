@@ -13,10 +13,10 @@
   nix.package = pkgs.nixVersions.latest;
 
   environment.systemPackages = with pkgs; [
-    python313Full
-    python313Packages.pip
-    python313Packages.isort
-    python313Packages.black
+    python312
+    python312Packages.pip
+    python312Packages.isort
+    python312Packages.black
 
     gnumake
     nixd
