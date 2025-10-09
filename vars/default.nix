@@ -3,6 +3,7 @@
   username = "npc";
   userfullname = "npc z";
   useremail = "1763998996@qq.com";
+  gitUserName = "npc-z";
 
   # NOTE: 本仓库在本地的位置 change these vars to the real value
   thisRepoName = "nixos";

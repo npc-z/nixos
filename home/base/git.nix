@@ -21,7 +21,7 @@
     enable = true;
     lfs.enable = true;
 
-    userName = myvars.username;
+    userName = myvars.gitUserName;
     userEmail = myvars.useremail;
 
     includes = [
