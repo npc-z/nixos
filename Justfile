@@ -78,6 +78,7 @@ stow-common:
     -R kitty \
     -R scripts \
     -R ssh \
+    -R starship \
     -R wallpapers \
     -R vim \
 
