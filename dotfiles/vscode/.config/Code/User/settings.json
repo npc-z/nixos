@@ -339,5 +339,7 @@
   "python.analysis.inlayHints.functionReturnTypes": true,
   "python.analysis.inlayHints.variableTypes": true,
   "chat.commandCenter.enabled": false,
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "workbench.secondarySideBar.defaultVisibility": "visible",
+  "continue.telemetryEnabled": false
 }
