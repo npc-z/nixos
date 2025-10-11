@@ -71,6 +71,13 @@ symbol = "[ ](blue) "
 [rust]
 symbol = "[ ](red) "
 
+# 不显示 docker/kubernetes 等模块
+[docker_context]
+disabled = true
+
+[kubernetes]
+disabled = true
+
 [username]
 format = "[$user]($style) in "
 
