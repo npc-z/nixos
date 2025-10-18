@@ -3,22 +3,13 @@
   pkgs,
   ...
 }: {
-  environment.variables.EDITOR = "nvim";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # MUSIC=...
-  # PICTURES=...
-  # VIDEOS=...
-  # DESKTOP=path/relative/to/home
-  # DOWNLOAD=...
-  # TEMPLATES=...
-  # PUBLICSHARE=...
-  # FIXME: environment.etc
-  # environment.etc = {
-  #   "xdg/user-dirs.defaults".text = ''
-  #     DOCUMENTS=/home/npc/Documents
-  #   '';
-  # };
+  environment.variables = {
+    EDITOR = "nvim";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+  };
 
   nixpkgs.config.permittedInsecurePackages = [
     # 提示这个版本的 ssl 不安全，此时临时信任
