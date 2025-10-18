@@ -7,13 +7,13 @@
 in {
   config = lib.mkIf cfg.enable {
     services.logind = {
-      # close the Laptop lid
-      lidSwitch = "ignore";
+      settings.Login = {
+        # power button
+        HandlePowerKey = "ignore";
 
-      # power button
-      extraConfig = ''
-        HandlePowerKey=ignore
-      '';
+        # close the Laptop lid
+        HandleLidSwitch = "ignore";
+      };
     };
 
     services.acpid = {
