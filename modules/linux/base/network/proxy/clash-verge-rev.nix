@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   programs = {
     clash-verge = {
       # package = pkgs.clash-nyanpasu;
@@ -9,12 +9,12 @@
     };
   };
 
-  systemd.services.clash-verge-rev = {
-    enable = true;
-    description = "clash verge rev";
-    serviceConfig = {
-      ExecStart = "${pkgs.clash-verge-rev}/bin/clash-verge-service";
+  networking = {
+    firewall = {
+      # Traffic coming in from these interfaces will be accepted unconditionally
+      trustedInterfaces = [
+        "mihomo"
+      ];
     };
-    wantedBy = ["multi-user.target"];
   };
 }
