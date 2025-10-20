@@ -69,6 +69,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.${myvars.username} = import ./${hostDir}/home.nix;
           home-manager.extraSpecialArgs = specialArgs;
+          home-manager.backupFileExtension = "backup";
         }
 
         # 全新安装时，先注释此处
