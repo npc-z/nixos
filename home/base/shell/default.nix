@@ -54,6 +54,10 @@
     vz = "vim ~/.zshrc";
     j = "just";
 
+    # format python files in git repo
+    # 对新文件执行 isort and black, 对旧文件执行 darker
+    gfmtpy = ''git status -s | awk '$1 != "M" {print $2}' | xargs -r isort && git status -s | awk '$1 != "M" {print $2}' | xargs -r black && git status -s | awk '$1 ~ /^M/ {print $2}' | xargs -r darker'';
+
     vi = "vim";
     vim = "nvim";
   };
