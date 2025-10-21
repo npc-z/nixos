@@ -20,15 +20,22 @@
     # git alias
     # ##########################################
     gs = "git status";
-    gm = "git merge";
-    gr = "git rebase";
+
+    # log
     gl = "git lg";
+    glh = "git lg | head -n 30";
+
+    # diff
     gd = "git diff";
     gds = "git diff --staged";
-    gco = "git checkout";
 
+    # branc
+    gco = "git checkout";
+    gm = "git merge";
+    gr = "git rebase";
     gpl = "git pull";
     gps = "git push";
+    gfa = "git fetch --all";
 
     ga = "git add .";
     gac = "git add . && git commit -m \"update $(date \"+%Y-%m-%d %H:%M:%S\")\"";
