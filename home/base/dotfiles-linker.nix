@@ -53,7 +53,43 @@
 
   linuxStowLikeDirs = map linkStowLikeDir [
     #
+    "alacritty"
+    "antimicrox"
+    "clipse"
+    "foot"
+    "keyd"
+    "kitty"
+    "lazygit"
+    "scripts"
+    "swappy"
+    "swaylock"
+    "swaync"
+    "wallpapers"
+    "waybar"
+    "wlogout"
+    "wofi"
+    "zathura"
   ];
+
+  linuxConfigFiles = {
+    # starship
+    "starship.toml".source = linkTo "starship/.config/starship.toml";
+
+    # vscode
+    "Code/User/keybindings.json".source = linkTo "vscode/.config/Code/User/keybindings.json";
+    "Code/User/settings.json".source = linkTo "vscode/.config/Code/User/settings.json";
+
+    # libinput-gestures
+    "libinput-gestures.conf".source = linkTo "libinput-gestures/.config/libinput-gestures.conf";
+  };
+
+  linuxHomeFiles = {
+    # vim
+    ".vimrc".source = linkTo "vim/.vimrc";
+
+    # ssh
+    ".ssh/config".source = linkTo "ssh/.ssh/config";
+  };
 
   ##################################################################
   #                       darwin
@@ -70,12 +106,38 @@
     #
   ];
 
-  link_list =
-    if isDarwin
-    then darwinConfFiles ++ darwinConfDirs ++ darwinStowLikeDirs
-    else linuxConfFiles ++ linuxConfDirs ++ linuxStowLikeDirs;
+  darwinHomeFiles = {
+    #
+  };
 
-  links = mergeAttrsList link_list;
+  xdgConfigFile =
+    if isDarwin
+    then
+      # darwin
+      mergeAttrsList (
+        darwinConfFiles
+        ++ darwinConfDirs
+        ++ darwinStowLikeDirs
+      )
+    else
+      # linux
+      (
+        mergeAttrsList (
+          linuxConfFiles
+          ++ linuxConfDirs
+          ++ linuxStowLikeDirs
+        )
+      )
+      // linuxConfigFiles
+    #
+    ;
+
+  homeFile =
+    if isDarwin
+    then darwinHomeFiles
+    else linuxHomeFiles;
 in {
-  xdg.configFile = links;
+  xdg.configFile = xdgConfigFile;
+
+  home.file = homeFile;
 }
