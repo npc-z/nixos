@@ -3,6 +3,10 @@
   # (isx86Linux pkgs) -> true
   isx86Linux = pkgs: with pkgs.stdenv; hostPlatform.isLinux && hostPlatform.isx86;
 
+  # check if the host platform is darwin
+  # (isDarwin pkgs) -> true
+  isDarwin = pkgs: with pkgs.stdenv; hostPlatform.isDarwin;
+
   # use path relative to the root of the project
   relativeToRoot = lib.path.append ../.;
 
