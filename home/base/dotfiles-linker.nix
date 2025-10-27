@@ -104,10 +104,45 @@
   ];
   darwinStowLikeDirs = map linkStowLikeDir [
     #
+    "alacritty"
+    "erdtree"
+    "kitty"
+    "scripts"
+    "wallpapers"
   ];
 
+  darwinConfigFiles = {
+    # starship
+    "starship.toml".source = linkTo "starship/.config/starship.toml";
+
+    # "karabiner"
+    # WARNING: 在软件中修改配置之后, 会将这个链接删除掉
+    # 最好再重新手动同步一次配置到这个仓库中
+    "karabiner/karabiner.json" = {
+      source = linkTo "karabiner/karabiner.json";
+      #  覆盖软件产生的 backup 文件
+      force = true;
+    };
+  };
+
   darwinHomeFiles = {
-    #
+    # vim
+    ".vimrc".source = linkTo "vim/.vimrc";
+
+    # ssh
+    ".ssh/config".source = linkTo "ssh/.ssh/config";
+
+    # lazygit
+    "Library/Application Support/lazygit/config.yml".source = linkTo "lazygit/.config/lazygit/config.yml";
+
+    # vscode
+    "Library/Application Support/Code/User/settings.json".source = linkTo "vscode-mac/settings.json";
+    "Library/Application Support/Code/User/keybindings.json".source = linkTo "vscode-mac/keybindings.json";
+
+    # mac-mouse-fix
+    # WARNING: 在软件中修改配置之后, 会将这个链接删除掉
+    # 最好再重新手动同步一次配置到这个仓库中
+    "Library/Application Support/com.nuebling.mac-mouse-fix/config.plist".source = linkTo "mac-mouse-fix/config.plist";
   };
 
   xdgConfigFile =
@@ -119,6 +154,7 @@
         ++ darwinConfDirs
         ++ darwinStowLikeDirs
       )
+      // darwinConfigFiles
     else
       # linux
       (
