@@ -95,7 +95,7 @@
     "xlsxwriter",
     "Zlando"
   ],
-  "editor.rulers": [88, 120],
+  "editor.rulers": [88, 128],
   "editor.fontSize": 16,
   "editor.fontFamily": "'Maple Mono Normal', 'JetBrainsMono Nerd Font Mono', Consolas, 'Courier New', monospace",
   "vim.flash.enable": true,
@@ -415,13 +415,17 @@
   "baidu.comate.docstringOutputPosition": "editor",
   "baidu.comate.inlineSuggestionMode": "extremeAccurate",
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "plaintext": false,
     "markdown": false,
     "scminput": false,
     "python": true,
-    "sql": false
+    "sql": true
   },
   "github.copilot.nextEditSuggestions.enabled": true,
-  "baidu.comate.completionLength": "auto"
+  "baidu.comate.completionLength": "auto",
+  "files.associations": {
+    "*.cfg": "python"
+  },
+  "geminicodeassist.inlineSuggestions.enableAuto": false
 }
