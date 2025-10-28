@@ -4,7 +4,7 @@
     # https://github.com/v2fly/v2ray-core/issues/3167
     v2raya
   ];
-  # services.v2raya.enable = true;
+  services.v2raya.enable = true;
   # services.mihomo.webui = pkgs.metacubexd;
 
   # 失去网络连接时，内存泄露
