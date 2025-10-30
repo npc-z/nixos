@@ -34,57 +34,42 @@
         name = myvars.gitUserName;
         email = myvars.useremail;
       };
+      init.defaultBranch = "master";
 
-      extraConfig = {
-        init.defaultBranch = "master";
-
-        core = {
-          editor = "nvim";
-          quotepath = false; # 正确显示中文文件名
-        };
-
-        push = {
-          autoSetupRemote = true; # easier to push new branchs
-          default = "current"; # push only current branch by ddefault
-          followTags = true; # push also tags
-        };
-
-        pull = {
-          rebase = true;
-          default = "current";
-        };
-
-        rebase = {
-          autoStash = true;
-          missingCommitsCheck = "warn"; # warn if rebasing with missing commits
-        };
-
-        branch = {
-          sort = "-committerdate";
-        };
-
-        tag = {
-          sort = "-taggerdate";
-        };
-
-        iteractive = {
-          singleKey = true;
-        };
+      core = {
+        editor = "nvim";
+        quotepath = false; # 正确显示中文文件名
       };
 
-      # A syntax-highlighting pager in Rust(2019 ~ Now)
-      delta = {
-        enable = true;
-        options = {
-          diff-so-fancy = true;
-          line-numbers = true;
-          true-color = "always";
-          # features => named groups of settings, used to keep related settings organized
-          # features = "";
-        };
+      push = {
+        autoSetupRemote = true; # easier to push new branchs
+        default = "current"; # push only current branch by ddefault
+        followTags = true; # push also tags
       };
 
-      aliases = {
+      pull = {
+        rebase = true;
+        default = "current";
+      };
+
+      rebase = {
+        autoStash = true;
+        missingCommitsCheck = "warn"; # warn if rebasing with missing commits
+      };
+
+      branch = {
+        sort = "-committerdate";
+      };
+
+      tag = {
+        sort = "-taggerdate";
+      };
+
+      iteractive = {
+        singleKey = true;
+      };
+
+      alias = {
         br = "branch";
 
         cm = "commit -m";
@@ -97,6 +82,18 @@
 
         st = "status";
       };
+    };
+  };
+
+  # A syntax-highlighting pager in Rust(2019 ~ Now)
+  programs.delta = {
+    enable = true;
+    options = {
+      diff-so-fancy = true;
+      line-numbers = true;
+      true-color = "always";
+      # features => named groups of settings, used to keep related settings organized
+      # features = "";
     };
   };
 }
