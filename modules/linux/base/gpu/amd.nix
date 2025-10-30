@@ -22,12 +22,10 @@ in {
       pkgs.nvtopPackages.amd
     ];
 
-    # enables AMDVLK & OpenCL support
+    # enables  OpenCL support
     hardware.graphics = {
       extraPackages = with pkgs;
         [
-          amdvlk
-
           # mesa
           mesa
 
@@ -44,8 +42,6 @@ in {
           then with pkgs.rocmPackages; [clr clr.icd]
           else with pkgs; [rocm-opencl-icd rocm-opencl-runtime]
         );
-
-      extraPackages32 = [pkgs.driversi686Linux.amdvlk];
     };
   };
 }

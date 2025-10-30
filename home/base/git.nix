@@ -21,9 +21,6 @@
     enable = true;
     lfs.enable = true;
 
-    userName = myvars.gitUserName;
-    userEmail = myvars.useremail;
-
     includes = [
       {
         # use different email & name for work
@@ -32,67 +29,74 @@
       }
     ];
 
-    extraConfig = {
-      init.defaultBranch = "master";
-
-      core = {
-        editor = "nvim";
-        quotepath = false; # 正确显示中文文件名
+    settings = {
+      user = {
+        name = myvars.gitUserName;
+        email = myvars.useremail;
       };
 
-      push = {
-        autoSetupRemote = true; # easier to push new branchs
-        default = "current"; # push only current branch by ddefault
-        followTags = true; # push also tags
+      extraConfig = {
+        init.defaultBranch = "master";
+
+        core = {
+          editor = "nvim";
+          quotepath = false; # 正确显示中文文件名
+        };
+
+        push = {
+          autoSetupRemote = true; # easier to push new branchs
+          default = "current"; # push only current branch by ddefault
+          followTags = true; # push also tags
+        };
+
+        pull = {
+          rebase = true;
+          default = "current";
+        };
+
+        rebase = {
+          autoStash = true;
+          missingCommitsCheck = "warn"; # warn if rebasing with missing commits
+        };
+
+        branch = {
+          sort = "-committerdate";
+        };
+
+        tag = {
+          sort = "-taggerdate";
+        };
+
+        iteractive = {
+          singleKey = true;
+        };
       };
 
-      pull = {
-        rebase = true;
-        default = "current";
+      # A syntax-highlighting pager in Rust(2019 ~ Now)
+      delta = {
+        enable = true;
+        options = {
+          diff-so-fancy = true;
+          line-numbers = true;
+          true-color = "always";
+          # features => named groups of settings, used to keep related settings organized
+          # features = "";
+        };
       };
 
-      rebase = {
-        autoStash = true;
-        missingCommitsCheck = "warn"; # warn if rebasing with missing commits
+      aliases = {
+        br = "branch";
+
+        cm = "commit -m";
+        co = "checkout";
+        cp = "cherry-pick";
+
+        last = "log -1";
+        lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr [%ad]) %C(bold blue)<%an>%Creset' --abbrev-commit --date=format:'%Y-%m-%d %H:%M:%S'";
+        llog = "log --graph --name-status --pretty=format:'%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset' --date=relative";
+
+        st = "status";
       };
-
-      branch = {
-        sort = "-committerdate";
-      };
-
-      tag = {
-        sort = "-taggerdate";
-      };
-
-      iteractive = {
-        singleKey = true;
-      };
-    };
-
-    # A syntax-highlighting pager in Rust(2019 ~ Now)
-    delta = {
-      enable = true;
-      options = {
-        diff-so-fancy = true;
-        line-numbers = true;
-        true-color = "always";
-        # features => named groups of settings, used to keep related settings organized
-        # features = "";
-      };
-    };
-
-    aliases = {
-      br = "branch";
-
-      cm = "commit -m";
-      co = "checkout";
-      cp = "cherry-pick";
-
-      last = "log -1";
-      lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr [%ad]) %C(bold blue)<%an>%Creset' --abbrev-commit --date=format:'%Y-%m-%d %H:%M:%S'";
-      llog = "log --graph --name-status --pretty=format:'%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset' --date=relative";
-
-      st = "status";
     };
   };
 }
