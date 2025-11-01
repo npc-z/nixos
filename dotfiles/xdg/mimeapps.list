@@ -42,7 +42,9 @@ x-scheme-handler/tg=org.telegram.desktop.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
 x-scheme-handler/vscode=code-url-handler.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
-x-scheme-handler/clash=clash-verge.desktop
+x-scheme-handler/clash=sparkle.desktop
 x-scheme-handler/chrome=zen-twilight.desktop
+x-scheme-handler/mihomo=sparkle.desktop
+x-scheme-handler/sparkle=sparkle.desktop
 
 [Removed Associations]
