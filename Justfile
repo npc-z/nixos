@@ -32,6 +32,11 @@ deploy-darwin:
   # /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
 
+# build darwin
+build-darwin:
+  darwin-rebuild build --flake . --show-trace --print-build-logs --verbose
+
+
 # install darwin
 install-darwin:
   nix run nix-darwin --extra-experimental-features  "nix-command flakes" -- switch --flake . --show-trace --print-build-logs --verbose
