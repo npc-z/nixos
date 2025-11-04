@@ -78,6 +78,10 @@
     # vscode
     "Code/User/keybindings.json".source = linkTo "vscode/.config/Code/User/keybindings.json";
     "Code/User/settings.json".source = linkTo "vscode/.config/Code/User/settings.json";
+    "Code/User/snippets" = {
+      source = linkTo "vscode-snippets";
+      recursive = true;
+    };
 
     # libinput-gestures
     "libinput-gestures.conf".source = linkTo "libinput-gestures/.config/libinput-gestures.conf";
@@ -138,6 +142,10 @@
     # vscode
     "Library/Application Support/Code/User/settings.json".source = linkTo "vscode-mac/settings.json";
     "Library/Application Support/Code/User/keybindings.json".source = linkTo "vscode-mac/keybindings.json";
+    "Library/Application Support/Code/User/snippets" = {
+      source = linkTo "vscode-snippets";
+      recursive = true;
+    };
 
     # mac-mouse-fix
     # WARNING: 在软件中修改配置之后, 会将这个链接删除掉
