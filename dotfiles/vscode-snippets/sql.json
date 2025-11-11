@@ -20,7 +20,7 @@
 			"FROM",
 			"\t$1",
 			"WHERE",
-			"\t1 = 1",
+			"\t1 = 1 --",
 			"ORDER BY",
 			"\tid DESC;"
 		],
