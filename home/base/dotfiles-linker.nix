@@ -49,6 +49,7 @@
 
   linuxConfDirs = map linkDir [
     #
+    "niri"
   ];
 
   linuxStowLikeDirs = map linkStowLikeDir [
