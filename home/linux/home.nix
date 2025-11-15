@@ -75,6 +75,8 @@
     # libsForQt5.okular
     zathura
     netease-cloud-music-gtk
+    # Console-based Audio Visualizer for Alsa
+    cava
 
     flameshot
     rustdesk-flutter

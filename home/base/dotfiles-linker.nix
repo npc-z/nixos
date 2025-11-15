@@ -50,6 +50,7 @@
   linuxConfDirs = map linkDir [
     #
     "niri"
+    "cava"
   ];
 
   linuxStowLikeDirs = map linkStowLikeDir [
