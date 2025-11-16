@@ -220,7 +220,7 @@
         "avatarImage": "/home/npc/.face",
         "compactLockScreen": false,
         "dimDesktop": false,
-        "enableShadows": true,
+        "enableShadows": false,
         "forceBlackScreenCorners": false,
         "language": "zh-CN",
         "lockOnSuspend": true,
@@ -330,7 +330,7 @@
         "defaultWallpaper": "/nix/store/qjkfhhjib6sm5wfpv4ka8w3h0qzgbdk6-noctalia-shell-a41ac4701f8644ae1569bdab204402479a737572/share/noctalia-shell/Assets/Wallpaper/noctalia.png",
         "directory": "/home/npc/.config/wallpapers",
         "enableMultiMonitorDirectories": false,
-        "enabled": true,
+        "enabled": false,
         "fillColor": "#000000",
         "fillMode": "crop",
         "monitors": [
@@ -338,6 +338,11 @@
                 "directory": "/home/npc/.config/wallpapers",
                 "name": "HDMI-A-1",
                 "wallpaper": "/home/npc/.config/wallpapers/cyberpunk-mclaren-supercars-neon-art-3840x2160-1003.jpg"
+            },
+            {
+                "directory": "/home/npc/.config/wallpapers",
+                "name": "eDP-1",
+                "wallpaper": "/home/npc/.config/wallpapers/Endy_vector_satelliet.png"
             }
         ],
         "overviewEnabled": false,

@@ -305,13 +305,12 @@ layout {
 
 spawn-sh-at-startup "niri msg action focus-workspace '2  '"
 spawn-at-startup "kitty"
-spawn-sh-at-startup "kitty +kitten panel --edge=background -o font_size=4 -o background_opacity=0 cava"
 
 spawn-at-startup "noctalia-shell"
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
 spawn-sh-at-startup "fcitx5 -d --replace"
-// spawn-at-startup "swaybg -m fill -i ~/.config/wallpapers/arch.png"
+spawn-sh-at-startup "swaybg -m fill -i ~/.config/wallpapers/arch.png"
 // spawn-at-startup "swaync-client -swb"
 // spawn-at-startup "brightnessctl s 50%"
 // spawn-at-startup "pamixer --set-volume 50"
@@ -321,6 +320,7 @@ spawn-sh-at-startup "fcitx5 -d --replace"
 // spawn-at-startup "kitty +kitten panel --edge=background -o font_size=4 -o background_opacity=0 cava"
 spawn-at-startup "clipse -listen"
 spawn-at-startup "sparkle"
+spawn-sh-at-startup "sleep 10; kitty +kitten panel --edge=background -o font_size=4 -o background_opacity=0 cava"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
