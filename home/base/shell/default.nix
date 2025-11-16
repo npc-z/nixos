@@ -9,6 +9,9 @@
   rustBin = "${config.home.homeDirectory}/.cargo/bin";
   networkFunc = builtins.readFile ./scripts/network.sh;
   fzfCfg = builtins.readFile ./scripts/fzf.zsh;
+  # FIXME: https://github.com/YaLTeR/niri/issues/1682#issuecomment-2919386619
+  # niri completions zsh | sed "s/line\[2\]/line[1]/g; /'::command/d" > niri.zsh
+  niriCompletions = builtins.readFile ./scripts/niri.zsh;
 
   shellAliases = {
     public_ip = let
@@ -158,6 +161,8 @@ in {
       ${networkFunc}
 
       ${fzfCfg}
+
+      ${niriCompletions}
 
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 
