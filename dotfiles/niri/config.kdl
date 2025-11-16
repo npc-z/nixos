@@ -128,6 +128,12 @@ workspace "10" {}
     position x=1280 y=0
 }
 
+// for ser7 HDMI-A-1
+output "PNP(AOC) U2790B 0x0001743F" {
+    mode "3840x2160@29.981"
+    scale 2
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
@@ -302,8 +308,9 @@ spawn-at-startup "fcitx5 -d --replace"
 // spawn-at-startup "nm-applet --indicator"
 // spawn-at-startup "blueman-applet"
 // spawn-at-startup "libinput-gestures-setup restart"
-spawn-sh-at-startup "kitty +kitten panel --edge=background -o font_size=4 -o background_opacity=0 cava"
+// spawn-at-startup "kitty +kitten panel --edge=background -o font_size=4 -o background_opacity=0 cava"
 spawn-at-startup "clipse -listen"
+spawn-at-startup "sparkle"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
