@@ -128,6 +128,12 @@ workspace "10" {}
     position x=1280 y=0
 }
 
+// r9000p eDP-1
+output "California Institute of Technology 0x1609 Unknown" {
+    mode "2560x1600@165.019"
+    scale 1.5
+}
+
 // for ser7 HDMI-A-1
 output "PNP(AOC) U2790B 0x0001743F" {
     mode "3840x2160@29.981"
