@@ -129,7 +129,7 @@
     "karabiner/karabiner.json" = {
       source = linkTo "karabiner/karabiner.json";
       #  覆盖软件产生的 backup 文件
-      force = true;
+      # force = true;
     };
   };
 
@@ -155,6 +155,7 @@
     # WARNING: 在软件中修改配置之后, 会将这个链接删除掉
     # 最好再重新手动同步一次配置到这个仓库中
     "Library/Application Support/com.nuebling.mac-mouse-fix/config.plist".source = linkTo "mac-mouse-fix/config.plist";
+    # "Library/Application Support/com.nuebling.mac-mouse-fix/config.plist".force = true;
   };
 
   xdgConfigFile =
