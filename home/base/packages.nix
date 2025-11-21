@@ -5,6 +5,8 @@
     inetutils # Collection of common network programs
     lsd # Next gen ls command
     erdtree # File-tree visualizer and disk usage analyzer
+
+    mkcert # Simple tool for making locally-trusted development certificates
   ];
 
   home.shellAliases = {
