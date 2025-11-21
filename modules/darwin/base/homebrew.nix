@@ -94,6 +94,8 @@ in {
       # terminals
       "alacritty"
       "kitty"
+      # Redis desktop manager https://github.com/qishibo/AnotherRedisDesktopManager
+      "another-redis-desktop-manager"
 
       # IM & audio & remote desktop & meeting
       # "telegram"
