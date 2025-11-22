@@ -9,6 +9,9 @@
         enable = true;
         host = "r9000p";
       };
+      niri = {
+        enable = true;
+      };
     };
 
     modules = {

@@ -9,6 +9,9 @@
         enable = true;
         host = "ser7";
       };
+      niri = {
+        enable = true;
+      };
       addons = {
         hypridle = {
           lock_timeout = 60 * 30; # 30 minutes
