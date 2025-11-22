@@ -12,7 +12,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.waybar = {
       enable = true;
-      systemd.enable = true; # Whether to enable Waybar systemd integration
+      # systemd.enable = true; # Whether to enable Waybar systemd integration
     };
   };
 }
