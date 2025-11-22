@@ -89,6 +89,8 @@
 
     # libinput-gestures
     "libinput-gestures.conf".source = linkTo "libinput-gestures/.config/libinput-gestures.conf";
+
+    "mimeapps.list".source = linkTo "xdg/mimeapps.list";
   };
 
   linuxHomeFiles = {
