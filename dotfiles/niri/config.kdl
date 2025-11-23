@@ -73,11 +73,12 @@ spawn-at-startup "kitty"
 spawn-at-startup "noctalia-shell"
 spawn-sh-at-startup "fcitx5 -d --replace"
 spawn-sh-at-startup "swaybg -m fill -i ~/.config/wallpapers/arch.png"
-spawn-at-startup "clipse -listen"
+spawn-sh-at-startup "clipse -listen"
 spawn-at-startup "sparkle"
-spawn-sh-at-startup "sleep 10; kitty +kitten panel --edge=background -o font_size=4 -o background_opacity=0 cava"
-// spawn-sh-at-startup "sleep 1 && systemctl --user start nixos-fake-graphical-session.target"
+spawn-sh-at-startup "sleep 3; kitty +kitten panel --edge=background -o font_size=4 -o background_opacity=0 cava"
+spawn-sh-at-startup "sleep 1 && systemctl --user start nixos-fake-graphical-session.target"
 spawn-sh-at-startup "swayidle"
+spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri $"
 
 
 hotkey-overlay {
@@ -211,7 +212,7 @@ window-rule {
 window-rule {
     // 浏览器画中画 floating
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id=r#"zen-twilight$"# title="^Picture-in-Picture$"
+    match app-id=r#"zen-twilight"# title="Picture-in-Picture"
 
     open-floating true
 }
