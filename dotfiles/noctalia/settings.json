@@ -54,6 +54,18 @@
                     "labelMode": "name"
                 },
                 {
+                    "icon": "apps",
+                    "id": "CustomButton",
+                    "leftClickExec": "pkill wofi || wofi --show drun",
+                    "middleClickExec": "",
+                    "parseJson": false,
+                    "rightClickExec": "",
+                    "textCollapse": "",
+                    "textCommand": "",
+                    "textIntervalMs": 3000,
+                    "textStream": false
+                },
+                {
                     "colorizeIcons": false,
                     "hideMode": "hidden",
                     "id": "Taskbar",
@@ -124,6 +136,9 @@
                     "id": "Clock",
                     "useCustomFont": false,
                     "usePrimaryColor": false
+                },
+                {
+                    "id": "SessionMenu"
                 }
             ]
         }
