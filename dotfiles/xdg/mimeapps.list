@@ -9,10 +9,11 @@ application/x-extension-shtml=zen-twilight.desktop;
 application/xhtml+xml=zen-twilight.desktop;
 application/x-extension-xhtml=zen-twilight.desktop;
 application/x-extension-xht=zen-twilight.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 
 [Default Applications]
 application/json=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
-application/pdf=org.kde.okular.desktop
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
 application/rdf+xml=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
 application/rss+xml=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
 application/x-extension-htm=zen-twilight.desktop
