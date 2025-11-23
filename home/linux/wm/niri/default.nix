@@ -14,6 +14,7 @@ in {
 
   imports = [
     ./../addons/hyprlock.nix
+    ./../addons/swayidle.nix
   ];
 
   config = mkIf cfg.enable {

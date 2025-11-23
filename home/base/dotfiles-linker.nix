@@ -53,6 +53,7 @@
     "cava"
     # A sleek, minimal, and thoughtfully crafted desktop shell for Wayland using Quickshell
     "noctalia"
+    "swayidle"
   ];
 
   linuxStowLikeDirs = map linkStowLikeDir [
