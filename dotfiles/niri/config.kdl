@@ -7,6 +7,21 @@ input {
         tap
         natural-scroll
     }
+
+    // 鼠标设置
+    mouse {
+        accel-profile "flat"  // 平坦的鼠标加速曲线
+    }
+    focus-follows-mouse max-scroll-amount="0%"  // 鼠标悬停聚焦窗口
+}
+
+
+// 光标样式
+cursor {
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 24
+    hide-when-typing
+    // hide-after-inactive-ms 1000
 }
 
 
