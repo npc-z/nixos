@@ -30,8 +30,8 @@ output "California Institute of Technology 0x1609 Unknown" {
 
 // for ser7 HDMI-A-1
 output "PNP(AOC) U2790B 0x0001743F" {
-    mode "3840x2160@29.981"
-    scale 2
+    mode "2560x1440@59.951"
+    scale 1.5
 }
 
 layout {
