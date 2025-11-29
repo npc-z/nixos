@@ -26,6 +26,8 @@ in {
     ./../addons/hyprlock.nix
     ./../addons/hyprsunset.nix
     ./../addons/waybar.nix
+
+    ./../xdg-portal.nix
   ];
 
   config = mkIf cfg.enable {
@@ -46,16 +48,6 @@ in {
       # Run, show and hide programs via keybind. Emulates tdrop in Hyprland
       inputs.hyprland-contrib.packages.${pkgs.system}.hdrop
     ];
-
-    # maybe i have to reconfig xdg
-    xdg.portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-hyprland
-      ];
-      config.common.default = "*";
-    };
 
     wayland.windowManager.hyprland = {
       # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
