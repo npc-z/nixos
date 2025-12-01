@@ -13,23 +13,12 @@
   nix.package = pkgs.nixVersions.latest;
 
   environment.systemPackages = with pkgs; [
-    python312
-    python312Packages.pip
-    python312Packages.isort
-    python312Packages.black
-
     gnumake
     nixd
 
-    just # use Justfile to simplify nix-darwin's commands
     stow
-    neofetch
-    fastfetch
-    git # used by nix flakes
-    git-lfs # used by huggingface models
 
     # archives
-    zip
     xz
     zstd
     unzipNLS
@@ -40,26 +29,10 @@
     gnugrep # GNU grep, provides `grep`/`egrep`/`fgrep`
     gnused # GNU sed, very powerful(mainly for replacing text in files)
     gawk # GNU awk, a pattern scanning and processing language
-    jq # A lightweight and flexible command-line JSON processor
-
-    # networking tools
-    # mtr # A network diagnostic tool
-    # iperf3
-    # dnsutils # `dig` + `nslookup`
-    # ldns # replacement of `dig`, it provide the command `drill`
-    wget
-    curl
-    httpie
-    # aria2 # A lightweight multi-protocol & multi-source command-line download utility
-    # socat # replacement of openbsd-netcat
-    # nmap # A utility for network discovery and security auditing
-    # ipcalc # it is a calculator for the IPv4/v6 addresses
 
     # misc
     file
     findutils
-    which
-    tree
     gnutar
     rsync
   ];

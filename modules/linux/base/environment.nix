@@ -20,15 +20,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    python312
-    python312Packages.pip
-    python312Packages.isort
-    python312Packages.black
-
-    gnumake
     gcc
     cmake
-    nixd
 
     polkit
     swaynotificationcenter
@@ -38,10 +31,6 @@
     lsof
     fd
     ripgrep
-    zip
-    unzip
-    which
-    tree
     udisks
     udiskie
     usbutils
@@ -53,17 +42,12 @@
     swappy # Wayland native snapshot editing tool
 
     dbeaver-bin
-    just # 提供一种保存和运行项目特有命令的便捷方式
 
     # wpsoffice # cant build
     libreoffice-qt6-fresh
 
     # common tools
     vim
-    curl
-    httpie
-    wget
-    jq
     wl-clipboard
     clipse
     # tools
@@ -82,7 +66,6 @@
     playerctl
     localsend
 
-    fastfetch
     htop
     btop
     cron
