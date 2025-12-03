@@ -28,7 +28,7 @@ in {
       niri
       xwayland-satellite
 
-      inputs.noctalia.packages.${system}.default
+      inputs.noctalia.packages.${stdenv.hostPlatform.system}.default
     ];
   };
 }

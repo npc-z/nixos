@@ -46,11 +46,11 @@ in {
       libinput-gestures
 
       # Run, show and hide programs via keybind. Emulates tdrop in Hyprland
-      inputs.hyprland-contrib.packages.${pkgs.system}.hdrop
+      inputs.hyprland-contrib.packages.${pkgs.stdenv.hostPlatform.system}.hdrop
     ];
 
     wayland.windowManager.hyprland = {
-      # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       enable = true;
       xwayland.enable = true;
       systemd.enable = true;
@@ -58,13 +58,13 @@ in {
 
       plugins = [
         # official plugins
-        # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-        # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+        # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
+        # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
         pkgs.hyprlandPlugins.hyprbars
         pkgs.hyprlandPlugins.hyprscrolling
 
         # third-party plugins
-        # inputs.hycov.packages.${pkgs.system}.hycov
+        # inputs.hycov.packages.${pkgs.stdenv.hostPlatform.system}.hycov
 
         # official plugin, but WIP
         # pkgs.hyprlandPlugins.hyprscrolling
@@ -72,8 +72,8 @@ in {
         # make Hyprland cursor more realistic(shake to find)
         pkgs.hyprlandPlugins.hypr-dynamic-cursors
 
-        # inputs.hyprland-easymotion.packages.${pkgs.system}.hypreasymotion
-        # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+        # inputs.hyprland-easymotion.packages.${pkgs.stdenv.hostPlatform.system}.hypreasymotion
+        # inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace
       ];
 
       extraConfig = ''
