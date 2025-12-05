@@ -25,7 +25,7 @@ debug:
 
 
 # deploy darwin
-deploy-darwin:
+deploy-darwin: update-mac-self-managed-cfgs
   darwin-rebuild switch --flake . --show-trace --print-build-logs --verbose
   # activateSettings -u will reload the settings from the database and apply them to the current session,
   # so we do not need to logout and login again to make the changes take effect.
@@ -33,7 +33,7 @@ deploy-darwin:
 
 
 # build darwin
-build-darwin:
+build-darwin: update-mac-self-managed-cfgs
   darwin-rebuild build --flake . --show-trace --print-build-logs --verbose
 
 
@@ -72,6 +72,38 @@ clean:
 gc:
   sudo nix store gc --debug
   sudo nix-collect-garbage --delete-old
+
+
+# 将自我管理的软件的配置更新回 dotfiles 中
+update-mac-self-managed-cfgs:
+    #!/usr/bin/env sh
+
+    rewrite_back_to_dotfile() {
+        local source_file="$1"
+        local target_file="$2"
+
+        if [ ! -e "$source_file" ]; then
+            echo "${source_file} 文件不存在"
+            return 1
+        elif [ ! -s "$source_file" ]; then
+            echo "${source_file} 文件存在但内容为空"
+            return 2
+        else
+            echo "回写 ${source_file} → ${target_file}"
+
+            content=$(< "$source_file")
+            echo "$content" > "$target_file"
+            return 0
+        fi
+    }
+
+    source_mac_mouse_fix_path=~/Library/Application\ Support/com.nuebling.mac-mouse-fix/config.plist
+    target_mac_mouse_fix_path=./dotfiles/mac-mouse-fix/config.plist
+    rewrite_back_to_dotfile "$source_mac_mouse_fix_path" "$target_mac_mouse_fix_path"
+
+    source_karabiner_path=~/.config/karabiner/karabiner.json
+    target_karabiner_path=./dotfiles/karabiner/karabiner.json
+    rewrite_back_to_dotfile "$source_karabiner_path" "$target_karabiner_path"
 
 
 # link dotfiles to config
