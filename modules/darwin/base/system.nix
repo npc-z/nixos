@@ -1,5 +1,4 @@
 {
-  config,
   myvars,
   pkgs,
   ...
@@ -16,26 +15,6 @@
 ###################################################################################
 {
   system = {
-    activationScripts.applications.text = let
-      env = pkgs.buildEnv {
-        name = "system-applications";
-        paths = config.environment.systemPackages;
-        pathsToLink = "/Applications";
-      };
-    in
-      pkgs.lib.mkForce ''
-        # Set up applications.
-        echo "setting up /Applications..." >&2
-        rm -rf /Applications/Nix\ Apps
-        mkdir -p /Applications/Nix\ Apps
-        find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
-        while read -r src; do
-          app_name=$(basename "$src")
-          echo "copying $src" >&2
-          ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
-        done
-      '';
-
     # TODO 以下 defaults 中的设置将要被迁移至用户模块中, 当前设置 pprimaryUser 来过渡
     primaryUser = myvars.username;
     defaults = {
