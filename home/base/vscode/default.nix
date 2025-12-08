@@ -38,7 +38,6 @@ in {
       pkief.material-icon-theme
       # semanticdiff.semanticdiff
       shd101wyy.markdown-preview-enhanced
-      visualstudioexptteam.intellicode-api-usage-examples
       vscodevim.vim
       yzhang.markdown-all-in-one
     ];
