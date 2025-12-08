@@ -39,12 +39,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # 远程部署
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # hyprland env
     # Community scripts and utilities for Hypr projects
     hyprland-contrib = {
@@ -63,7 +57,6 @@
     self,
     nixpkgs,
     darwin-nixpkgs,
-    deploy-rs,
     ...
   } @ inputs: {
     # nixos hosts
@@ -75,13 +68,5 @@
         inputs = inputs;
         nixpkgs = darwin-nixpkgs;
       }).darwinConfigurations;
-
-    # 远程部署
-    deploy = import ./deploy.nix {
-      sshUser = "root";
-      user = "root";
-      inherit deploy-rs;
-      inherit self;
-    };
   };
 }
