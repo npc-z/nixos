@@ -7,6 +7,8 @@
 in {
   # https://nixos.wiki/wiki/Laptop
   config = lib.mkIf cfg.enable {
+    services.upower.enable = true;
+
     services.tlp = {
       enable = true;
       settings = {
