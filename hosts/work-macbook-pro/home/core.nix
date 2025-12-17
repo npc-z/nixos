@@ -27,7 +27,8 @@
     # productivity
     glow # markdown previewer in terminal
     devenv
-    jetbrains.idea-community
+    # jetbrains.idea-community
+    jetbrains.idea-ultimate
     eza
   ];
 
