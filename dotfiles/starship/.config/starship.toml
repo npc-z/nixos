@@ -1,6 +1,7 @@
 add_newline = true
 command_timeout = 2000
-scan_timeout = 2
+# Timeout for starship to scan files (in milliseconds)
+scan_timeout = 200
 
 format = "$time $all"
 
