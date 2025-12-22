@@ -146,8 +146,14 @@ in {
       "btop"
     ];
 
-    autosuggestion.enable = true;
     enableCompletion = true;
+    autosuggestion = {
+      enable = true;
+      strategy = [
+        "completion"
+        "history"
+      ];
+    };
 
     oh-my-zsh = {
       enable = true;
