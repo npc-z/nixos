@@ -13,20 +13,24 @@ default:
 
 # rebuild
 deploy:
-  nixos-rebuild switch --flake . --sudo
+  # nixos-rebuild switch --flake . --sudo
+  nix os switch --ask .
 
 # Build the configuration and activate it, but don't add it to the bootloader menu
 test:
-  nixos-rebuild test --flake . --sudo
+  # nixos-rebuild test --flake . --sudo
+  nh os test --ask .
 
 # rebuild with debug
 debug:
-  nixos-rebuild switch --flake . --sudo --show-trace --print-build-logs --verbose
+  # nixos-rebuild switch --flake . --sudo --show-trace --print-build-logs --verbose
+  nh os test --ask --verbose .
 
 
 # deploy darwin
 deploy-darwin: update-mac-self-managed-cfgs
-  darwin-rebuild switch --flake . --show-trace --print-build-logs --verbose
+  # darwin-rebuild switch --flake . --show-trace --print-build-logs --verbose
+  nh darwin switch --ask .
   # activateSettings -u will reload the settings from the database and apply them to the current session,
   # so we do not need to logout and login again to make the changes take effect.
   # /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
@@ -34,7 +38,8 @@ deploy-darwin: update-mac-self-managed-cfgs
 
 # build darwin
 build-darwin: update-mac-self-managed-cfgs
-  darwin-rebuild build --flake . --show-trace --print-build-logs --verbose
+  # darwin-rebuild build --flake . --show-trace --print-build-logs --verbose
+  nh darwin build --ask .
 
 
 # install darwin
