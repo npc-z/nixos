@@ -86,6 +86,7 @@
     qq
     # wechat-uos # pr: https://github.com/NixOS/nixpkgs/pull/445949
     wechat
+    wemeet
   ];
 
   # 使用 home manage 配置也需要开启 zsh
