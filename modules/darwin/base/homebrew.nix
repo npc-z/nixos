@@ -81,6 +81,7 @@ in {
 
       # dev
       "dbeaver-community"
+      "apifox"
 
       # office
       # "wpsoffice-cn"
