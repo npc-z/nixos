@@ -24,9 +24,4 @@
     just # use Justfile to simplify nix-darwin's commands
     fastfetch
   ];
-
-  # another Nix CLI helper
-  programs.nh = {
-    enable = true;
-  };
 }
