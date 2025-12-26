@@ -14,7 +14,7 @@ default:
 # rebuild
 deploy:
   # nixos-rebuild switch --flake . --sudo
-  nix os switch --ask .
+  nh os switch --ask .
 
 # Build the configuration and activate it, but don't add it to the bootloader menu
 test:
