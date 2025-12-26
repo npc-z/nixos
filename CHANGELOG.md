@@ -1,5 +1,43 @@
 # CHANGELOG
 
+## 2025-12-26 21:25:17 星期五
+
+```log
+• Updated input 'darwin-nixpkgs':
+    'github:NixOS/nixpkgs/0d70460758949966e91d9ecb823b821f963cefbb?narHash=sha256-fhD/QUtJ0HKs3oLvfnD%2B/SrBV5Y7YEkCYnDjOVUjLys%3D' (2025-12-01)
+  → 'github:NixOS/nixpkgs/8970f698c39f490df47e4cbb7beae7869ddf1978?narHash=sha256-%2B2xdB27fVMEVKWmh7UtpBGgK1FOVdk5ttV3ZPhpdqVY%3D' (2025-12-26)
+• Updated input 'home-manager':
+    'github:nix-community/home-manager/e4e25a8c310fa45f2a8339c7972dc43d2845a612?narHash=sha256-GVBGjO7UsmzLrlOJV8NlKSxukHaHencrJqWkCA6FkqI%3D' (2025-11-30)
+  → 'github:nix-community/home-manager/91cdb0e2d574c64fae80d221f4bf09d5592e9ec2?narHash=sha256-GKO35onS711ThCxwWcfuvbIBKXwriahGqs%2BWZuJ3v9E%3D' (2025-12-25)
+• Updated input 'hyprland-contrib':
+    'github:hyprwm/contrib/e88d93f8aed2b9631b62ca273590fd3528310d7e?narHash=sha256-71vBBU9GC%2BA%2BtdqAuFDRdx8WEVuj4OaVY5apoaAALkc%3D' (2025-12-01)
+  → 'github:hyprwm/contrib/41dbcac8183bb1b3a4ade0d8276b2f2df6ae4690?narHash=sha256-d3HmUbmfTDIt9mXEHszqyo2byqQMoyJtUJCZ9U1IqHQ%3D' (2025-12-18)
+• Updated input 'nix-darwin':
+    'github:nix-darwin/nix-darwin/e95de00a471d07435e0527ff4db092c84998698e?narHash=sha256-HN84sByg9FhJnojkGGDSrcjcbeioFWoNXfuyYfJ1kBE%3D' (2025-11-26)
+  → 'github:nix-darwin/nix-darwin/c2b36207f2c396c79dbed9d40536db221bd4e363?narHash=sha256-N/sxS27%2Bt9nGvGWqwwAceSMW/Y5ddcypS/aiTnZ7ScA%3D' (2025-12-23)
+• Updated input 'nixpkgs':
+    'github:nixos/nixpkgs/2d293cbfa5a793b4c50d17c05ef9e385b90edf6c?narHash=sha256-pp3uT4hHijIC8JUK5MEqeAWmParJrgBVzHLNfJDZxg4%3D' (2025-11-30)
+  → 'github:nixos/nixpkgs/3e2499d5539c16d0d173ba53552a4ff8547f4539?narHash=sha256-QEhk0eXgyIqTpJ/ehZKg9IKS7EtlWxF3N7DXy42zPfU%3D' (2025-12-25)
+• Updated input 'nixpkgs-stable':
+    'github:nixos/nixpkgs/8bb5646e0bed5dbd3ab08c7a7cc15b75ab4e1d0f?narHash=sha256-SqUuBFjhl/kpDiVaKLQBoD8TLD%2B/cTUzzgVFoaHrkqY%3D' (2025-11-30)
+  → 'github:nixos/nixpkgs/5900a0a8850cbba98e16d5a7a6ed389402dfcf4f?narHash=sha256-Eovt/DOCYjFFBZuYbbG9j5jhklzxdNbUGVYYxh3lG3s%3D' (2025-12-25)
+• Updated input 'noctalia':
+    'github:noctalia-dev/noctalia-shell/fa571e4bed0cab217dc169d64ca535c4a1b06a3c?narHash=sha256-g8Y%2BCWfYXfm8by740ScHbSelC0n2WMlwtoFgjy%2BWxyQ%3D' (2025-12-01)
+  → 'github:noctalia-dev/noctalia-shell/ad0bfd6987e3881385ff0464fc6663447e463841?narHash=sha256-B6xIr0l/a25%2B%2BoPoGTYcQtwCr4MCzYy3dpVkuI0Zx48%3D' (2025-12-26)
+• Updated input 'nur':
+    'github:nix-community/NUR/3a0ef0cae75e8958cf2f9ec08f14edfd646e63a9?narHash=sha256-%2BjwF2TfEUZ70TgCCumzUgEq9Ht6Gh0kN%2BBYfEEaw7fA%3D' (2025-12-01)
+  → 'github:nix-community/NUR/f85ac5163eb68087550897c67542a0f478651782?narHash=sha256-FOb58l2rT3ZxDY0px1lGFUNPhaSKRcGwH94pWGl3vzQ%3D' (2025-12-26)
+• Updated input 'nur/nixpkgs':
+    'github:nixos/nixpkgs/2d293cbfa5a793b4c50d17c05ef9e385b90edf6c?narHash=sha256-pp3uT4hHijIC8JUK5MEqeAWmParJrgBVzHLNfJDZxg4%3D' (2025-11-30)
+  → 'github:nixos/nixpkgs/3e2499d5539c16d0d173ba53552a4ff8547f4539?narHash=sha256-QEhk0eXgyIqTpJ/ehZKg9IKS7EtlWxF3N7DXy42zPfU%3D' (2025-12-25)
+• Updated input 'zen-browser':
+    'github:0xc000022070/zen-browser-flake/b339bc1684da201b0b929f77a20389884469f76b?narHash=sha256-kuLFriVrRvbqAZ8YRRG9n/7d4Ih%2BlcCw5j9vBZdYxxs%3D' (2025-12-01)
+  → 'github:0xc000022070/zen-browser-flake/98d8f48ba80a4b6e3b56addad850d57132301075?narHash=sha256-mGZBEN67mxeOsBhplBRLm6L%2By%2B%2B8jU46EEUYgemG1aQ%3D' (2025-12-25)
+• Updated input 'zen-browser/home-manager':
+    'github:nix-community/home-manager/827f2a23373a774a8805f84ca5344654c31f354b?narHash=sha256-RYHN8O/Aja59XDji6WSJZPkJpYVUfpSkyH%2BPEupBJqM%3D' (2025-11-12)
+  → 'github:nix-community/home-manager/58bf3ecb2d0bba7bdf363fc8a6c4d49b4d509d03?narHash=sha256-yeCxFV/905Wr91yKt5zrVvK6O2CVXWRMSrxqlAZnLp0%3D' (2025-12-14)
+```
+
 ## 2025-04-11 22:02:50 星期五
 
 - darwin 和 nixos 使用相同的 home-manager

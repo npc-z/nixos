@@ -84,8 +84,8 @@
 
     feishu
     qq
-    # wechat-uos # pr: https://github.com/NixOS/nixpkgs/pull/445949
-    wechat
+    wechat-uos
+    # wechat # pr: https://github.com/NixOS/nixpkgs/pull/474257
     wemeet
   ];
 
