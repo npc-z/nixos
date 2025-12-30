@@ -14,12 +14,16 @@
 
     # electron-11.5.0 is marked as insecure, refusing to evaluate
     "electron-11.5.0"
+
+    # NOTE: depended by pkgs.nur.repos.xddxdd.netease-cloud-music
+    "qtwebengine-5.15.19"
   ];
 
   # https://github.com/nix-community/NUR
   # https://nur.nix-community.org/
   environment.systemPackages = [
-    # pkgs.nur.repos.xddxdd.netease-cloud-music
+    # NOTE: 依赖 qtwebengine-5.15.19, 但是需要自己 build
+    pkgs.nur.repos.xddxdd.netease-cloud-music
     # pkgs.nur.repos.Freed-Wu.netease-cloud-music # failed to build, not work now
     pkgs.nur.repos.mic92.hello-nur
     pkgs.nur.repos.xddxdd.baidunetdisk
