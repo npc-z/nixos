@@ -252,12 +252,17 @@ window-rule {
 // music
 window-rule {
     match app-id="com.gitee.gmg137.NeteaseCloudMusicGtk4"
+    match app-id="netease-cloud-music"
 
     open-on-workspace "6  "
     open-focused true
     open-floating true
-    default-column-width { fixed 1600; }
-    default-window-height { fixed 1200; }
+    open-maximized false
+
+    min-width 400
+    max-width 300
+    min-height 600
+    max-height 800
 }
 
 
