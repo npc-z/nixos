@@ -11,6 +11,8 @@ application/x-extension-xhtml=zen-twilight.desktop;
 application/x-extension-xht=zen-twilight.desktop;
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 
+x-scheme-handler/clash=clash-verge.desktop;
+x-scheme-handler/clash-verge=clash-verge.desktop;
 [Default Applications]
 application/json=zen-browser.desktop;firefox.desktop;microsoft-edge.desktop
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
@@ -47,5 +49,6 @@ x-scheme-handler/clash=sparkle.desktop
 x-scheme-handler/chrome=zen-twilight.desktop
 x-scheme-handler/mihomo=sparkle.desktop
 x-scheme-handler/sparkle=sparkle.desktop
+x-scheme-handler/clash-verge=clash-verge.desktop;
 
 [Removed Associations]
