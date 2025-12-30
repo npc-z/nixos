@@ -1,6 +1,5 @@
 {
   inputs,
-  system,
   pkgs,
   ...
 }: {
@@ -10,35 +9,6 @@
     # However, if you don't agree with that and want to use the official artifacts, use twilight-official.
     inputs.zen-browser.homeModules.twilight
   ];
-
-  # xdg.mimeApps = let
-  #   associations = builtins.listToAttrs (map (name: {
-  #       inherit name;
-  #       value = let
-  #         zen-browser = inputs.zen-browser.packages.${stdenv.hostPlatform.system}.twilight;
-  #       in
-  #         zen-browser.meta.desktopFile;
-  #     }) [
-  #       "application/x-extension-shtml"
-  #       "application/x-extension-xhtml"
-  #       "application/x-extension-html"
-  #       "application/x-extension-xht"
-  #       "application/x-extension-htm"
-  #       "x-scheme-handler/unknown"
-  #       "x-scheme-handler/mailto"
-  #       "x-scheme-handler/chrome"
-  #       "x-scheme-handler/about"
-  #       "x-scheme-handler/https"
-  #       "x-scheme-handler/http"
-  #       "application/xhtml+xml"
-  #       "application/json"
-  #       "text/plain"
-  #       "text/html"
-  #     ]);
-  # in {
-  #   associations.added = associations;
-  #   defaultApplications = associations;
-  # };
 
   home.packages = with pkgs; [
     microsoft-edge
