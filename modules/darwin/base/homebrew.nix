@@ -74,10 +74,7 @@ in {
     # TODO Feel free to add your favorite apps here.
     casks = [
       # web
-      "firefox"
       "google-chrome"
-      "microsoft-edge"
-      "zen"
 
       # dev
       "dbeaver-community"
