@@ -34,6 +34,8 @@
 
     # branc
     gco = "git checkout";
+    gcod = "git checkout feature/dev";
+    gcot = "git checkout feature/test";
     gm = "git merge";
     gr = "git rebase";
     gpl = "git pull";
