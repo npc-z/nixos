@@ -23,7 +23,7 @@
       DisableTelemetry = true;
       DontCheckDefaultBrowser = true;
       NoDefaultBookmarks = true; # Disable the creation of default bookmarks
-      OfferToSaveLogins = false; #Control whether or not Firefox offers to save passwords
+      OfferToSaveLogins = true; # Control whether or not Firefox offers to save passwords
       EnableTrackingProtection = {
         Value = true;
         Locked = true;
