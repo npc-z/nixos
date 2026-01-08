@@ -28,7 +28,6 @@
         largesize = 64;
         persistent-apps = [
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
-          "/Applications/Zen.app"
           "/Applications/kitty.app"
         ];
 
