@@ -161,6 +161,11 @@
   "editor.lineNumbers": "relative",
   "tabnine.experimentalAutoImports": true,
   "workbench.tree.enableStickyScroll": true,
+  "workbench.tree.indent": 16,
+  // "workbench.tree.renderIndentGuides": "always",
+  "workbench.colorCustomizations": {
+    "tree.indentGuidesStroke": "#05e2d0"
+  },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
