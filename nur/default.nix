@@ -12,9 +12,6 @@
     # 提示这个版本的 ssl 不安全，此时临时信任
     "openssl-1.1.1w"
 
-    # electron-11.5.0 is marked as insecure, refusing to evaluate
-    "electron-11.5.0"
-
     # NOTE: depended by pkgs.nur.repos.xddxdd.netease-cloud-music
     "qtwebengine-5.15.19"
   ];
