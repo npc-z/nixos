@@ -27,6 +27,15 @@ debug:
   nh os test --ask --verbose .
 
 
+# remote build
+remote-test host:
+  # nixos-rebuild test --use-remote-sudo --target-host npc@r9000p-nixos --flake ./#r9000p-nixos --ask-sudo-password
+  # nixos-rebuild test --use-remote-sudo --target-host npc@{{host}} --flake ./#{{host}} --ask-sudo-password
+
+  # nh os test --target-host=npc@r9000p-nixos --hostname=r9000p-nixos .
+  nh os test --target-host=npc@{{host}} --hostname={{host}} .
+
+
 # deploy darwin
 deploy-darwin: update-mac-self-managed-cfgs
   # darwin-rebuild switch --flake . --show-trace --print-build-logs --verbose
