@@ -37,8 +37,7 @@
       gpu.type = "amd";
 
       ollama = {
-        # enable = true;
-        package = pkgs.ollama-rocm;
+        enable = true;
       };
 
       game = {
