@@ -62,15 +62,13 @@ layout {
 
     default-column-width { proportion 0.5; }
     focus-ring {
-        width 4
-        active-color "#7fc8ff"
-        inactive-color "#505050"
+        off
     }
 
     border {
         width 4
-        active-color "#ffc87f"
-        inactive-color "#505050"
+        active-color "#FFC4C4"
+        inactive-color "#234C6A"
         urgent-color "#9b0000"
     }
 
@@ -171,6 +169,14 @@ animations {
         }
         "
     }
+}
+
+window-rule {
+    // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules#clip-to-geometry
+    // Clips the window to its visual geometry.
+    // This will cut out any client-side window shadows, and also round window corners according to geometry-corner-radius.
+    geometry-corner-radius 12
+    clip-to-geometry true
 }
 
 window-rule {
