@@ -89,8 +89,8 @@
     antimicrox
 
     # music
-    # Small and simple sound and music player
-    amberol
+    # Beautiful, fast, fluent, light weight music player written in GTK4
+    gapless
 
     # ocr
     (pkgs.writeShellApplication {
