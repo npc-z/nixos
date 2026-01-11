@@ -15,13 +15,18 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GKT-Grey-Darkest";
+      package = pkgs.orchis-theme;
+      name = "Orchis-Pink";
     };
 
+    # iconTheme = {
+    #   package = pkgs.adwaita-icon-theme;
+    #   name = "Adwaita";
+    # };
+
     iconTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
+      name = "Tela-pink";
+      package = pkgs.tela-icon-theme;
     };
 
     font = {
