@@ -16,6 +16,10 @@ in {
       direnv = {
         enable = true;
       };
+
+      opencode = {
+        enable = true;
+      };
     };
 
     # //
