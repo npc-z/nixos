@@ -82,6 +82,7 @@ layout {
 }
 
 
+spawn-at-startup "niriusd"
 spawn-sh-at-startup "niri msg action focus-workspace '2  '"
 spawn-at-startup "kitty"
 spawn-at-startup "noctalia-shell"
@@ -309,6 +310,9 @@ binds {
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
 
+    // Pin the current focused window on all workspaces
+    Mod+Shift+P { spawn-sh "nirius toggle-follow-mode"; }
+
     Mod+J { spawn-sh "python ~/.config/nixos/dotfiles/niri/switch_ws.py down"; }
     Mod+K { spawn-sh "python ~/.config/nixos/dotfiles/niri/switch_ws.py up"; }
 
@@ -378,5 +382,5 @@ binds {
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Shift+P { power-off-monitors; }
+    // Mod+Shift+P { power-off-monitors; }
 }

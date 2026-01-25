@@ -27,6 +27,7 @@ in {
     home.packages = with pkgs; [
       niri
       xwayland-satellite
+      nirius # Utility commands for the niri wayland compositor
 
       inputs.noctalia.packages.${stdenv.hostPlatform.system}.default
     ];
