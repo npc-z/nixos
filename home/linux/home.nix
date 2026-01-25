@@ -65,8 +65,6 @@
     kitty
     foot
 
-    # file manager
-    nautilus
     # terminal file manager
     yazi
     # xfce.thunar
