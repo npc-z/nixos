@@ -8,26 +8,30 @@
 
 
 default:
-  just --list
+  @just --list --unsorted
 
 
 # rebuild
+[linux]
 deploy:
   # nixos-rebuild switch --flake . --sudo
   nh os switch --ask .
 
 # Build the configuration and activate it, but don't add it to the bootloader menu
+[linux]
 test:
   # nixos-rebuild test --flake . --sudo
   nh os test --ask .
 
 # rebuild with debug
+[linux]
 debug:
   # nixos-rebuild switch --flake . --sudo --show-trace --print-build-logs --verbose
   nh os test --ask --verbose .
 
 
 # remote build
+[linux]
 remote-test host:
   # nixos-rebuild test --use-remote-sudo --target-host npc@r9000p-nixos --flake ./#r9000p-nixos --ask-sudo-password
   # nixos-rebuild test --use-remote-sudo --target-host npc@{{host}} --flake ./#{{host}} --ask-sudo-password
@@ -37,7 +41,8 @@ remote-test host:
 
 
 # deploy darwin
-deploy-darwin: update-mac-self-managed-cfgs
+[macos]
+deploy: update-mac-self-managed-cfgs
   # darwin-rebuild switch --flake . --show-trace --print-build-logs --verbose
   nh darwin switch --ask .
   # activateSettings -u will reload the settings from the database and apply them to the current session,
@@ -46,12 +51,14 @@ deploy-darwin: update-mac-self-managed-cfgs
 
 
 # build darwin
-build-darwin: update-mac-self-managed-cfgs
+[macos]
+build: update-mac-self-managed-cfgs
   # darwin-rebuild build --flake . --show-trace --print-build-logs --verbose
   nh darwin build --ask .
 
 
 # install darwin
+[macos]
 install-darwin:
   nix run nix-darwin --extra-experimental-features  "nix-command flakes" -- switch --flake . --show-trace --print-build-logs --verbose
 
@@ -89,6 +96,7 @@ gc:
 
 
 # 将自我管理的软件的配置更新回 dotfiles 中
+[macos]
 update-mac-self-managed-cfgs:
     #!/usr/bin/env sh
 
@@ -121,7 +129,7 @@ update-mac-self-managed-cfgs:
 
 
 # link dotfiles to config
-stow-common:
+_stow-common:
     cd ./dotfiles && \
     stow -t $HOME \
     -R alacritty \
@@ -138,7 +146,8 @@ stow-common:
 
 
 # stow for linux
-stow-linux: stow-common
+[linux]
+stow: _stow-common
     cd ./dotfiles && \
     stow -t $HOME \
     -R antimicrox \
@@ -160,7 +169,8 @@ stow-linux: stow-common
 
 
 # stow for mac
-stow-mac: stow-common
+[macos]
+stow: _stow-common
     cd ./dotfiles && \
     stow -t $HOME \
     -R vscode-mac \
@@ -171,4 +181,3 @@ stow-mac: stow-common
     ln -sf ~/.config/nixos/dotfiles/lazygit/.config/lazygit/config.yml "/Users/npc/Library/Application Support/lazygit/config.yml" \
     #
     # ln -sf ~/.config/nixos/dotfiles/mac-mouse-fix/config.plist "/Users/npc/Library/Application Support/com.nuebling.mac-mouse-fix/config.plist" \
-
