@@ -5,16 +5,16 @@
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminal.active"
   },
-  {
-    "key": "alt+left",
-    "command": "workbench.action.navigateBack",
-    "when": "canNavigateBack"
-  },
-  {
-    "key": "alt+right",
-    "command": "workbench.action.navigateForward",
-    "when": "canNavigateForward"
-  },
+  // {
+  //   "key": "alt+left",
+  //   "command": "workbench.action.navigateBack",
+  //   "when": "canNavigateBack"
+  // },
+  // {
+  //   "key": "alt+right",
+  //   "command": "workbench.action.navigateForward",
+  //   "when": "canNavigateForward"
+  // },
   {
     "key": "ctrl+o",
     "command": "workbench.action.navigateBack",
@@ -68,5 +68,15 @@
   {
     "key": "ctrl+e",
     "command": "-workbench.action.quickOpen"
+  },
+  {
+    "key": "shift-l",
+    "command": "workbench.action.nextEditor",
+    "when": "editorTextFocus && neovim.init && neovim.mode == 'normal'"
+  },
+  {
+    "key": "shift-h",
+    "command": "workbench.action.previousEditor",
+    "when": "editorTextFocus && neovim.init && neovim.mode == 'normal'"
   },
 ]

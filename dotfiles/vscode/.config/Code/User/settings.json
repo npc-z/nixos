@@ -89,6 +89,20 @@
   "editor.rulers": [88, 120],
   "editor.fontSize": 16,
   "editor.fontFamily": "'Maple Mono Normal', 'JetBrainsMono Nerd Font Mono', Consolas, 'Courier New', monospace",
+  "vscode-neovim.compositeKeys": {
+    "jj": {
+        "command": "vscode-neovim.escape",
+        // Use lua to execute any logic
+        // "command": "vscode-neovim.lua",
+        // "args": [
+        //     [
+        //       "local code = require('vscode')",
+        //       "code.action('vscode-neovim.escape')",
+        //       "code.action('workbench.action.files.save')",
+        //     ],
+        // ],
+    },
+  },
   "vim.flash.enable": true,
   "vim.commandLineModeKeyBindings": [],
   // vim config
