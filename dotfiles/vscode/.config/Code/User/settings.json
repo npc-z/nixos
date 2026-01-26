@@ -360,5 +360,31 @@
   "chat.commandCenter.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "workbench.secondarySideBar.defaultVisibility": "visible",
-  "continue.telemetryEnabled": false
+  "continue.telemetryEnabled": false,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "llama-vscode.tool_run_terminal_command_enabled": true,
+  "llama-vscode.tool_search_source_enabled": true,
+  "llama-vscode.tool_read_file_enabled": true,
+  "llama-vscode.tool_list_directory_enabled": true,
+  "llama-vscode.tool_regex_search_enabled": true,
+  "llama-vscode.tool_delete_file_enabled": true,
+  "llama-vscode.tool_get_diff_enabled": true,
+  "llama-vscode.tool_edit_file_enabled": true,
+  "llama-vscode.tool_ask_user_enabled": true,
+  "llama-vscode.tool_custom_tool_enabled": true,
+  "llama-vscode.tool_custom_eval_tool_enabled": true,
+  "llama-vscode.tool_llama_vscode_help_enabled": true,
+  "llama-vscode.tool_update_todo_list_enabled": true,
+  "continue.enableNextEdit": false,
+  "continue.enableTabAutocomplete": true,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "chat.viewSessions.orientation": "stacked",
+  "editor.inlineSuggest.edits.showCollapsed": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  }
 }
