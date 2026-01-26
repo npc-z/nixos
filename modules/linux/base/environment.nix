@@ -94,10 +94,6 @@
   programs.nix-ld.enable = true;
 
   programs = {
-    # direnv = {
-    #   enable = true;
-    #   silent = true;
-    # };
     hyprland = {
       enable = true;
       # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;

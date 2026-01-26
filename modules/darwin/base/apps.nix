@@ -18,8 +18,6 @@
     htop
     kitty
     tldr
-
-    cargo
   ];
   environment.variables.EDITOR = "nvim";
 

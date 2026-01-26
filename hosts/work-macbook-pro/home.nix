@@ -13,10 +13,6 @@ in {
   config = {
     # // modules config
     modules = {
-      direnv = {
-        enable = true;
-      };
-
       opencode = {
         enable = true;
       };

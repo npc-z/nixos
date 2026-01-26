@@ -21,9 +21,6 @@
     };
 
     modules = {
-      direnv = {
-        enable = true;
-      };
     };
   };
 }
