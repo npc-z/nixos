@@ -89,9 +89,6 @@ in {
       # vpn
       "clash-verge-rev"
 
-      # terminals
-      "alacritty"
-      "kitty"
       # Redis desktop manager https://github.com/qishibo/AnotherRedisDesktopManager
       "another-redis-desktop-manager"
 
