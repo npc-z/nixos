@@ -35,7 +35,6 @@
   imports = [
     (mylib.relativeToRoot "home/base")
     (mylib.relativeToRoot "home/linux/base")
-    (mylib.relativeToRoot "home/linux/apps")
     (mylib.relativeToRoot "home/linux/wm")
     (mylib.relativeToRoot "home/linux/gui")
   ];
