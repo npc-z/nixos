@@ -59,10 +59,6 @@
 
     eudic
 
-    # terminal file manager
-    yazi
-    # xfce.thunar
-
     # pdf viewer
     # libsForQt5.okular
     zathura
