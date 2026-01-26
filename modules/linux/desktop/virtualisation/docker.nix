@@ -7,6 +7,8 @@
     docker-compose
     kubectl
     minikube
+    # Simple terminal UI for both docker and docker-compose
+    lazydocker
   ];
 
   # Docker can also be run rootless
