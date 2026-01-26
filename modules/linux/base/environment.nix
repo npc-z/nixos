@@ -41,8 +41,6 @@
     slurp
     swappy # Wayland native snapshot editing tool
 
-    dbeaver-bin
-
     # wpsoffice # cant build
     libreoffice-qt6-fresh
 

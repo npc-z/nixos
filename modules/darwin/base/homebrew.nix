@@ -77,7 +77,6 @@ in {
       "google-chrome"
 
       # dev
-      "dbeaver-community"
       "apifox"
 
       # office
