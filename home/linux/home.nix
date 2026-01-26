@@ -37,6 +37,7 @@
     (mylib.relativeToRoot "home/linux/base")
     (mylib.relativeToRoot "home/linux/apps")
     (mylib.relativeToRoot "home/linux/wm")
+    (mylib.relativeToRoot "home/linux/gui")
   ];
 
   # 设置鼠标指针大小以及字体 DPI（适用于 4K 显示器）
