@@ -44,7 +44,7 @@
                     "hideMode": "hidden",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
-                    "maxWidth": 345,
+                    "maxWidth": 145,
                     "scrollingMode": "hover",
                     "showAlbumArt": true,
                     "showArtistFirst": true,
@@ -111,7 +111,7 @@
                     "colorizeIcons": false,
                     "hideMode": "hidden",
                     "id": "ActiveWindow",
-                    "maxWidth": 500,
+                    "maxWidth": 145,
                     "scrollingMode": "hover",
                     "showIcon": true,
                     "useFixedWidth": false
@@ -371,7 +371,7 @@
         "criticalUrgencyDuration": 15,
         "enableKeyboardLayoutToast": true,
         "enabled": true,
-        "location": "top_right",
+        "location": "bottom_right",
         "lowUrgencyDuration": 3,
         "monitors": [
         ],
