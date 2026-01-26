@@ -51,6 +51,7 @@
     #
     "niri"
     "cava"
+    "flameshot"
     # A sleek, minimal, and thoughtfully crafted desktop shell for Wayland using Quickshell
     "noctalia"
     "swayidle"

@@ -77,7 +77,6 @@
     # Console-based Audio Visualizer for Alsa
     cava
 
-    flameshot
     rustdesk-flutter
 
     # Day/night gamma adjustments for Wayland

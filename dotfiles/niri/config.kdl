@@ -370,7 +370,8 @@ binds {
     Mod+Shift+F { switch-focus-between-floating-and-tiling; }
 
 
-    Print { screenshot; }
+    Print { spawn-sh "flameshot gui"; }
+    // Print { screenshot; }
     // Ctrl+Print { screenshot-screen; }
     // Alt+Print { screenshot-window; }
 
