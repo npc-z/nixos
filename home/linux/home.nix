@@ -59,11 +59,6 @@
 
     eudic
 
-    # terminal
-    alacritty
-    kitty
-    foot
-
     # terminal file manager
     yazi
     # xfce.thunar
