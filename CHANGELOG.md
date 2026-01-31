@@ -1,5 +1,49 @@
 # CHANGELOG
 
+## 2026-01-30 20:19:47 星期五
+
+```log
+• Updated input 'darwin-nixpkgs':
+    'github:NixOS/nixpkgs/8970f698c39f490df47e4cbb7beae7869ddf1978?narHash=sha256-%2B2xdB27fVMEVKWmh7UtpBGgK1FOVdk5ttV3ZPhpdqVY%3D' (2025-12-26)
+  → 'github:NixOS/nixpkgs/afce96367b2e37fc29afb5543573cd49db3357b7?narHash=sha256-xV20Alb7ZGN7qujnsi5lG1NckSUmpIb05H2Xar73TDc%3D' (2026-01-27)
+• Updated input 'home-manager':
+    'github:nix-community/home-manager/91cdb0e2d574c64fae80d221f4bf09d5592e9ec2?narHash=sha256-GKO35onS711ThCxwWcfuvbIBKXwriahGqs%2BWZuJ3v9E%3D' (2025-12-25)
+  → 'github:nix-community/home-manager/175532b6275b34598a0ceb1aef4b9b4006dd4073?narHash=sha256-kgkwjs33YfJasADIrHjHcTIDs3wNX0xzJhnUP%2BoldEw%3D' (2026-01-29)
+• Updated input 'hyprland-contrib':
+    'github:hyprwm/contrib/41dbcac8183bb1b3a4ade0d8276b2f2df6ae4690?narHash=sha256-d3HmUbmfTDIt9mXEHszqyo2byqQMoyJtUJCZ9U1IqHQ%3D' (2025-12-18)
+  → 'github:hyprwm/contrib/541628cebe42792ddf5063c4abd6402c2f1bd68f?narHash=sha256-CopNx3j//gZ2mE0ggEK9dZ474UcbDhpTw%2BKMor8mSxI%3D' (2026-01-14)
+• Updated input 'nix-darwin':
+    'github:nix-darwin/nix-darwin/c2b36207f2c396c79dbed9d40536db221bd4e363?narHash=sha256-N/sxS27%2Bt9nGvGWqwwAceSMW/Y5ddcypS/aiTnZ7ScA%3D' (2025-12-23)
+  → 'github:nix-darwin/nix-darwin/0fc4e7ac670a0ed874abacf73c4b072a6a58064b?narHash=sha256-5ulSDyOG1U%2B1sJhkJHYsUOWEsmtLl97O0NTVMvgIVyc%3D' (2026-01-18)
+• Updated input 'nix-homebrew':
+    'github:zhaofengli-wip/nix-homebrew/6a8ab60bfd66154feeaa1021fc3b32684814a62a?narHash=sha256-C91gPgv6udN5WuIZWNehp8qdLqlrzX6iF/YyboOj6XI%3D' (2025-11-30)
+  → 'github:zhaofengli-wip/nix-homebrew/a5409abd0d5013d79775d3419bcac10eacb9d8c5?narHash=sha256-8d7KnCpT2LweRvSzZYEGd9IM3eFX%2BA78opcnDM0%2Bndk%3D' (2026-01-26)
+• Updated input 'nix-homebrew/brew-src':
+    'github:Homebrew/brew/fbfdbaba008189499958a7aeb1e2c36ab10c067d?narHash=sha256-n/IMowE9S23ovmTkKX7KhxXC2Yq41EAVFR2FBIXPcT8%3D' (2025-11-20)
+  → 'github:Homebrew/brew/d01011cac6d72032c75fd2cd9489909e95d9faf2?narHash=sha256-BiGPeulrDVetXP%2BtjxhMcGLUROZAtZIhU5m4MqawCfM%3D' (2026-01-25)
+• Updated input 'nixpkgs':
+    'github:nixos/nixpkgs/3e2499d5539c16d0d173ba53552a4ff8547f4539?narHash=sha256-QEhk0eXgyIqTpJ/ehZKg9IKS7EtlWxF3N7DXy42zPfU%3D' (2025-12-25)
+  → 'github:nixos/nixpkgs/bfc1b8a4574108ceef22f02bafcf6611380c100d?narHash=sha256-msG8SU5WsBUfVVa/9RPLaymvi5bI8edTavbIq3vRlhI%3D' (2026-01-26)
+• Updated input 'nixpkgs-stable':
+    'github:nixos/nixpkgs/5900a0a8850cbba98e16d5a7a6ed389402dfcf4f?narHash=sha256-Eovt/DOCYjFFBZuYbbG9j5jhklzxdNbUGVYYxh3lG3s%3D' (2025-12-25)
+  → 'github:nixos/nixpkgs/fa83fd837f3098e3e678e6cf017b2b36102c7211?narHash=sha256-e7VO/kGLgRMbWtpBqdWl0uFg8Y2XWFMdz0uUJvlML8o%3D' (2026-01-28)
+• Updated input 'noctalia':
+    'github:noctalia-dev/noctalia-shell/ad0bfd6987e3881385ff0464fc6663447e463841?narHash=sha256-B6xIr0l/a25%2B%2BoPoGTYcQtwCr4MCzYy3dpVkuI0Zx48%3D' (2025-12-26)
+  → 'github:noctalia-dev/noctalia-shell/4dea7d37801d705cf977ce69fd3ee87a3c995fe5?narHash=sha256-yZ1bR3ducegfyauYnZ6JRbLQnIwxMWM7P2PioyEtsMk%3D' (2026-01-30)
+• Updated input 'nur':
+    'github:nix-community/NUR/f85ac5163eb68087550897c67542a0f478651782?narHash=sha256-FOb58l2rT3ZxDY0px1lGFUNPhaSKRcGwH94pWGl3vzQ%3D' (2025-12-26)
+  → 'github:nix-community/NUR/cf3ece1c8c4108d7e5940ba7f1b01048407fff10?narHash=sha256-OuUk%2BskANEQBNDKLiXvZOcdv2vfWsrbxvwNPSw0iKjE%3D' (2026-01-30)
+• Updated input 'nur/nixpkgs':
+    'github:nixos/nixpkgs/3e2499d5539c16d0d173ba53552a4ff8547f4539?narHash=sha256-QEhk0eXgyIqTpJ/ehZKg9IKS7EtlWxF3N7DXy42zPfU%3D' (2025-12-25)
+  → 'github:nixos/nixpkgs/bfc1b8a4574108ceef22f02bafcf6611380c100d?narHash=sha256-msG8SU5WsBUfVVa/9RPLaymvi5bI8edTavbIq3vRlhI%3D' (2026-01-26)
+• Updated input 'zen-browser':
+    'github:0xc000022070/zen-browser-flake/98d8f48ba80a4b6e3b56addad850d57132301075?narHash=sha256-mGZBEN67mxeOsBhplBRLm6L%2By%2B%2B8jU46EEUYgemG1aQ%3D' (2025-12-25)
+  → 'github:0xc000022070/zen-browser-flake/efdd1e683da9412f515b9bd42c37861978c2fd3a?narHash=sha256-H5XCtJMS3RQKHeaS%2BaxX7CAJ0WwuTUYGy4uzLFSm0Xc%3D' (2026-01-30)
+• Updated input 'zen-browser/home-manager':
+    'github:nix-community/home-manager/58bf3ecb2d0bba7bdf363fc8a6c4d49b4d509d03?narHash=sha256-yeCxFV/905Wr91yKt5zrVvK6O2CVXWRMSrxqlAZnLp0%3D' (2025-12-14)
+  → 'github:nix-community/home-manager/b4d88c9ac42ae1a745283f6547701da43b6e9f9b?narHash=sha256-cJbFn17oyg6qAraLr%2BNVeNJrXsrzJdrudkzI4H2iTcg%3D' (2026-01-14)
+```
+
 ## 2025-12-26 21:25:17 星期五
 
 ```log
