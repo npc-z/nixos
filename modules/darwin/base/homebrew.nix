@@ -75,6 +75,7 @@ in {
     casks = [
       # web
       "google-chrome"
+      "zen"
 
       # dev
       "apifox"
