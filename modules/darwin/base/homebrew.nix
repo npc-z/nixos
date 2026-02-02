@@ -112,6 +112,12 @@ in {
       # Utility to support moving and resizing using a modifier key and mouse drag
       "easy-move+resize"
 
+      # NOTE: 如何移除系统输入法 ABC?
+      # 编辑 ~/Library/Preferences/com.apple.HIToolbox.plist 文件
+      # 移除输入法中的 ABC 项,重启系统
+      # Property list and JSON editor
+      # "plistedit-pro" # maybe just use once
+
       # Development
       # "insomnia" # REST client
       # "wireshark" # network analyzer
