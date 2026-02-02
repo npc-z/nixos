@@ -28,7 +28,6 @@
         largesize = 64;
         persistent-apps = [
           "${pkgs.vscode}/Applications/Visual Studio Code.app"
-          "/Applications/kitty.app"
         ];
 
         # customize Hot Corners(触发角, 鼠标移动到屏幕角落时触发的动作)
