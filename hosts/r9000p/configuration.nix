@@ -1,9 +1,8 @@
 {mylib, ...}: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    (mylib.relativeToRoot "modules/linux/desktop")
+    (mylib.relativeToRoot "modules/linux/desktop.nix")
   ];
 
   config = {
