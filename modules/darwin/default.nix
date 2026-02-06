@@ -1,7 +1,7 @@
 {mylib, ...}: {
   imports =
     [
-      (mylib.relativeToRoot "modules/base")
+      ../base
     ]
     ++ (mylib.scanPaths ./.);
 }
