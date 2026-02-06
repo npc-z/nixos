@@ -1,9 +1,4 @@
-{
-  inputs,
-  myvars,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   nixpkgs.overlays = [
     # nuenv.overlays.default
   ];
@@ -36,8 +31,4 @@
     gnutar
     rsync
   ];
-
-  users.users.${myvars.username} = {
-    # description = myvars.username;
-  };
 }
