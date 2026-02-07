@@ -9,9 +9,6 @@
 
   config = {
     modules = {
-      opencode = {
-        enable = true;
-      };
     };
 
     packages = with pkgs; [

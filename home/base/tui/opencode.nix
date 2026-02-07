@@ -6,7 +6,11 @@
   cfg = config.modules.opencode;
 in {
   options.modules.opencode = {
-    enable = lib.mkEnableOption "enable opencode";
+    enable = lib.mkOption {
+      default = true;
+      description = "Whether to enable opencode";
+      type = lib.types.bool;
+    };
   };
 
   config = lib.mkIf cfg.enable {
