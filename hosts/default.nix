@@ -36,7 +36,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.npc = import ./${hostDir}/home.nix;
+          home-manager.users.${myvars.username} = import ./${hostDir}/home.nix;
           home-manager.extraSpecialArgs = specialArgs;
           home-manager.backupFileExtension = "backup";
         }
