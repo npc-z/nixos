@@ -211,6 +211,19 @@ window-rule {
     match app-id="sparkle"
 
     open-floating true
+    min-width 800
+    max-width 800
+    min-height 600
+    max-height 600
+}
+
+// vscode
+window-rule {
+    open-on-workspace "1 󰨞 "
+    match app-id="code"
+
+    open-focused true
+    open-maximized true
 }
 
 // 2 terminal
@@ -261,16 +274,31 @@ window-rule {
     match app-id="com.gitee.gmg137.NeteaseCloudMusicGtk4"
     match app-id="netease-cloud-music"
     match app-id="com.github.neithern.g4music"
+    match app-id="SPlayer"
 
     open-on-workspace "6  "
     open-focused true
     open-floating true
     open-maximized false
 
-    min-width 800
-    max-width 800
-    min-height 600
-    max-height 600
+    min-width 1200
+    max-width 1200
+    min-height 800
+    max-height 800
+}
+
+window-rule {
+    match app-id="SPlayer" title="SPlayer - 桌面歌词"
+
+    open-on-workspace "6  "
+    open-floating true
+    open-maximized false
+
+    // 不能更小了
+    min-width 640
+    max-width 640
+    min-height 140
+    max-height 140
 }
 
 
