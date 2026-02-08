@@ -10,11 +10,15 @@
       hostName = "ser7-nixos";
     };
 
-    environment.sessionVariables = {
-      XDG_CURRENT_DESKTOP = "niri";
-      XDG_SESSION_TYPE = "wayland";
-      XDG_SESSION_DESKTOP = "niri";
-    };
+    # NOTE:
+    # just start niri by
+    # XDG_CURRENT_DESKTOP="niri";XDG_SESSION_TYPE="wayland";XDG_SESSION_DESKTOP="niri"; niri-session
+
+    # environment.sessionVariables = {
+    #   XDG_CURRENT_DESKTOP = "niri";
+    #   XDG_SESSION_TYPE = "wayland";
+    #   XDG_SESSION_DESKTOP = "niri";
+    # };
 
     modules = {
       # NOTE:
