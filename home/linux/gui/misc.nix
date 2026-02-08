@@ -21,7 +21,9 @@
     # music
     # Beautiful, fast, fluent, light weight music player written in GTK4
     gapless
-    netease-cloud-music-gtk
+    # netease-cloud-music-gtk
+    # Simple Netease Cloud Music player
+    splayer
     # Console-based Audio Visualizer for Alsa
     cava
   ];
