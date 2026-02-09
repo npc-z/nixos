@@ -11,7 +11,7 @@
     modules = {
     };
 
-    packages = with pkgs; [
+    home.packages = with pkgs; [
       # archives
       zip
       xz
