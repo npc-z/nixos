@@ -1,0 +1,39 @@
+{
+	"window": {
+		"x": 0,
+		"y": 0,
+		"width": 1200,
+		"height": 800,
+		"maximized": false
+	},
+	"lyric": {
+		"x": 2077,
+		"y": 2272,
+		"width": 800,
+		"height": 140,
+		"config": {
+			"isLock": true,
+			"playedColor": "#fe7971",
+			"unplayedColor": "#ccc",
+			"shadowColor": "rgba(0, 0, 0, 0.5)",
+			"fontFamily": "system-ui",
+			"fontSize": 20,
+			"fontIsBold": true,
+			"showTran": true,
+			"showYrc": true,
+			"isDoubleLine": false,
+			"position": "center",
+			"limitBounds": false,
+			"textBackgroundMask": false,
+			"alwaysShowPlayInfo": false
+		}
+	},
+	"proxy": "",
+	"amllDbServer": "https://amlldb.bikonoo.com/ncm-lyrics/%s.ttml",
+	"cachePath": "/home/npc/.config/SPlayer/DataCache",
+	"cacheLimit": 10,
+	"websocket": {
+		"enabled": false,
+		"port": 25885
+	}
+}

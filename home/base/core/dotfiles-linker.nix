@@ -81,6 +81,9 @@
     # starship
     "starship.toml".source = linkTo "starship/.config/starship.toml";
 
+    # SPlayer
+    "SPlayer/config.json".source = linkTo "SPlayer/config.json";
+
     # vscode
     "Code/User/keybindings.json".source = linkTo "vscode/.config/Code/User/keybindings.json";
     "Code/User/settings.json".source = linkTo "vscode/.config/Code/User/settings.json";
