@@ -76,6 +76,7 @@ in {
       # web
       "google-chrome"
       "zen"
+      "firefox"
 
       # dev
       "apifox"
