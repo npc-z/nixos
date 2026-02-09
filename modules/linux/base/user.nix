@@ -1,7 +1,13 @@
-{myvars, ...}: {
+{
+  myvars,
+  pkgs,
+  ...
+}: {
   # forbid `useradd` to add user
   # Don't allow mutation of users outside the config.
   users.mutableUsers = false;
+
+  users.defaultUserShell = pkgs.zsh;
 
   users.groups = {
     "${myvars.username}" = {};

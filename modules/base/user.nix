@@ -1,10 +1,4 @@
-{
-  myvars,
-  pkgs,
-  ...
-}: {
-  users.defaultUserShell = pkgs.zsh;
-
+{myvars, ...}: {
   users.users.${myvars.username} = {
     description = myvars.userFullName;
   };
