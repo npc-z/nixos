@@ -22,7 +22,9 @@
 			"WHERE",
 			"\t1 = 1 --",
 			"ORDER BY",
-			"\tid DESC;"
+			"\tid DESC",
+			"LIMIT",
+			"\t200;",
 		],
 		"description": "Select and order by id desc"
 	},
