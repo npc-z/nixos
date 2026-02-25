@@ -13,8 +13,6 @@
         system = final.system;
         config.allowUnfree = true;
         config.permittedInsecurePackages = [
-          # 提示这个版本的 ssl 不安全，此时临时信任
-          "openssl-1.1.1w"
         ];
       };
     })
