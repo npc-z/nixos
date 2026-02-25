@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    python312
-    python312Packages.pip
+    python314
+    python314Packages.pip
     # sort Python imports
     isort
     # Python code formatter

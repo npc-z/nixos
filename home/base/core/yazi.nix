@@ -4,6 +4,7 @@
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
+    shellWrapperName = "yy";
     settings = {
       mgr = {
         show_hidden = true;
