@@ -66,7 +66,6 @@
     keyd
     stow
     # desktop
-    swaybg
     wofi
     wlogout
     pamixer
