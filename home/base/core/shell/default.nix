@@ -62,8 +62,8 @@
 
     # shortcut
     cls = "clear";
-    sz = "source ~/.zshrc && echo source .zshrc done";
-    vz = "vim ~/.zshrc";
+    sz = "source ~/.config/zsh/.zshrc && echo source .zshrc done";
+    vz = "vim ~/.config/zsh/.zshrc";
     j = "just";
 
     # format python files in git repo
