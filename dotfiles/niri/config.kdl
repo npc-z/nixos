@@ -89,7 +89,7 @@ spawn-at-startup "noctalia-shell"
 spawn-sh-at-startup "fcitx5 -d --replace"
 spawn-sh-at-startup "clipse -listen"
 spawn-at-startup "sparkle"
-spawn-sh-at-startup "sleep 3; kitty +kitten panel --edge=background -o font_size=4 -o background_opacity=0 cava"
+// spawn-sh-at-startup "sleep 3; kitty +kitten panel --edge=background -o font_size=4 -o background_opacity=0 cava"
 spawn-sh-at-startup "sleep 1 && systemctl --user start nixos-fake-graphical-session.target"
 spawn-sh-at-startup "swayidle"
 spawn-sh-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri $"
@@ -302,11 +302,14 @@ window-rule {
 
 
 binds {
+    // toggle noctalia-shell bar
+    Mod+B {spawn-sh "noctalia-shell ipc call bar toggle";}
+
     Mod+V { spawn-sh "alacritty --class clipse-history -e zsh -c 'clipse $PPID'"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Shift+Return  { spawn "alacritty"; }
 
-    Mod+P hotkey-overlay-title="Run an Application: wofi" { spawn-sh "pkill wofi || wofi --show drun"; }
+    Mod+P hotkey-overlay-title="toggle noctalia-shell launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
