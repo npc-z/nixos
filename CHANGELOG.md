@@ -1,5 +1,46 @@
 # CHANGELOG
 
+## 2026-03-13 21:48:47 星期五
+
+```log
+• Updated input 'darwin-nixpkgs':
+    'github:NixOS/nixpkgs/ea7f1f06811ce7fcc81d6c6fd4213150c23edcf2?narHash=sha256-Fy0%2BUXELv9hOE8WjYhJt8fMDLYTU2Dqn3cX4BwoGBos%3D' (2026-02-24)
+  → 'github:NixOS/nixpkgs/75690239f08f885ca9b0267580101f60d10fbe62?narHash=sha256-Xy3WEpUAbpsz8ydgvVAQAGGB/WB%2B8cNA5cshiL0McTI%3D' (2026-03-11)
+• Updated input 'home-manager':
+    'github:nix-community/home-manager/9a4b494b1aa1b93d8edf167f46dc8e0c0011280c?narHash=sha256-gFgE6mGUftwseV3DUENMb0k0EiHd739lZexPo5O/sdQ%3D' (2026-02-23)
+  → 'github:nix-community/home-manager/be0c641a6a5564caa33982faa1fe2c60d92131c7?narHash=sha256-FFMc1uAwy2GYasd0rdNDVxKyAgzuoJH2M%2BGglBQbqf0%3D' (2026-03-13)
+• Updated input 'nix-darwin':
+    'github:nix-darwin/nix-darwin/6a7fdcd5839ec8b135821179eea3b58092171bcf?narHash=sha256-9SeTZ4Pwr730YfT7V8Azb8GFbwk1ZwiQDAwft3qAD%2Bo%3D' (2026-02-19)
+  → 'github:nix-darwin/nix-darwin/da529ac9e46f25ed5616fd634079a5f3c579135f?narHash=sha256-zm3ftUQw0MPumYi91HovoGhgyZBlM4o3Zy0LhPNwzXE%3D' (2026-03-08)
+• Updated input 'nixpkgs':
+    'github:nixos/nixpkgs/2fc6539b481e1d2569f25f8799236694180c0993?narHash=sha256-0MAd%2B0mun3K/Ns8JATeHT1sX28faLII5hVLq0L3BdZU%3D' (2026-02-23)
+  → 'github:nixos/nixpkgs/fe416aaedd397cacb33a610b33d60ff2b431b127?narHash=sha256-b/GV2ysM8mKHhinse2wz%2BuP37epUrSE%2BsAKXy/xvBY4%3D' (2026-03-12)
+• Updated input 'nixpkgs-stable':
+    'github:nixos/nixpkgs/e764fc9a405871f1f6ca3d1394fb422e0a0c3951?narHash=sha256-sdaqdnsQCv3iifzxwB22tUwN/fSHoN7j2myFW5EIkGk%3D' (2026-02-24)
+  → 'github:nixos/nixpkgs/0590cd39f728e129122770c029970378a79d076a?narHash=sha256-BHoB/XpbqoZkVYZCfXJXfkR%2BGXFqwb/4zbWnOr2cRcU%3D' (2026-03-11)
+• Updated input 'noctalia':
+    'github:noctalia-dev/noctalia-shell/fe8e23f1d0e6ed4bdefd061e6834c4d61f2266be?narHash=sha256-0hqvh2D8tdwFG9pT9Ds1EysZYPTKpVJCunnXQ31MUZ8%3D' (2026-02-25)
+  → 'github:noctalia-dev/noctalia-shell/40e546022dd2115f1b7f824ae309ea0115c4d360?narHash=sha256-P/YAuqHv4NyIkBMvfOCsXE2bdy3gE5eTgODioXaGMCM%3D' (2026-03-13)
+• Added input 'noctalia/noctalia-qs':
+    'github:noctalia-dev/noctalia-qs/6b9eceefde3d47ca83c544b54bcdd358be4cbd2f?narHash=sha256-YOkWzVq7opym1ovJvSCvqpG6OCDGJwPo/EPeRxcGay4%3D' (2026-03-10)
+• Added input 'noctalia/noctalia-qs/nixpkgs':
+    follows 'noctalia/nixpkgs'
+• Added input 'noctalia/noctalia-qs/systems':
+    'github:nix-systems/default-linux/31732fcf5e8fea42e59c2488ad31a0e651500f68?narHash=sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80%3D' (2023-07-14)
+• Updated input 'nur':
+    'github:nix-community/NUR/6ff3dac6a2ca2129a7d7ff9524751ad4f716d238?narHash=sha256-XoTBaZtd%2BueFl2W745tKwQtb9r9aHmfNczCX6gj3qZU%3D' (2026-02-25)
+  → 'github:nix-community/NUR/95c043c21d55ac8e4d9e8e17ba1b05a87a3eed21?narHash=sha256-iS6fjZqnrlBQgOzO7ZPKpyA6y1/07SuKNBlD5/7zRZQ%3D' (2026-03-13)
+• Updated input 'nur/nixpkgs':
+    'github:nixos/nixpkgs/2fc6539b481e1d2569f25f8799236694180c0993?narHash=sha256-0MAd%2B0mun3K/Ns8JATeHT1sX28faLII5hVLq0L3BdZU%3D' (2026-02-23)
+  → 'github:nixos/nixpkgs/fe416aaedd397cacb33a610b33d60ff2b431b127?narHash=sha256-b/GV2ysM8mKHhinse2wz%2BuP37epUrSE%2BsAKXy/xvBY4%3D' (2026-03-12)
+• Updated input 'zen-browser':
+    'github:0xc000022070/zen-browser-flake/932b57f0e990243e05008941a1933642370e4340?narHash=sha256-DL7SZYGknFzHMDmvk/kSnV/Tk7R8%2BqRpsCykMowjfes%3D' (2026-02-25)
+  → 'github:0xc000022070/zen-browser-flake/9346698c4562819f61b4e5097151ec0b17729fab?narHash=sha256-L1yMYmFffHfZNP%2BhKJGRBmrFKkn/VDhu7jEbVftBQuM%3D' (2026-03-12)
+• Updated input 'zen-browser/home-manager':
+    'github:nix-community/home-manager/5bd3589390b431a63072868a90c0f24771ff4cbb?narHash=sha256-Tl2I0YXdhSTufGqAaD1ySh8x%2BcvVsEI1mJyJg12lxhI%3D' (2026-02-22)
+  → 'github:nix-community/home-manager/58fd7ff0eec2cda43e705c4c0585729ec471d400?narHash=sha256-UZjPc/d5XRxvjDbk4veAO4XFdvx6BUum2l40V688Xq8%3D' (2026-03-01)
+```
+
 ## 2026-02-25 11:00:58 星期三
 
 ```log

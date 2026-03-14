@@ -60,8 +60,8 @@ in {
         # official plugins
         # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
         # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
-        pkgs.hyprlandPlugins.hyprbars
-        pkgs.hyprlandPlugins.hyprscrolling
+        # pkgs.hyprlandPlugins.hyprbars
+        # pkgs.hyprlandPlugins.hyprscrolling
 
         # third-party plugins
         # inputs.hycov.packages.${pkgs.stdenv.hostPlatform.system}.hycov

@@ -7,12 +7,6 @@
   ];
 
   programs.zen-browser = {
-    # NOTE: remove this
-    # If you haven't migrated yet, please follow the migration guide:
-    # https://github.com/0xc000022070/zen-browser-flake#missing-configuration-after-update
-    # To suppress this warning after completing the migration, set:
-    suppressXdgMigrationWarning = true;
-
     enable = true;
     policies = let
       locked = value: {
