@@ -92,6 +92,9 @@
       recursive = true;
     };
 
+    # opencode
+    "opencode/opencode.jsonc".source = linkTo "opencode/opencode.jsonc";
+
     # libinput-gestures
     "libinput-gestures.conf".source = linkTo "libinput-gestures/.config/libinput-gestures.conf";
 
