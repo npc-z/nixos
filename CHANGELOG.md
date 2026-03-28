@@ -1,5 +1,47 @@
 # CHANGELOG
 
+## 2026-03-27 21:25:20 星期五
+
+```log
+• Updated input 'darwin-nixpkgs':
+    'github:NixOS/nixpkgs/75690239f08f885ca9b0267580101f60d10fbe62?narHash=sha256-Xy3WEpUAbpsz8ydgvVAQAGGB/WB%2B8cNA5cshiL0McTI%3D' (2026-03-11)
+  → 'github:NixOS/nixpkgs/fdc7b8f7b30fdbedec91b71ed82f36e1637483ed?narHash=sha256-a%2B%2BtZ1RQsDb1I0NHrFwdGuRlR5TORvCEUksM459wKUA%3D' (2026-03-23)
+• Updated input 'home-manager':
+    'github:nix-community/home-manager/be0c641a6a5564caa33982faa1fe2c60d92131c7?narHash=sha256-FFMc1uAwy2GYasd0rdNDVxKyAgzuoJH2M%2BGglBQbqf0%3D' (2026-03-13)
+  → 'github:nix-community/home-manager/4b1be5c38be350ee9452a4847945ce71d950dc31?narHash=sha256-uWR9fC%2B4NykFJVn4GN4Ini9LX%2Bw8Llj7BnWKKp0N6bw%3D' (2026-03-27)
+• Updated input 'hyprland-contrib':
+    'github:hyprwm/contrib/918f266dddae39fa4184a1b8bf51ec5381cf29f7?narHash=sha256-aH8h5ZOiyEGtHmEyuE/eFxx8TN7a%2BNGDnl4V%2BdbzJ6E%3D' (2026-02-19)
+  → 'github:hyprwm/contrib/43c012d21d9314c585b97ac4f34752f6de93dc8f?narHash=sha256-4J6vEtf7dIw3pZ/xM/dU7ECTmr8AsIIUQJba1B8wp5k%3D' (2026-03-20)
+• Updated input 'nixpkgs':
+    'github:nixos/nixpkgs/fe416aaedd397cacb33a610b33d60ff2b431b127?narHash=sha256-b/GV2ysM8mKHhinse2wz%2BuP37epUrSE%2BsAKXy/xvBY4%3D' (2026-03-12)
+  → 'github:nixos/nixpkgs/46db2e09e1d3f113a13c0d7b81e2f221c63b8ce9?narHash=sha256-4hAV26quOxdC6iyG7kYaZcM3VOskcPUrdCQd/nx8obc%3D' (2026-03-24)
+• Updated input 'nixpkgs-stable':
+    'github:nixos/nixpkgs/0590cd39f728e129122770c029970378a79d076a?narHash=sha256-BHoB/XpbqoZkVYZCfXJXfkR%2BGXFqwb/4zbWnOr2cRcU%3D' (2026-03-11)
+  → 'github:nixos/nixpkgs/1073dad219cb244572b74da2b20c7fe39cb3fa9e?narHash=sha256-tFwzTI0DdDzovdE9%2BRas6CUss0yn8P9XV4Ja6RjA%2BnU%3D' (2026-03-24)
+• Updated input 'noctalia':
+    'github:noctalia-dev/noctalia-shell/40e546022dd2115f1b7f824ae309ea0115c4d360?narHash=sha256-P/YAuqHv4NyIkBMvfOCsXE2bdy3gE5eTgODioXaGMCM%3D' (2026-03-13)
+  → 'github:noctalia-dev/noctalia-shell/9b64e21bea819a3c6415874a982b4393b6244fdb?narHash=sha256-aZ1Su8zsIdls0C2uFxIBL/pD77lcAtPhuqlRlYyO5Jo%3D' (2026-03-27)
+• Updated input 'noctalia/noctalia-qs':
+    'github:noctalia-dev/noctalia-qs/6b9eceefde3d47ca83c544b54bcdd358be4cbd2f?narHash=sha256-YOkWzVq7opym1ovJvSCvqpG6OCDGJwPo/EPeRxcGay4%3D' (2026-03-10)
+  → 'github:noctalia-dev/noctalia-qs/070340934ca374bc770fd500a0fd7b3210f06b1c?narHash=sha256-N131zILQ06ZNEvtgtjjFZ0N5qEI70rKKhCZsBcZoDH8%3D' (2026-03-26)
+• Added input 'noctalia/noctalia-qs/treefmt-nix':
+    'github:numtide/treefmt-nix/3710e0e1218041bbad640352a0440114b1e10428?narHash=sha256-IjU1FxYqm%2BVDe5qIOxoW%2BpISBlGvVApRjiw/Y/ttJzY%3D' (2026-03-04)
+• Added input 'noctalia/noctalia-qs/treefmt-nix/nixpkgs':
+    follows 'noctalia/noctalia-qs/nixpkgs'
+• Updated input 'nur':
+    'github:nix-community/NUR/95c043c21d55ac8e4d9e8e17ba1b05a87a3eed21?narHash=sha256-iS6fjZqnrlBQgOzO7ZPKpyA6y1/07SuKNBlD5/7zRZQ%3D' (2026-03-13)
+  → 'github:nix-community/NUR/1fb4ca6ac4d9af7bceb2b132e98c0553bbebf8a1?narHash=sha256-fPtYDx%2B6NSvcrsR3kJ/s/4Exc/BRzOkNZT3E1PgL0Io%3D' (2026-03-27)
+• Updated input 'nur/nixpkgs':
+    'github:nixos/nixpkgs/fe416aaedd397cacb33a610b33d60ff2b431b127?narHash=sha256-b/GV2ysM8mKHhinse2wz%2BuP37epUrSE%2BsAKXy/xvBY4%3D' (2026-03-12)
+  → 'github:nixos/nixpkgs/46db2e09e1d3f113a13c0d7b81e2f221c63b8ce9?narHash=sha256-4hAV26quOxdC6iyG7kYaZcM3VOskcPUrdCQd/nx8obc%3D' (2026-03-24)
+• Updated input 'zen-browser':
+    'github:0xc000022070/zen-browser-flake/9346698c4562819f61b4e5097151ec0b17729fab?narHash=sha256-L1yMYmFffHfZNP%2BhKJGRBmrFKkn/VDhu7jEbVftBQuM%3D' (2026-03-12)
+  → 'github:0xc000022070/zen-browser-flake/4916e4d7ab444c544c3f36cc9fafe58cdb0f7237?narHash=sha256-VEcy7N8TExxCsDem0SUsqJJlTcUm0y4vaSPYCghe5W8%3D' (2026-03-27)
+• Updated input 'zen-browser/home-manager':
+    'github:nix-community/home-manager/58fd7ff0eec2cda43e705c4c0585729ec471d400?narHash=sha256-UZjPc/d5XRxvjDbk4veAO4XFdvx6BUum2l40V688Xq8%3D' (2026-03-01)
+  → 'github:nix-community/home-manager/ef12a9a2b0f77c8fa3dda1e7e494fca668909056?narHash=sha256-MPjR48roW7CUMU6lu0%2BqQGqj92Kuh3paIulMWFZy%2BNQ%3D' (2026-03-13)
+```
+
 ## 2026-03-13 21:48:47 星期五
 
 ```log
