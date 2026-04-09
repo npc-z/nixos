@@ -24,4 +24,25 @@
             )
         )
         (builtins.readDir path)));
+
+  # Import packages from an unmerged nixpkgs PR.
+  # System architecture is derived from pkgs automatically.
+  #
+  # (importNixpkgsPR { inherit pkgs; pr = 503185; sha256 = "..."; }) -> <nixpkgs set>
+  importNixpkgsPR = {
+    pkgs,
+    pr,
+    sha256,
+    config ? {},
+  }:
+    import
+    (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/pull/${toString pr}/head.tar.gz";
+      inherit sha256;
+    })
+    {
+      inherit config;
+      system = pkgs.stdenv.hostPlatform.system;
+    };
 }
+
