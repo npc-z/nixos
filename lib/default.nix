@@ -25,20 +25,33 @@
         )
         (builtins.readDir path)));
 
-  # Import packages from an unmerged nixpkgs PR.
+  # Import packages from a nixpkgs PR or a specific commit.
   # System architecture is derived from pkgs automatically.
   #
-  # (importNixpkgsPR { inherit pkgs; pr = 503185; sha256 = "..."; }) -> <nixpkgs set>
+  # Unmerged PR (branch still exists):
+  #   (importNixpkgsPR { inherit pkgs; pr = 503185; sha256 = "..."; })
+  #
+  # Merged PR or specific commit:
+  #   (importNixpkgsPR { inherit pkgs; rev = "3764ed5"; sha256 = "..."; })
+  #
+  # When both pr and rev are given, rev takes precedence (more stable).
   importNixpkgsPR = {
     pkgs,
-    pr,
+    pr ? null,
+    rev ? null,
     sha256,
     config ? {},
-  }:
+  }: let
+    url =
+      if rev != null
+      then "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz"
+      else if pr != null
+      then "https://github.com/NixOS/nixpkgs/archive/pull/${toString pr}/head.tar.gz"
+      else throw "importNixpkgsPR: must provide either 'pr' or 'rev'";
+  in
     import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/pull/${toString pr}/head.tar.gz";
-      inherit sha256;
+      inherit url sha256;
     })
     {
       inherit config;
