@@ -89,6 +89,14 @@ repl-configurations:
 clean:
   sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
 
+# Get sha256 of a nixpkgs PR tarball. Usage: just pr-hash 503185
+pr-hash pr:
+  nix-prefetch-url --unpack "https://github.com/NixOS/nixpkgs/archive/pull/{{pr}}/head.tar.gz"
+
+# Get sha256 of a nixpkgs commit tarball. Usage: just rev-hash 3764ed5
+rev-hash rev:
+  nix-prefetch-url --unpack "https://github.com/NixOS/nixpkgs/archive/{{rev}}.tar.gz"
+
 # garbage collect all unused nix store entries
 gc:
   sudo nix store gc --debug
