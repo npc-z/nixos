@@ -56,7 +56,7 @@
       modules = [
         {
           nixpkgs.overlays = [
-            #
+            (mylib.relativeToRoot "overlays")
           ];
         }
 

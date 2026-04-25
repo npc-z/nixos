@@ -2,6 +2,10 @@
   programs.neovim = {
     enable = true;
 
+    # do not generate init.lua
+    sideloadInitLua = true;
+
+    withRuby = false;
     withNodeJs = true;
     withPython3 = true;
     extraPython3Packages = pyPkgs:

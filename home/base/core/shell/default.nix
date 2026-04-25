@@ -83,7 +83,6 @@ in {
 
     # zsh-forgit
     # zsh-fzf-history-search
-    fzf
     zsh-fzf-tab
   ];
 

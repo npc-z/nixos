@@ -5,10 +5,10 @@
   nixConfig = {
     abort-on-warn = true;
     # Query the mirror of USTC first, and then the official cache.
-    # substituters = [
-    # "https://mirrors.ustc.edu.cn/nix-channels/store"
-    # "https://cache.nixos.org"
-    # ];
+    substituters = [
+      # "https://mirrors.ustc.edu.cn/nix-channels/store"
+      # "https://cache.nixos.org"
+    ];
   };
 
   inputs = {
@@ -32,12 +32,16 @@
     # 添加 NUR 仓库
     nur.url = "github:nix-community/NUR";
 
+    mcp-nixos.url = "github:utensils/mcp-nixos";
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    opencode.url = "github:anomalyco/opencode";
 
     # hyprland env
     # Community scripts and utilities for Hypr projects

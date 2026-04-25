@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     # MCP server for NixOS
-    mcp-nixos
+    # FIXME: can not be built now
+    # mcp-nixos
   ];
 }

@@ -1,6 +1,8 @@
 {
   config,
+  inputs,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.modules.opencode;
@@ -16,6 +18,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.opencode = {
       enable = true;
+      package = inputs.opencode.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
     };
   };
 }

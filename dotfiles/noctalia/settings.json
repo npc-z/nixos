@@ -119,10 +119,11 @@
                 },
                 {
                     "colorizeSystemIcon": "none",
-                    "enableColorization": false,
+                    "colorizeSystemText": "none",
                     "generalTooltipText": "",
                     "hideMode": "alwaysExpanded",
                     "icon": "apps",
+                    "iconPosition": "left",
                     "id": "CustomButton",
                     "ipcIdentifier": "",
                     "leftClickExec": "noctalia-shell ipc call launcher toggle",
@@ -171,6 +172,7 @@
                     "maxWidth": 145,
                     "scrollingMode": "hover",
                     "showIcon": true,
+                    "showText": true,
                     "textColor": "none",
                     "useFixedWidth": false
                 }
@@ -525,6 +527,7 @@
     },
     "location": {
         "analogClockInCalendar": true,
+        "autoLocate": false,
         "firstDayOfWeek": 1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
@@ -535,10 +538,10 @@
         "use12hourFormat": false,
         "useFahrenheit": false,
         "weatherEnabled": true,
-        "weatherShowEffects": true
+        "weatherShowEffects": true,
+        "weatherTaliaMascotAlways": false
     },
     "network": {
-        "airplaneModeEnabled": false,
         "bluetoothAutoConnect": true,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
@@ -731,6 +734,7 @@
         "fillColor": "#000000",
         "fillMode": "crop",
         "hideWallpaperFilenames": false,
+        "linkLightAndDarkWallpapers": true,
         "monitorDirectories": [
         ],
         "overviewBlur": 0.4,

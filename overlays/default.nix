@@ -6,6 +6,9 @@
   ...
 }: {
   nixpkgs.overlays = [
+    # MCP-NixOS - Model Context Protocol Server for NixOS resources
+    inputs.mcp-nixos.overlays.default
+
     # When applied, the stable nixpkgs set (declared in the flake inputs) will
     # be accessible through 'pkgs.stable', e.g. `pkgs.stable.cowsay`
     (final: _prev: {
