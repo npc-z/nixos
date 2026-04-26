@@ -18,6 +18,9 @@
       # formatter for nix
       alejandra
 
+      # Parser generator tool and an incremental parsing library
+      tree-sitter
+
       go
       cargo
       luajit # required by plugin's building
