@@ -9,6 +9,16 @@
       # "https://mirrors.ustc.edu.cn/nix-channels/store"
       # "https://cache.nixos.org"
     ];
+
+    # substituers will be appended to the default substituters when fetching packages
+    extra-substituters = [
+      # llm-agents
+      "https://cache.numtide.com" # Nix packages for AI coding agents and development tools
+    ];
+    extra-trusted-public-keys = [
+      # llm-agents
+      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=" # Nix packages for AI coding agents and development tools
+    ];
   };
 
   inputs = {
@@ -41,7 +51,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    opencode.url = "github:anomalyco/opencode";
+    # Nix packages for AI coding agents and development tools
+    llm-agents.url = "github:numtide/llm-agents.nix";
 
     # hyprland env
     # Community scripts and utilities for Hypr projects
