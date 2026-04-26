@@ -1,4 +1,22 @@
-{pkgs, ...}: {
+{
+  config,
+  myvars,
+  pkgs,
+  ...
+}: {
+  home.packages = [
+    # https://docs.noctalia.dev/getting-started/faq/#why-are-some-of-my-app-icons-missing
+    pkgs.qt6Packages.qt6ct # for icon theme
+  ];
+
+  xdg.configFile = let
+    mkSymlink = config.lib.file.mkOutOfStoreSymlink;
+    repoPath = myvars.thisRepoPathAtNixos;
+    dotfilesRoot = repoPath + "/dotfiles";
+  in {
+    "qt6ct/qt6ct.conf".source = mkSymlink "${dotfilesRoot}/qt6ct/qt6ct.conf";
+  };
+
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
@@ -8,8 +26,8 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "adwaita";
-    style.name = "adwaita-dark";
+    # platformTheme.name = "adwaita";
+    # style.name = "adwaita-dark";
   };
 
   gtk = {
