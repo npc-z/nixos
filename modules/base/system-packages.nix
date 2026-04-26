@@ -1,5 +1,8 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    uv # python project package manager
+    pipx # Install and Run Python Applications in Isolated Environments
+
     python314
     python314Packages.pip
     # sort Python imports
