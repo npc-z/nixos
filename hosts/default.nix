@@ -56,9 +56,10 @@
       modules = [
         {
           nixpkgs.overlays = [
-            (mylib.relativeToRoot "overlays")
           ];
         }
+
+        (mylib.relativeToRoot "overlays")
 
         # 导入主机的配置
         ./${hostDir}/configuration.nix
