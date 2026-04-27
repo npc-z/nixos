@@ -66,6 +66,8 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    tix.url = "github:JRMurr/tix";
   };
 
   outputs = {

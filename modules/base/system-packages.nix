@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     uv # python project package manager
     pipx # Install and Run Python Applications in Isolated Environments
@@ -10,7 +14,6 @@
     # Python code formatter
     black
     # Python package installer and resolver
-    nixd
     gnumake
 
     curl
@@ -26,5 +29,12 @@
 
     just # use Justfile to simplify nix-darwin's commands
     fastfetch
+
+    # lsp for dev
+    nixd # nix
+    inputs.tix.packages.${stdenv.hostPlatform.system}.default # nix
+
+    # just
+    just-lsp
   ];
 }
