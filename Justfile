@@ -54,7 +54,7 @@ deploy: update-mac-self-managed-cfgs
 [macos]
 build: update-mac-self-managed-cfgs
   # darwin-rebuild build --flake . --show-trace --print-build-logs --verbose
-  nh darwin build --ask .
+  nh darwin build .
 
 
 # install darwin
