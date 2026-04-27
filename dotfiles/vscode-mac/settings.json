@@ -420,9 +420,9 @@
   "baidu.comate.docstringOutputPosition": "editor",
   "baidu.comate.inlineSuggestionMode": "extremeAccurate",
   "github.copilot.enable": {
-    "*": false,
+    "*": true,
     "plaintext": false,
-    "markdown": false,
+    "markdown": true,
     "scminput": false,
     "python": true,
     "sql": true
@@ -432,5 +432,9 @@
   "files.associations": {
     "*.cfg": "python"
   },
-  "geminicodeassist.inlineSuggestions.enableAuto": false
+  "geminicodeassist.inlineSuggestions.enableAuto": false,
+  "window.nativeTabs": true,
+  "chat.viewSessions.orientation": "stacked",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "workbench.colorTheme": "Dark Modern"
 }
