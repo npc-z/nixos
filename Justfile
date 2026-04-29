@@ -15,19 +15,19 @@ default:
 [linux]
 deploy:
   # nixos-rebuild switch --flake . --sudo
-  nh os switch --ask .
+  nh os switch --ask . --accept-flake-config
 
 # Build the configuration and activate it, but don't add it to the bootloader menu
 [linux]
 test:
   # nixos-rebuild test --flake . --sudo
-  nh os test --ask .
+  nh os test --ask . --accept-flake-config
 
 # rebuild with debug
 [linux]
 debug:
   # nixos-rebuild switch --flake . --sudo --show-trace --print-build-logs --verbose
-  nh os test --ask --verbose .
+  nh os test --ask --verbose . --accept-flake-config
 
 
 # remote build
@@ -37,14 +37,14 @@ remote-test host:
   # nixos-rebuild test --use-remote-sudo --target-host npc@{{host}} --flake ./#{{host}} --ask-sudo-password
 
   # nh os test --target-host=npc@r9000p-nixos --hostname=r9000p-nixos .
-  nh os test --target-host=npc@{{host}} --hostname={{host}} .
+  nh os test --target-host=npc@{{host}} --hostname={{host}} . --accept-flake-config
 
 
 # deploy darwin
 [macos]
 deploy: update-mac-self-managed-cfgs
   # darwin-rebuild switch --flake . --show-trace --print-build-logs --verbose
-  nh darwin switch --ask .
+  nh darwin switch --ask . --accept-flake-config
   # activateSettings -u will reload the settings from the database and apply them to the current session,
   # so we do not need to logout and login again to make the changes take effect.
   # /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
@@ -54,7 +54,7 @@ deploy: update-mac-self-managed-cfgs
 [macos]
 build: update-mac-self-managed-cfgs
   # darwin-rebuild build --flake . --show-trace --print-build-logs --verbose
-  nh darwin build .
+  nh darwin build . --accept-flake-config
 
 
 # install darwin
