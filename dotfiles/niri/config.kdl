@@ -15,6 +15,11 @@ input {
 
     touchpad {
         tap
+        // disable-when-typing
+        dwt
+        // disable-when-trackpointing（小红点）
+        dwtp
+
         natural-scroll
     }
 
@@ -34,6 +39,13 @@ cursor {
     // hide-after-inactive-ms 1000
 }
 
+
+// Enable the top-right and bottom-right hot corners.
+gestures {
+    hot-corners {
+        bottom-left
+    }
+}
 
 workspace "1 󰨞 " {}
 workspace "2  " {}
@@ -93,6 +105,7 @@ layout {
 
 
 spawn-at-startup "niriusd"
+spawn-sh-at-startup "rfkill unblock bluetooth"
 spawn-sh-at-startup "niri msg action focus-workspace '2  '"
 spawn-at-startup "kitty"
 spawn-at-startup "noctalia-shell"
