@@ -1,25 +1,14 @@
 {
-  // "emeraldwalk.runonsave": {
-  //     "commands": [
-  //         {
-  //             "match": ".py",
-  //             "cmd": "/home/npc/.virtualenvs/ksher-doc/bin/darker ."
-  //         }
-  //     ]
-  // },
   "update.mode": "manual",
   "workbench.colorTheme": "Dark Modern",
   "workbench.startupEditor": "none",
   "workbench.sideBar.location": "right",
-  "remote.SSH.remotePlatform": {
-    "s.com": "linux"
-  },
   "files.autoSave": "afterDelay",
   "gitlens.hovers.enabled": false,
   "gitlens.codeLens.recentChange.enabled": false,
   "gitlens.codeLens.enabled": false,
   "editor.unicodeHighlight.allowedLocales": {
-    "zh-hant": true
+    "zh-hant": true,
   },
   "cSpell.userWords": [
     "apifox",
@@ -84,91 +73,76 @@
     "venv",
     "werkzeug",
     "xlsxwriter",
-    "Zlando"
+    "Zlando",
   ],
   "editor.rulers": [88, 120],
   "editor.fontSize": 16,
   "editor.fontFamily": "'Maple Mono Normal', 'JetBrainsMono Nerd Font Mono', Consolas, 'Courier New', monospace",
-  "vscode-neovim.compositeKeys": {
-    "jj": {
-        "command": "vscode-neovim.escape",
-        // Use lua to execute any logic
-        // "command": "vscode-neovim.lua",
-        // "args": [
-        //     [
-        //       "local code = require('vscode')",
-        //       "code.action('vscode-neovim.escape')",
-        //       "code.action('workbench.action.files.save')",
-        //     ],
-        // ],
-    },
-  },
-  "vim.flash.enable": true,
   "vim.commandLineModeKeyBindings": [],
   // vim config
   "vim.useCtrlKeys": false,
   "vim.handleKeys": {
     "<C-c>": false,
     "<C-v>": false,
-    "<C-d>": true
+    "<C-d>": true,
     // "<C-o>": true,
     // "<C-i>": true
   },
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
-      "after": ["<Esc>"]
-    }
+      "after": ["<Esc>"],
+    },
   ],
   "vim.normalModeKeyBindings": [
     {
       // prev buffer
       "before": ["H"],
       "commands": ["workbench.action.previousEditor"],
-      "silent": true
+      "silent": true,
     },
     {
       // next buffer
       "before": ["L"],
       "commands": ["workbench.action.nextEditor"],
-      "silent": true
+      "silent": true,
     },
     {
       // Go to Next Change
       "before": ["g", "j"],
       "commands": [
         "workbench.action.editor.nextChange",
-        "workbench.action.compareEditor.nextChange"
+        "workbench.action.compareEditor.nextChange",
       ],
-      "silent": true
+      "silent": true,
     },
     {
       // Go to Previous Change
       "before": ["g", "k"],
       "commands": [
         "workbench.action.editor.previousChange",
-        "workbench.action.compareEditor.previousChange"
+        "workbench.action.compareEditor.previousChange",
       ],
-      "silent": true
+      "silent": true,
     },
     {
       // showHover
       "before": ["g", "h"],
       "commands": ["editor.action.showHover"],
-      "silent": true
+      "silent": true,
     },
     {
       // goToReferences
       "before": ["g", "r"],
       "commands": ["editor.action.goToReferences"],
-      "silent": true
+      "silent": true,
     },
     {
       // go back
       "before": ["g", "o"],
       "commands": ["editor.action.goToReferences"],
-      "silent": true
-    }
+      "silent": true,
+    },
   ],
   "editor.formatOnSave": true,
   "editor.unicodeHighlight.nonBasicASCII": false,
@@ -178,213 +152,142 @@
   "workbench.tree.indent": 16,
   // "workbench.tree.renderIndentGuides": "always",
   "workbench.colorCustomizations": {
-    "tree.indentGuidesStroke": "#05e2d0"
+    "tree.indentGuidesStroke": "#05e2d0",
   },
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "vscode.json-language-features",
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "markdown-preview-enhanced.previewTheme": "medium.css",
   "markdown.preview.fontSize": 16,
   "todo-tree.general.tags": ["jk"],
   "terminal.integrated.scrollback": 9999999999999,
-  "database-client.capitalizeKeywordsWhenFormatting": true,
-  "database-client.highlightSQLBlock": true,
-  "database-client.createResultViewForEachQuery": true,
-  "baidu.comate.username": "goodjob",
-  "baidu.comate.langSuggestion": {
-    "all": true,
-    "cpp": true,
-    "css": true,
-    "go": true,
-    "html": true,
-    "java": true,
-    "javascript": true,
-    "less": true,
-    "perl": true,
-    "php": true,
-    "python": true,
-    "ruby": true,
-    "shell": true,
-    "swift": true,
-    "typescript": true,
-    "others": true,
-    "vue": true,
-    "san": true,
-    "sass": true,
-    "scss": true,
-    "vhdl": true,
-    "lua": true,
-    "mermaid": true,
-    "pug": true,
-    "swan": true,
-    "stylus": true,
-    "rust": true,
-    "kotlin": true,
-    "graphql": true,
-    "objectivec": true,
-    "ada": true,
-    "agda": true,
-    "alloy": true,
-    "antlr": true,
-    "applescript": true,
-    "assembly": true,
-    "augeas": true,
-    "awk": true,
-    "batchfile": true,
-    "bluespec": true,
-    "csharp": true,
-    "clojure": true,
-    "cmake": true,
-    "coffeescript": true,
-    "commonlisp": true,
-    "cuda": true,
-    "dart": true,
-    "dockerfile": true,
-    "elixir": true,
-    "elm": true,
-    "emacslisp": true,
-    "erlang": true,
-    "fsharp": true,
-    "fortran": true,
-    "glsl": true,
-    "groovy": true,
-    "haskell": true,
-    "idris": true,
-    "isabelle": true,
-    "javaserverpages": true,
-    "json": true,
-    "julia": true,
-    "lean": true,
-    "literateagda": true,
-    "literatecoffeescript": true,
-    "literatehaskell": true,
-    "makefile": true,
-    "maple": true,
-    "markdown": true,
-    "mathematica": true,
-    "matlab": true,
-    "ocaml": true,
-    "pascal": true,
-    "powershell": true,
-    "prolog": true,
-    "protocolbuffer": true,
-    "r": true,
-    "racket": true,
-    "restructuredtext": true,
-    "rmarkdown": true,
-    "sas": true,
-    "scala": true,
-    "scheme": true,
-    "smalltalk": true,
-    "solidity": true,
-    "sparql": true,
-    "sql": true,
-    "stan": true,
-    "standardml": true,
-    "stata": true,
-    "systemverilog": true,
-    "tcl": true,
-    "tcsh": true,
-    "tex": true,
-    "thrift": true,
-    "verilog": true,
-    "visualbasic": true,
-    "xslt": true,
-    "yacc": true,
-    "yaml": true,
-    "zig": true,
-    "jupyter": true,
-    "xml": true
-  },
-  "baidu.comate.license": "307f3fed-3f3e-415a-b870-f9cf97cf7483",
   "outline.showVariables": false,
   "workbench.editor.enablePreview": false,
   "gitlens.views.searchAndCompare.files.layout": "list",
   "git.autofetch": true,
-  "baidu.comate.enableCodelens": {
-    "enableInlineUnitTest": false,
-    "enableInlineExplain": false,
-    "enableInlineDocstring": false,
-    "enableInlineSplit": false,
-    "enableInlineComment": false,
-    "enableInlineOptimize": false,
-    "enableInlineLog": false
-  },
   "files.watcherExclude": {
     "**/.mypy_cache/*/**": true,
-    "**/.venv/**": true
+    "**/.venv/**": true,
   },
   "editor.smoothScrolling": true,
   "workbench.list.smoothScrolling": true,
   "editor.cursorSmoothCaretAnimation": "on",
   "terminal.integrated.smoothScrolling": true,
-  "baidu.comate.enableSecurityEnhancement": false,
   "[sql]": {
-    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter",
   },
-  "sql-formatter.uppercase": true,
-  "sql-formatter.linesBetweenQueries": 4,
   "notebook.lineNumbers": "on",
   "editor.cursorBlinking": "smooth",
   "markdown-preview-enhanced.revealjsTheme": "moon.css",
   "markdown-preview-enhanced.codeBlockTheme": "vue.css",
-  "baidu.comate.linePreferMode": "auto",
-  "codeium.enableConfig": {
-    "*": true,
-    "markdown": true,
-    "http": true,
-    "plaintext": true
-  },
-  "codeium.enableCodeLens": false,
   "extensions.autoCheckUpdates": false,
-  "python.terminal.activateEnvironment": false,
   "comments.visible": false,
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "editor.fontLigatures": true,
-  "baidu.comate.privateService": "",
   "workbench.editorAssociations": {
-    "{git,gitlens}:/**/*.{md,csv,svg}": "default"
+    "{git,gitlens}:/**/*.{md,csv,svg}": "default",
   },
-  "redhat.telemetry.enabled": false,
   "terminal.integrated.defaultProfile.linux": "zsh",
-  "python.analysis.inlayHints.callArgumentNames": "partial",
-  "python.analysis.inlayHints.functionReturnTypes": true,
-  "python.analysis.inlayHints.variableTypes": true,
-  "chat.commandCenter.enabled": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "workbench.secondarySideBar.defaultVisibility": "visible",
-  "continue.telemetryEnabled": false,
   "github.copilot.nextEditSuggestions.enabled": true,
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-  "llama-vscode.tool_run_terminal_command_enabled": true,
-  "llama-vscode.tool_search_source_enabled": true,
-  "llama-vscode.tool_read_file_enabled": true,
-  "llama-vscode.tool_list_directory_enabled": true,
-  "llama-vscode.tool_regex_search_enabled": true,
-  "llama-vscode.tool_delete_file_enabled": true,
-  "llama-vscode.tool_get_diff_enabled": true,
-  "llama-vscode.tool_edit_file_enabled": true,
-  "llama-vscode.tool_ask_user_enabled": true,
-  "llama-vscode.tool_custom_tool_enabled": true,
-  "llama-vscode.tool_custom_eval_tool_enabled": true,
-  "llama-vscode.tool_llama_vscode_help_enabled": true,
-  "llama-vscode.tool_update_todo_list_enabled": true,
-  "continue.enableNextEdit": false,
-  "continue.enableTabAutocomplete": true,
-  "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
-  "chat.viewSessions.orientation": "stacked",
   "editor.inlineSuggest.edits.showCollapsed": true,
   "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  }
+    "asvetliakov.vscode-neovim": 1,
+  },
+  "oaicopilot.models": [
+    {
+      "id": "__provider__DeepSeek",
+      "owned_by": "DeepSeek",
+      "baseUrl": "https://api.deepseek.com",
+      "apiMode": "openai",
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "owned_by": "DeepSeek",
+      "displayName": "DS-v4-flash-think-high",
+      "configId": "DS-v4-flash-think-high",
+      "baseUrl": "https://api.deepseek.com",
+      "context_length": 1000000,
+      "max_tokens": 384000,
+      "apiMode": "openai",
+      "temperature": 0,
+      "include_reasoning_in_request": true,
+      "thinking": {
+        "type": "enabled",
+      },
+      "extra": {
+        "reasoning_effort": "high",
+      },
+      "useForCommitGeneration": true,
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "owned_by": "DeepSeek",
+      "displayName": "DS-v4-flash-think-max",
+      "configId": "DS-v4-flash-think-max",
+      "baseUrl": "https://api.deepseek.com",
+      "context_length": 1000000,
+      "max_tokens": 384000,
+      "apiMode": "openai",
+      "temperature": 0,
+      "include_reasoning_in_request": true,
+      "thinking": {
+        "type": "enabled",
+      },
+      "extra": {
+        "reasoning_effort": "max",
+      },
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "owned_by": "DeepSeek",
+      "displayName": "DS-v4-pro-think-high",
+      "configId": "DS-v4-pro-think-high",
+      "baseUrl": "https://api.deepseek.com",
+      "context_length": 1000000,
+      "max_tokens": 384000,
+      "apiMode": "openai",
+      "temperature": 0,
+      "include_reasoning_in_request": true,
+      "thinking": {
+        "type": "enabled",
+      },
+      "extra": {
+        "reasoning_effort": "high",
+      },
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "owned_by": "DeepSeek",
+      "displayName": "DS-v4-pro-think-max",
+      "configId": "DS-v4-pro-think-max",
+      "baseUrl": "https://api.deepseek.com",
+      "context_length": 1000000,
+      "max_tokens": 384000,
+      "apiMode": "openai",
+      "temperature": 0,
+      "include_reasoning_in_request": true,
+      "thinking": {
+        "type": "enabled",
+      },
+      "extra": {
+        "reasoning_effort": "max",
+      },
+    },
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "chat.viewSessions.orientation": "stacked",
 }
