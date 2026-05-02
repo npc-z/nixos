@@ -5,20 +5,42 @@
   pkgs,
   ...
 }: let
-  cfg = config.modules.opencode;
+  inherit (lib) mkIf mkOption types;
+  cfg = config.modules.ai-tools;
+  llmAgentsPkgs = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
 in {
-  options.modules.opencode = {
-    enable = lib.mkOption {
+  options.modules.ai-tools = {
+    enable = mkOption {
       default = true;
-      description = "Whether to enable opencode";
-      type = lib.types.bool;
+      description = "Enable ai-tools";
+      type = types.bool;
+    };
+
+    opencode = {
+      enable = mkOption {
+        default = true;
+        description = "Enable opencode";
+        type = types.bool;
+      };
+    };
+
+    pi = {
+      enable = mkOption {
+        default = true;
+        description = "Enable pi-mono";
+        type = types.bool;
+      };
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    programs.opencode = {
+  config = mkIf cfg.enable {
+    programs.opencode = mkIf cfg.opencode.enable {
       enable = true;
-      package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
+      package = llmAgentsPkgs.opencode;
     };
+
+    home.packages = mkIf cfg.pi.enable [
+      llmAgentsPkgs.pi
+    ];
   };
 }
