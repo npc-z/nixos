@@ -103,4 +103,4 @@ Justfile 中的 GNU Stow 命令为遗留方案，并非当前的主要机制。
 
 ## 许可证
 
-这是个人配置文件，欢迎参考和适配使用。
+MIT — 详见 [LICENSE](./LICENSE)。

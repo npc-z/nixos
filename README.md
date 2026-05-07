@@ -103,4 +103,4 @@ The GNU Stow commands in the Justfile are legacy and not the primary mechanism.
 
 ## License
 
-This is my personal configuration. Feel free to reference and adapt.
+MIT — see [LICENSE](./LICENSE).
