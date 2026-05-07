@@ -89,7 +89,7 @@
                     "showAlbumArt": true,
                     "showArtistFirst": true,
                     "showProgressRing": true,
-                    "showVisualizer": true,
+                    "showVisualizer": false,
                     "textColor": "none",
                     "useFixedWidth": false,
                     "visualizerType": "linear"
@@ -274,9 +274,13 @@
     },
     "brightness": {
         "backlightDeviceMappings": [
+            {
+                "device": "/sys/class/backlight/amdgpu_bl2",
+                "output": "eDP-2"
+            }
         ],
-        "brightnessStep": 5,
-        "enableDdcSupport": true,
+        "brightnessStep": 1,
+        "enableDdcSupport": false,
         "enforceMinimum": true
     },
     "calendar": {
@@ -395,6 +399,32 @@
                         "showBackground": true,
                         "x": 207,
                         "y": -212
+                    }
+                ]
+            },
+            {
+                "name": "eDP-2",
+                "widgets": [
+                    {
+                        "defaultSettings": {
+                            "barWidth": 0.6,
+                            "bloomIntensity": 0.5,
+                            "customPrimaryColor": "#6750A4",
+                            "customSecondaryColor": "#625B71",
+                            "fadeWhenIdle": false,
+                            "innerDiameter": 0.7,
+                            "ringOpacity": 0.8,
+                            "rotationSpeed": 0.5,
+                            "sensitivity": 1.5,
+                            "useCustomColors": false,
+                            "visualizationMode": 3,
+                            "waveThickness": 1
+                        },
+                        "id": "plugin:fancy-audiovisualizer",
+                        "scale": 5,
+                        "showBackground": true,
+                        "x": 94,
+                        "y": -215
                     }
                 ]
             }
@@ -553,12 +583,12 @@
     },
     "nightLight": {
         "autoSchedule": true,
-        "dayTemp": "4000",
+        "dayTemp": "4506",
         "enabled": true,
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "nightTemp": "2000"
+        "nightTemp": "3500"
     },
     "noctaliaPerformance": {
         "disableDesktopWidgets": true,
