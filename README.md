@@ -36,7 +36,6 @@ My personal Nix flake for declaratively managing NixOS and nix-darwin hosts, wit
 ├── dotfiles/          # Dotfile sources symlinked via Home Manager
 ├── lib/               # Helper library functions
 ├── vars/              # Shared variables (username, etc.)
-├── user/              # Per-user configuration fragments
 ├── Justfile           # Task runner commands (like Makefile)
 └── AGENTS.md          # Guidance for coding agents
 ```

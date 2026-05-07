@@ -36,7 +36,6 @@
 ├── dotfiles/          # 通过 Home Manager 建立符号链接的 dotfile 源文件
 ├── lib/               # 辅助库函数
 ├── vars/              # 共享变量（用户名等）
-├── user/              # 每个用户的配置片段
 ├── Justfile           # 任务运行器（类似 Makefile）
 └── AGENTS.md          # 编码代理指导
 ```
