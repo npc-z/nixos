@@ -293,6 +293,15 @@ window-rule {
     // This will cut out any client-side window shadows, and also round window corners according to geometry-corner-radius.
     geometry-corner-radius 12
     clip-to-geometry true
+
+    // Enable blur behind the Alacritty terminal.
+    opacity 0.90
+    background-effect {
+        blur true
+        xray false
+    }
+
+    draw-border-with-background false
 }
 
 window-rule {
