@@ -20,6 +20,9 @@ style = "Italic"
 family = "Maple Mono Normal"
 style = "Regular"
 
+[window]
+blur = true
+opacity = 0.85
 
 [[keyboard.bindings]]
 key = "V"

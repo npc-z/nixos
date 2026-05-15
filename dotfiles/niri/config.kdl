@@ -294,8 +294,8 @@ window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 
-    // Enable blur behind the Alacritty terminal.
-    opacity 0.90
+    // Enable blur
+    // opacity 0.90
     background-effect {
         blur true
         xray false
