@@ -26,6 +26,10 @@
       # FIXME: config gpu
       # gpu.type = "hybrid-nv";
 
+      game = {
+        enable = true;
+      };
+
       laptop.enable = true;
     };
 
