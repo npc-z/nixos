@@ -529,7 +529,8 @@ binds {
     Mod+Shift+F { switch-focus-between-floating-and-tiling; }
 
 
-    Print { spawn-sh "flameshot gui"; }
+    Print { spawn-sh "grim -g \"$(slurp -d)\" - | swappy -f -"; }
+    // Print { spawn-sh "flameshot gui"; }
     // Print { screenshot; }
     // Ctrl+Print { screenshot-screen; }
     // Alt+Print { screenshot-window; }
