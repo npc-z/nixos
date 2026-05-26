@@ -1,5 +1,64 @@
 # CHANGELOG
 
+## 2026-05-26 08:21:09 星期二
+
+```log
+• Updated input 'darwin-nixpkgs':
+    'github:NixOS/nixpkgs/ed67bc86e84e51d4a88e73c7fd36006dc876476f?narHash=sha256-62EWg6lI0qyzm7oAx5cAnGkLutvJsRBe0KkEW2JDZCE%3D' (2026-05-06)
+  → 'github:NixOS/nixpkgs/f9d8b65950353691ab56561e7c73d2e1063d810b?narHash=sha256-Ly4j75O8ICaSQx3uxPnwk2x7PMF0XQvn5r0c3yBA7FI%3D' (2026-05-25)
+• Updated input 'home-manager':
+    'github:nix-community/home-manager/e4419d3123b780d5f4c0bceeace450424387638c?narHash=sha256-dGM%2BQCstz/DyLB68%2BJK5GWyMx4QSqmOJEVgZmy63d/g%3D' (2026-05-07)
+  → 'github:nix-community/home-manager/1a95e2efb477959b70b4a14c51035975c0481df6?narHash=sha256-/p37CB5n6Wpw250b0Lq0CYwNq2D8uGKzDoBulyLcQqA%3D' (2026-05-25)
+• Updated input 'hyprland-contrib':
+    'github:hyprwm/contrib/1f71628d86a7701fd5ba0f8aeabe15376f4c6afc?narHash=sha256-3rROoGl8xBsIOM%2B5m%2BqZS4GJnsdQPAH3NJJe1OUfJ5o%3D' (2026-04-17)
+  → 'github:hyprwm/contrib/55b1393a23d6e4968ce6da704c8095f7e5e9fa3c?narHash=sha256-6Vvr0qMRdccvJqwzrXJkqoK6lWsdyC1nMrLjoHKqoGM%3D' (2026-05-11)
+• Updated input 'llm-agents':
+    'github:numtide/llm-agents.nix/7c2b15bbb92e200cb741372f050de789e7811539?narHash=sha256-sq50LUIQ58jHTH5mG811fpC24BVOCagBqi0UuSTZN9o%3D' (2026-05-17)
+  → 'github:numtide/llm-agents.nix/b4d59ea23a029466b3e8314835ac7714296f2595?narHash=sha256-INy8z/zDl0EQSaxIV%2BS4Xkq99NCWaqBKtxHmJoOdfyE%3D' (2026-05-25)
+• Updated input 'llm-agents/bun2nix':
+    'github:nix-community/bun2nix/2499dedd70744dba1815875b854818a3019e9e4c?narHash=sha256-oQvcadh2BCkrog%2BSGrG6YffKJrveYpjj3TdQJWaKhaM%3D' (2026-05-10)
+  → 'github:nix-community/bun2nix/f2bc12af1a6369648aac41041ceeaa0b866599c6?narHash=sha256-oQvcadh2BCkrog%2BSGrG6YffKJrveYpjj3TdQJWaKhaM%3D' (2026-05-10)
+• Updated input 'llm-agents/nixpkgs':
+    'github:NixOS/nixpkgs/d233902339c02a9c334e7e593de68855ad26c4cb?narHash=sha256-30sZNZoA1cqF5JNO9fVX%2BwgiQYjB7HJqqJ4ztCDeBZE%3D' (2026-05-15)
+  → 'github:NixOS/nixpkgs/3d8f0f3f72a6cd4d93d0ad13203f2ea1cb7e1456?narHash=sha256-q%2BfF42iv/geEbHfgSzy3tS0FF/EyD6XTZ98E6yxiBO8%3D' (2026-05-23)
+• Updated input 'mcp-nixos':
+    'github:utensils/mcp-nixos/fd51bb236e75cfec2fed16353a143faa1398bf2a?narHash=sha256-mWq9nnL4IGhUFkXJr8%2Bt6BresOTDFS1caG8NuFqjrJg%3D' (2026-04-25)
+  → 'github:utensils/mcp-nixos/0ef99b6a5674e60ca315dc55a0f458673bb1e4fa?narHash=sha256-rZ9Zn3%2BZ1VsZx1v9RDFVPwcbA0GJdewUm4cw7OQQuMM%3D' (2026-05-17)
+• Updated input 'nix-darwin':
+    'github:nix-darwin/nix-darwin/8c62fba0854ba15c8917aed18894dbccb48a3777?narHash=sha256-8wURyQMdDkGUarSTKOGdCuFfYiwa3HbzwscUfn3STDE%3D' (2026-05-03)
+  → 'github:nix-darwin/nix-darwin/56c666e108467d87d13508936aade6d567f2a501?narHash=sha256-zXcwYQGCT6pzinK%2B1dBB2ekTVtfxGZAapb3Evdcu4fY%3D' (2026-05-17)
+• Updated input 'nix-homebrew':
+    'github:zhaofengli-wip/nix-homebrew/aeb2069920742d0d6570089e8b3b8620050bacf2?narHash=sha256-WynkkG0hdZ5niYPJUbVg7oMfu8MVwGGzKZ6lKmfa%2BO8%3D' (2026-04-27)
+  → 'github:zhaofengli-wip/nix-homebrew/b3a87b4793205cc111f3c61e25e018ffac3b8039?narHash=sha256-p8wzcnpB2Iys%2BQzAKM9/Eyw/pUyqCO3sw/NCnDH4dTE%3D' (2026-05-15)
+• Updated input 'nix-homebrew/brew-src':
+    'github:Homebrew/brew/3aae056b8d072624255bc8fd27febb7f327b2265?narHash=sha256-ERStG27tf83VbCfYMxtDSs%2Bsa8FUMJ/3jSu/QfX9rKE%3D' (2026-04-18)
+  → 'github:Homebrew/brew/6f293daa9f9f5832e13b497976335e90509886d7?narHash=sha256-pt9KaDGsMyYWB9JeHs4XGHs870f1lOZe3vx9LpVIhUE%3D' (2026-05-10)
+• Updated input 'nixpkgs':
+    'github:nixos/nixpkgs/549bd84d6279f9852cae6225e372cc67fb91a4c1?narHash=sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9%2BhrDTkDU%3D' (2026-05-05)
+  → 'github:nixos/nixpkgs/64c08a7ca051951c8eae34e3e3cb1e202fe36786?narHash=sha256-tpyBcxPpcQb8ukyNF7DoCwfSY3VPsxHoYwj00Cayv5o%3D' (2026-05-23)
+• Updated input 'nixpkgs-stable':
+    'github:nixos/nixpkgs/0c88e1f2bdb93d5999019e99cb0e61e1fe2af4c5?narHash=sha256-q/nkKLDtHIyLjZpKhWk3cSK5IYsFqtMd6UtXF3ddjgA%3D' (2026-05-05)
+  → 'github:nixos/nixpkgs/b77b3de8775677f84492abe84635f87b0e153f0f?narHash=sha256-nOesoDCiXcUftqbRBMz9tt4blI5PvljMWbm3kuCA%2B0s%3D' (2026-05-22)
+• Updated input 'noctalia':
+    'github:noctalia-dev/noctalia-shell/eb2b53ddaa7564f5c93031cbe65cd5b6ef3c12a9?narHash=sha256-%2BtbqLv7IW5Aem8kGF6cp4n3MtNBcwqmuGlMt6S1kQjs%3D' (2026-05-06)
+  → 'github:noctalia-dev/noctalia-shell/052f533186e6ad8e60541760cfe3123f14108c1e?narHash=sha256-G54zkslNueiiYDtg8QbAkPTv0/vfLzdjDsaUljlRQAE%3D' (2026-05-24)
+• Updated input 'noctalia/noctalia-qs':
+    'github:noctalia-dev/noctalia-qs/d3e26ccd9eecde9139be00caf5dc2d4260fb31ee?narHash=sha256-pLU%2BKB84A0Jei/vTD6pOS4Ovkmq3QDfPQHg1MlKsRqM%3D' (2026-05-03)
+  → 'github:noctalia-dev/noctalia-qs/70fea8a39a908e395de63024a4dfdb829bff1ffe?narHash=sha256-CVonDVo41DqdqS/kNeXFatwEuTltyXcppm9zkVOnrsM%3D' (2026-05-24)
+• Updated input 'nur':
+    'github:nix-community/NUR/fb8e20e58e42d50d8084f0e8f6c4c333035aaefd?narHash=sha256-DHYwfOglOIpeYREK%2BZKG9DvDtbRAt1el1BHAQhQBZUU%3D' (2026-05-07)
+  → 'github:nix-community/NUR/61ff40c2765e6657b883536f521870d4ad0489c8?narHash=sha256-CyYPw%2BngqA8ObiXQlcEqOIJ2ayusLpn3oRbyej7HI2s%3D' (2026-05-25)
+• Updated input 'nur/nixpkgs':
+    'github:nixos/nixpkgs/549bd84d6279f9852cae6225e372cc67fb91a4c1?narHash=sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9%2BhrDTkDU%3D' (2026-05-05)
+  → 'github:nixos/nixpkgs/64c08a7ca051951c8eae34e3e3cb1e202fe36786?narHash=sha256-tpyBcxPpcQb8ukyNF7DoCwfSY3VPsxHoYwj00Cayv5o%3D' (2026-05-23)
+• Updated input 'zen-browser':
+    'github:0xc000022070/zen-browser-flake/e361aeff090333c005bc12b3bcf3c8b44d867a4f?narHash=sha256-RquiPUl5fViU%2BhHRjilVcy%2B5XUowINmvMfk2lNdIAg8%3D' (2026-05-06)
+  → 'github:0xc000022070/zen-browser-flake/e8fbde26a92a8c078fb1355c9f7c8dba5f7eb9d6?narHash=sha256-k256zgHyqJ/0siFdq5y4GSwJyYKhQnW83N9K8S7OMKo%3D' (2026-05-24)
+• Updated input 'zen-browser/home-manager':
+    'github:nix-community/home-manager/3c7524c68348ef79ce48308e0978611a050089b2?narHash=sha256-No6QGBmIv5ChiwKCcbkxjdEQ/RO2ZS1gD7SFy6EZ7rc%3D' (2026-04-14)
+  → 'github:nix-community/home-manager/9846abe15e7d0d36b8acbd4d05f2b87461744c92?narHash=sha256-nGFJ01m2CTBKD4ABtcY4vLhHrRN91LKr/pn41PcU78A%3D' (2026-05-15)
+```
+
 ## 2026-05-07 17:12:18 星期四
 
 ```log

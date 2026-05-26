@@ -56,11 +56,14 @@ in {
       systemd.enable = true;
       systemd.variables = ["--all"];
 
+      # Use Lua config format (Hyprland >= 0.55)
+      configType = "lua";
+
       plugins = [
         # official plugins
         # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
         # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
-        # pkgs.hyprlandPlugins.hyprbars
+        pkgs.hyprlandPlugins.hyprbars
         # pkgs.hyprlandPlugins.hyprscrolling
 
         # third-party plugins
@@ -70,18 +73,17 @@ in {
         # pkgs.hyprlandPlugins.hyprscrolling
 
         # make Hyprland cursor more realistic(shake to find)
-        pkgs.hyprlandPlugins.hypr-dynamic-cursors
+        # pkgs.hyprlandPlugins.hypr-dynamic-cursors
 
         # inputs.hyprland-easymotion.packages.${pkgs.stdenv.hostPlatform.system}.hypreasymotion
         # inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace
       ];
 
       extraConfig = ''
-        source = ~/.config/hypr/base.conf
+        require("base")
 
-        # host-based config
-        source = ~/.config/hypr/hosts/${cfg.host}.conf
-
+        -- host-based config
+        require("hosts/${cfg.host}")
       '';
     };
   };
