@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "grill-with-docs": {
+      "source": "vinvcn/mattpocock-skills-zh-cn",
+      "sourceType": "github",
+      "skillPath": "skills/engineering/grill-with-docs/SKILL.md",
+      "computedHash": "94c0b7d05b93715e9132912a4a47adfcdbb2f7fcd91123d34b0306aa343e2952"
+    }
+  }
+}
