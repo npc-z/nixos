@@ -29,7 +29,6 @@
     which
 
     just # use Justfile to simplify nix-darwin's commands
-    fastfetch
 
     # lsp for dev
     nixd # nix
