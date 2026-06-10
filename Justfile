@@ -190,6 +190,6 @@ stow: _stow-common
     #
     # ln -sf ~/.config/nixos/dotfiles/mac-mouse-fix/config.plist "/Users/npc/Library/Application Support/com.nuebling.mac-mouse-fix/config.plist" \
 
-# Checks package build status on Hydra before upgrades with local cache override
+# Check packages against Hydra without updating
 safe-update-nix:
-  nix run github:sircam-html/safe-update-nix --override-input nixpkgs nixpkgs
+  nix run github:sircam-html/safe-update-nix -- --check
