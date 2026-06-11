@@ -33,11 +33,8 @@ debug:
 # remote build
 [linux]
 remote-test host:
-  # nixos-rebuild test --use-remote-sudo --target-host npc@r9000p-nixos --flake ./#r9000p-nixos --ask-sudo-password
-  # nixos-rebuild test --use-remote-sudo --target-host npc@{{host}} --flake ./#{{host}} --ask-sudo-password
-
-  # nh os test --target-host=npc@r9000p-nixos --hostname=r9000p-nixos .
-  nh os test --target-host=npc@{{host}} --hostname={{host}} . --accept-flake-config
+  # e.g. nixos-rebuild test --use-remote-sudo --target-host npc@r9000p-nixos --flake ./#r9000p-nixos --ask-sudo-password
+  nixos-rebuild test --use-remote-sudo --target-host npc@{{host}} --flake ./#{{host}} --elevate=sudo --ask-elevate-password
 
 
 # deploy darwin
