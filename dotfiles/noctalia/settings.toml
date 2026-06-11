@@ -1,0 +1,139 @@
+[bar.default]
+background_opacity = 0.69999998435378075
+capsule = true
+margin_edge = 0
+margin_ends = 0
+radius = 0
+shadow = false
+start = [ "launcher", "workspaces", "taskbar" ]
+widget_spacing = 8
+
+[[control_center.shortcuts]]
+type = "caffeine"
+
+[[control_center.shortcuts]]
+type = "nightlight"
+
+[[control_center.shortcuts]]
+type = "wallpaper"
+
+[[control_center.shortcuts]]
+type = "session"
+
+[desktop_widgets]
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[idle]
+behavior_order = [ "lock", "screen-off" ]
+
+    [idle.behavior.lock]
+    action = "command"
+    command = "hyprlock"
+    enabled = true
+    timeout = 600
+
+    [idle.behavior.screen-off]
+    action = "command"
+    command = "niri msg action power-off-monitors || hyprctl dispatch dpms off"
+    enabled = true
+    timeout = 1200
+
+[location]
+address = "Shenzen"
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@HDMI-A-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 960.0
+    cy = 957.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "login_box"
+
+[notification]
+position = "bottom_right"
+
+[plugins]
+enabled = [ "noctalia/bongocat" ]
+
+[shell]
+clipboard_history_max_entries = 200
+
+    [[shell.session.actions]]
+    action = "lock"
+    enabled = true
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    enabled = true
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    enabled = true
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    enabled = true
+    shortcut = "5"
+    variant = "destructive"
+
+[theme]
+builtin = "Nord"
+wallpaper_scheme = "faithful"
+
+[wallpaper]
+directory = "/home/npc/.config/wallpapers"
+
+    [wallpaper.default]
+    path = "/home/npc/.config/wallpapers/水彩年华.jpg"
+
+    [wallpaper.last]
+    path = "/home/npc/.config/wallpapers/水彩年华.jpg"
+
+    [wallpaper.monitors.HDMI-A-1]
+    path = "/home/npc/.config/wallpapers/水彩年华.jpg"
+
+[weather]
+refresh_minutes = 5
+
+[widget.cat]
+type = "noctalia/bongocat:cat"
+
+[widget.clock]
+format = "{:%y-%m-%d %H:%M:%S}"
+
+[widget.launcher]
+glyph = "apps"
+
+[widget.media]
+hide_when_no_media = true
+
+[widget.taskbar]
+only_active_workspace = true
+
+[widget.workspaces]
+hide_when_empty = true
