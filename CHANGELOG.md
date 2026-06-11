@@ -1,5 +1,63 @@
 # CHANGELOG
 
+## 2026-06-10 22:35:20 星期三
+
+```log
+• Updated input 'darwin-nixpkgs':
+    'github:NixOS/nixpkgs/f9d8b65950353691ab56561e7c73d2e1063d810b?narHash=sha256-Ly4j75O8ICaSQx3uxPnwk2x7PMF0XQvn5r0c3yBA7FI%3D' (2026-05-25)
+  → 'github:NixOS/nixpkgs/8c3cede7ddc26bd659d2d383b5610efbd2c7a16e?narHash=sha256-rppURzHviaQN131F%2BnLiLdGfcb0uCd9gGP0E5%2Biw9MI%3D' (2026-06-08)
+• Updated input 'home-manager':
+    'github:nix-community/home-manager/1a95e2efb477959b70b4a14c51035975c0481df6?narHash=sha256-/p37CB5n6Wpw250b0Lq0CYwNq2D8uGKzDoBulyLcQqA%3D' (2026-05-25)
+  → 'github:nix-community/home-manager/1ffdc28076a1809ee7c0cf08f06af18f31c480cd?narHash=sha256-%2B7cIaqM6ucKf5fDyMnkwehxG8tBdaU51TZOMtxacXmI%3D' (2026-06-10)
+• Updated input 'hyprland-contrib':
+    'github:hyprwm/contrib/55b1393a23d6e4968ce6da704c8095f7e5e9fa3c?narHash=sha256-6Vvr0qMRdccvJqwzrXJkqoK6lWsdyC1nMrLjoHKqoGM%3D' (2026-05-11)
+  → 'github:hyprwm/contrib/bf1a7cdb086587e6bed6e8ecd285a81c01a11c54?narHash=sha256-epTJKmTCNL1Hm6/YdEWAgiOMVBSzC9/v/rjyOieP3yA%3D' (2026-05-29)
+• Updated input 'llm-agents':
+    'github:numtide/llm-agents.nix/b4d59ea23a029466b3e8314835ac7714296f2595?narHash=sha256-INy8z/zDl0EQSaxIV%2BS4Xkq99NCWaqBKtxHmJoOdfyE%3D' (2026-05-25)
+  → 'github:numtide/llm-agents.nix/6f4945d637942c06390d0fd765c8981874020157?narHash=sha256-x%2BI/CbXlM6pieeCQV/43l4VYr9tORn2ap0hiHa9JiiY%3D' (2026-06-10)
+• Updated input 'llm-agents/nixpkgs':
+    'github:NixOS/nixpkgs/3d8f0f3f72a6cd4d93d0ad13203f2ea1cb7e1456?narHash=sha256-q%2BfF42iv/geEbHfgSzy3tS0FF/EyD6XTZ98E6yxiBO8%3D' (2026-05-23)
+  → 'github:NixOS/nixpkgs/8c3cede7ddc26bd659d2d383b5610efbd2c7a16e?narHash=sha256-rppURzHviaQN131F%2BnLiLdGfcb0uCd9gGP0E5%2Biw9MI%3D' (2026-06-08)
+• Updated input 'llm-agents/treefmt-nix':
+    'github:numtide/treefmt-nix/790751ff7fd3801feeaf96d7dc416a8d581265ba?narHash=sha256-pc20NRoMdiar8oPQceQT47UUZMBTiMdUuWrYu2obUP0%3D' (2026-04-08)
+  → 'github:numtide/treefmt-nix/db947814a175b7ca6ded66e21383d938df01c227?narHash=sha256-eynAfOmbmxJnkp7YewvCEbShNnnYJ9gLLqkzsYtBPeM%3D' (2026-05-31)
+• Updated input 'nix-darwin':
+    'github:nix-darwin/nix-darwin/56c666e108467d87d13508936aade6d567f2a501?narHash=sha256-zXcwYQGCT6pzinK%2B1dBB2ekTVtfxGZAapb3Evdcu4fY%3D' (2026-05-17)
+  → 'github:nix-darwin/nix-darwin/6a771120d607dcccb279a27d227650e324815c35?narHash=sha256-AkWx4Zt9pQbD/f82Z8N57%2Bd0HGLN/rV3gdMKJTpBPKs%3D' (2026-06-07)
+• Updated input 'nix-homebrew':
+    'github:zhaofengli-wip/nix-homebrew/b3a87b4793205cc111f3c61e25e018ffac3b8039?narHash=sha256-p8wzcnpB2Iys%2BQzAKM9/Eyw/pUyqCO3sw/NCnDH4dTE%3D' (2026-05-15)
+  → 'github:zhaofengli-wip/nix-homebrew/562332f97de9f5ba51aa647d70462e88222b2988?narHash=sha256-zMEJwtQPmsPPgPczFkyjWHgd1z0HagOPS2Wt2WDYLJY%3D' (2026-06-03)
+• Updated input 'nix-homebrew/brew-src':
+    'github:Homebrew/brew/6f293daa9f9f5832e13b497976335e90509886d7?narHash=sha256-pt9KaDGsMyYWB9JeHs4XGHs870f1lOZe3vx9LpVIhUE%3D' (2026-05-10)
+  → 'github:Homebrew/brew/10a163ac127624caa80cc5cc5a705e97f3615b0e?narHash=sha256-rnnAaESXxItX4D9xCMGvs3hfDBjbbTYht7OluRcvT8k%3D' (2026-05-24)
+• Updated input 'nixpkgs':
+    'github:nixos/nixpkgs/64c08a7ca051951c8eae34e3e3cb1e202fe36786?narHash=sha256-tpyBcxPpcQb8ukyNF7DoCwfSY3VPsxHoYwj00Cayv5o%3D' (2026-05-23)
+  → 'github:nixos/nixpkgs/a799d3e3886da994fa307f817a6bc705ae538eeb?narHash=sha256-3av0pIjlOWQ6rDbNOmpUSvbNnJkGORQKKjb4LtCZsIY%3D' (2026-06-06)
+• Updated input 'nixpkgs-stable':
+    'github:nixos/nixpkgs/b77b3de8775677f84492abe84635f87b0e153f0f?narHash=sha256-nOesoDCiXcUftqbRBMz9tt4blI5PvljMWbm3kuCA%2B0s%3D' (2026-05-22)
+  → 'github:nixos/nixpkgs/bd0ff2d3eac24699c3664d5966b9ef36f388e2ca?narHash=sha256-q8yYEC5f1mFlQO9RGna4LTc9QrcvWunX6FYp83munkQ%3D' (2026-06-08)
+• Updated input 'noctalia':
+    'github:noctalia-dev/noctalia-shell/052f533186e6ad8e60541760cfe3123f14108c1e?narHash=sha256-G54zkslNueiiYDtg8QbAkPTv0/vfLzdjDsaUljlRQAE%3D' (2026-05-24)
+  → 'github:noctalia-dev/noctalia-shell/36e7e08b6fd21a650314a99d95684e8a6a1b40a9?narHash=sha256-0Udp6AOYkQcbHpTs0WG1YMsqfTzA7aXsUn69VerWpMA%3D' (2026-06-10)
+• Removed input 'noctalia/noctalia-qs'
+• Removed input 'noctalia/noctalia-qs/nixpkgs'
+• Removed input 'noctalia/noctalia-qs/systems'
+• Removed input 'noctalia/noctalia-qs/treefmt-nix'
+• Removed input 'noctalia/noctalia-qs/treefmt-nix/nixpkgs'
+• Updated input 'nur':
+    'github:nix-community/NUR/61ff40c2765e6657b883536f521870d4ad0489c8?narHash=sha256-CyYPw%2BngqA8ObiXQlcEqOIJ2ayusLpn3oRbyej7HI2s%3D' (2026-05-25)
+  → 'github:nix-community/NUR/7b7c1ef81fe49b534472ab732302ee8c831c240b?narHash=sha256-zGy/06f1CgIOf8LLaFVvNPyuzJaAyH9HWWh1EZ0kfy8%3D' (2026-06-10)
+• Updated input 'nur/nixpkgs':
+    'github:nixos/nixpkgs/64c08a7ca051951c8eae34e3e3cb1e202fe36786?narHash=sha256-tpyBcxPpcQb8ukyNF7DoCwfSY3VPsxHoYwj00Cayv5o%3D' (2026-05-23)
+  → 'github:nixos/nixpkgs/a799d3e3886da994fa307f817a6bc705ae538eeb?narHash=sha256-3av0pIjlOWQ6rDbNOmpUSvbNnJkGORQKKjb4LtCZsIY%3D' (2026-06-06)
+• Updated input 'zen-browser':
+    'github:0xc000022070/zen-browser-flake/e8fbde26a92a8c078fb1355c9f7c8dba5f7eb9d6?narHash=sha256-k256zgHyqJ/0siFdq5y4GSwJyYKhQnW83N9K8S7OMKo%3D' (2026-05-24)
+  → 'github:0xc000022070/zen-browser-flake/ab76a3274975b13d1967d9c4c1f40e5c74983875?narHash=sha256-nxZk7i8liid1p1JZG/axWHYu1c45mIRU96aqAN/Fc%2Bo%3D' (2026-06-10)
+• Updated input 'zen-browser/home-manager':
+    'github:nix-community/home-manager/9846abe15e7d0d36b8acbd4d05f2b87461744c92?narHash=sha256-nGFJ01m2CTBKD4ABtcY4vLhHrRN91LKr/pn41PcU78A%3D' (2026-05-15)
+  → 'github:nix-community/home-manager/4c5c1e8ba14f1c7475fa31ff11bc1c19cd220974?narHash=sha256-8KX2hEeOX6KP3hBBJJI8dGWVrzbOOf1rBPmg/GUG24U%3D' (2026-06-03)
+```
+
 ## 2026-05-26 08:21:09 星期二
 
 ```log

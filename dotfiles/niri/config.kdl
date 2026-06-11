@@ -108,7 +108,7 @@ spawn-at-startup "niriusd"
 spawn-sh-at-startup "rfkill unblock bluetooth"
 spawn-sh-at-startup "niri msg action focus-workspace '2  '"
 spawn-at-startup "kitty"
-spawn-at-startup "noctalia-shell"
+spawn-at-startup "noctalia"
 spawn-sh-at-startup "fcitx5 -d --replace"
 spawn-sh-at-startup "clipse -listen"
 spawn-at-startup "sparkle"
@@ -398,7 +398,7 @@ window-rule {
     match app-id="com.gitee.gmg137.NeteaseCloudMusicGtk4"
     match app-id="netease-cloud-music"
     match app-id="com.github.neithern.g4music"
-    match app-id="SPlayer"
+    match app-id="splayer"
 
     open-on-workspace "6  "
     open-focused true
@@ -412,7 +412,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="SPlayer" title="SPlayer - 桌面歌词"
+    match app-id="splayer" title="SPlayer - 桌面歌词"
 
     open-on-workspace "6  "
     open-floating true
@@ -425,25 +425,38 @@ window-rule {
     max-height 140
 }
 
+// Floating Noctalia settings window.
+window-rule {
+  match app-id="dev.noctalia.Noctalia.Settings"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
 
 binds {
     // toggle noctalia-shell bar
-    Mod+B {spawn-sh "noctalia-shell ipc call bar toggle";}
+    Mod+B {spawn-sh "noctalia msg bar-toggle";}
 
     Mod+V { spawn-sh "alacritty --class clipse-history -e zsh -c 'clipse $PPID'"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Shift+Return  { spawn "alacritty"; }
 
-    Mod+P hotkey-overlay-title="toggle noctalia-shell launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    Mod+P hotkey-overlay-title="toggle noctalia-shell launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    // XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+    // XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+    // XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+    // XF86AudioMicMute     allow-when-locked=true { spawn-sh "noctalia msg mic-mute"; }
 
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+    // XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
+    // XF86MonBrightnessDown allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
 
     XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
@@ -544,4 +557,9 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     // Mod+Shift+P { power-off-monitors; }
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
 }

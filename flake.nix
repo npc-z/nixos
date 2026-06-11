@@ -13,24 +13,30 @@
       # "https://cache.nixos.org"
     ];
 
-    # substituers will be appended to the default substituters when fetching packages
+    # extra-substituters will be appended to the default substituters when fetching packages
     extra-substituters = [
       # llm-agents
       "https://cache.numtide.com" # Nix packages for AI coding agents and development tools
       # for hyprland
       "https://hyprland.cachix.org"
+
+      # noctalia
+      "https://noctalia.cachix.org"
     ];
     extra-trusted-public-keys = [
       # llm-agents
       "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=" # Nix packages for AI coding agents and development tools
       # hyprland
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+
+      # noctalia
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
     ];
   };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
     # home-manager，用于管理用户配置
     home-manager = {
