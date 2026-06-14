@@ -4,17 +4,17 @@
   ...
 }: {
   environment.systemPackages = [
-    pkgs.nur.repos.lonerOrz.sparkle
+    pkgs.sparkle
   ];
 
   security.wrappers.sparkle = {
     owner = "root";
     group = "root";
     capabilities = "cap_net_bind_service,cap_net_raw,cap_net_admin=+ep";
-    source = lib.getExe pkgs.nur.repos.lonerOrz.sparkle;
+    source = lib.getExe pkgs.sparkle;
   };
 
-  networking.proxy.default = "http://127.0.0.1:20171";
+  # networking.proxy.default = "http://127.0.0.1:20171";
 
   networking.firewall.trustedInterfaces = ["mihomo"];
 }
