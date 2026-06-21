@@ -1,6 +1,6 @@
 hl.monitor({
     output = "desc:California Institute of Technology 0x1609",
-    mode = "2560x1600@165",
+    mode = "2560x1600@165.02Hz",
     position = "0x0",
     scale = 1.33,
 })
