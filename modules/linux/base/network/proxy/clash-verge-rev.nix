@@ -12,8 +12,11 @@
   networking = {
     firewall = {
       # Traffic coming in from these interfaces will be accepted unconditionally
+      # 启用 tun 模式之后可通过 `ip a` 查看接口名称
       trustedInterfaces = [
-        "mihomo"
+        "Meta" # new in r9000p
+        "Mihomo" # new in ser7
+        "mihomo" # old
       ];
     };
   };
