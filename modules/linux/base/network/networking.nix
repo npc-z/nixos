@@ -4,6 +4,8 @@
     # https://nixos.wiki/wiki/Internet_Connection_Sharing
     linux-wifi-hotspot
     networkmanagerapplet
+    iw # Tool to use nl80211
+    connect # Make network connection via SOCKS and https proxy
   ];
 
   # 不从 DHCP 获取 DNS
