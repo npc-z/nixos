@@ -333,6 +333,7 @@ window-rule {
 window-rule {
     // vpn
     match app-id="sparkle"
+    match app-id="clash-verge"
 
     open-floating true
     min-width 800
@@ -366,7 +367,7 @@ window-rule {
     match app-id=r#"zen-twilight$"#
 
     open-focused true
-    default-column-width { proportion 1.0; }
+    // default-column-width { proportion 1.0; }
 }
 
 window-rule {
