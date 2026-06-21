@@ -53,9 +53,11 @@ hl.bind("SUPER + CTRL + space", hl.dsp.window.fullscreen({ maxsize = false }))
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("wlogout"))
 hl.bind(mainMod .. " + space", hl.dsp.layout("colresize +conf"))
 
+hl.bind("SUPER + B", hl.dsp.exec_cmd("noctalia msg bar-toggle"))
 -- hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("killall -SIGUSR1 .waybar-wrapped || .waybar-wrapped"))
 -- hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("killall -SIGUSR2 .waybar-wrapped"))
 -- hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("pkill wofi || wofi --show drun"))
+hl.bind("SUPER + P", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind("SUPER + CTRL + P", hl.dsp.window.pin())
 hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("hyprlock"))
 
