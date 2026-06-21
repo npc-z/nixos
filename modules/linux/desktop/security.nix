@@ -15,7 +15,6 @@
   security = {
     polkit = {
       enable = true;
-      debug = true;
       extraConfig = ''
         /* Log authorization checks. */
         polkit.addRule(function(action, subject) {

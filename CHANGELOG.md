@@ -1,5 +1,224 @@
 # CHANGELOG
 
+## 2026-06-21 16:21:43 星期日
+
+```log
+• Updated input 'darwin-nixpkgs':
+    'github:NixOS/nixpkgs/8c3cede7ddc26bd659d2d383b5610efbd2c7a16e?narHash=sha256-rppURzHviaQN131F%2BnLiLdGfcb0uCd9gGP0E5%2Biw9MI%3D' (2026-06-08)
+  → 'github:NixOS/nixpkgs/3e41b24abd260e8f71dbe2f5737d24122f972158?narHash=sha256-rxO%2Buc/KFbSJp%2BpgyXRuAX6QlG9hJdnt0BXpEQRXY%2BU%3D' (2026-06-16)
+• Updated input 'home-manager':
+    'github:nix-community/home-manager/1ffdc28076a1809ee7c0cf08f06af18f31c480cd?narHash=sha256-%2B7cIaqM6ucKf5fDyMnkwehxG8tBdaU51TZOMtxacXmI%3D' (2026-06-10)
+  → 'github:nix-community/home-manager/78e7d8b13ecd7f5256a5c11ce216876164099d9f?narHash=sha256-npfH7Zv7t1akX/ArqCNro4zU4ViPlghLaPnbEfHbCxk%3D' (2026-06-20)
+• Updated input 'llm-agents':
+    'github:numtide/llm-agents.nix/6f4945d637942c06390d0fd765c8981874020157?narHash=sha256-x%2BI/CbXlM6pieeCQV/43l4VYr9tORn2ap0hiHa9JiiY%3D' (2026-06-10)
+  → 'github:numtide/llm-agents.nix/6b704a00ef4211936ce6815770386638ddf1d0e3?narHash=sha256-bV6dokkCL/qBdHLGYPmibz2BgQ84IZljyI%2B2gkA2ekQ%3D' (2026-06-21)
+• Updated input 'llm-agents/nixpkgs':
+    'github:NixOS/nixpkgs/8c3cede7ddc26bd659d2d383b5610efbd2c7a16e?narHash=sha256-rppURzHviaQN131F%2BnLiLdGfcb0uCd9gGP0E5%2Biw9MI%3D' (2026-06-08)
+  → 'github:NixOS/nixpkgs/3e41b24abd260e8f71dbe2f5737d24122f972158?narHash=sha256-rxO%2Buc/KFbSJp%2BpgyXRuAX6QlG9hJdnt0BXpEQRXY%2BU%3D' (2026-06-16)
+• Updated input 'nix-darwin':
+    'github:nix-darwin/nix-darwin/6a771120d607dcccb279a27d227650e324815c35?narHash=sha256-AkWx4Zt9pQbD/f82Z8N57%2Bd0HGLN/rV3gdMKJTpBPKs%3D' (2026-06-07)
+  → 'github:nix-darwin/nix-darwin/a1fa429e945becaf60468600daf649be4ba0350c?narHash=sha256-rCPytmKNjctLloB6UgK5CRrHSwV4b0ygxtJLPPp8R14%3D' (2026-06-18)
+• Updated input 'nix-homebrew':
+    'github:zhaofengli-wip/nix-homebrew/562332f97de9f5ba51aa647d70462e88222b2988?narHash=sha256-zMEJwtQPmsPPgPczFkyjWHgd1z0HagOPS2Wt2WDYLJY%3D' (2026-06-03)
+  → 'github:zhaofengli-wip/nix-homebrew/de7953a08ed4bb9245be043e468561c17b89130d?narHash=sha256-ORqLAo/hoJdsZC7UPAuEHev6S0%2BXIqKEC7vjo5prz1k%3D' (2026-06-13)
+• Updated input 'nix-homebrew/brew-src':
+    'github:Homebrew/brew/10a163ac127624caa80cc5cc5a705e97f3615b0e?narHash=sha256-rnnAaESXxItX4D9xCMGvs3hfDBjbbTYht7OluRcvT8k%3D' (2026-05-24)
+  → 'github:Homebrew/brew/109191be4988470b51a60a5ef1998520aa24c01b?narHash=sha256-w4ZTuOnhYiDxjaynrMTASzp802QblBWmo3wpB8wVN4Y%3D' (2026-06-12)
+• Updated input 'nixpkgs':
+    'github:nixos/nixpkgs/a799d3e3886da994fa307f817a6bc705ae538eeb?narHash=sha256-3av0pIjlOWQ6rDbNOmpUSvbNnJkGORQKKjb4LtCZsIY%3D' (2026-06-06)
+  → 'github:nixos/nixpkgs/567a49d1913ce81ac6e9582e3553dd90a955875f?narHash=sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H%2BCNW1Ck8B%2B8%3D' (2026-06-16)
+• Updated input 'nixpkgs-stable':
+    'github:nixos/nixpkgs/bd0ff2d3eac24699c3664d5966b9ef36f388e2ca?narHash=sha256-q8yYEC5f1mFlQO9RGna4LTc9QrcvWunX6FYp83munkQ%3D' (2026-06-08)
+  → 'github:nixos/nixpkgs/a0374025a863d007d98e3297f6aa46cc3141c2f0?narHash=sha256-9mUW6gNwoN2SWc/l0fW4svPNOulXLl8ijqKyeSOGgJE%3D' (2026-06-11)
+• Updated input 'noctalia':
+    'github:noctalia-dev/noctalia-shell/36e7e08b6fd21a650314a99d95684e8a6a1b40a9?narHash=sha256-0Udp6AOYkQcbHpTs0WG1YMsqfTzA7aXsUn69VerWpMA%3D' (2026-06-10)
+  → 'github:noctalia-dev/noctalia-shell/83523404993bae34c92c961271c37de2931bd1cd?narHash=sha256-g1DnoockAjb57bbCyf3Qfdt6gsxeakW68Hdsbe9%2Bz8M%3D' (2026-06-21)
+• Updated input 'nur':
+    'github:nix-community/NUR/7b7c1ef81fe49b534472ab732302ee8c831c240b?narHash=sha256-zGy/06f1CgIOf8LLaFVvNPyuzJaAyH9HWWh1EZ0kfy8%3D' (2026-06-10)
+  → 'github:nix-community/NUR/8dfc4e75cb4ea5ee8dcf2280111b83dc2c5ab388?narHash=sha256-aZQeggWH74tabqF054mPqzzoltl73saQ%2BpCJrlAV%2BK8%3D' (2026-06-21)
+• Updated input 'nur/nixpkgs':
+    'github:nixos/nixpkgs/a799d3e3886da994fa307f817a6bc705ae538eeb?narHash=sha256-3av0pIjlOWQ6rDbNOmpUSvbNnJkGORQKKjb4LtCZsIY%3D' (2026-06-06)
+  → 'github:nixos/nixpkgs/567a49d1913ce81ac6e9582e3553dd90a955875f?narHash=sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H%2BCNW1Ck8B%2B8%3D' (2026-06-16)
+• Updated input 'zen-browser':
+    'github:0xc000022070/zen-browser-flake/ab76a3274975b13d1967d9c4c1f40e5c74983875?narHash=sha256-nxZk7i8liid1p1JZG/axWHYu1c45mIRU96aqAN/Fc%2Bo%3D' (2026-06-10)
+  → 'github:0xc000022070/zen-browser-flake/6593c895a25b4bf166f596987f2cfabc63a86c0d?narHash=sha256-3uA/FtAVbmBIL3kUs6ZDUtf/ZKjLmHljDQZWSKuJwx0%3D' (2026-06-21)
+```
+
+```
+CHANGED
+[C.] alsa-lib                                             1.2.15.3-dev, <others> -> <others>
+[U.] apache-httpd                                         2.4.67 -> 2.4.68
+[U.] aquamarine                                           0.12.0 -> 0.12.1
+[U.] atkmm                                                2.28.4 -> 2.28.5
+[U.] breeze-icons                                         6.26.0, 6.26.0-dev -> 6.27.0, 6.27.0-dev
+[U*] clash-verge-rev                                      2.4.7 -> 2.5.1
+[U*] clipse                                               1.1.0 -> 1.2.1
+[U.] dbeaver-bin                                          26.0.5 -> 26.1.0
+[U.] deno                                                 2.8.0 -> 2.8.3
+[D.] dnsmasq                                              2.92rel2 ×2 -> 2.93 ×2
+[U*] docker                                               29.5.2 -> 29.5.3
+[U.] docker-containerd                                    29.5.2 -> 29.5.3
+[U.] docker-runc                                          29.5.2 -> 29.5.3
+[U.] docker-tini                                          29.5.2 -> 29.5.3
+[U.] electron                                             40.10.2, 41.7.1, <others> -> 40.10.3, 41.7.2, <others>
+[U.] electron-unwrapped                                   40.10.2, 41.7.1 -> 40.10.3, 41.7.2
+[U.] extra-cmake-modules                                  6.26.0 -> 6.27.0
+[U.] fastfetch                                            2.63.1, 2.63.1-man -> 2.64.2, 2.64.2-man
+[C.] fc                                                   <others> -> 53-user-aliases.conf, <others>
+[C.] ffmpeg                                               <others> -> 8.1-bin, <others>
+[U.] firefox                                              151.0.3 -> 152.0
+[U.] firefox-unwrapped                                    151.0.3 -> 152.0
+[U.] fuse-overlayfs                                       1.16 -> 1.17
+[U*] hyprland                                             0.55.2, 0.55.2-man -> 0.55.4, 0.55.4-man
+[U.] initrd-linux                                         7.0.11 -> 7.1
+[U.] karchive                                             6.26.0 -> 6.27.0
+[U.] kauth                                                6.26.0 -> 6.27.0
+[U.] kbookmarks                                           6.26.0 -> 6.27.0
+[U.] kcmutils                                             6.26.0 -> 6.27.0
+[U.] kcodecs                                              6.26.0 -> 6.27.0
+[U.] kcolorscheme                                         6.26.0 -> 6.27.0
+[U.] kcompletion                                          6.26.0 -> 6.27.0
+[U.] kconfig                                              6.26.0 -> 6.27.0
+[U.] kconfigwidgets                                       6.26.0 -> 6.27.0
+[U.] kcoreaddons                                          6.26.0 -> 6.27.0
+[U.] kcrash                                               6.26.0 -> 6.27.0
+[U.] kdbusaddons                                          6.26.0 -> 6.27.0
+[U.] kdeclarative                                         6.26.0 -> 6.27.0
+[U.] kdoctools                                            6.26.0 -> 6.27.0
+[U.] kglobalaccel                                         6.26.0 -> 6.27.0
+[U.] kguiaddons                                           6.26.0 -> 6.27.0
+[U.] ki18n                                                6.26.0 -> 6.27.0
+[U.] kiconthemes                                          6.26.0 -> 6.27.0
+[U.] kimageformats                                        6.26.0 -> 6.27.0
+[U.] kio                                                  6.26.0 -> 6.27.0
+[U.] kirigami                                             6.26.0 -> 6.27.0
+[U.] kitemviews                                           6.26.0 -> 6.27.0
+[U.] kitty                                                0.47.1, 0.47.1-terminfo -> 0.47.4, 0.47.4-terminfo
+[U.] kjobwidgets                                          6.26.0 -> 6.27.0
+[U.] knotifications                                       6.26.0 -> 6.27.0
+[U.] kpackage                                             6.26.0 -> 6.27.0
+[U.] kparts                                               6.26.0 -> 6.27.0
+[U.] kservice                                             6.26.0 -> 6.27.0
+[U.] ksvg                                                 6.26.0 -> 6.27.0
+[U.] ktextwidgets                                         6.26.0 -> 6.27.0
+[U.] kwallet                                              6.26.0 -> 6.27.0
+[U.] kwidgetsaddons                                       6.26.0 -> 6.27.0
+[U.] kwindowsystem                                        6.26.0 -> 6.27.0
+[U.] kxmlgui                                              6.26.0 -> 6.27.0
+[C.] lcms2                                                2.18-bin, 2.18-dev, <others> -> <others>
+[U.] libcmis                                              0.6.2 -> 0.6.3
+[C.] libinput                                             1.31.3-dev, <others> -> <others>
+[U.] liblangtag                                           0.6.7 -> 0.6.8
+[U.] libnfs                                               5.0.2 -> 5.0.3
+[C.] libraw                                               0.22.1, 0.22.1-dev, <others> -> <others>
+[U.] librime                                              1.16.1 -> 1.17.0
+[C.] librsvg                                              2.62.1-dev, <others> -> <others>
+[U.] libsigc++                                            3.6.0, <others> -> 3.8.1, <others>
+[U.] libslirp                                             4.9.1 -> 4.9.3
+[U*] libvirt                                              12.2.0 -> 12.4.0
+[U.] linux                                                7.0.11, 7.0.11-modules ×2 -> 7.1, 7.1-modules ×2
+[U.] microsoft-edge                                       148.0.3967.83 -> 149.0.4022.69
+[U.] mihomo                                               1.19.26 -> 1.19.27
+[U.] moby                                                 29.5.2 -> 29.5.3
+[U.] neovim                                               0.12.2 -> 0.12.3
+[U.] neovim-unwrapped                                     0.12.2 -> 0.12.3
+[U.] nirius                                               0.7.1 -> 0.7.2
+[D*] nixos-firewall-tool                                  <none> -> 26.11
+[U.] nixos-system-ser7-nixos                              26.11.20260606.a799d3e -> 26.11.20260616.567a49d
+[C.] nspr                                                 4.39-dev, <others> -> <others>
+[C.] nss                                                  3.124, 3.112.5-dev, <others> -> 3.125, <others>
+[U*] ollama                                               0.30.5 -> 0.30.7
+[U.] opencode                                             1.17.0 -> 1.17.9
+[C.] openjpeg                                             2.5.4-dev, <others> -> <others>
+[U.] pi                                                   0.79.1 -> 0.79.9
+[C.] poppler-glib                                         25.10.0-dev, <others> -> <others>
+[U.] python3.13-anthropic                                 0.97.0 -> 0.109.1
+[U.] python3.13-curl-cffi                                 0.14.0 -> 0.15.0
+[U.] python3.13-cyclopts                                  4.16.1 -> 4.18.0
+[U.] python3.13-langgraph-checkpoint                      4.0.3 -> 4.1.1
+[U.] python3.13-libvirt                                   12.2.0 -> 12.4.0
+[U.] python3.13-primp                                     1.3.0 -> 1.3.1
+[U.] python3.13-pymdown-extensions                        10.21.2 -> 10.21.3
+[U.] python3.13-pypdf                                     6.12.2 -> 6.13.2
+[U.] python3.13-safetensors                               0.7.0 -> 0.8.0
+[U*] qemu-host-cpu-only                                   11.0.0, 11.0.0-doc, 11.0.0-ga -> 11.0.1, 11.0.1-doc, 11.0.1-ga
+[U*] qq                                                   3.2.27-2026-04-01 -> 3.2.29-2026-05-28
+[U.] qqc2-desktop-style                                   6.26.0 -> 6.27.0
+[U.] readest                                              0.11.1 -> 0.11.4
+[C.] sdl2-compat                                          2.32.68-dev, <others> -> <others>
+[U.] skills                                               1.5.10 -> 1.5.12
+[U.] solid                                                6.26.0 -> 6.27.0
+[U.] sonnet                                               6.26.0 -> 6.27.0
+[U.] sub-store-frontend                                   2.17.19 -> 2.17.36
+[U.] telegram-desktop                                     6.8.1 -> 6.8.2
+[U.] tree-sitter-c-neovim                                 0.12.2 -> 0.12.3
+[U.] tree-sitter-lua-neovim                               0.12.2 -> 0.12.3
+[U.] tree-sitter-markdown-neovim                          0.12.2 -> 0.12.3
+[U.] tree-sitter-markdown_inline-neovim                   0.12.2 -> 0.12.3
+[U.] tree-sitter-query-neovim                             0.12.2 -> 0.12.3
+[U.] tree-sitter-vim-neovim                               0.12.2 -> 0.12.3
+[U.] tree-sitter-vimdoc-neovim                            0.12.2 -> 0.12.3
+[U*] uv                                                   0.11.17 -> 0.11.19
+[U.] uwsm                                                 0.26.4 -> 0.26.5
+[U.] v2ray-domain-list-community                          20260531040030 -> 20260609060640
+[U.] vscode                                               1.122.1 -> 1.124.2
+[U.] vscode-extension-PKief-material-icon-theme           5.33.1 -> 5.35.0
+[U.] vscode-extension-shd101wyy-markdown-preview-enhanced 0.8.27 -> 0.8.30
+[U.] xdotool                                              3.20211022.1 -> 4.20260303.1
+[U.] xfsprogs                                             6.19.0, 6.19.0-bin -> 7.0.1, 7.0.1-bin
+[U.] yt-dlp                                               2026.03.17 -> 2026.06.09
+[U.] zfs-user                                             2.4.2 -> 2.4.3
+
+ADDED
+[A.] hm_hmfontconfigdefaultfonts.xml                      <none>
+[A.] hm_hmfontconfigfonts.xml                             <none>
+[A.] libfreehand                                          0.1.3
+[A.] networkmanager.conf                                  <none>
+
+REMOVED
+[R.] aribb24                                              1.0.4
+[R.] bullet                                               3.25
+[R.] celt                                                 0.11.3
+[R.] cfitsio                                              4.6.4
+[R.] cgif                                                 0.5.3
+[R.] codec2                                               1.2.0-lib
+[R.] davs2                                                1.7-lib
+[R.] doxygen                                              1.16.1
+[R.] efl                                                  1.28.1
+[R.] ffmpeg-full                                          8.1-bin, 8.1-data, 8.1-lib
+[R.] frei0r-plugins                                       2.5.1
+[R.] gnome-icon-theme                                     3.12.0
+[R.] hm_fontconfigconf.d10hmfonts.conf                    <none>
+[R.] hm_fontconfigconf.d52hmdefaultfonts.conf             <none>
+[R.] humanity-icon-theme                                  0.6.16
+[R.] kvazaar                                              2.3.2-lib
+[R.] lcevcdec                                             4.1.0-lib
+[R.] libaribcaption                                       1.1.1
+[R.] libdicom                                             1.0.5
+[R.] libilbc                                              3.0.4
+[R.] matio                                                1.5.29
+[R.] mint-x-icons                                         1.7.6
+[R.] openslide                                            4.0.0
+[R.] quirc                                                1.2
+[R.] rav1e                                                0.8.1
+[R.] security-wrapper-pkexec-x86_64-unknown-linux-musl    <none>
+[R.] shine                                                3.1.1-unstable-2023-01-01
+[R.] uavs3d                                               1.1-unstable-2025-12-13
+[R.] ubuntu-themes                                        24.04
+[R.] vips                                                 8.18.2
+[R.] vo-amrwbenc                                          0.1.3
+[R.] vvenc                                                1.14.0-lib
+[R.] whisper-cpp                                          1.8.5
+[R.] xavs                                                 55
+[R.] xavs2                                                1.4-lib
+[R.] xevd                                                 0.5.0-lib
+[R.] xeve                                                 0.5.1-lib
+[R.] zeromq                                               4.3.5
+
+SIZE: 35.5 GiB -> 35.1 GiB
+DIFF: -320 MiB
+```
+
 ## 2026-06-10 22:35:20 星期三
 
 ```log
