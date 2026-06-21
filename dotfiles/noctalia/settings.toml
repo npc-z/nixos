@@ -50,9 +50,14 @@ behavior_order = [ "lock", "screen-off" ]
 address = "Shenzen"
 
 [lockscreen_widgets]
-enabled = false
+enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@HDMI-A-1" ]
+widget_order = [
+    "lockscreen-widget-0000000000000002",
+    "lockscreen-login-box@HDMI-A-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000003"
+]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -63,10 +68,56 @@ widget_order = [ "lockscreen-login-box@HDMI-A-1" ]
     box_height = 0.0
     box_width = 0.0
     cx = 960.0
-    cy = 957.0
+    cy = 965.0
     output = "HDMI-A-1"
     rotation = 0.0
     type = "login_box"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 112.0
+    box_width = 528.0
+    cx = 976.0
+    cy = 508.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background_opacity = 0.0
+        clock_style = "digital"
+        color = "on_surface"
+        format = "{:%Y / %m / %d}"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 320.0
+    box_width = 544.0
+    cx = 960.0
+    cy = 316.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background_opacity = 0.0
+        format = "{: %H:%M:%S}"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 448.0
+    box_width = 352.0
+    cx = 1696.0
+    cy = 828.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "media_player"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+        background_opacity = 0.0
+        layout = "vertical"
+
+[nightlight]
+enabled = true
+temperature_day = 4500
+temperature_night = 3200
 
 [notification]
 position = "bottom_right"
@@ -134,6 +185,9 @@ hide_when_no_media = true
 
 [widget.taskbar]
 only_active_workspace = true
+
+[widget.tray]
+hidden = [ "Blueman", "Network" ]
 
 [widget.workspaces]
 hide_when_empty = true
