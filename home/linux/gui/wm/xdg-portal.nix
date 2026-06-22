@@ -2,15 +2,24 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
+      # for niri
       xdg-desktop-portal-wlr
       xdg-desktop-portal-gnome
       xdg-desktop-portal-gtk
 
-      # special for hyprland
+      # for hyprland
       xdg-desktop-portal-hyprland
     ];
 
     config.common.default = "*";
+
+    config.Hyprland = {
+      default = [
+        "hyprland"
+      ];
+      "org.freedesktop.impl.portal.ScreenCast" = ["hyprland"];
+      "org.freedesktop.impl.portal.Screenshot" = ["hyprland"];
+    };
 
     # FIXME:
     # Cannot use screen sharing in feishu with niri
