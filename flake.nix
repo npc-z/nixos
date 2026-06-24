@@ -54,6 +54,10 @@
 
     # 添加 NUR 仓库
     nur.url = "github:nix-community/NUR";
+    nur-npc-z = {
+      url = "github:npc-z/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     mcp-nixos.url = "github:utensils/mcp-nixos";
 

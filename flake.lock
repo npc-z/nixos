@@ -515,6 +515,26 @@
         "type": "github"
       }
     },
+    "nur-npc-z": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782265934,
+        "narHash": "sha256-ORU62flndgw/jnrKR4pFV2I2Zx6Z5Hm3HWI8H1ESfrw=",
+        "owner": "npc-z",
+        "repo": "nur-packages",
+        "rev": "07e1c51f2796e4d92191217315a1c02052bdc778",
+        "type": "github"
+      },
+      "original": {
+        "owner": "npc-z",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "darwin-nixpkgs": "darwin-nixpkgs",
@@ -528,6 +548,7 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "noctalia": "noctalia",
         "nur": "nur",
+        "nur-npc-z": "nur-npc-z",
         "tix": "tix",
         "zen-browser": "zen-browser"
       }
