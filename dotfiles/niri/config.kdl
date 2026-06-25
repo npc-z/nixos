@@ -379,6 +379,18 @@ window-rule {
 }
 
 
+// file manager and reader
+window-rule {
+    open-on-workspace "4  "
+
+    match app-id="org.pwmt.zathura"
+    match app-id="org.gnome.Nautilus"
+    match app-id="readest"
+
+    open-focused true
+    default-column-width { proportion 1.0; }
+}
+
 // chat
 window-rule {
     match app-id="wechat"
