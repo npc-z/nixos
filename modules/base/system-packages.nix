@@ -4,9 +4,13 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    # node
+    nodejs
+    pnpm
+
+    # python
     uv # python project package manager
-    # FIXME: cant pass tests
-    # pipx # Install and Run Python Applications in Isolated Environments
+    pipx
 
     python314
     python314Packages.pip
