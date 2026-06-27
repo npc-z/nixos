@@ -67,6 +67,8 @@
 
     # Nix packages for AI coding agents and development tools
     llm-agents.url = "github:numtide/llm-agents.nix";
+    # manage skills
+    skills-catalog.url = "path:./agent-skills";
 
     # hyprland env
     # Community scripts and utilities for Hypr projects

@@ -24,9 +24,15 @@ in {
     };
   };
 
+  imports = [
+    inputs.skills-catalog.homeManagerModules.default
+  ];
+
   config = mkIf cfg.enable (let
     llmAgentsPkgs = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
   in {
+    programs.agent-skills.enable = true;
+
     programs.opencode = mkIf cfg.opencode.enable {
       enable = true;
       package = llmAgentsPkgs.opencode;
