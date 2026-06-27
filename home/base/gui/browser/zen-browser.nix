@@ -20,7 +20,7 @@
         "zen.view.compact.hide-toolbar" = false;
         "zen.view.compact.animate-sidebar" = false;
         "zen.welcome-screen.seen" = true;
-        "zen.urlbar.behavior" = "float";
+        # "zen.urlbar.behavior" = "float";
       };
 
       sine = {
