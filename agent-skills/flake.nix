@@ -15,20 +15,36 @@
       url = "github:mattpocock/skills";
       flake = false;
     };
+    vercel-labs-skills = {
+      url = "github:vercel-labs/skills";
+      flake = false;
+    };
+
+    juliusbrussee-caveman = {
+      url = "github:juliusbrussee/caveman";
+      flake = false;
+    };
   };
 
   outputs = {
     self,
     agent-skills,
     anthropic-skills,
+    juliusbrussee-caveman,
     mattpocock-skills,
+    vercel-labs-skills,
     ...
   }: {
     homeManagerModules.default = {
       imports = [
         agent-skills.homeManagerModules.default
         (import ./home-manager.nix {
-          inherit anthropic-skills mattpocock-skills;
+          inherit
+            anthropic-skills
+            juliusbrussee-caveman
+            mattpocock-skills
+            vercel-labs-skills
+            ;
         })
       ];
     };

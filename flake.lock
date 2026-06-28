@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1782183570,
-        "narHash": "sha256-4LrewbD02WDf0CosGP/yO1yLneTeeJM39SjFa99kSRQ=",
+        "lastModified": 1782575918,
+        "narHash": "sha256-YzRp956W8ci29lYgsXCBSt8SsIcWBv+67/i9HWSl0Q0=",
         "owner": "Kyure-A",
         "repo": "agent-skills-nix",
-        "rev": "fe867fe7be3a55d939746b278194deee4814fb08",
+        "rev": "79eba8b513730982ab2a00dfbccd4fae84321b9c",
         "type": "github"
       },
       "original": {
@@ -22,11 +22,11 @@
     "anthropic-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1781037316,
-        "narHash": "sha256-1D9otXxDvmKASBu/vtAEWv6kE+U+jG4OxZpRLZbGEF0=",
+        "lastModified": 1782576476,
+        "narHash": "sha256-7JB/zj2rBFdvbbFuGIFDXnm1TN26E67fRO1deQvzs34=",
         "owner": "anthropics",
         "repo": "skills",
-        "rev": "57546260929473d4e0d1c1bb75297be2fdfa1949",
+        "rev": "35414756ca55738e050562e272a6bbc6273aa926",
         "type": "github"
       },
       "original": {
@@ -340,6 +340,22 @@
         "type": "github"
       }
     },
+    "juliusbrussee-caveman": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1781272264,
+        "narHash": "sha256-FbmfhFaPs/SnSZdfNdErdIUHXt1FfBzErpPpLy8kdIc=",
+        "owner": "juliusbrussee",
+        "repo": "caveman",
+        "rev": "25d22f864ad68cc447a4cb93aefde918aa4aec9f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "juliusbrussee",
+        "repo": "caveman",
+        "type": "github"
+      }
+    },
     "llm-agents": {
       "inputs": {
         "blueprint": "blueprint",
@@ -350,11 +366,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1782366663,
-        "narHash": "sha256-hcxEl/eWQQaYkUqygP4ca8S7WlX9c6vqgvQCqtV3vuw=",
+        "lastModified": 1782596112,
+        "narHash": "sha256-xVrP5NS1sh0F2o5qUqUzyFtS8IBgk52X0+ysGEGuVy8=",
         "owner": "numtide",
         "repo": "llm-agents.nix",
-        "rev": "5f9d86061f538b3f5f3568583c001fb9c0705b71",
+        "rev": "86ebe7ee95dd9003c0cb4ef1f3b67fd3c2d6643b",
         "type": "github"
       },
       "original": {
@@ -647,7 +663,9 @@
       "inputs": {
         "agent-skills": "agent-skills",
         "anthropic-skills": "anthropic-skills",
-        "mattpocock-skills": "mattpocock-skills"
+        "juliusbrussee-caveman": "juliusbrussee-caveman",
+        "mattpocock-skills": "mattpocock-skills",
+        "vercel-labs-skills": "vercel-labs-skills"
       },
       "locked": {
         "path": "./agent-skills",
@@ -730,6 +748,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "vercel-labs-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1782247279,
+        "narHash": "sha256-NfjEt37jfA/d0v6gXRjlvsUj0xf8h+NquVUZEKaMFL4=",
+        "owner": "vercel-labs",
+        "repo": "skills",
+        "rev": "9a7d8acfbf29f9cced7fb5a504da1d65b484aed3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vercel-labs",
+        "repo": "skills",
         "type": "github"
       }
     },

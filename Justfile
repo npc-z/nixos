@@ -68,6 +68,11 @@ up:
 upp input:
   nix flake lock --update-input {{input}}
 
+# Update ai tools: agents and skills
+up-ai:
+  nix flake lock --update-input llm-agents
+  nix flake lock --update-input skills-catalog
+
 # history of profile
 history:
   nix profile history --profile /nix/var/nix/profiles/system

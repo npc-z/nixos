@@ -20,7 +20,7 @@ in {
     };
 
     skills = {
-      enable = mkEnableOption "the open agent skills tool (npx skills)" // {default = true;};
+      enable = mkEnableOption "the open agent skills tool (npx skills)" // {default = false;};
     };
   };
 
