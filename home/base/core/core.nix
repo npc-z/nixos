@@ -1,8 +1,14 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    # network
+    arp-scan # ARP scanning and fingerprinting tool
     dig # Domain name server
-    nix-search-tv # Fuzzy search for Nix packages
     inetutils # Collection of common network programs
+    nmap # Network discovery and security auditing
+
+    # nix
+    nix-search-tv # Fuzzy search for Nix packages
+
     lsd # Next gen ls command
     erdtree # File-tree visualizer and disk usage analyzer
 
