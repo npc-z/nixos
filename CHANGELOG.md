@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## 2026-06-28 17:03:30 星期日
+
+```log
+• Updated input 'darwin-nixpkgs':
+    'github:NixOS/nixpkgs/3e41b24abd260e8f71dbe2f5737d24122f972158?narHash=sha256-rxO%2Buc/KFbSJp%2BpgyXRuAX6QlG9hJdnt0BXpEQRXY%2BU%3D' (2026-06-16)
+  → 'github:NixOS/nixpkgs/89570f24e97e614aa34aa9ab1c927b6578a43775?narHash=sha256-EMzXKmnOtBQ2MnvpiNOm7E%2BkOMvdPrIKaeg52Tip2Uk%3D' (2026-06-23)
+• Updated input 'home-manager':
+    'github:nix-community/home-manager/78e7d8b13ecd7f5256a5c11ce216876164099d9f?narHash=sha256-npfH7Zv7t1akX/ArqCNro4zU4ViPlghLaPnbEfHbCxk%3D' (2026-06-20)
+  → 'github:nix-community/home-manager/8d8a6cc50ddc60748791a14ee1163c865ec57635?narHash=sha256-CvOaUvJ%2BmXlxU3m2cPWKcOAhtKETsPUYhq%2BXa5ewBp4%3D' (2026-06-27)
+• Updated input 'llm-agents':
+    'github:numtide/llm-agents.nix/86ebe7ee95dd9003c0cb4ef1f3b67fd3c2d6643b?narHash=sha256-xVrP5NS1sh0F2o5qUqUzyFtS8IBgk52X0%2BysGEGuVy8%3D' (2026-06-27)
+  → 'github:numtide/llm-agents.nix/04827656678f5a6dd989ddf55b5adb91d769c1ed?narHash=sha256-lEi1GDqh8oqPT7tvINUwZ1It5mwb2/8gjgzm9cPbwxk%3D' (2026-06-28)
+• Updated input 'nixpkgs':
+    'github:nixos/nixpkgs/567a49d1913ce81ac6e9582e3553dd90a955875f?narHash=sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H%2BCNW1Ck8B%2B8%3D' (2026-06-16)
+  → 'github:nixos/nixpkgs/e73de5be04e0eff4190a1432b946d469c794e7b4?narHash=sha256-pGvFkM8N0xEkIIXDe5YYfbEAvHrk4IxBrjB/x8OomhE%3D' (2026-06-26)
+• Updated input 'nixpkgs-stable':
+    'github:nixos/nixpkgs/a0374025a863d007d98e3297f6aa46cc3141c2f0?narHash=sha256-9mUW6gNwoN2SWc/l0fW4svPNOulXLl8ijqKyeSOGgJE%3D' (2026-06-11)
+  → 'github:nixos/nixpkgs/4062d36ebeae843c750011eef6b61ec9a9dbc9a9?narHash=sha256-wiPYmEuHbJvleW489n6%2BlamL7JSJg3pcKUYwURU9CkI%3D' (2026-06-25)
+• Updated input 'noctalia':
+    'github:noctalia-dev/noctalia-shell/83523404993bae34c92c961271c37de2931bd1cd?narHash=sha256-g1DnoockAjb57bbCyf3Qfdt6gsxeakW68Hdsbe9%2Bz8M%3D' (2026-06-21)
+  → 'github:noctalia-dev/noctalia-shell/dfa00a4d316fa846f3b60760ad02faa7cacfdcbc?narHash=sha256-gUcSMzP3eS8BsNFK4Vz/nzOn6rhfDpOVd2tAYi4WCAk%3D' (2026-06-28)
+• Updated input 'nur':
+    'github:nix-community/NUR/8dfc4e75cb4ea5ee8dcf2280111b83dc2c5ab388?narHash=sha256-aZQeggWH74tabqF054mPqzzoltl73saQ%2BpCJrlAV%2BK8%3D' (2026-06-21)
+  → 'github:nix-community/NUR/bcb2297277f74dd0305bc9dd09e3bbf7457d02d0?narHash=sha256-nII%2B6/sdqz3CZNEwkqpgv%2BWJhDyS/uwkTA9D8KGYe08%3D' (2026-06-28)
+• Updated input 'nur/nixpkgs':
+    'github:nixos/nixpkgs/567a49d1913ce81ac6e9582e3553dd90a955875f?narHash=sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H%2BCNW1Ck8B%2B8%3D' (2026-06-16)
+  → 'github:nixos/nixpkgs/e73de5be04e0eff4190a1432b946d469c794e7b4?narHash=sha256-pGvFkM8N0xEkIIXDe5YYfbEAvHrk4IxBrjB/x8OomhE%3D' (2026-06-26)
+• Updated input 'skills-catalog':
+    'path:./agent-skills'
+  → 'path:./agent-skills'
+• Updated input 'zen-browser':
+    'github:0xc000022070/zen-browser-flake/6593c895a25b4bf166f596987f2cfabc63a86c0d?narHash=sha256-3uA/FtAVbmBIL3kUs6ZDUtf/ZKjLmHljDQZWSKuJwx0%3D' (2026-06-21)
+  → 'github:0xc000022070/zen-browser-flake/c59e57b9c6ea4c86f9f3b7efc92db3cbd305d078?narHash=sha256-zQdTvI8jcVfblsrWafw1ykTnCVoV94ttxb5e6drwVaI%3D' (2026-06-28)
+```
+
 ## 2026-06-21 16:21:43 星期日
 
 ```log
