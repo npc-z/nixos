@@ -80,7 +80,7 @@
     # niri
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs"; # To use the binary cache, you have to omit inputs.nixpkgs.follows
     };
 
     tix.url = "github:JRMurr/tix";
