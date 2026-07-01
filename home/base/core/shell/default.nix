@@ -13,6 +13,16 @@
   # niri completions zsh | sed "s/line\[2\]/line[1]/g; /'::command/d" > niri.zsh
   niriCompletions = builtins.readFile ./scripts/niri.zsh;
 
+  shellEnv = ''
+    export TERM=xterm-256color
+    export PATH="$PATH:${localBin}:${goBin}:${rustBin}"
+    export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+    # https://opencode.ai/docs/lsp/#built-in
+    # disable automatic LSP server downloads
+    export OPENCODE_DISABLE_LSP_DOWNLOAD=true
+
+  '';
+
   shellAliases = {
     public_ip = let
       # api = "https://ipinfo.io/json"; # 备用 API
@@ -128,10 +138,7 @@ in {
       bind 'TAB:menu-complete'
 
       ${networkFunc}
-
-      export TERM=xterm-256color
-      export PATH="$PATH:${localBin}:${goBin}:${rustBin}"
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+      ${shellEnv}
     '';
   };
 
@@ -174,9 +181,7 @@ in {
 
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 
-      export TERM=xterm-256color
-      export PATH="$PATH:${localBin}:${goBin}:${rustBin}"
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
+      ${shellEnv}
     '';
   };
 }
