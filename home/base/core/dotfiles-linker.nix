@@ -92,6 +92,14 @@
       recursive = true;
     };
 
+    # VSCodium
+    "VSCodium/User/keybindings.json".source = linkTo "vscode/.config/Code/User/keybindings.json";
+    "VSCodium/User/settings.json".source = linkTo "vscode/.config/Code/User/settings.json";
+    "VSCodium/User/snippets" = {
+      source = linkTo "vscode-snippets";
+      recursive = true;
+    };
+
     # opencode
     "opencode/opencode.jsonc".source = linkTo "opencode/opencode.jsonc";
 

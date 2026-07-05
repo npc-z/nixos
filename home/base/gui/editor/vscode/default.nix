@@ -5,49 +5,102 @@
     # (for example gnome-keyring, kwallet5, KeepassXC)
     "--password-store=gnome-libsecret"
   ];
-in {
-  programs.vscode = {
-    enable = true;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      # adpyke.vscode-sql-formatter  # install from vscode-extensions market
-      christian-kohler.path-intellisense
-      # codeium.codeium
-      cweijan.dbclient-jdbc
-      # cweijan.vscode-mysql-client2
+
+  extensions =
+    (with pkgs.vscode-marketplace; [
+      # Basic
+      # emeraldwalk.runonsave
+
+      # git
+      semanticdiff.semanticdiff
+
+      # db
+      cweijan.vscode-mysql-client2
+      # adpyke.vscode-sql-formatter
+      # mongodb.mongodb-vscode
+
+      # doc
       # cweijan.vscode-office
       # cweijan.xmind-viewer
-      davidanson.vscode-markdownlint
-      eamodio.gitlens
-      # emeraldwalk.runonsave
-      esbenp.prettier-vscode
-      formulahendry.code-runner
-      gruntfuggly.todo-tree
-      humao.rest-client
-      mechatroner.rainbow-csv
-      # mongodb.mongodb-vscode
-      # ms-python.debugpy
-      # ms-python.isort
-      # ms-python.python
-      # ms-python.vscode-pylance
-      # ms-toolsai.jupyter
-      # ms-toolsai.jupyter-keymap
-      # ms-toolsai.jupyter-renderers
-      # ms-toolsai.vscode-jupyter-cell-tags
-      # ms-toolsai.vscode-jupyter-slideshow
+
       # njqdev.vscode-python-typehint
-      pkief.material-icon-theme
-      # semanticdiff.semanticdiff
-      shd101wyy.markdown-preview-enhanced
-      vscodevim.vim
-      yzhang.markdown-all-in-one
-    ];
+    ])
+    ++ (
+      with pkgs.vscode-extensions; [
+        # Basic
+        usernamehw.errorlens # Improve highlighting of errors, warnings and other language diagnostics
+        christian-kohler.path-intellisense # autocompletes filenames
+        pkief.material-icon-theme
+        esbenp.prettier-vscode
+        formulahendry.code-runner
+        gruntfuggly.todo-tree
+        mechatroner.rainbow-csv
+        vscodevim.vim
+
+        # Nix
+        jnoortheen.nix-ide # Full Nix language support with/without external language servers
+
+        # rust
+        rust-lang.rust-analyzer
+
+        # Python
+        # 需要手动安装以下 python 插件，否则导致以下问题
+        # A shared background process terminated unexpectedly. Please restart the application to recover.
+        # ms-python.python
+        # ms-python.vscode-pylance
+        # ms-python.debugpy
+        # ms-toolsai.jupyter
+        # ms-toolsai.vscode-jupyter-slideshow
+        # ms-toolsai.vscode-jupyter-cell-tags
+        # ms-toolsai.jupyter-renderers
+        # ms-toolsai.jupyter-keymap
+
+        # TOML
+        tamasfe.even-better-toml
+
+        # git
+        eamodio.gitlens
+
+        # markdown
+        shd101wyy.markdown-preview-enhanced
+        yzhang.markdown-all-in-one
+        davidanson.vscode-markdownlint
+
+        # http
+        humao.rest-client
+      ]
+    );
+
+  defaultPprofiles = {
+    extensions = extensions;
+  };
+in {
+  programs.github-copilot-cli = {
+    enable = true;
   };
 
-  programs.vscode.package =
-    if pkgs.stdenv.hostPlatform.isLinux
-    then
-      pkgs.vscode.override {
-        commandLineArgs = vscodeCliArgs;
-      }
-    else pkgs.vscode;
+  programs.vscode = {
+    # vscode 和 vscodevim 不能共存
+    # enable = true;
+    profiles.default = defaultPprofiles;
+    package =
+      if pkgs.stdenv.hostPlatform.isLinux
+      then
+        pkgs.vscode.override {
+          commandLineArgs = vscodeCliArgs;
+        }
+      else pkgs.vscode;
+  };
+
+  programs.vscodium = {
+    enable = true;
+    profiles.default = defaultPprofiles;
+    package =
+      if pkgs.stdenv.hostPlatform.isLinux
+      then
+        pkgs.vscodium.override {
+          commandLineArgs = vscodeCliArgs;
+        }
+      else pkgs.vscodium;
+  };
 }

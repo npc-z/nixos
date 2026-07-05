@@ -1,4 +1,5 @@
 {
+  "extensions.autoUpdate": false,
   "update.mode": "manual",
   "workbench.colorTheme": "Dark Modern",
   "workbench.startupEditor": "none",
