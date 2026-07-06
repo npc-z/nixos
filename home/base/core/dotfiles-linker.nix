@@ -107,6 +107,32 @@
     "libinput-gestures.conf".source = linkTo "libinput-gestures/.config/libinput-gestures.conf";
 
     "mimeapps.list".source = linkTo "xdg/mimeapps.list";
+
+    # hypr - linked individually so Home Manager can also generate files inside .config/hypr/
+    "hypr/animations.lua".source = linkTo "hypr/.config/hypr/animations.lua";
+    "hypr/base.lua".source = linkTo "hypr/.config/hypr/base.lua";
+    "hypr/binds.lua".source = linkTo "hypr/.config/hypr/binds.lua";
+    "hypr/debug.lua".source = linkTo "hypr/.config/hypr/debug.lua";
+    "hypr/execs.lua".source = linkTo "hypr/.config/hypr/execs.lua";
+    "hypr/general.lua".source = linkTo "hypr/.config/hypr/general.lua";
+    "hypr/gesture.lua".source = linkTo "hypr/.config/hypr/gesture.lua";
+    "hypr/hyprlock.conf".source = linkTo "hypr/.config/hypr/hyprlock.conf";
+    "hypr/input.lua".source = linkTo "hypr/.config/hypr/input.lua";
+    "hypr/others.lua".source = linkTo "hypr/.config/hypr/others.lua";
+    "hypr/scratchpad.lua".source = linkTo "hypr/.config/hypr/scratchpad.lua";
+    "hypr/windowrules.lua".source = linkTo "hypr/.config/hypr/windowrules.lua";
+    "hypr/apps" = {
+      source = linkTo "hypr/.config/hypr/apps";
+      recursive = true;
+    };
+    "hypr/hosts" = {
+      source = linkTo "hypr/.config/hypr/hosts";
+      recursive = true;
+    };
+    "hypr/plugins" = {
+      source = linkTo "hypr/.config/hypr/plugins";
+      recursive = true;
+    };
   };
 
   linuxHomeFiles = {
