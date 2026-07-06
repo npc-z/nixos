@@ -346,6 +346,7 @@ window-rule {
 window-rule {
     open-on-workspace "1 󰨞 "
     match app-id="code"
+    match app-id="codium"
 
     open-focused true
     open-maximized true

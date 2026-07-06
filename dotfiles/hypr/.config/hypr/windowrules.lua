@@ -49,7 +49,7 @@ hl.window_rule({
 
 -- code workspace 1
 hl.window_rule({
-    match = { class = "^(Code|code)$" },
+    match = { class = "^(Code|code|codium)$" },
     workspace = "1",
 })
 
