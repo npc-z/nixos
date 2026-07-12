@@ -16,9 +16,9 @@
       settings = {
         "zen.workspaces.continue-where-left-off" = true;
         "zen.workspaces.natural-scroll" = true;
-        "zen.view.compact.hide-tabbar" = false;
-        "zen.view.compact.hide-toolbar" = false;
-        "zen.view.compact.animate-sidebar" = false;
+        # "zen.view.compact.hide-tabbar" = false;
+        # "zen.view.compact.hide-toolbar" = false;
+        # "zen.view.compact.animate-sidebar" = false;
         "zen.welcome-screen.seen" = true;
         # "zen.urlbar.behavior" = "float";
       };
