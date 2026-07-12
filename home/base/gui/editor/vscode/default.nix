@@ -54,6 +54,8 @@
         # ms-toolsai.vscode-jupyter-cell-tags
         # ms-toolsai.jupyter-renderers
         # ms-toolsai.jupyter-keymap
+        detachhead.basedpyright
+        charliermarsh.ruff
 
         # TOML
         tamasfe.even-better-toml
