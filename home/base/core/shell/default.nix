@@ -139,6 +139,8 @@ in {
 
       ${networkFunc}
       ${shellEnv}
+
+      eval "$(devenv hook zsh)"
     '';
   };
 
@@ -182,6 +184,8 @@ in {
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 
       ${shellEnv}
+
+      eval "$(devenv hook zsh)"
     '';
   };
 }
