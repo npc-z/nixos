@@ -6,9 +6,6 @@
   ...
 }: {
   nixpkgs.overlays = [
-    # MCP-NixOS - Model Context Protocol Server for NixOS resources
-    inputs.mcp-nixos.overlays.default
-
     inputs.nix-vscode-extensions.overlays.default
 
     # When applied, the stable nixpkgs set (declared in the flake inputs) will
@@ -20,6 +17,18 @@
         config.permittedInsecurePackages = [
         ];
       };
+    })
+
+    # FIXME: https://github.com/NixOS/nixpkgs/issues/540288
+    # Build failure: vulkan-validation-layers
+    (final: prev: {
+      vulkan-validation-layers = prev.vulkan-validation-layers.overrideAttrs (old: {
+        cmakeFlags =
+          [
+            "-DUPDATE_DEPS=OFF"
+          ]
+          ++ old.cmakeFlags;
+      });
     })
 
     # =============================================================

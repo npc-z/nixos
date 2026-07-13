@@ -116,6 +116,7 @@ in {
     enableZshIntegration = true;
     enableBashIntegration = true;
     enableFishIntegration = true;
+    historyWidget.command = ""; # 和 atuin Ctrl-R binding 冲突了
   };
 
   programs.z-lua = {
