@@ -1,5 +1,7 @@
 # AGENTS.md
 
+YOU ARE NOT ALLOWED TO FIND OR READ FILES FROM `/nix/store/` PATH!
+
 Guidance for coding agents operating in this repository.
 This repo is a Nix flake for NixOS and nix-darwin hosts, with Home Manager and dotfiles.
 
