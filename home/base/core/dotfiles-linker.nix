@@ -67,13 +67,8 @@
     "kitty"
     "lazygit"
     "scripts"
-    "swappy"
-    "swaylock"
-    "swaync"
     "wallpapers"
-    "waybar"
     "wlogout"
-    "wofi"
     "zathura"
   ];
 

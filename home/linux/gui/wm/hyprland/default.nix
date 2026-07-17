@@ -22,10 +22,7 @@ in {
   };
 
   imports = [
-    ./../addons/hypridle.nix
     ./../addons/hyprlock.nix
-    ./../addons/hyprsunset.nix
-    ./../addons/waybar.nix
 
     ./../xdg-portal.nix
   ];
@@ -33,9 +30,6 @@ in {
   config = mkIf cfg.enable {
     wm.addons = {
       hyprlock.enable = true;
-      hyprsunset.enable = true;
-      hypridle.enable = true;
-      waybar.enable = true;
     };
 
     home.packages = with pkgs; [
