@@ -67,6 +67,7 @@
     "kitty"
     "lazygit"
     "scripts"
+    "swappy"
     "wallpapers"
     "wlogout"
     "zathura"
