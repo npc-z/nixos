@@ -1,6 +1,19 @@
 [bar.default]
 background_opacity = 0.69999998435378075
 capsule = true
+center = [ "media" ]
+end = [
+    "tray",
+    "notifications",
+    "clipboard",
+    "network",
+    "bluetooth",
+    "volume",
+    "brightness",
+    "battery",
+    "clock",
+    "session"
+]
 margin_edge = 0
 margin_ends = 0
 radius = 0
@@ -38,13 +51,13 @@ behavior_order = [ "lock", "screen-off" ]
     action = "command"
     command = "hyprlock"
     enabled = true
-    timeout = 600
+    timeout = 3600.0
 
     [idle.behavior.screen-off]
-    action = "command"
+    action = "screen_off"
     command = "niri msg action power-off-monitors || hyprctl dispatch dpms off"
     enabled = true
-    timeout = 1200
+    timeout = 4200.0
 
 [location]
 address = "Shenzen"
@@ -123,7 +136,7 @@ temperature_night = 3200
 position = "bottom_right"
 
 [plugins]
-enabled = [ "noctalia/bongocat" ]
+enabled = []
 
 [shell]
 clipboard_history_max_entries = 200
@@ -160,13 +173,13 @@ wallpaper_scheme = "faithful"
 directory = "/home/npc/.config/wallpapers"
 
     [wallpaper.default]
-    path = "/home/npc/.config/wallpapers/水彩年华.jpg"
+    path = "/home/npc/.config/wallpapers/arch.png"
 
     [wallpaper.last]
-    path = "/home/npc/.config/wallpapers/水彩年华.jpg"
+    path = "/home/npc/.config/wallpapers/arch.png"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "/home/npc/.config/wallpapers/水彩年华.jpg"
+    path = "/home/npc/.config/wallpapers/arch.png"
 
 [weather]
 refresh_minutes = 5
