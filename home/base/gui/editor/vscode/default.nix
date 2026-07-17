@@ -36,6 +36,8 @@
         gruntfuggly.todo-tree
         mechatroner.rainbow-csv
         vscodevim.vim
+        # tekumara.typos-vscode # source code spell checker
+        streetsidesoftware.code-spell-checker # Spelling checker for source code
 
         # Nix
         jnoortheen.nix-ide # Full Nix language support with/without external language servers
