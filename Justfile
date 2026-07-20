@@ -66,12 +66,12 @@ up:
 
 # Update specific input. Usage: just upp home-manager
 upp input:
-  nix flake lock --update-input {{input}}
+  nix flake update {{input}}
 
 # Update ai tools: agents and skills
 up-ai:
-  nix flake lock --update-input llm-agents
-  nix flake lock --update-input skills-catalog
+  nix flake update llm-agents
+  nix flake update skills-catalog
 
 # history of profile
 history:
