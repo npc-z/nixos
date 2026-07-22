@@ -37,7 +37,7 @@ _arguments "${_arguments_options[@]}" : \
 '--json[Format output as JSON]' \
 '-h[Print help]' \
 '--help[Print help]' \
-":: :_niri__msg_commands" \
+":: :_niri__subcmd__msg_commands" \
 "*::: :->msg" \
 && ret=0
 
@@ -105,7 +105,7 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 '-h[Print help]' \
 '--help[Print help]' \
-":: :_niri__msg__action_commands" \
+":: :_niri__subcmd__msg__subcmd__action_commands" \
 "*::: :->action" \
 && ret=0
 
@@ -161,8 +161,9 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 '-p+[Whether to show the mouse pointer by default in the screenshot UI]:SHOW_POINTER:(true false)' \
 '--show-pointer=[Whether to show the mouse pointer by default in the screenshot UI]:SHOW_POINTER:(true false)' \
-'-h[Print help]' \
-'--help[Print help]' \
+'--path=[Path to save the screenshot to]:PATH:_default' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
 && ret=0
 ;;
 (screenshot-screen)
@@ -171,6 +172,7 @@ _arguments "${_arguments_options[@]}" : \
 '--write-to-disk=[Write the screenshot to disk in addition to putting it in your clipboard]:WRITE_TO_DISK:(true false)' \
 '-p+[Whether to include the mouse pointer in the screenshot]:SHOW_POINTER:(true false)' \
 '--show-pointer=[Whether to include the mouse pointer in the screenshot]:SHOW_POINTER:(true false)' \
+'--path=[Path to save the screenshot to]:PATH:_default' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
 && ret=0
@@ -180,6 +182,9 @@ _arguments "${_arguments_options[@]}" : \
 '--id=[Id of the window to screenshot]:ID:_default' \
 '-d+[Write the screenshot to disk in addition to putting it in your clipboard]:WRITE_TO_DISK:(true false)' \
 '--write-to-disk=[Write the screenshot to disk in addition to putting it in your clipboard]:WRITE_TO_DISK:(true false)' \
+'-p+[Whether to include the mouse pointer in the screenshot]:SHOW_POINTER:(true false)' \
+'--show-pointer=[Whether to include the mouse pointer in the screenshot]:SHOW_POINTER:(true false)' \
+'--path=[Path to save the screenshot to]:PATH:_default' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
 && ret=0
@@ -811,6 +816,13 @@ _arguments "${_arguments_options[@]}" : \
 '--help[Print help]' \
 && ret=0
 ;;
+(maximize-window-to-edges)
+_arguments "${_arguments_options[@]}" : \
+'--id=[Id of the window to maximize]:ID:_default' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
 (set-column-width)
 _arguments "${_arguments_options[@]}" : \
 '-h[Print help]' \
@@ -976,6 +988,13 @@ _arguments "${_arguments_options[@]}" : \
 '--help[Print help]' \
 && ret=0
 ;;
+(stop-cast)
+_arguments "${_arguments_options[@]}" : \
+'--session-id=[Session ID of the screencast to stop]:SESSION_ID:_default' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
 (toggle-overview)
 _arguments "${_arguments_options[@]}" : \
 '-h[Print help]' \
@@ -1017,13 +1036,14 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (load-config-file)
 _arguments "${_arguments_options[@]}" : \
+'--path=[Path of a new config file to load]:PATH:_default' \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
 && ret=0
 ;;
 (help)
 _arguments "${_arguments_options[@]}" : \
-":: :_niri__msg__action__help_commands" \
+":: :_niri__subcmd__msg__subcmd__action__subcmd__help_commands" \
 "*::: :->help" \
 && ret=0
 
@@ -1461,6 +1481,10 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 && ret=0
 ;;
+(maximize-window-to-edges)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
 (set-column-width)
 _arguments "${_arguments_options[@]}" : \
 && ret=0
@@ -1561,6 +1585,10 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 && ret=0
 ;;
+(stop-cast)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
 (toggle-overview)
 _arguments "${_arguments_options[@]}" : \
 && ret=0
@@ -1606,7 +1634,7 @@ _arguments "${_arguments_options[@]}" : \
 '-h[Print help (see more with '\''--help'\'')]' \
 '--help[Print help (see more with '\''--help'\'')]' \
 ':output -- Output name:_default' \
-":: :_niri__msg__output_commands" \
+":: :_niri__subcmd__msg__subcmd__output_commands" \
 "*::: :->output" \
 && ret=0
 
@@ -1635,6 +1663,30 @@ _arguments "${_arguments_options[@]}" : \
 ':mode -- Mode to set, or "auto" for automatic selection:_default' \
 && ret=0
 ;;
+(custom-mode)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+':mode -- Custom mode to set:_default' \
+&& ret=0
+;;
+(modeline)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+':clock -- The rate at which pixels are drawn in MHz:_default' \
+':hdisplay -- Horizontal active pixels:_default' \
+':hsync_start -- Horizontal sync pulse start position in pixels:_default' \
+':hsync_end -- Horizontal sync pulse end position in pixels:_default' \
+':htotal -- Total horizontal number of pixels before resetting the horizontal drawing position to zero:_default' \
+':vdisplay -- Vertical active pixels:_default' \
+':vsync_start -- Vertical sync pulse start position in pixels:_default' \
+':vsync_end -- Vertical sync pulse end position in pixels:_default' \
+':vtotal -- Total vertical number of pixels before resetting the vertical drawing position to zero:_default' \
+':hsync_polarity -- Horizontal sync polarity\: "+hsync" or "-hsync":_default' \
+':vsync_polarity -- Vertical sync polarity\: "+vsync" or "-vsync":_default' \
+&& ret=0
+;;
 (scale)
 _arguments "${_arguments_options[@]}" : \
 '-h[Print help]' \
@@ -1660,7 +1712,7 @@ flipped-270\:"Rotated by 270° and flipped horizontally"))' \
 _arguments "${_arguments_options[@]}" : \
 '-h[Print help]' \
 '--help[Print help]' \
-":: :_niri__msg__output__position_commands" \
+":: :_niri__subcmd__msg__subcmd__output__subcmd__position_commands" \
 "*::: :->position" \
 && ret=0
 
@@ -1686,7 +1738,7 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (help)
 _arguments "${_arguments_options[@]}" : \
-":: :_niri__msg__output__position__help_commands" \
+":: :_niri__subcmd__msg__subcmd__output__subcmd__position__subcmd__help_commands" \
 "*::: :->help" \
 && ret=0
 
@@ -1726,7 +1778,7 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (help)
 _arguments "${_arguments_options[@]}" : \
-":: :_niri__msg__output__help_commands" \
+":: :_niri__subcmd__msg__subcmd__output__subcmd__help_commands" \
 "*::: :->help" \
 && ret=0
 
@@ -1748,6 +1800,14 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 && ret=0
 ;;
+(custom-mode)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(modeline)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
 (scale)
 _arguments "${_arguments_options[@]}" : \
 && ret=0
@@ -1758,7 +1818,7 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (position)
 _arguments "${_arguments_options[@]}" : \
-":: :_niri__msg__output__help__position_commands" \
+":: :_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__position_commands" \
 "*::: :->position" \
 && ret=0
 
@@ -1820,9 +1880,15 @@ _arguments "${_arguments_options[@]}" : \
 '--help[Print help]' \
 && ret=0
 ;;
+(casts)
+_arguments "${_arguments_options[@]}" : \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
 (help)
 _arguments "${_arguments_options[@]}" : \
-":: :_niri__msg__help_commands" \
+":: :_niri__subcmd__msg__subcmd__help_commands" \
 "*::: :->help" \
 && ret=0
 
@@ -1870,7 +1936,7 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (action)
 _arguments "${_arguments_options[@]}" : \
-":: :_niri__msg__help__action_commands" \
+":: :_niri__subcmd__msg__subcmd__help__subcmd__action_commands" \
 "*::: :->action" \
 && ret=0
 
@@ -2308,6 +2374,10 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 && ret=0
 ;;
+(maximize-window-to-edges)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
 (set-column-width)
 _arguments "${_arguments_options[@]}" : \
 && ret=0
@@ -2408,6 +2478,10 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 && ret=0
 ;;
+(stop-cast)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
 (toggle-overview)
 _arguments "${_arguments_options[@]}" : \
 && ret=0
@@ -2442,7 +2516,7 @@ esac
 ;;
 (output)
 _arguments "${_arguments_options[@]}" : \
-":: :_niri__msg__help__output_commands" \
+":: :_niri__subcmd__msg__subcmd__help__subcmd__output_commands" \
 "*::: :->output" \
 && ret=0
 
@@ -2464,6 +2538,14 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 && ret=0
 ;;
+(custom-mode)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(modeline)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
 (scale)
 _arguments "${_arguments_options[@]}" : \
 && ret=0
@@ -2474,7 +2556,7 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (position)
 _arguments "${_arguments_options[@]}" : \
-":: :_niri__msg__help__output__position_commands" \
+":: :_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__position_commands" \
 "*::: :->position" \
 && ret=0
 
@@ -2520,6 +2602,10 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 && ret=0
 ;;
+(casts)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
 (help)
 _arguments "${_arguments_options[@]}" : \
 && ret=0
@@ -2555,7 +2641,7 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (help)
 _arguments "${_arguments_options[@]}" : \
-":: :_niri__help_commands" \
+":: :_niri__subcmd__help_commands" \
 "*::: :->help" \
 && ret=0
 
@@ -2567,7 +2653,7 @@ _arguments "${_arguments_options[@]}" : \
         case $line[1] in
             (msg)
 _arguments "${_arguments_options[@]}" : \
-":: :_niri__help__msg_commands" \
+":: :_niri__subcmd__help__subcmd__msg_commands" \
 "*::: :->msg" \
 && ret=0
 
@@ -2615,7 +2701,7 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (action)
 _arguments "${_arguments_options[@]}" : \
-":: :_niri__help__msg__action_commands" \
+":: :_niri__subcmd__help__subcmd__msg__subcmd__action_commands" \
 "*::: :->action" \
 && ret=0
 
@@ -3053,6 +3139,10 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 && ret=0
 ;;
+(maximize-window-to-edges)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
 (set-column-width)
 _arguments "${_arguments_options[@]}" : \
 && ret=0
@@ -3153,6 +3243,10 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 && ret=0
 ;;
+(stop-cast)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
 (toggle-overview)
 _arguments "${_arguments_options[@]}" : \
 && ret=0
@@ -3187,7 +3281,7 @@ esac
 ;;
 (output)
 _arguments "${_arguments_options[@]}" : \
-":: :_niri__help__msg__output_commands" \
+":: :_niri__subcmd__help__subcmd__msg__subcmd__output_commands" \
 "*::: :->output" \
 && ret=0
 
@@ -3209,6 +3303,14 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 && ret=0
 ;;
+(custom-mode)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(modeline)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
 (scale)
 _arguments "${_arguments_options[@]}" : \
 && ret=0
@@ -3219,7 +3321,7 @@ _arguments "${_arguments_options[@]}" : \
 ;;
 (position)
 _arguments "${_arguments_options[@]}" : \
-":: :_niri__help__msg__output__position_commands" \
+":: :_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__position_commands" \
 "*::: :->position" \
 && ret=0
 
@@ -3265,6 +3367,10 @@ _arguments "${_arguments_options[@]}" : \
 _arguments "${_arguments_options[@]}" : \
 && ret=0
 ;;
+(casts)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
         esac
     ;;
 esac
@@ -3305,13 +3411,13 @@ _niri_commands() {
     )
     _describe -t commands 'niri commands' commands "$@"
 }
-(( $+functions[_niri__completions_commands] )) ||
-_niri__completions_commands() {
+(( $+functions[_niri__subcmd__completions_commands] )) ||
+_niri__subcmd__completions_commands() {
     local commands; commands=()
     _describe -t commands 'niri completions commands' commands "$@"
 }
-(( $+functions[_niri__help_commands] )) ||
-_niri__help_commands() {
+(( $+functions[_niri__subcmd__help_commands] )) ||
+_niri__subcmd__help_commands() {
     local commands; commands=(
 'msg:Communicate with the running niri instance' \
 'validate:Validate the config file' \
@@ -3321,18 +3427,18 @@ _niri__help_commands() {
     )
     _describe -t commands 'niri help commands' commands "$@"
 }
-(( $+functions[_niri__help__completions_commands] )) ||
-_niri__help__completions_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__completions_commands] )) ||
+_niri__subcmd__help__subcmd__completions_commands() {
     local commands; commands=()
     _describe -t commands 'niri help completions commands' commands "$@"
 }
-(( $+functions[_niri__help__help_commands] )) ||
-_niri__help__help_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__help_commands] )) ||
+_niri__subcmd__help__subcmd__help_commands() {
     local commands; commands=()
     _describe -t commands 'niri help help commands' commands "$@"
 }
-(( $+functions[_niri__help__msg_commands] )) ||
-_niri__help__msg_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg_commands] )) ||
+_niri__subcmd__help__subcmd__msg_commands() {
     local commands; commands=(
 'outputs:List connected outputs' \
 'workspaces:List workspaces' \
@@ -3349,11 +3455,12 @@ _niri__help__msg_commands() {
 'version:Print the version of the running niri instance' \
 'request-error:Request an error from the running niri instance' \
 'overview-state:Print the overview state' \
+'casts:List screencasts' \
     )
     _describe -t commands 'niri help msg commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action_commands] )) ||
-_niri__help__msg__action_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action_commands() {
     local commands; commands=(
 'quit:Exit niri' \
 'power-off-monitors:Power off all monitors via DPMS' \
@@ -3408,7 +3515,7 @@ _niri__help__msg__action_commands() {
 'consume-or-expel-window-left:Consume or expel the focused window left' \
 'consume-or-expel-window-right:Consume or expel the focused window right' \
 'consume-window-into-column:Consume the window to the right into the focused column' \
-'expel-window-from-column:Expel the focused window from the column' \
+'expel-window-from-column:Expel the bottom window from the focused column' \
 'swap-window-right:Swap focused window with one to the right' \
 'swap-window-left:Swap focused window with one to the left' \
 'toggle-column-tabbed-display:Toggle the focused column between normal and tabbed display' \
@@ -3462,6 +3569,7 @@ _niri__help__msg__action_commands() {
 'switch-preset-window-height:Switch between preset window heights' \
 'switch-preset-window-height-back:Switch between preset window heights backwards' \
 'maximize-column:Toggle the maximized state of the focused column' \
+'maximize-window-to-edges:Toggle the maximized-to-edges state of the focused window' \
 'set-column-width:Change the width of the focused column' \
 'expand-column-to-available-width:Expand the focused column to space not taken up by other fully visible columns' \
 'switch-layout:Switch between keyboard layouts' \
@@ -3487,6 +3595,7 @@ _niri__help__msg__action_commands() {
 'set-dynamic-cast-window:Set the dynamic cast target to the focused window' \
 'set-dynamic-cast-monitor:Set the dynamic cast target to the focused monitor' \
 'clear-dynamic-cast-target:Clear the dynamic cast target, making it show nothing' \
+'stop-cast:Stop a PipeWire screencast' \
 'toggle-overview:Toggle (open/close) the Overview' \
 'open-overview:Open the Overview' \
 'close-overview:Close the Overview' \
@@ -3497,732 +3606,749 @@ _niri__help__msg__action_commands() {
     )
     _describe -t commands 'niri help msg action commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__center-column_commands] )) ||
-_niri__help__msg__action__center-column_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__center-column_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__center-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action center-column commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__center-visible-columns_commands] )) ||
-_niri__help__msg__action__center-visible-columns_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__center-visible-columns_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__center-visible-columns_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action center-visible-columns commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__center-window_commands] )) ||
-_niri__help__msg__action__center-window_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__center-window_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__center-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action center-window commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__clear-dynamic-cast-target_commands] )) ||
-_niri__help__msg__action__clear-dynamic-cast-target_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__clear-dynamic-cast-target_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__clear-dynamic-cast-target_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action clear-dynamic-cast-target commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__close-overview_commands] )) ||
-_niri__help__msg__action__close-overview_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__close-overview_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__close-overview_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action close-overview commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__close-window_commands] )) ||
-_niri__help__msg__action__close-window_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__close-window_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__close-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action close-window commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__consume-or-expel-window-left_commands] )) ||
-_niri__help__msg__action__consume-or-expel-window-left_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__consume-or-expel-window-left_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__consume-or-expel-window-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action consume-or-expel-window-left commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__consume-or-expel-window-right_commands] )) ||
-_niri__help__msg__action__consume-or-expel-window-right_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__consume-or-expel-window-right_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__consume-or-expel-window-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action consume-or-expel-window-right commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__consume-window-into-column_commands] )) ||
-_niri__help__msg__action__consume-window-into-column_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__consume-window-into-column_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__consume-window-into-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action consume-window-into-column commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__debug-toggle-damage_commands] )) ||
-_niri__help__msg__action__debug-toggle-damage_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__debug-toggle-damage_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__debug-toggle-damage_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action debug-toggle-damage commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__debug-toggle-opaque-regions_commands] )) ||
-_niri__help__msg__action__debug-toggle-opaque-regions_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__debug-toggle-opaque-regions_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__debug-toggle-opaque-regions_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action debug-toggle-opaque-regions commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__do-screen-transition_commands] )) ||
-_niri__help__msg__action__do-screen-transition_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__do-screen-transition_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__do-screen-transition_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action do-screen-transition commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__expand-column-to-available-width_commands] )) ||
-_niri__help__msg__action__expand-column-to-available-width_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__expand-column-to-available-width_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__expand-column-to-available-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action expand-column-to-available-width commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__expel-window-from-column_commands] )) ||
-_niri__help__msg__action__expel-window-from-column_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__expel-window-from-column_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__expel-window-from-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action expel-window-from-column commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-column_commands] )) ||
-_niri__help__msg__action__focus-column_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-column commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-column-first_commands] )) ||
-_niri__help__msg__action__focus-column-first_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-first_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-first_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-column-first commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-column-last_commands] )) ||
-_niri__help__msg__action__focus-column-last_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-last_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-last_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-column-last commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-column-left_commands] )) ||
-_niri__help__msg__action__focus-column-left_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-left_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-column-left commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-column-left-or-last_commands] )) ||
-_niri__help__msg__action__focus-column-left-or-last_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-left-or-last_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-left-or-last_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-column-left-or-last commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-column-or-monitor-left_commands] )) ||
-_niri__help__msg__action__focus-column-or-monitor-left_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-or-monitor-left_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-or-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-column-or-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-column-or-monitor-right_commands] )) ||
-_niri__help__msg__action__focus-column-or-monitor-right_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-or-monitor-right_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-or-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-column-or-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-column-right_commands] )) ||
-_niri__help__msg__action__focus-column-right_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-right_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-column-right commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-column-right-or-first_commands] )) ||
-_niri__help__msg__action__focus-column-right-or-first_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-right-or-first_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-column-right-or-first_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-column-right-or-first commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-floating_commands] )) ||
-_niri__help__msg__action__focus-floating_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-floating_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-floating_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-floating commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-monitor_commands] )) ||
-_niri__help__msg__action__focus-monitor_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-monitor commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-monitor-down_commands] )) ||
-_niri__help__msg__action__focus-monitor-down_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor-down_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-monitor-left_commands] )) ||
-_niri__help__msg__action__focus-monitor-left_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor-left_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-monitor-next_commands] )) ||
-_niri__help__msg__action__focus-monitor-next_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor-next_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-monitor-previous_commands] )) ||
-_niri__help__msg__action__focus-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor-previous_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-monitor-right_commands] )) ||
-_niri__help__msg__action__focus-monitor-right_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor-right_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-monitor-up_commands] )) ||
-_niri__help__msg__action__focus-monitor-up_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor-up_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-tiling_commands] )) ||
-_niri__help__msg__action__focus-tiling_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-tiling_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-tiling_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-tiling commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window_commands] )) ||
-_niri__help__msg__action__focus-window_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-bottom_commands] )) ||
-_niri__help__msg__action__focus-window-bottom_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-bottom_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-bottom_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-bottom commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-down_commands] )) ||
-_niri__help__msg__action__focus-window-down_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-down_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-down commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-down-or-column-left_commands] )) ||
-_niri__help__msg__action__focus-window-down-or-column-left_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-down-or-column-left_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-down-or-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-down-or-column-left commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-down-or-column-right_commands] )) ||
-_niri__help__msg__action__focus-window-down-or-column-right_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-down-or-column-right_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-down-or-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-down-or-column-right commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-down-or-top_commands] )) ||
-_niri__help__msg__action__focus-window-down-or-top_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-down-or-top_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-down-or-top_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-down-or-top commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-in-column_commands] )) ||
-_niri__help__msg__action__focus-window-in-column_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-in-column_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-in-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-in-column commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-or-monitor-down_commands] )) ||
-_niri__help__msg__action__focus-window-or-monitor-down_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-or-monitor-down_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-or-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-or-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-or-monitor-up_commands] )) ||
-_niri__help__msg__action__focus-window-or-monitor-up_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-or-monitor-up_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-or-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-or-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-or-workspace-down_commands] )) ||
-_niri__help__msg__action__focus-window-or-workspace-down_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-or-workspace-down_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-or-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-or-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-or-workspace-up_commands] )) ||
-_niri__help__msg__action__focus-window-or-workspace-up_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-or-workspace-up_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-or-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-or-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-previous_commands] )) ||
-_niri__help__msg__action__focus-window-previous_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-previous_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-previous commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-top_commands] )) ||
-_niri__help__msg__action__focus-window-top_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-top_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-top_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-top commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-up_commands] )) ||
-_niri__help__msg__action__focus-window-up_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-up_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-up commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-up-or-bottom_commands] )) ||
-_niri__help__msg__action__focus-window-up-or-bottom_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-up-or-bottom_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-up-or-bottom_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-up-or-bottom commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-up-or-column-left_commands] )) ||
-_niri__help__msg__action__focus-window-up-or-column-left_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-up-or-column-left_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-up-or-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-up-or-column-left commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-window-up-or-column-right_commands] )) ||
-_niri__help__msg__action__focus-window-up-or-column-right_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-up-or-column-right_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-window-up-or-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-window-up-or-column-right commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-workspace_commands] )) ||
-_niri__help__msg__action__focus-workspace_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-workspace_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-workspace_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-workspace commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-workspace-down_commands] )) ||
-_niri__help__msg__action__focus-workspace-down_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-workspace-down_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-workspace-previous_commands] )) ||
-_niri__help__msg__action__focus-workspace-previous_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-workspace-previous_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-workspace-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-workspace-previous commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__focus-workspace-up_commands] )) ||
-_niri__help__msg__action__focus-workspace-up_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-workspace-up_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__focus-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action focus-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__fullscreen-window_commands] )) ||
-_niri__help__msg__action__fullscreen-window_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__fullscreen-window_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__fullscreen-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action fullscreen-window commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__load-config-file_commands] )) ||
-_niri__help__msg__action__load-config-file_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__load-config-file_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__load-config-file_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action load-config-file commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__maximize-column_commands] )) ||
-_niri__help__msg__action__maximize-column_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__maximize-column_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__maximize-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action maximize-column commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-left_commands] )) ||
-_niri__help__msg__action__move-column-left_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__maximize-window-to-edges_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__maximize-window-to-edges_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri help msg action maximize-window-to-edges commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-left_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-left commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-left-or-to-monitor-left_commands] )) ||
-_niri__help__msg__action__move-column-left-or-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-left-or-to-monitor-left_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-left-or-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-left-or-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-right_commands] )) ||
-_niri__help__msg__action__move-column-right_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-right_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-right commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-right-or-to-monitor-right_commands] )) ||
-_niri__help__msg__action__move-column-right-or-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-right-or-to-monitor-right_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-right-or-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-right-or-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-to-first_commands] )) ||
-_niri__help__msg__action__move-column-to-first_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-first_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-first_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-to-first commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-to-index_commands] )) ||
-_niri__help__msg__action__move-column-to-index_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-index_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-index_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-to-index commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-to-last_commands] )) ||
-_niri__help__msg__action__move-column-to-last_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-last_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-last_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-to-last commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-to-monitor_commands] )) ||
-_niri__help__msg__action__move-column-to-monitor_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-to-monitor commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-to-monitor-down_commands] )) ||
-_niri__help__msg__action__move-column-to-monitor-down_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-down_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-to-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-to-monitor-left_commands] )) ||
-_niri__help__msg__action__move-column-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-left_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-to-monitor-next_commands] )) ||
-_niri__help__msg__action__move-column-to-monitor-next_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-next_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-to-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-to-monitor-previous_commands] )) ||
-_niri__help__msg__action__move-column-to-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-previous_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-to-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-to-monitor-right_commands] )) ||
-_niri__help__msg__action__move-column-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-right_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-to-monitor-up_commands] )) ||
-_niri__help__msg__action__move-column-to-monitor-up_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-up_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-to-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-to-workspace_commands] )) ||
-_niri__help__msg__action__move-column-to-workspace_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-workspace_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-workspace_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-to-workspace commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-to-workspace-down_commands] )) ||
-_niri__help__msg__action__move-column-to-workspace-down_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-workspace-down_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-to-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-column-to-workspace-up_commands] )) ||
-_niri__help__msg__action__move-column-to-workspace-up_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-workspace-up_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-column-to-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-column-to-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-floating-window_commands] )) ||
-_niri__help__msg__action__move-floating-window_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-floating-window_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-floating-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-floating-window commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-down_commands] )) ||
-_niri__help__msg__action__move-window-down_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-down_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-down commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-down-or-to-workspace-down_commands] )) ||
-_niri__help__msg__action__move-window-down-or-to-workspace-down_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-down-or-to-workspace-down_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-down-or-to-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-down-or-to-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-to-floating_commands] )) ||
-_niri__help__msg__action__move-window-to-floating_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-floating_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-floating_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-to-floating commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-to-monitor_commands] )) ||
-_niri__help__msg__action__move-window-to-monitor_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-to-monitor commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-to-monitor-down_commands] )) ||
-_niri__help__msg__action__move-window-to-monitor-down_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-down_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-to-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-to-monitor-left_commands] )) ||
-_niri__help__msg__action__move-window-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-left_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-to-monitor-next_commands] )) ||
-_niri__help__msg__action__move-window-to-monitor-next_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-next_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-to-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-to-monitor-previous_commands] )) ||
-_niri__help__msg__action__move-window-to-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-previous_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-to-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-to-monitor-right_commands] )) ||
-_niri__help__msg__action__move-window-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-right_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-to-monitor-up_commands] )) ||
-_niri__help__msg__action__move-window-to-monitor-up_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-up_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-to-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-to-tiling_commands] )) ||
-_niri__help__msg__action__move-window-to-tiling_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-tiling_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-tiling_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-to-tiling commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-to-workspace_commands] )) ||
-_niri__help__msg__action__move-window-to-workspace_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-workspace_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-workspace_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-to-workspace commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-to-workspace-down_commands] )) ||
-_niri__help__msg__action__move-window-to-workspace-down_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-workspace-down_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-to-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-to-workspace-up_commands] )) ||
-_niri__help__msg__action__move-window-to-workspace-up_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-workspace-up_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-to-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-to-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-up_commands] )) ||
-_niri__help__msg__action__move-window-up_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-up_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-up commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-window-up-or-to-workspace-up_commands] )) ||
-_niri__help__msg__action__move-window-up-or-to-workspace-up_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-up-or-to-workspace-up_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-window-up-or-to-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-window-up-or-to-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-workspace-down_commands] )) ||
-_niri__help__msg__action__move-workspace-down_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-down_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-workspace-to-index_commands] )) ||
-_niri__help__msg__action__move-workspace-to-index_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-index_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-index_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-workspace-to-index commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-workspace-to-monitor_commands] )) ||
-_niri__help__msg__action__move-workspace-to-monitor_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-workspace-to-monitor commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-workspace-to-monitor-down_commands] )) ||
-_niri__help__msg__action__move-workspace-to-monitor-down_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-down_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-workspace-to-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-workspace-to-monitor-left_commands] )) ||
-_niri__help__msg__action__move-workspace-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-left_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-workspace-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-workspace-to-monitor-next_commands] )) ||
-_niri__help__msg__action__move-workspace-to-monitor-next_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-next_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-workspace-to-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-workspace-to-monitor-previous_commands] )) ||
-_niri__help__msg__action__move-workspace-to-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-previous_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-workspace-to-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-workspace-to-monitor-right_commands] )) ||
-_niri__help__msg__action__move-workspace-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-right_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-workspace-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-workspace-to-monitor-up_commands] )) ||
-_niri__help__msg__action__move-workspace-to-monitor-up_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-up_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-workspace-to-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__move-workspace-up_commands] )) ||
-_niri__help__msg__action__move-workspace-up_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-up_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__move-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action move-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__open-overview_commands] )) ||
-_niri__help__msg__action__open-overview_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__open-overview_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__open-overview_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action open-overview commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__power-off-monitors_commands] )) ||
-_niri__help__msg__action__power-off-monitors_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__power-off-monitors_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__power-off-monitors_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action power-off-monitors commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__power-on-monitors_commands] )) ||
-_niri__help__msg__action__power-on-monitors_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__power-on-monitors_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__power-on-monitors_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action power-on-monitors commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__quit_commands] )) ||
-_niri__help__msg__action__quit_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__quit_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__quit_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action quit commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__reset-window-height_commands] )) ||
-_niri__help__msg__action__reset-window-height_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__reset-window-height_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__reset-window-height_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action reset-window-height commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__screenshot_commands] )) ||
-_niri__help__msg__action__screenshot_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__screenshot_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__screenshot_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action screenshot commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__screenshot-screen_commands] )) ||
-_niri__help__msg__action__screenshot-screen_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__screenshot-screen_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__screenshot-screen_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action screenshot-screen commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__screenshot-window_commands] )) ||
-_niri__help__msg__action__screenshot-window_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__screenshot-window_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__screenshot-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action screenshot-window commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__set-column-display_commands] )) ||
-_niri__help__msg__action__set-column-display_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-column-display_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-column-display_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action set-column-display commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__set-column-width_commands] )) ||
-_niri__help__msg__action__set-column-width_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-column-width_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-column-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action set-column-width commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__set-dynamic-cast-monitor_commands] )) ||
-_niri__help__msg__action__set-dynamic-cast-monitor_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-dynamic-cast-monitor_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-dynamic-cast-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action set-dynamic-cast-monitor commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__set-dynamic-cast-window_commands] )) ||
-_niri__help__msg__action__set-dynamic-cast-window_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-dynamic-cast-window_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-dynamic-cast-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action set-dynamic-cast-window commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__set-window-height_commands] )) ||
-_niri__help__msg__action__set-window-height_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-window-height_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-window-height_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action set-window-height commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__set-window-urgent_commands] )) ||
-_niri__help__msg__action__set-window-urgent_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-window-urgent_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-window-urgent_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action set-window-urgent commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__set-window-width_commands] )) ||
-_niri__help__msg__action__set-window-width_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-window-width_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-window-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action set-window-width commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__set-workspace-name_commands] )) ||
-_niri__help__msg__action__set-workspace-name_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-workspace-name_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__set-workspace-name_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action set-workspace-name commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__show-hotkey-overlay_commands] )) ||
-_niri__help__msg__action__show-hotkey-overlay_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__show-hotkey-overlay_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__show-hotkey-overlay_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action show-hotkey-overlay commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__spawn_commands] )) ||
-_niri__help__msg__action__spawn_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__spawn_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__spawn_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action spawn commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__spawn-sh_commands] )) ||
-_niri__help__msg__action__spawn-sh_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__spawn-sh_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__spawn-sh_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action spawn-sh commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__swap-window-left_commands] )) ||
-_niri__help__msg__action__swap-window-left_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__stop-cast_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__stop-cast_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri help msg action stop-cast commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__swap-window-left_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__swap-window-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action swap-window-left commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__swap-window-right_commands] )) ||
-_niri__help__msg__action__swap-window-right_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__swap-window-right_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__swap-window-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action swap-window-right commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__switch-focus-between-floating-and-tiling_commands] )) ||
-_niri__help__msg__action__switch-focus-between-floating-and-tiling_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-focus-between-floating-and-tiling_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-focus-between-floating-and-tiling_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action switch-focus-between-floating-and-tiling commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__switch-layout_commands] )) ||
-_niri__help__msg__action__switch-layout_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-layout_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-layout_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action switch-layout commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__switch-preset-column-width_commands] )) ||
-_niri__help__msg__action__switch-preset-column-width_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-preset-column-width_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-preset-column-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action switch-preset-column-width commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__switch-preset-column-width-back_commands] )) ||
-_niri__help__msg__action__switch-preset-column-width-back_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-preset-column-width-back_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-preset-column-width-back_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action switch-preset-column-width-back commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__switch-preset-window-height_commands] )) ||
-_niri__help__msg__action__switch-preset-window-height_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-preset-window-height_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-preset-window-height_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action switch-preset-window-height commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__switch-preset-window-height-back_commands] )) ||
-_niri__help__msg__action__switch-preset-window-height-back_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-preset-window-height-back_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-preset-window-height-back_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action switch-preset-window-height-back commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__switch-preset-window-width_commands] )) ||
-_niri__help__msg__action__switch-preset-window-width_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-preset-window-width_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-preset-window-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action switch-preset-window-width commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__switch-preset-window-width-back_commands] )) ||
-_niri__help__msg__action__switch-preset-window-width-back_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-preset-window-width-back_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__switch-preset-window-width-back_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action switch-preset-window-width-back commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__toggle-column-tabbed-display_commands] )) ||
-_niri__help__msg__action__toggle-column-tabbed-display_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-column-tabbed-display_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-column-tabbed-display_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action toggle-column-tabbed-display commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__toggle-debug-tint_commands] )) ||
-_niri__help__msg__action__toggle-debug-tint_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-debug-tint_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-debug-tint_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action toggle-debug-tint commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__toggle-keyboard-shortcuts-inhibit_commands] )) ||
-_niri__help__msg__action__toggle-keyboard-shortcuts-inhibit_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-keyboard-shortcuts-inhibit_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-keyboard-shortcuts-inhibit_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action toggle-keyboard-shortcuts-inhibit commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__toggle-overview_commands] )) ||
-_niri__help__msg__action__toggle-overview_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-overview_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-overview_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action toggle-overview commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__toggle-window-floating_commands] )) ||
-_niri__help__msg__action__toggle-window-floating_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-window-floating_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-window-floating_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action toggle-window-floating commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__toggle-window-rule-opacity_commands] )) ||
-_niri__help__msg__action__toggle-window-rule-opacity_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-window-rule-opacity_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-window-rule-opacity_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action toggle-window-rule-opacity commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__toggle-window-urgent_commands] )) ||
-_niri__help__msg__action__toggle-window-urgent_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-window-urgent_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-window-urgent_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action toggle-window-urgent commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__toggle-windowed-fullscreen_commands] )) ||
-_niri__help__msg__action__toggle-windowed-fullscreen_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-windowed-fullscreen_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__toggle-windowed-fullscreen_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action toggle-windowed-fullscreen commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__unset-window-urgent_commands] )) ||
-_niri__help__msg__action__unset-window-urgent_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__unset-window-urgent_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__unset-window-urgent_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action unset-window-urgent commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__action__unset-workspace-name_commands] )) ||
-_niri__help__msg__action__unset-workspace-name_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__unset-workspace-name_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__action__subcmd__unset-workspace-name_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg action unset-workspace-name commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__event-stream_commands] )) ||
-_niri__help__msg__event-stream_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__casts_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__casts_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri help msg casts commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__event-stream_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__event-stream_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg event-stream commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__focused-output_commands] )) ||
-_niri__help__msg__focused-output_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__focused-output_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__focused-output_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg focused-output commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__focused-window_commands] )) ||
-_niri__help__msg__focused-window_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__focused-window_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__focused-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg focused-window commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__keyboard-layouts_commands] )) ||
-_niri__help__msg__keyboard-layouts_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__keyboard-layouts_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__keyboard-layouts_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg keyboard-layouts commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__layers_commands] )) ||
-_niri__help__msg__layers_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__layers_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__layers_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg layers commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__output_commands] )) ||
-_niri__help__msg__output_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__output_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__output_commands() {
     local commands; commands=(
 'off:Turn off the output' \
 'on:Turn on the output' \
 'mode:Set the output mode' \
+'custom-mode:Set a custom output mode' \
+'modeline:Set a custom VESA CVT modeline' \
 'scale:Set the output scale' \
 'transform:Set the output transform' \
 'position:Set the output position' \
@@ -4230,106 +4356,116 @@ _niri__help__msg__output_commands() {
     )
     _describe -t commands 'niri help msg output commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__output__mode_commands] )) ||
-_niri__help__msg__output__mode_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__custom-mode_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__custom-mode_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri help msg output custom-mode commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__mode_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__mode_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg output mode commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__output__off_commands] )) ||
-_niri__help__msg__output__off_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__modeline_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__modeline_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri help msg output modeline commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__off_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__off_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg output off commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__output__on_commands] )) ||
-_niri__help__msg__output__on_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__on_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__on_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg output on commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__output__position_commands] )) ||
-_niri__help__msg__output__position_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__position_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__position_commands() {
     local commands; commands=(
 'auto:Position the output automatically' \
 'set:Set a specific position' \
     )
     _describe -t commands 'niri help msg output position commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__output__position__auto_commands] )) ||
-_niri__help__msg__output__position__auto_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__position__subcmd__auto_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__position__subcmd__auto_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg output position auto commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__output__position__set_commands] )) ||
-_niri__help__msg__output__position__set_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__position__subcmd__set_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__position__subcmd__set_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg output position set commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__output__scale_commands] )) ||
-_niri__help__msg__output__scale_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__scale_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__scale_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg output scale commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__output__transform_commands] )) ||
-_niri__help__msg__output__transform_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__transform_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__transform_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg output transform commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__output__vrr_commands] )) ||
-_niri__help__msg__output__vrr_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__vrr_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__output__subcmd__vrr_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg output vrr commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__outputs_commands] )) ||
-_niri__help__msg__outputs_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__outputs_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__outputs_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg outputs commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__overview-state_commands] )) ||
-_niri__help__msg__overview-state_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__overview-state_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__overview-state_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg overview-state commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__pick-color_commands] )) ||
-_niri__help__msg__pick-color_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__pick-color_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__pick-color_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg pick-color commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__pick-window_commands] )) ||
-_niri__help__msg__pick-window_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__pick-window_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__pick-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg pick-window commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__request-error_commands] )) ||
-_niri__help__msg__request-error_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__request-error_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__request-error_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg request-error commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__version_commands] )) ||
-_niri__help__msg__version_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__version_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__version_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg version commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__windows_commands] )) ||
-_niri__help__msg__windows_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__windows_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__windows_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg windows commands' commands "$@"
 }
-(( $+functions[_niri__help__msg__workspaces_commands] )) ||
-_niri__help__msg__workspaces_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__msg__subcmd__workspaces_commands] )) ||
+_niri__subcmd__help__subcmd__msg__subcmd__workspaces_commands() {
     local commands; commands=()
     _describe -t commands 'niri help msg workspaces commands' commands "$@"
 }
-(( $+functions[_niri__help__panic_commands] )) ||
-_niri__help__panic_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__panic_commands] )) ||
+_niri__subcmd__help__subcmd__panic_commands() {
     local commands; commands=()
     _describe -t commands 'niri help panic commands' commands "$@"
 }
-(( $+functions[_niri__help__validate_commands] )) ||
-_niri__help__validate_commands() {
+(( $+functions[_niri__subcmd__help__subcmd__validate_commands] )) ||
+_niri__subcmd__help__subcmd__validate_commands() {
     local commands; commands=()
     _describe -t commands 'niri help validate commands' commands "$@"
 }
-(( $+functions[_niri__msg_commands] )) ||
-_niri__msg_commands() {
+(( $+functions[_niri__subcmd__msg_commands] )) ||
+_niri__subcmd__msg_commands() {
     local commands; commands=(
 'outputs:List connected outputs' \
 'workspaces:List workspaces' \
@@ -4346,12 +4482,13 @@ _niri__msg_commands() {
 'version:Print the version of the running niri instance' \
 'request-error:Request an error from the running niri instance' \
 'overview-state:Print the overview state' \
+'casts:List screencasts' \
 'help:Print this message or the help of the given subcommand(s)' \
     )
     _describe -t commands 'niri msg commands' commands "$@"
 }
-(( $+functions[_niri__msg__action_commands] )) ||
-_niri__msg__action_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action_commands] )) ||
+_niri__subcmd__msg__subcmd__action_commands() {
     local commands; commands=(
 'quit:Exit niri' \
 'power-off-monitors:Power off all monitors via DPMS' \
@@ -4406,7 +4543,7 @@ _niri__msg__action_commands() {
 'consume-or-expel-window-left:Consume or expel the focused window left' \
 'consume-or-expel-window-right:Consume or expel the focused window right' \
 'consume-window-into-column:Consume the window to the right into the focused column' \
-'expel-window-from-column:Expel the focused window from the column' \
+'expel-window-from-column:Expel the bottom window from the focused column' \
 'swap-window-right:Swap focused window with one to the right' \
 'swap-window-left:Swap focused window with one to the left' \
 'toggle-column-tabbed-display:Toggle the focused column between normal and tabbed display' \
@@ -4460,6 +4597,7 @@ _niri__msg__action_commands() {
 'switch-preset-window-height:Switch between preset window heights' \
 'switch-preset-window-height-back:Switch between preset window heights backwards' \
 'maximize-column:Toggle the maximized state of the focused column' \
+'maximize-window-to-edges:Toggle the maximized-to-edges state of the focused window' \
 'set-column-width:Change the width of the focused column' \
 'expand-column-to-available-width:Expand the focused column to space not taken up by other fully visible columns' \
 'switch-layout:Switch between keyboard layouts' \
@@ -4485,6 +4623,7 @@ _niri__msg__action_commands() {
 'set-dynamic-cast-window:Set the dynamic cast target to the focused window' \
 'set-dynamic-cast-monitor:Set the dynamic cast target to the focused monitor' \
 'clear-dynamic-cast-target:Clear the dynamic cast target, making it show nothing' \
+'stop-cast:Stop a PipeWire screencast' \
 'toggle-overview:Toggle (open/close) the Overview' \
 'open-overview:Open the Overview' \
 'close-overview:Close the Overview' \
@@ -4496,278 +4635,278 @@ _niri__msg__action_commands() {
     )
     _describe -t commands 'niri msg action commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__center-column_commands] )) ||
-_niri__msg__action__center-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__center-column_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__center-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action center-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__center-visible-columns_commands] )) ||
-_niri__msg__action__center-visible-columns_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__center-visible-columns_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__center-visible-columns_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action center-visible-columns commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__center-window_commands] )) ||
-_niri__msg__action__center-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__center-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__center-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action center-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__clear-dynamic-cast-target_commands] )) ||
-_niri__msg__action__clear-dynamic-cast-target_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__clear-dynamic-cast-target_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__clear-dynamic-cast-target_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action clear-dynamic-cast-target commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__close-overview_commands] )) ||
-_niri__msg__action__close-overview_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__close-overview_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__close-overview_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action close-overview commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__close-window_commands] )) ||
-_niri__msg__action__close-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__close-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__close-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action close-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__consume-or-expel-window-left_commands] )) ||
-_niri__msg__action__consume-or-expel-window-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__consume-or-expel-window-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__consume-or-expel-window-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action consume-or-expel-window-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__consume-or-expel-window-right_commands] )) ||
-_niri__msg__action__consume-or-expel-window-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__consume-or-expel-window-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__consume-or-expel-window-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action consume-or-expel-window-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__consume-window-into-column_commands] )) ||
-_niri__msg__action__consume-window-into-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__consume-window-into-column_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__consume-window-into-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action consume-window-into-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__debug-toggle-damage_commands] )) ||
-_niri__msg__action__debug-toggle-damage_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__debug-toggle-damage_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__debug-toggle-damage_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action debug-toggle-damage commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__debug-toggle-opaque-regions_commands] )) ||
-_niri__msg__action__debug-toggle-opaque-regions_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__debug-toggle-opaque-regions_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__debug-toggle-opaque-regions_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action debug-toggle-opaque-regions commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__do-screen-transition_commands] )) ||
-_niri__msg__action__do-screen-transition_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__do-screen-transition_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__do-screen-transition_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action do-screen-transition commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__expand-column-to-available-width_commands] )) ||
-_niri__msg__action__expand-column-to-available-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__expand-column-to-available-width_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__expand-column-to-available-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action expand-column-to-available-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__expel-window-from-column_commands] )) ||
-_niri__msg__action__expel-window-from-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__expel-window-from-column_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__expel-window-from-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action expel-window-from-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-column_commands] )) ||
-_niri__msg__action__focus-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-column_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-column-first_commands] )) ||
-_niri__msg__action__focus-column-first_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-column-first_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-column-first_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-column-first commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-column-last_commands] )) ||
-_niri__msg__action__focus-column-last_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-column-last_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-column-last_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-column-last commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-column-left_commands] )) ||
-_niri__msg__action__focus-column-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-column-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-column-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-column-left-or-last_commands] )) ||
-_niri__msg__action__focus-column-left-or-last_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-column-left-or-last_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-column-left-or-last_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-column-left-or-last commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-column-or-monitor-left_commands] )) ||
-_niri__msg__action__focus-column-or-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-column-or-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-column-or-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-column-or-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-column-or-monitor-right_commands] )) ||
-_niri__msg__action__focus-column-or-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-column-or-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-column-or-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-column-or-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-column-right_commands] )) ||
-_niri__msg__action__focus-column-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-column-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-column-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-column-right-or-first_commands] )) ||
-_niri__msg__action__focus-column-right-or-first_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-column-right-or-first_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-column-right-or-first_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-column-right-or-first commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-floating_commands] )) ||
-_niri__msg__action__focus-floating_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-floating_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-floating_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-floating commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-monitor_commands] )) ||
-_niri__msg__action__focus-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-monitor-down_commands] )) ||
-_niri__msg__action__focus-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-monitor-left_commands] )) ||
-_niri__msg__action__focus-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-monitor-next_commands] )) ||
-_niri__msg__action__focus-monitor-next_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor-next_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-monitor-previous_commands] )) ||
-_niri__msg__action__focus-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-monitor-right_commands] )) ||
-_niri__msg__action__focus-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-monitor-up_commands] )) ||
-_niri__msg__action__focus-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-tiling_commands] )) ||
-_niri__msg__action__focus-tiling_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-tiling_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-tiling_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-tiling commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window_commands] )) ||
-_niri__msg__action__focus-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-bottom_commands] )) ||
-_niri__msg__action__focus-window-bottom_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-bottom_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-bottom_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-bottom commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-down_commands] )) ||
-_niri__msg__action__focus-window-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-down-or-column-left_commands] )) ||
-_niri__msg__action__focus-window-down-or-column-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-down-or-column-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-down-or-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-down-or-column-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-down-or-column-right_commands] )) ||
-_niri__msg__action__focus-window-down-or-column-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-down-or-column-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-down-or-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-down-or-column-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-down-or-top_commands] )) ||
-_niri__msg__action__focus-window-down-or-top_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-down-or-top_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-down-or-top_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-down-or-top commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-in-column_commands] )) ||
-_niri__msg__action__focus-window-in-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-in-column_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-in-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-in-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-or-monitor-down_commands] )) ||
-_niri__msg__action__focus-window-or-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-or-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-or-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-or-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-or-monitor-up_commands] )) ||
-_niri__msg__action__focus-window-or-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-or-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-or-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-or-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-or-workspace-down_commands] )) ||
-_niri__msg__action__focus-window-or-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-or-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-or-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-or-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-or-workspace-up_commands] )) ||
-_niri__msg__action__focus-window-or-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-or-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-or-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-or-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-previous_commands] )) ||
-_niri__msg__action__focus-window-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-top_commands] )) ||
-_niri__msg__action__focus-window-top_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-top_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-top_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-top commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-up_commands] )) ||
-_niri__msg__action__focus-window-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-up-or-bottom_commands] )) ||
-_niri__msg__action__focus-window-up-or-bottom_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-up-or-bottom_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-up-or-bottom_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-up-or-bottom commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-up-or-column-left_commands] )) ||
-_niri__msg__action__focus-window-up-or-column-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-up-or-column-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-up-or-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-up-or-column-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-window-up-or-column-right_commands] )) ||
-_niri__msg__action__focus-window-up-or-column-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-window-up-or-column-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-window-up-or-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-window-up-or-column-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-workspace_commands] )) ||
-_niri__msg__action__focus-workspace_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-workspace_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-workspace_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-workspace commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-workspace-down_commands] )) ||
-_niri__msg__action__focus-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-workspace-previous_commands] )) ||
-_niri__msg__action__focus-workspace-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-workspace-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-workspace-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-workspace-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__focus-workspace-up_commands] )) ||
-_niri__msg__action__focus-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__focus-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__focus-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action focus-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__fullscreen-window_commands] )) ||
-_niri__msg__action__fullscreen-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__fullscreen-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__fullscreen-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action fullscreen-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help_commands] )) ||
-_niri__msg__action__help_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help_commands() {
     local commands; commands=(
 'quit:Exit niri' \
 'power-off-monitors:Power off all monitors via DPMS' \
@@ -4822,7 +4961,7 @@ _niri__msg__action__help_commands() {
 'consume-or-expel-window-left:Consume or expel the focused window left' \
 'consume-or-expel-window-right:Consume or expel the focused window right' \
 'consume-window-into-column:Consume the window to the right into the focused column' \
-'expel-window-from-column:Expel the focused window from the column' \
+'expel-window-from-column:Expel the bottom window from the focused column' \
 'swap-window-right:Swap focused window with one to the right' \
 'swap-window-left:Swap focused window with one to the left' \
 'toggle-column-tabbed-display:Toggle the focused column between normal and tabbed display' \
@@ -4876,6 +5015,7 @@ _niri__msg__action__help_commands() {
 'switch-preset-window-height:Switch between preset window heights' \
 'switch-preset-window-height-back:Switch between preset window heights backwards' \
 'maximize-column:Toggle the maximized state of the focused column' \
+'maximize-window-to-edges:Toggle the maximized-to-edges state of the focused window' \
 'set-column-width:Change the width of the focused column' \
 'expand-column-to-available-width:Expand the focused column to space not taken up by other fully visible columns' \
 'switch-layout:Switch between keyboard layouts' \
@@ -4901,6 +5041,7 @@ _niri__msg__action__help_commands() {
 'set-dynamic-cast-window:Set the dynamic cast target to the focused window' \
 'set-dynamic-cast-monitor:Set the dynamic cast target to the focused monitor' \
 'clear-dynamic-cast-target:Clear the dynamic cast target, making it show nothing' \
+'stop-cast:Stop a PipeWire screencast' \
 'toggle-overview:Toggle (open/close) the Overview' \
 'open-overview:Open the Overview' \
 'close-overview:Close the Overview' \
@@ -4912,1148 +5053,1173 @@ _niri__msg__action__help_commands() {
     )
     _describe -t commands 'niri msg action help commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__center-column_commands] )) ||
-_niri__msg__action__help__center-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__center-column_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__center-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help center-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__center-visible-columns_commands] )) ||
-_niri__msg__action__help__center-visible-columns_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__center-visible-columns_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__center-visible-columns_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help center-visible-columns commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__center-window_commands] )) ||
-_niri__msg__action__help__center-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__center-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__center-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help center-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__clear-dynamic-cast-target_commands] )) ||
-_niri__msg__action__help__clear-dynamic-cast-target_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__clear-dynamic-cast-target_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__clear-dynamic-cast-target_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help clear-dynamic-cast-target commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__close-overview_commands] )) ||
-_niri__msg__action__help__close-overview_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__close-overview_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__close-overview_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help close-overview commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__close-window_commands] )) ||
-_niri__msg__action__help__close-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__close-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__close-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help close-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__consume-or-expel-window-left_commands] )) ||
-_niri__msg__action__help__consume-or-expel-window-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__consume-or-expel-window-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__consume-or-expel-window-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help consume-or-expel-window-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__consume-or-expel-window-right_commands] )) ||
-_niri__msg__action__help__consume-or-expel-window-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__consume-or-expel-window-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__consume-or-expel-window-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help consume-or-expel-window-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__consume-window-into-column_commands] )) ||
-_niri__msg__action__help__consume-window-into-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__consume-window-into-column_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__consume-window-into-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help consume-window-into-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__debug-toggle-damage_commands] )) ||
-_niri__msg__action__help__debug-toggle-damage_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__debug-toggle-damage_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__debug-toggle-damage_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help debug-toggle-damage commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__debug-toggle-opaque-regions_commands] )) ||
-_niri__msg__action__help__debug-toggle-opaque-regions_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__debug-toggle-opaque-regions_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__debug-toggle-opaque-regions_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help debug-toggle-opaque-regions commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__do-screen-transition_commands] )) ||
-_niri__msg__action__help__do-screen-transition_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__do-screen-transition_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__do-screen-transition_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help do-screen-transition commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__expand-column-to-available-width_commands] )) ||
-_niri__msg__action__help__expand-column-to-available-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__expand-column-to-available-width_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__expand-column-to-available-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help expand-column-to-available-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__expel-window-from-column_commands] )) ||
-_niri__msg__action__help__expel-window-from-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__expel-window-from-column_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__expel-window-from-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help expel-window-from-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-column_commands] )) ||
-_niri__msg__action__help__focus-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-column-first_commands] )) ||
-_niri__msg__action__help__focus-column-first_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-first_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-first_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-column-first commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-column-last_commands] )) ||
-_niri__msg__action__help__focus-column-last_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-last_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-last_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-column-last commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-column-left_commands] )) ||
-_niri__msg__action__help__focus-column-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-column-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-column-left-or-last_commands] )) ||
-_niri__msg__action__help__focus-column-left-or-last_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-left-or-last_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-left-or-last_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-column-left-or-last commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-column-or-monitor-left_commands] )) ||
-_niri__msg__action__help__focus-column-or-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-or-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-or-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-column-or-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-column-or-monitor-right_commands] )) ||
-_niri__msg__action__help__focus-column-or-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-or-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-or-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-column-or-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-column-right_commands] )) ||
-_niri__msg__action__help__focus-column-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-column-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-column-right-or-first_commands] )) ||
-_niri__msg__action__help__focus-column-right-or-first_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-right-or-first_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-column-right-or-first_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-column-right-or-first commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-floating_commands] )) ||
-_niri__msg__action__help__focus-floating_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-floating_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-floating_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-floating commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-monitor_commands] )) ||
-_niri__msg__action__help__focus-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-monitor-down_commands] )) ||
-_niri__msg__action__help__focus-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-monitor-left_commands] )) ||
-_niri__msg__action__help__focus-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-monitor-next_commands] )) ||
-_niri__msg__action__help__focus-monitor-next_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor-next_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-monitor-previous_commands] )) ||
-_niri__msg__action__help__focus-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-monitor-right_commands] )) ||
-_niri__msg__action__help__focus-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-monitor-up_commands] )) ||
-_niri__msg__action__help__focus-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-tiling_commands] )) ||
-_niri__msg__action__help__focus-tiling_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-tiling_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-tiling_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-tiling commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window_commands] )) ||
-_niri__msg__action__help__focus-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-bottom_commands] )) ||
-_niri__msg__action__help__focus-window-bottom_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-bottom_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-bottom_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-bottom commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-down_commands] )) ||
-_niri__msg__action__help__focus-window-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-down-or-column-left_commands] )) ||
-_niri__msg__action__help__focus-window-down-or-column-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-down-or-column-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-down-or-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-down-or-column-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-down-or-column-right_commands] )) ||
-_niri__msg__action__help__focus-window-down-or-column-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-down-or-column-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-down-or-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-down-or-column-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-down-or-top_commands] )) ||
-_niri__msg__action__help__focus-window-down-or-top_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-down-or-top_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-down-or-top_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-down-or-top commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-in-column_commands] )) ||
-_niri__msg__action__help__focus-window-in-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-in-column_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-in-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-in-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-or-monitor-down_commands] )) ||
-_niri__msg__action__help__focus-window-or-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-or-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-or-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-or-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-or-monitor-up_commands] )) ||
-_niri__msg__action__help__focus-window-or-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-or-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-or-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-or-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-or-workspace-down_commands] )) ||
-_niri__msg__action__help__focus-window-or-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-or-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-or-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-or-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-or-workspace-up_commands] )) ||
-_niri__msg__action__help__focus-window-or-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-or-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-or-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-or-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-previous_commands] )) ||
-_niri__msg__action__help__focus-window-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-top_commands] )) ||
-_niri__msg__action__help__focus-window-top_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-top_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-top_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-top commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-up_commands] )) ||
-_niri__msg__action__help__focus-window-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-up-or-bottom_commands] )) ||
-_niri__msg__action__help__focus-window-up-or-bottom_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-up-or-bottom_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-up-or-bottom_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-up-or-bottom commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-up-or-column-left_commands] )) ||
-_niri__msg__action__help__focus-window-up-or-column-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-up-or-column-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-up-or-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-up-or-column-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-window-up-or-column-right_commands] )) ||
-_niri__msg__action__help__focus-window-up-or-column-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-up-or-column-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-window-up-or-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-window-up-or-column-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-workspace_commands] )) ||
-_niri__msg__action__help__focus-workspace_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-workspace_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-workspace_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-workspace commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-workspace-down_commands] )) ||
-_niri__msg__action__help__focus-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-workspace-previous_commands] )) ||
-_niri__msg__action__help__focus-workspace-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-workspace-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-workspace-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-workspace-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__focus-workspace-up_commands] )) ||
-_niri__msg__action__help__focus-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__focus-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help focus-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__fullscreen-window_commands] )) ||
-_niri__msg__action__help__fullscreen-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__fullscreen-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__fullscreen-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help fullscreen-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__help_commands] )) ||
-_niri__msg__action__help__help_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__help_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__help_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help help commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__load-config-file_commands] )) ||
-_niri__msg__action__help__load-config-file_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__load-config-file_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__load-config-file_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help load-config-file commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__maximize-column_commands] )) ||
-_niri__msg__action__help__maximize-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__maximize-column_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__maximize-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help maximize-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-left_commands] )) ||
-_niri__msg__action__help__move-column-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__maximize-window-to-edges_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__maximize-window-to-edges_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg action help maximize-window-to-edges commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-left-or-to-monitor-left_commands] )) ||
-_niri__msg__action__help__move-column-left-or-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-left-or-to-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-left-or-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-left-or-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-right_commands] )) ||
-_niri__msg__action__help__move-column-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-right-or-to-monitor-right_commands] )) ||
-_niri__msg__action__help__move-column-right-or-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-right-or-to-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-right-or-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-right-or-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-to-first_commands] )) ||
-_niri__msg__action__help__move-column-to-first_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-first_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-first_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-to-first commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-to-index_commands] )) ||
-_niri__msg__action__help__move-column-to-index_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-index_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-index_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-to-index commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-to-last_commands] )) ||
-_niri__msg__action__help__move-column-to-last_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-last_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-last_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-to-last commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-to-monitor_commands] )) ||
-_niri__msg__action__help__move-column-to-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-to-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-to-monitor-down_commands] )) ||
-_niri__msg__action__help__move-column-to-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-to-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-to-monitor-left_commands] )) ||
-_niri__msg__action__help__move-column-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-to-monitor-next_commands] )) ||
-_niri__msg__action__help__move-column-to-monitor-next_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor-next_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-to-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-to-monitor-previous_commands] )) ||
-_niri__msg__action__help__move-column-to-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-to-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-to-monitor-right_commands] )) ||
-_niri__msg__action__help__move-column-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-to-monitor-up_commands] )) ||
-_niri__msg__action__help__move-column-to-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-to-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-to-workspace_commands] )) ||
-_niri__msg__action__help__move-column-to-workspace_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-workspace_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-workspace_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-to-workspace commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-to-workspace-down_commands] )) ||
-_niri__msg__action__help__move-column-to-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-to-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-column-to-workspace-up_commands] )) ||
-_niri__msg__action__help__move-column-to-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-column-to-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-column-to-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-floating-window_commands] )) ||
-_niri__msg__action__help__move-floating-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-floating-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-floating-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-floating-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-down_commands] )) ||
-_niri__msg__action__help__move-window-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-down-or-to-workspace-down_commands] )) ||
-_niri__msg__action__help__move-window-down-or-to-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-down-or-to-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-down-or-to-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-down-or-to-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-to-floating_commands] )) ||
-_niri__msg__action__help__move-window-to-floating_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-floating_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-floating_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-to-floating commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-to-monitor_commands] )) ||
-_niri__msg__action__help__move-window-to-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-to-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-to-monitor-down_commands] )) ||
-_niri__msg__action__help__move-window-to-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-to-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-to-monitor-left_commands] )) ||
-_niri__msg__action__help__move-window-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-to-monitor-next_commands] )) ||
-_niri__msg__action__help__move-window-to-monitor-next_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor-next_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-to-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-to-monitor-previous_commands] )) ||
-_niri__msg__action__help__move-window-to-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-to-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-to-monitor-right_commands] )) ||
-_niri__msg__action__help__move-window-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-to-monitor-up_commands] )) ||
-_niri__msg__action__help__move-window-to-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-to-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-to-tiling_commands] )) ||
-_niri__msg__action__help__move-window-to-tiling_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-tiling_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-tiling_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-to-tiling commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-to-workspace_commands] )) ||
-_niri__msg__action__help__move-window-to-workspace_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-workspace_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-workspace_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-to-workspace commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-to-workspace-down_commands] )) ||
-_niri__msg__action__help__move-window-to-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-to-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-to-workspace-up_commands] )) ||
-_niri__msg__action__help__move-window-to-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-to-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-to-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-up_commands] )) ||
-_niri__msg__action__help__move-window-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-window-up-or-to-workspace-up_commands] )) ||
-_niri__msg__action__help__move-window-up-or-to-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-up-or-to-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-window-up-or-to-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-window-up-or-to-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-workspace-down_commands] )) ||
-_niri__msg__action__help__move-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-workspace-to-index_commands] )) ||
-_niri__msg__action__help__move-workspace-to-index_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-index_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-index_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-workspace-to-index commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-workspace-to-monitor_commands] )) ||
-_niri__msg__action__help__move-workspace-to-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-workspace-to-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-workspace-to-monitor-down_commands] )) ||
-_niri__msg__action__help__move-workspace-to-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-workspace-to-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-workspace-to-monitor-left_commands] )) ||
-_niri__msg__action__help__move-workspace-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-workspace-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-workspace-to-monitor-next_commands] )) ||
-_niri__msg__action__help__move-workspace-to-monitor-next_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor-next_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-workspace-to-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-workspace-to-monitor-previous_commands] )) ||
-_niri__msg__action__help__move-workspace-to-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-workspace-to-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-workspace-to-monitor-right_commands] )) ||
-_niri__msg__action__help__move-workspace-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-workspace-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-workspace-to-monitor-up_commands] )) ||
-_niri__msg__action__help__move-workspace-to-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-to-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-workspace-to-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__move-workspace-up_commands] )) ||
-_niri__msg__action__help__move-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__move-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help move-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__open-overview_commands] )) ||
-_niri__msg__action__help__open-overview_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__open-overview_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__open-overview_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help open-overview commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__power-off-monitors_commands] )) ||
-_niri__msg__action__help__power-off-monitors_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__power-off-monitors_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__power-off-monitors_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help power-off-monitors commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__power-on-monitors_commands] )) ||
-_niri__msg__action__help__power-on-monitors_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__power-on-monitors_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__power-on-monitors_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help power-on-monitors commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__quit_commands] )) ||
-_niri__msg__action__help__quit_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__quit_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__quit_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help quit commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__reset-window-height_commands] )) ||
-_niri__msg__action__help__reset-window-height_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__reset-window-height_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__reset-window-height_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help reset-window-height commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__screenshot_commands] )) ||
-_niri__msg__action__help__screenshot_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__screenshot_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__screenshot_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help screenshot commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__screenshot-screen_commands] )) ||
-_niri__msg__action__help__screenshot-screen_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__screenshot-screen_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__screenshot-screen_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help screenshot-screen commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__screenshot-window_commands] )) ||
-_niri__msg__action__help__screenshot-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__screenshot-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__screenshot-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help screenshot-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__set-column-display_commands] )) ||
-_niri__msg__action__help__set-column-display_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-column-display_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-column-display_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help set-column-display commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__set-column-width_commands] )) ||
-_niri__msg__action__help__set-column-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-column-width_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-column-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help set-column-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__set-dynamic-cast-monitor_commands] )) ||
-_niri__msg__action__help__set-dynamic-cast-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-dynamic-cast-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-dynamic-cast-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help set-dynamic-cast-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__set-dynamic-cast-window_commands] )) ||
-_niri__msg__action__help__set-dynamic-cast-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-dynamic-cast-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-dynamic-cast-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help set-dynamic-cast-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__set-window-height_commands] )) ||
-_niri__msg__action__help__set-window-height_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-window-height_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-window-height_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help set-window-height commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__set-window-urgent_commands] )) ||
-_niri__msg__action__help__set-window-urgent_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-window-urgent_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-window-urgent_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help set-window-urgent commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__set-window-width_commands] )) ||
-_niri__msg__action__help__set-window-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-window-width_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-window-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help set-window-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__set-workspace-name_commands] )) ||
-_niri__msg__action__help__set-workspace-name_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-workspace-name_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__set-workspace-name_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help set-workspace-name commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__show-hotkey-overlay_commands] )) ||
-_niri__msg__action__help__show-hotkey-overlay_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__show-hotkey-overlay_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__show-hotkey-overlay_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help show-hotkey-overlay commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__spawn_commands] )) ||
-_niri__msg__action__help__spawn_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__spawn_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__spawn_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help spawn commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__spawn-sh_commands] )) ||
-_niri__msg__action__help__spawn-sh_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__spawn-sh_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__spawn-sh_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help spawn-sh commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__swap-window-left_commands] )) ||
-_niri__msg__action__help__swap-window-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__stop-cast_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__stop-cast_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg action help stop-cast commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__swap-window-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__swap-window-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help swap-window-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__swap-window-right_commands] )) ||
-_niri__msg__action__help__swap-window-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__swap-window-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__swap-window-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help swap-window-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__switch-focus-between-floating-and-tiling_commands] )) ||
-_niri__msg__action__help__switch-focus-between-floating-and-tiling_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-focus-between-floating-and-tiling_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-focus-between-floating-and-tiling_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help switch-focus-between-floating-and-tiling commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__switch-layout_commands] )) ||
-_niri__msg__action__help__switch-layout_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-layout_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-layout_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help switch-layout commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__switch-preset-column-width_commands] )) ||
-_niri__msg__action__help__switch-preset-column-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-preset-column-width_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-preset-column-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help switch-preset-column-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__switch-preset-column-width-back_commands] )) ||
-_niri__msg__action__help__switch-preset-column-width-back_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-preset-column-width-back_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-preset-column-width-back_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help switch-preset-column-width-back commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__switch-preset-window-height_commands] )) ||
-_niri__msg__action__help__switch-preset-window-height_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-preset-window-height_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-preset-window-height_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help switch-preset-window-height commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__switch-preset-window-height-back_commands] )) ||
-_niri__msg__action__help__switch-preset-window-height-back_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-preset-window-height-back_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-preset-window-height-back_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help switch-preset-window-height-back commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__switch-preset-window-width_commands] )) ||
-_niri__msg__action__help__switch-preset-window-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-preset-window-width_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-preset-window-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help switch-preset-window-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__switch-preset-window-width-back_commands] )) ||
-_niri__msg__action__help__switch-preset-window-width-back_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-preset-window-width-back_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__switch-preset-window-width-back_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help switch-preset-window-width-back commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__toggle-column-tabbed-display_commands] )) ||
-_niri__msg__action__help__toggle-column-tabbed-display_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-column-tabbed-display_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-column-tabbed-display_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help toggle-column-tabbed-display commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__toggle-debug-tint_commands] )) ||
-_niri__msg__action__help__toggle-debug-tint_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-debug-tint_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-debug-tint_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help toggle-debug-tint commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__toggle-keyboard-shortcuts-inhibit_commands] )) ||
-_niri__msg__action__help__toggle-keyboard-shortcuts-inhibit_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-keyboard-shortcuts-inhibit_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-keyboard-shortcuts-inhibit_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help toggle-keyboard-shortcuts-inhibit commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__toggle-overview_commands] )) ||
-_niri__msg__action__help__toggle-overview_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-overview_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-overview_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help toggle-overview commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__toggle-window-floating_commands] )) ||
-_niri__msg__action__help__toggle-window-floating_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-window-floating_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-window-floating_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help toggle-window-floating commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__toggle-window-rule-opacity_commands] )) ||
-_niri__msg__action__help__toggle-window-rule-opacity_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-window-rule-opacity_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-window-rule-opacity_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help toggle-window-rule-opacity commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__toggle-window-urgent_commands] )) ||
-_niri__msg__action__help__toggle-window-urgent_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-window-urgent_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-window-urgent_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help toggle-window-urgent commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__toggle-windowed-fullscreen_commands] )) ||
-_niri__msg__action__help__toggle-windowed-fullscreen_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-windowed-fullscreen_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__toggle-windowed-fullscreen_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help toggle-windowed-fullscreen commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__unset-window-urgent_commands] )) ||
-_niri__msg__action__help__unset-window-urgent_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__unset-window-urgent_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__unset-window-urgent_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help unset-window-urgent commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__help__unset-workspace-name_commands] )) ||
-_niri__msg__action__help__unset-workspace-name_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__unset-workspace-name_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__help__subcmd__unset-workspace-name_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action help unset-workspace-name commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__load-config-file_commands] )) ||
-_niri__msg__action__load-config-file_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__load-config-file_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__load-config-file_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action load-config-file commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__maximize-column_commands] )) ||
-_niri__msg__action__maximize-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__maximize-column_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__maximize-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action maximize-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-left_commands] )) ||
-_niri__msg__action__move-column-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__maximize-window-to-edges_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__maximize-window-to-edges_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg action maximize-window-to-edges commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-left-or-to-monitor-left_commands] )) ||
-_niri__msg__action__move-column-left-or-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-left-or-to-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-left-or-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-left-or-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-right_commands] )) ||
-_niri__msg__action__move-column-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-right-or-to-monitor-right_commands] )) ||
-_niri__msg__action__move-column-right-or-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-right-or-to-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-right-or-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-right-or-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-to-first_commands] )) ||
-_niri__msg__action__move-column-to-first_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-first_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-first_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-to-first commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-to-index_commands] )) ||
-_niri__msg__action__move-column-to-index_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-index_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-index_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-to-index commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-to-last_commands] )) ||
-_niri__msg__action__move-column-to-last_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-last_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-last_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-to-last commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-to-monitor_commands] )) ||
-_niri__msg__action__move-column-to-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-to-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-to-monitor-down_commands] )) ||
-_niri__msg__action__move-column-to-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-to-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-to-monitor-left_commands] )) ||
-_niri__msg__action__move-column-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-to-monitor-next_commands] )) ||
-_niri__msg__action__move-column-to-monitor-next_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-next_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-to-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-to-monitor-previous_commands] )) ||
-_niri__msg__action__move-column-to-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-to-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-to-monitor-right_commands] )) ||
-_niri__msg__action__move-column-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-to-monitor-up_commands] )) ||
-_niri__msg__action__move-column-to-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-to-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-to-workspace_commands] )) ||
-_niri__msg__action__move-column-to-workspace_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-workspace_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-workspace_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-to-workspace commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-to-workspace-down_commands] )) ||
-_niri__msg__action__move-column-to-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-to-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-column-to-workspace-up_commands] )) ||
-_niri__msg__action__move-column-to-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-column-to-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-column-to-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-floating-window_commands] )) ||
-_niri__msg__action__move-floating-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-floating-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-floating-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-floating-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-down_commands] )) ||
-_niri__msg__action__move-window-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-down-or-to-workspace-down_commands] )) ||
-_niri__msg__action__move-window-down-or-to-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-down-or-to-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-down-or-to-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-down-or-to-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-to-floating_commands] )) ||
-_niri__msg__action__move-window-to-floating_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-floating_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-floating_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-to-floating commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-to-monitor_commands] )) ||
-_niri__msg__action__move-window-to-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-to-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-to-monitor-down_commands] )) ||
-_niri__msg__action__move-window-to-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-to-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-to-monitor-left_commands] )) ||
-_niri__msg__action__move-window-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-to-monitor-next_commands] )) ||
-_niri__msg__action__move-window-to-monitor-next_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-next_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-to-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-to-monitor-previous_commands] )) ||
-_niri__msg__action__move-window-to-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-to-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-to-monitor-right_commands] )) ||
-_niri__msg__action__move-window-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-to-monitor-up_commands] )) ||
-_niri__msg__action__move-window-to-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-to-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-to-tiling_commands] )) ||
-_niri__msg__action__move-window-to-tiling_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-tiling_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-tiling_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-to-tiling commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-to-workspace_commands] )) ||
-_niri__msg__action__move-window-to-workspace_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-workspace_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-workspace_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-to-workspace commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-to-workspace-down_commands] )) ||
-_niri__msg__action__move-window-to-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-to-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-to-workspace-up_commands] )) ||
-_niri__msg__action__move-window-to-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-to-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-to-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-up_commands] )) ||
-_niri__msg__action__move-window-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-window-up-or-to-workspace-up_commands] )) ||
-_niri__msg__action__move-window-up-or-to-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-window-up-or-to-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-window-up-or-to-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-window-up-or-to-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-workspace-down_commands] )) ||
-_niri__msg__action__move-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-workspace-to-index_commands] )) ||
-_niri__msg__action__move-workspace-to-index_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-index_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-index_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-workspace-to-index commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-workspace-to-monitor_commands] )) ||
-_niri__msg__action__move-workspace-to-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-workspace-to-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-workspace-to-monitor-down_commands] )) ||
-_niri__msg__action__move-workspace-to-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-workspace-to-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-workspace-to-monitor-left_commands] )) ||
-_niri__msg__action__move-workspace-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-workspace-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-workspace-to-monitor-next_commands] )) ||
-_niri__msg__action__move-workspace-to-monitor-next_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-next_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-workspace-to-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-workspace-to-monitor-previous_commands] )) ||
-_niri__msg__action__move-workspace-to-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-workspace-to-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-workspace-to-monitor-right_commands] )) ||
-_niri__msg__action__move-workspace-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-workspace-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-workspace-to-monitor-up_commands] )) ||
-_niri__msg__action__move-workspace-to-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-to-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-workspace-to-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__move-workspace-up_commands] )) ||
-_niri__msg__action__move-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__move-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action move-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__open-overview_commands] )) ||
-_niri__msg__action__open-overview_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__open-overview_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__open-overview_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action open-overview commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__power-off-monitors_commands] )) ||
-_niri__msg__action__power-off-monitors_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__power-off-monitors_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__power-off-monitors_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action power-off-monitors commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__power-on-monitors_commands] )) ||
-_niri__msg__action__power-on-monitors_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__power-on-monitors_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__power-on-monitors_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action power-on-monitors commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__quit_commands] )) ||
-_niri__msg__action__quit_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__quit_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__quit_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action quit commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__reset-window-height_commands] )) ||
-_niri__msg__action__reset-window-height_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__reset-window-height_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__reset-window-height_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action reset-window-height commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__screenshot_commands] )) ||
-_niri__msg__action__screenshot_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__screenshot_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__screenshot_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action screenshot commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__screenshot-screen_commands] )) ||
-_niri__msg__action__screenshot-screen_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__screenshot-screen_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__screenshot-screen_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action screenshot-screen commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__screenshot-window_commands] )) ||
-_niri__msg__action__screenshot-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__screenshot-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__screenshot-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action screenshot-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__set-column-display_commands] )) ||
-_niri__msg__action__set-column-display_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__set-column-display_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__set-column-display_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action set-column-display commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__set-column-width_commands] )) ||
-_niri__msg__action__set-column-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__set-column-width_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__set-column-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action set-column-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__set-dynamic-cast-monitor_commands] )) ||
-_niri__msg__action__set-dynamic-cast-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__set-dynamic-cast-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__set-dynamic-cast-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action set-dynamic-cast-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__set-dynamic-cast-window_commands] )) ||
-_niri__msg__action__set-dynamic-cast-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__set-dynamic-cast-window_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__set-dynamic-cast-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action set-dynamic-cast-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__set-window-height_commands] )) ||
-_niri__msg__action__set-window-height_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__set-window-height_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__set-window-height_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action set-window-height commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__set-window-urgent_commands] )) ||
-_niri__msg__action__set-window-urgent_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__set-window-urgent_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__set-window-urgent_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action set-window-urgent commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__set-window-width_commands] )) ||
-_niri__msg__action__set-window-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__set-window-width_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__set-window-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action set-window-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__set-workspace-name_commands] )) ||
-_niri__msg__action__set-workspace-name_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__set-workspace-name_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__set-workspace-name_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action set-workspace-name commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__show-hotkey-overlay_commands] )) ||
-_niri__msg__action__show-hotkey-overlay_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__show-hotkey-overlay_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__show-hotkey-overlay_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action show-hotkey-overlay commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__spawn_commands] )) ||
-_niri__msg__action__spawn_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__spawn_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__spawn_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action spawn commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__spawn-sh_commands] )) ||
-_niri__msg__action__spawn-sh_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__spawn-sh_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__spawn-sh_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action spawn-sh commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__swap-window-left_commands] )) ||
-_niri__msg__action__swap-window-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__stop-cast_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__stop-cast_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg action stop-cast commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__swap-window-left_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__swap-window-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action swap-window-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__swap-window-right_commands] )) ||
-_niri__msg__action__swap-window-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__swap-window-right_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__swap-window-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action swap-window-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__switch-focus-between-floating-and-tiling_commands] )) ||
-_niri__msg__action__switch-focus-between-floating-and-tiling_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__switch-focus-between-floating-and-tiling_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__switch-focus-between-floating-and-tiling_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action switch-focus-between-floating-and-tiling commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__switch-layout_commands] )) ||
-_niri__msg__action__switch-layout_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__switch-layout_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__switch-layout_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action switch-layout commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__switch-preset-column-width_commands] )) ||
-_niri__msg__action__switch-preset-column-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__switch-preset-column-width_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__switch-preset-column-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action switch-preset-column-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__switch-preset-column-width-back_commands] )) ||
-_niri__msg__action__switch-preset-column-width-back_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__switch-preset-column-width-back_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__switch-preset-column-width-back_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action switch-preset-column-width-back commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__switch-preset-window-height_commands] )) ||
-_niri__msg__action__switch-preset-window-height_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__switch-preset-window-height_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__switch-preset-window-height_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action switch-preset-window-height commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__switch-preset-window-height-back_commands] )) ||
-_niri__msg__action__switch-preset-window-height-back_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__switch-preset-window-height-back_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__switch-preset-window-height-back_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action switch-preset-window-height-back commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__switch-preset-window-width_commands] )) ||
-_niri__msg__action__switch-preset-window-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__switch-preset-window-width_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__switch-preset-window-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action switch-preset-window-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__switch-preset-window-width-back_commands] )) ||
-_niri__msg__action__switch-preset-window-width-back_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__switch-preset-window-width-back_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__switch-preset-window-width-back_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action switch-preset-window-width-back commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__toggle-column-tabbed-display_commands] )) ||
-_niri__msg__action__toggle-column-tabbed-display_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__toggle-column-tabbed-display_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__toggle-column-tabbed-display_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action toggle-column-tabbed-display commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__toggle-debug-tint_commands] )) ||
-_niri__msg__action__toggle-debug-tint_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__toggle-debug-tint_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__toggle-debug-tint_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action toggle-debug-tint commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__toggle-keyboard-shortcuts-inhibit_commands] )) ||
-_niri__msg__action__toggle-keyboard-shortcuts-inhibit_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__toggle-keyboard-shortcuts-inhibit_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__toggle-keyboard-shortcuts-inhibit_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action toggle-keyboard-shortcuts-inhibit commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__toggle-overview_commands] )) ||
-_niri__msg__action__toggle-overview_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__toggle-overview_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__toggle-overview_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action toggle-overview commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__toggle-window-floating_commands] )) ||
-_niri__msg__action__toggle-window-floating_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__toggle-window-floating_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__toggle-window-floating_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action toggle-window-floating commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__toggle-window-rule-opacity_commands] )) ||
-_niri__msg__action__toggle-window-rule-opacity_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__toggle-window-rule-opacity_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__toggle-window-rule-opacity_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action toggle-window-rule-opacity commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__toggle-window-urgent_commands] )) ||
-_niri__msg__action__toggle-window-urgent_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__toggle-window-urgent_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__toggle-window-urgent_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action toggle-window-urgent commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__toggle-windowed-fullscreen_commands] )) ||
-_niri__msg__action__toggle-windowed-fullscreen_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__toggle-windowed-fullscreen_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__toggle-windowed-fullscreen_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action toggle-windowed-fullscreen commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__unset-window-urgent_commands] )) ||
-_niri__msg__action__unset-window-urgent_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__unset-window-urgent_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__unset-window-urgent_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action unset-window-urgent commands' commands "$@"
 }
-(( $+functions[_niri__msg__action__unset-workspace-name_commands] )) ||
-_niri__msg__action__unset-workspace-name_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__action__subcmd__unset-workspace-name_commands] )) ||
+_niri__subcmd__msg__subcmd__action__subcmd__unset-workspace-name_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg action unset-workspace-name commands' commands "$@"
 }
-(( $+functions[_niri__msg__event-stream_commands] )) ||
-_niri__msg__event-stream_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__casts_commands] )) ||
+_niri__subcmd__msg__subcmd__casts_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg casts commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__event-stream_commands] )) ||
+_niri__subcmd__msg__subcmd__event-stream_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg event-stream commands' commands "$@"
 }
-(( $+functions[_niri__msg__focused-output_commands] )) ||
-_niri__msg__focused-output_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__focused-output_commands] )) ||
+_niri__subcmd__msg__subcmd__focused-output_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg focused-output commands' commands "$@"
 }
-(( $+functions[_niri__msg__focused-window_commands] )) ||
-_niri__msg__focused-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__focused-window_commands] )) ||
+_niri__subcmd__msg__subcmd__focused-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg focused-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__help_commands] )) ||
-_niri__msg__help_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help_commands] )) ||
+_niri__subcmd__msg__subcmd__help_commands() {
     local commands; commands=(
 'outputs:List connected outputs' \
 'workspaces:List workspaces' \
@@ -6070,12 +6236,13 @@ _niri__msg__help_commands() {
 'version:Print the version of the running niri instance' \
 'request-error:Request an error from the running niri instance' \
 'overview-state:Print the overview state' \
+'casts:List screencasts' \
 'help:Print this message or the help of the given subcommand(s)' \
     )
     _describe -t commands 'niri msg help commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action_commands] )) ||
-_niri__msg__help__action_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action_commands() {
     local commands; commands=(
 'quit:Exit niri' \
 'power-off-monitors:Power off all monitors via DPMS' \
@@ -6130,7 +6297,7 @@ _niri__msg__help__action_commands() {
 'consume-or-expel-window-left:Consume or expel the focused window left' \
 'consume-or-expel-window-right:Consume or expel the focused window right' \
 'consume-window-into-column:Consume the window to the right into the focused column' \
-'expel-window-from-column:Expel the focused window from the column' \
+'expel-window-from-column:Expel the bottom window from the focused column' \
 'swap-window-right:Swap focused window with one to the right' \
 'swap-window-left:Swap focused window with one to the left' \
 'toggle-column-tabbed-display:Toggle the focused column between normal and tabbed display' \
@@ -6184,6 +6351,7 @@ _niri__msg__help__action_commands() {
 'switch-preset-window-height:Switch between preset window heights' \
 'switch-preset-window-height-back:Switch between preset window heights backwards' \
 'maximize-column:Toggle the maximized state of the focused column' \
+'maximize-window-to-edges:Toggle the maximized-to-edges state of the focused window' \
 'set-column-width:Change the width of the focused column' \
 'expand-column-to-available-width:Expand the focused column to space not taken up by other fully visible columns' \
 'switch-layout:Switch between keyboard layouts' \
@@ -6209,6 +6377,7 @@ _niri__msg__help__action_commands() {
 'set-dynamic-cast-window:Set the dynamic cast target to the focused window' \
 'set-dynamic-cast-monitor:Set the dynamic cast target to the focused monitor' \
 'clear-dynamic-cast-target:Clear the dynamic cast target, making it show nothing' \
+'stop-cast:Stop a PipeWire screencast' \
 'toggle-overview:Toggle (open/close) the Overview' \
 'open-overview:Open the Overview' \
 'close-overview:Close the Overview' \
@@ -6219,737 +6388,754 @@ _niri__msg__help__action_commands() {
     )
     _describe -t commands 'niri msg help action commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__center-column_commands] )) ||
-_niri__msg__help__action__center-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__center-column_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__center-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action center-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__center-visible-columns_commands] )) ||
-_niri__msg__help__action__center-visible-columns_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__center-visible-columns_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__center-visible-columns_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action center-visible-columns commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__center-window_commands] )) ||
-_niri__msg__help__action__center-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__center-window_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__center-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action center-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__clear-dynamic-cast-target_commands] )) ||
-_niri__msg__help__action__clear-dynamic-cast-target_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__clear-dynamic-cast-target_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__clear-dynamic-cast-target_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action clear-dynamic-cast-target commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__close-overview_commands] )) ||
-_niri__msg__help__action__close-overview_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__close-overview_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__close-overview_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action close-overview commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__close-window_commands] )) ||
-_niri__msg__help__action__close-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__close-window_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__close-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action close-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__consume-or-expel-window-left_commands] )) ||
-_niri__msg__help__action__consume-or-expel-window-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__consume-or-expel-window-left_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__consume-or-expel-window-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action consume-or-expel-window-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__consume-or-expel-window-right_commands] )) ||
-_niri__msg__help__action__consume-or-expel-window-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__consume-or-expel-window-right_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__consume-or-expel-window-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action consume-or-expel-window-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__consume-window-into-column_commands] )) ||
-_niri__msg__help__action__consume-window-into-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__consume-window-into-column_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__consume-window-into-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action consume-window-into-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__debug-toggle-damage_commands] )) ||
-_niri__msg__help__action__debug-toggle-damage_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__debug-toggle-damage_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__debug-toggle-damage_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action debug-toggle-damage commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__debug-toggle-opaque-regions_commands] )) ||
-_niri__msg__help__action__debug-toggle-opaque-regions_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__debug-toggle-opaque-regions_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__debug-toggle-opaque-regions_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action debug-toggle-opaque-regions commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__do-screen-transition_commands] )) ||
-_niri__msg__help__action__do-screen-transition_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__do-screen-transition_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__do-screen-transition_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action do-screen-transition commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__expand-column-to-available-width_commands] )) ||
-_niri__msg__help__action__expand-column-to-available-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__expand-column-to-available-width_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__expand-column-to-available-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action expand-column-to-available-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__expel-window-from-column_commands] )) ||
-_niri__msg__help__action__expel-window-from-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__expel-window-from-column_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__expel-window-from-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action expel-window-from-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-column_commands] )) ||
-_niri__msg__help__action__focus-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-column-first_commands] )) ||
-_niri__msg__help__action__focus-column-first_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-first_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-first_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-column-first commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-column-last_commands] )) ||
-_niri__msg__help__action__focus-column-last_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-last_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-last_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-column-last commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-column-left_commands] )) ||
-_niri__msg__help__action__focus-column-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-left_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-column-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-column-left-or-last_commands] )) ||
-_niri__msg__help__action__focus-column-left-or-last_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-left-or-last_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-left-or-last_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-column-left-or-last commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-column-or-monitor-left_commands] )) ||
-_niri__msg__help__action__focus-column-or-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-or-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-or-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-column-or-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-column-or-monitor-right_commands] )) ||
-_niri__msg__help__action__focus-column-or-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-or-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-or-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-column-or-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-column-right_commands] )) ||
-_niri__msg__help__action__focus-column-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-right_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-column-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-column-right-or-first_commands] )) ||
-_niri__msg__help__action__focus-column-right-or-first_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-right-or-first_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-column-right-or-first_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-column-right-or-first commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-floating_commands] )) ||
-_niri__msg__help__action__focus-floating_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-floating_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-floating_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-floating commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-monitor_commands] )) ||
-_niri__msg__help__action__focus-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-monitor-down_commands] )) ||
-_niri__msg__help__action__focus-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-monitor-left_commands] )) ||
-_niri__msg__help__action__focus-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-monitor-next_commands] )) ||
-_niri__msg__help__action__focus-monitor-next_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor-next_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-monitor-previous_commands] )) ||
-_niri__msg__help__action__focus-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-monitor-right_commands] )) ||
-_niri__msg__help__action__focus-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-monitor-up_commands] )) ||
-_niri__msg__help__action__focus-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-tiling_commands] )) ||
-_niri__msg__help__action__focus-tiling_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-tiling_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-tiling_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-tiling commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window_commands] )) ||
-_niri__msg__help__action__focus-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-bottom_commands] )) ||
-_niri__msg__help__action__focus-window-bottom_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-bottom_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-bottom_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-bottom commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-down_commands] )) ||
-_niri__msg__help__action__focus-window-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-down_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-down-or-column-left_commands] )) ||
-_niri__msg__help__action__focus-window-down-or-column-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-down-or-column-left_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-down-or-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-down-or-column-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-down-or-column-right_commands] )) ||
-_niri__msg__help__action__focus-window-down-or-column-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-down-or-column-right_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-down-or-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-down-or-column-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-down-or-top_commands] )) ||
-_niri__msg__help__action__focus-window-down-or-top_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-down-or-top_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-down-or-top_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-down-or-top commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-in-column_commands] )) ||
-_niri__msg__help__action__focus-window-in-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-in-column_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-in-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-in-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-or-monitor-down_commands] )) ||
-_niri__msg__help__action__focus-window-or-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-or-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-or-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-or-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-or-monitor-up_commands] )) ||
-_niri__msg__help__action__focus-window-or-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-or-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-or-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-or-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-or-workspace-down_commands] )) ||
-_niri__msg__help__action__focus-window-or-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-or-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-or-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-or-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-or-workspace-up_commands] )) ||
-_niri__msg__help__action__focus-window-or-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-or-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-or-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-or-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-previous_commands] )) ||
-_niri__msg__help__action__focus-window-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-top_commands] )) ||
-_niri__msg__help__action__focus-window-top_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-top_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-top_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-top commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-up_commands] )) ||
-_niri__msg__help__action__focus-window-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-up_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-up-or-bottom_commands] )) ||
-_niri__msg__help__action__focus-window-up-or-bottom_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-up-or-bottom_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-up-or-bottom_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-up-or-bottom commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-up-or-column-left_commands] )) ||
-_niri__msg__help__action__focus-window-up-or-column-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-up-or-column-left_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-up-or-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-up-or-column-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-window-up-or-column-right_commands] )) ||
-_niri__msg__help__action__focus-window-up-or-column-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-up-or-column-right_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-window-up-or-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-window-up-or-column-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-workspace_commands] )) ||
-_niri__msg__help__action__focus-workspace_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-workspace_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-workspace_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-workspace commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-workspace-down_commands] )) ||
-_niri__msg__help__action__focus-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-workspace-previous_commands] )) ||
-_niri__msg__help__action__focus-workspace-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-workspace-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-workspace-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-workspace-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__focus-workspace-up_commands] )) ||
-_niri__msg__help__action__focus-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__focus-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action focus-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__fullscreen-window_commands] )) ||
-_niri__msg__help__action__fullscreen-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__fullscreen-window_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__fullscreen-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action fullscreen-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__load-config-file_commands] )) ||
-_niri__msg__help__action__load-config-file_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__load-config-file_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__load-config-file_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action load-config-file commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__maximize-column_commands] )) ||
-_niri__msg__help__action__maximize-column_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__maximize-column_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__maximize-column_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action maximize-column commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-left_commands] )) ||
-_niri__msg__help__action__move-column-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__maximize-window-to-edges_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__maximize-window-to-edges_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg help action maximize-window-to-edges commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-left_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-left-or-to-monitor-left_commands] )) ||
-_niri__msg__help__action__move-column-left-or-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-left-or-to-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-left-or-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-left-or-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-right_commands] )) ||
-_niri__msg__help__action__move-column-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-right_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-right-or-to-monitor-right_commands] )) ||
-_niri__msg__help__action__move-column-right-or-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-right-or-to-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-right-or-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-right-or-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-to-first_commands] )) ||
-_niri__msg__help__action__move-column-to-first_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-first_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-first_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-to-first commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-to-index_commands] )) ||
-_niri__msg__help__action__move-column-to-index_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-index_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-index_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-to-index commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-to-last_commands] )) ||
-_niri__msg__help__action__move-column-to-last_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-last_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-last_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-to-last commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-to-monitor_commands] )) ||
-_niri__msg__help__action__move-column-to-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-to-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-to-monitor-down_commands] )) ||
-_niri__msg__help__action__move-column-to-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-to-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-to-monitor-left_commands] )) ||
-_niri__msg__help__action__move-column-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-to-monitor-next_commands] )) ||
-_niri__msg__help__action__move-column-to-monitor-next_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor-next_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-to-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-to-monitor-previous_commands] )) ||
-_niri__msg__help__action__move-column-to-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-to-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-to-monitor-right_commands] )) ||
-_niri__msg__help__action__move-column-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-to-monitor-up_commands] )) ||
-_niri__msg__help__action__move-column-to-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-to-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-to-workspace_commands] )) ||
-_niri__msg__help__action__move-column-to-workspace_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-workspace_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-workspace_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-to-workspace commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-to-workspace-down_commands] )) ||
-_niri__msg__help__action__move-column-to-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-to-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-column-to-workspace-up_commands] )) ||
-_niri__msg__help__action__move-column-to-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-column-to-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-column-to-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-floating-window_commands] )) ||
-_niri__msg__help__action__move-floating-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-floating-window_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-floating-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-floating-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-down_commands] )) ||
-_niri__msg__help__action__move-window-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-down_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-down-or-to-workspace-down_commands] )) ||
-_niri__msg__help__action__move-window-down-or-to-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-down-or-to-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-down-or-to-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-down-or-to-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-to-floating_commands] )) ||
-_niri__msg__help__action__move-window-to-floating_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-floating_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-floating_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-to-floating commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-to-monitor_commands] )) ||
-_niri__msg__help__action__move-window-to-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-to-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-to-monitor-down_commands] )) ||
-_niri__msg__help__action__move-window-to-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-to-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-to-monitor-left_commands] )) ||
-_niri__msg__help__action__move-window-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-to-monitor-next_commands] )) ||
-_niri__msg__help__action__move-window-to-monitor-next_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor-next_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-to-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-to-monitor-previous_commands] )) ||
-_niri__msg__help__action__move-window-to-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-to-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-to-monitor-right_commands] )) ||
-_niri__msg__help__action__move-window-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-to-monitor-up_commands] )) ||
-_niri__msg__help__action__move-window-to-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-to-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-to-tiling_commands] )) ||
-_niri__msg__help__action__move-window-to-tiling_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-tiling_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-tiling_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-to-tiling commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-to-workspace_commands] )) ||
-_niri__msg__help__action__move-window-to-workspace_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-workspace_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-workspace_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-to-workspace commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-to-workspace-down_commands] )) ||
-_niri__msg__help__action__move-window-to-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-to-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-to-workspace-up_commands] )) ||
-_niri__msg__help__action__move-window-to-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-to-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-to-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-up_commands] )) ||
-_niri__msg__help__action__move-window-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-up_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-window-up-or-to-workspace-up_commands] )) ||
-_niri__msg__help__action__move-window-up-or-to-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-up-or-to-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-window-up-or-to-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-window-up-or-to-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-workspace-down_commands] )) ||
-_niri__msg__help__action__move-workspace-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-down_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-workspace-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-workspace-to-index_commands] )) ||
-_niri__msg__help__action__move-workspace-to-index_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-index_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-index_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-workspace-to-index commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-workspace-to-monitor_commands] )) ||
-_niri__msg__help__action__move-workspace-to-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-workspace-to-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-workspace-to-monitor-down_commands] )) ||
-_niri__msg__help__action__move-workspace-to-monitor-down_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor-down_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor-down_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-workspace-to-monitor-down commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-workspace-to-monitor-left_commands] )) ||
-_niri__msg__help__action__move-workspace-to-monitor-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor-left_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-workspace-to-monitor-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-workspace-to-monitor-next_commands] )) ||
-_niri__msg__help__action__move-workspace-to-monitor-next_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor-next_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor-next_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-workspace-to-monitor-next commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-workspace-to-monitor-previous_commands] )) ||
-_niri__msg__help__action__move-workspace-to-monitor-previous_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor-previous_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor-previous_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-workspace-to-monitor-previous commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-workspace-to-monitor-right_commands] )) ||
-_niri__msg__help__action__move-workspace-to-monitor-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor-right_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-workspace-to-monitor-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-workspace-to-monitor-up_commands] )) ||
-_niri__msg__help__action__move-workspace-to-monitor-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor-up_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-to-monitor-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-workspace-to-monitor-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__move-workspace-up_commands] )) ||
-_niri__msg__help__action__move-workspace-up_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-up_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__move-workspace-up_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action move-workspace-up commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__open-overview_commands] )) ||
-_niri__msg__help__action__open-overview_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__open-overview_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__open-overview_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action open-overview commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__power-off-monitors_commands] )) ||
-_niri__msg__help__action__power-off-monitors_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__power-off-monitors_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__power-off-monitors_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action power-off-monitors commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__power-on-monitors_commands] )) ||
-_niri__msg__help__action__power-on-monitors_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__power-on-monitors_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__power-on-monitors_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action power-on-monitors commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__quit_commands] )) ||
-_niri__msg__help__action__quit_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__quit_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__quit_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action quit commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__reset-window-height_commands] )) ||
-_niri__msg__help__action__reset-window-height_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__reset-window-height_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__reset-window-height_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action reset-window-height commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__screenshot_commands] )) ||
-_niri__msg__help__action__screenshot_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__screenshot_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__screenshot_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action screenshot commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__screenshot-screen_commands] )) ||
-_niri__msg__help__action__screenshot-screen_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__screenshot-screen_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__screenshot-screen_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action screenshot-screen commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__screenshot-window_commands] )) ||
-_niri__msg__help__action__screenshot-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__screenshot-window_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__screenshot-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action screenshot-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__set-column-display_commands] )) ||
-_niri__msg__help__action__set-column-display_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-column-display_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-column-display_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action set-column-display commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__set-column-width_commands] )) ||
-_niri__msg__help__action__set-column-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-column-width_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-column-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action set-column-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__set-dynamic-cast-monitor_commands] )) ||
-_niri__msg__help__action__set-dynamic-cast-monitor_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-dynamic-cast-monitor_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-dynamic-cast-monitor_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action set-dynamic-cast-monitor commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__set-dynamic-cast-window_commands] )) ||
-_niri__msg__help__action__set-dynamic-cast-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-dynamic-cast-window_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-dynamic-cast-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action set-dynamic-cast-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__set-window-height_commands] )) ||
-_niri__msg__help__action__set-window-height_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-window-height_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-window-height_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action set-window-height commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__set-window-urgent_commands] )) ||
-_niri__msg__help__action__set-window-urgent_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-window-urgent_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-window-urgent_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action set-window-urgent commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__set-window-width_commands] )) ||
-_niri__msg__help__action__set-window-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-window-width_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-window-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action set-window-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__set-workspace-name_commands] )) ||
-_niri__msg__help__action__set-workspace-name_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-workspace-name_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__set-workspace-name_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action set-workspace-name commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__show-hotkey-overlay_commands] )) ||
-_niri__msg__help__action__show-hotkey-overlay_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__show-hotkey-overlay_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__show-hotkey-overlay_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action show-hotkey-overlay commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__spawn_commands] )) ||
-_niri__msg__help__action__spawn_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__spawn_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__spawn_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action spawn commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__spawn-sh_commands] )) ||
-_niri__msg__help__action__spawn-sh_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__spawn-sh_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__spawn-sh_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action spawn-sh commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__swap-window-left_commands] )) ||
-_niri__msg__help__action__swap-window-left_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__stop-cast_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__stop-cast_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg help action stop-cast commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__swap-window-left_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__swap-window-left_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action swap-window-left commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__swap-window-right_commands] )) ||
-_niri__msg__help__action__swap-window-right_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__swap-window-right_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__swap-window-right_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action swap-window-right commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__switch-focus-between-floating-and-tiling_commands] )) ||
-_niri__msg__help__action__switch-focus-between-floating-and-tiling_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-focus-between-floating-and-tiling_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-focus-between-floating-and-tiling_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action switch-focus-between-floating-and-tiling commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__switch-layout_commands] )) ||
-_niri__msg__help__action__switch-layout_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-layout_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-layout_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action switch-layout commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__switch-preset-column-width_commands] )) ||
-_niri__msg__help__action__switch-preset-column-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-preset-column-width_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-preset-column-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action switch-preset-column-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__switch-preset-column-width-back_commands] )) ||
-_niri__msg__help__action__switch-preset-column-width-back_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-preset-column-width-back_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-preset-column-width-back_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action switch-preset-column-width-back commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__switch-preset-window-height_commands] )) ||
-_niri__msg__help__action__switch-preset-window-height_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-preset-window-height_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-preset-window-height_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action switch-preset-window-height commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__switch-preset-window-height-back_commands] )) ||
-_niri__msg__help__action__switch-preset-window-height-back_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-preset-window-height-back_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-preset-window-height-back_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action switch-preset-window-height-back commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__switch-preset-window-width_commands] )) ||
-_niri__msg__help__action__switch-preset-window-width_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-preset-window-width_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-preset-window-width_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action switch-preset-window-width commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__switch-preset-window-width-back_commands] )) ||
-_niri__msg__help__action__switch-preset-window-width-back_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-preset-window-width-back_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__switch-preset-window-width-back_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action switch-preset-window-width-back commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__toggle-column-tabbed-display_commands] )) ||
-_niri__msg__help__action__toggle-column-tabbed-display_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-column-tabbed-display_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-column-tabbed-display_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action toggle-column-tabbed-display commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__toggle-debug-tint_commands] )) ||
-_niri__msg__help__action__toggle-debug-tint_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-debug-tint_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-debug-tint_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action toggle-debug-tint commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__toggle-keyboard-shortcuts-inhibit_commands] )) ||
-_niri__msg__help__action__toggle-keyboard-shortcuts-inhibit_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-keyboard-shortcuts-inhibit_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-keyboard-shortcuts-inhibit_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action toggle-keyboard-shortcuts-inhibit commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__toggle-overview_commands] )) ||
-_niri__msg__help__action__toggle-overview_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-overview_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-overview_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action toggle-overview commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__toggle-window-floating_commands] )) ||
-_niri__msg__help__action__toggle-window-floating_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-window-floating_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-window-floating_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action toggle-window-floating commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__toggle-window-rule-opacity_commands] )) ||
-_niri__msg__help__action__toggle-window-rule-opacity_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-window-rule-opacity_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-window-rule-opacity_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action toggle-window-rule-opacity commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__toggle-window-urgent_commands] )) ||
-_niri__msg__help__action__toggle-window-urgent_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-window-urgent_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-window-urgent_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action toggle-window-urgent commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__toggle-windowed-fullscreen_commands] )) ||
-_niri__msg__help__action__toggle-windowed-fullscreen_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-windowed-fullscreen_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__toggle-windowed-fullscreen_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action toggle-windowed-fullscreen commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__unset-window-urgent_commands] )) ||
-_niri__msg__help__action__unset-window-urgent_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__unset-window-urgent_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__unset-window-urgent_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action unset-window-urgent commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__action__unset-workspace-name_commands] )) ||
-_niri__msg__help__action__unset-workspace-name_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__unset-workspace-name_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__action__subcmd__unset-workspace-name_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help action unset-workspace-name commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__event-stream_commands] )) ||
-_niri__msg__help__event-stream_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__casts_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__casts_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg help casts commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__event-stream_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__event-stream_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help event-stream commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__focused-output_commands] )) ||
-_niri__msg__help__focused-output_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__focused-output_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__focused-output_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help focused-output commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__focused-window_commands] )) ||
-_niri__msg__help__focused-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__focused-window_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__focused-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help focused-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__help_commands] )) ||
-_niri__msg__help__help_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__help_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__help_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help help commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__keyboard-layouts_commands] )) ||
-_niri__msg__help__keyboard-layouts_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__keyboard-layouts_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__keyboard-layouts_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help keyboard-layouts commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__layers_commands] )) ||
-_niri__msg__help__layers_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__layers_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__layers_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help layers commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__output_commands] )) ||
-_niri__msg__help__output_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__output_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__output_commands() {
     local commands; commands=(
 'off:Turn off the output' \
 'on:Turn on the output' \
 'mode:Set the output mode' \
+'custom-mode:Set a custom output mode' \
+'modeline:Set a custom VESA CVT modeline' \
 'scale:Set the output scale' \
 'transform:Set the output transform' \
 'position:Set the output position' \
@@ -6957,110 +7143,122 @@ _niri__msg__help__output_commands() {
     )
     _describe -t commands 'niri msg help output commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__output__mode_commands] )) ||
-_niri__msg__help__output__mode_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__custom-mode_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__custom-mode_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg help output custom-mode commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__mode_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__mode_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help output mode commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__output__off_commands] )) ||
-_niri__msg__help__output__off_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__modeline_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__modeline_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg help output modeline commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__off_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__off_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help output off commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__output__on_commands] )) ||
-_niri__msg__help__output__on_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__on_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__on_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help output on commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__output__position_commands] )) ||
-_niri__msg__help__output__position_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__position_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__position_commands() {
     local commands; commands=(
 'auto:Position the output automatically' \
 'set:Set a specific position' \
     )
     _describe -t commands 'niri msg help output position commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__output__position__auto_commands] )) ||
-_niri__msg__help__output__position__auto_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__position__subcmd__auto_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__position__subcmd__auto_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help output position auto commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__output__position__set_commands] )) ||
-_niri__msg__help__output__position__set_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__position__subcmd__set_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__position__subcmd__set_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help output position set commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__output__scale_commands] )) ||
-_niri__msg__help__output__scale_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__scale_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__scale_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help output scale commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__output__transform_commands] )) ||
-_niri__msg__help__output__transform_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__transform_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__transform_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help output transform commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__output__vrr_commands] )) ||
-_niri__msg__help__output__vrr_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__vrr_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__output__subcmd__vrr_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help output vrr commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__outputs_commands] )) ||
-_niri__msg__help__outputs_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__outputs_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__outputs_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help outputs commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__overview-state_commands] )) ||
-_niri__msg__help__overview-state_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__overview-state_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__overview-state_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help overview-state commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__pick-color_commands] )) ||
-_niri__msg__help__pick-color_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__pick-color_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__pick-color_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help pick-color commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__pick-window_commands] )) ||
-_niri__msg__help__pick-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__pick-window_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__pick-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help pick-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__request-error_commands] )) ||
-_niri__msg__help__request-error_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__request-error_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__request-error_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help request-error commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__version_commands] )) ||
-_niri__msg__help__version_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__version_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__version_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help version commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__windows_commands] )) ||
-_niri__msg__help__windows_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__windows_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__windows_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help windows commands' commands "$@"
 }
-(( $+functions[_niri__msg__help__workspaces_commands] )) ||
-_niri__msg__help__workspaces_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__help__subcmd__workspaces_commands] )) ||
+_niri__subcmd__msg__subcmd__help__subcmd__workspaces_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg help workspaces commands' commands "$@"
 }
-(( $+functions[_niri__msg__keyboard-layouts_commands] )) ||
-_niri__msg__keyboard-layouts_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__keyboard-layouts_commands] )) ||
+_niri__subcmd__msg__subcmd__keyboard-layouts_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg keyboard-layouts commands' commands "$@"
 }
-(( $+functions[_niri__msg__layers_commands] )) ||
-_niri__msg__layers_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__layers_commands] )) ||
+_niri__subcmd__msg__subcmd__layers_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg layers commands' commands "$@"
 }
-(( $+functions[_niri__msg__output_commands] )) ||
-_niri__msg__output_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output_commands] )) ||
+_niri__subcmd__msg__subcmd__output_commands() {
     local commands; commands=(
 'off:Turn off the output' \
 'on:Turn on the output' \
 'mode:Set the output mode' \
+'custom-mode:Set a custom output mode' \
+'modeline:Set a custom VESA CVT modeline' \
 'scale:Set the output scale' \
 'transform:Set the output transform' \
 'position:Set the output position' \
@@ -7069,12 +7267,19 @@ _niri__msg__output_commands() {
     )
     _describe -t commands 'niri msg output commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__help_commands] )) ||
-_niri__msg__output__help_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__custom-mode_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__custom-mode_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg output custom-mode commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__help_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__help_commands() {
     local commands; commands=(
 'off:Turn off the output' \
 'on:Turn on the output' \
 'mode:Set the output mode' \
+'custom-mode:Set a custom output mode' \
+'modeline:Set a custom VESA CVT modeline' \
 'scale:Set the output scale' \
 'transform:Set the output transform' \
 'position:Set the output position' \
@@ -7083,76 +7288,91 @@ _niri__msg__output__help_commands() {
     )
     _describe -t commands 'niri msg output help commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__help__help_commands] )) ||
-_niri__msg__output__help__help_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__custom-mode_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__custom-mode_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg output help custom-mode commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__help_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__help_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output help help commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__help__mode_commands] )) ||
-_niri__msg__output__help__mode_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__mode_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__mode_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output help mode commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__help__off_commands] )) ||
-_niri__msg__output__help__off_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__modeline_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__modeline_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg output help modeline commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__off_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__off_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output help off commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__help__on_commands] )) ||
-_niri__msg__output__help__on_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__on_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__on_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output help on commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__help__position_commands] )) ||
-_niri__msg__output__help__position_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__position_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__position_commands() {
     local commands; commands=(
 'auto:Position the output automatically' \
 'set:Set a specific position' \
     )
     _describe -t commands 'niri msg output help position commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__help__position__auto_commands] )) ||
-_niri__msg__output__help__position__auto_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__position__subcmd__auto_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__position__subcmd__auto_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output help position auto commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__help__position__set_commands] )) ||
-_niri__msg__output__help__position__set_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__position__subcmd__set_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__position__subcmd__set_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output help position set commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__help__scale_commands] )) ||
-_niri__msg__output__help__scale_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__scale_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__scale_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output help scale commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__help__transform_commands] )) ||
-_niri__msg__output__help__transform_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__transform_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__transform_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output help transform commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__help__vrr_commands] )) ||
-_niri__msg__output__help__vrr_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__vrr_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__help__subcmd__vrr_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output help vrr commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__mode_commands] )) ||
-_niri__msg__output__mode_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__mode_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__mode_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output mode commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__off_commands] )) ||
-_niri__msg__output__off_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__modeline_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__modeline_commands() {
+    local commands; commands=()
+    _describe -t commands 'niri msg output modeline commands' commands "$@"
+}
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__off_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__off_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output off commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__on_commands] )) ||
-_niri__msg__output__on_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__on_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__on_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output on commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__position_commands] )) ||
-_niri__msg__output__position_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__position_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__position_commands() {
     local commands; commands=(
 'auto:Position the output automatically' \
 'set:Set a specific position' \
@@ -7160,13 +7380,13 @@ _niri__msg__output__position_commands() {
     )
     _describe -t commands 'niri msg output position commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__position__auto_commands] )) ||
-_niri__msg__output__position__auto_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__position__subcmd__auto_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__position__subcmd__auto_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output position auto commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__position__help_commands] )) ||
-_niri__msg__output__position__help_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__position__subcmd__help_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__position__subcmd__help_commands() {
     local commands; commands=(
 'auto:Position the output automatically' \
 'set:Set a specific position' \
@@ -7174,88 +7394,88 @@ _niri__msg__output__position__help_commands() {
     )
     _describe -t commands 'niri msg output position help commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__position__help__auto_commands] )) ||
-_niri__msg__output__position__help__auto_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__position__subcmd__help__subcmd__auto_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__position__subcmd__help__subcmd__auto_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output position help auto commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__position__help__help_commands] )) ||
-_niri__msg__output__position__help__help_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__position__subcmd__help__subcmd__help_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__position__subcmd__help__subcmd__help_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output position help help commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__position__help__set_commands] )) ||
-_niri__msg__output__position__help__set_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__position__subcmd__help__subcmd__set_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__position__subcmd__help__subcmd__set_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output position help set commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__position__set_commands] )) ||
-_niri__msg__output__position__set_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__position__subcmd__set_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__position__subcmd__set_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output position set commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__scale_commands] )) ||
-_niri__msg__output__scale_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__scale_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__scale_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output scale commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__transform_commands] )) ||
-_niri__msg__output__transform_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__transform_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__transform_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output transform commands' commands "$@"
 }
-(( $+functions[_niri__msg__output__vrr_commands] )) ||
-_niri__msg__output__vrr_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__output__subcmd__vrr_commands] )) ||
+_niri__subcmd__msg__subcmd__output__subcmd__vrr_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg output vrr commands' commands "$@"
 }
-(( $+functions[_niri__msg__outputs_commands] )) ||
-_niri__msg__outputs_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__outputs_commands] )) ||
+_niri__subcmd__msg__subcmd__outputs_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg outputs commands' commands "$@"
 }
-(( $+functions[_niri__msg__overview-state_commands] )) ||
-_niri__msg__overview-state_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__overview-state_commands] )) ||
+_niri__subcmd__msg__subcmd__overview-state_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg overview-state commands' commands "$@"
 }
-(( $+functions[_niri__msg__pick-color_commands] )) ||
-_niri__msg__pick-color_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__pick-color_commands] )) ||
+_niri__subcmd__msg__subcmd__pick-color_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg pick-color commands' commands "$@"
 }
-(( $+functions[_niri__msg__pick-window_commands] )) ||
-_niri__msg__pick-window_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__pick-window_commands] )) ||
+_niri__subcmd__msg__subcmd__pick-window_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg pick-window commands' commands "$@"
 }
-(( $+functions[_niri__msg__request-error_commands] )) ||
-_niri__msg__request-error_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__request-error_commands] )) ||
+_niri__subcmd__msg__subcmd__request-error_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg request-error commands' commands "$@"
 }
-(( $+functions[_niri__msg__version_commands] )) ||
-_niri__msg__version_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__version_commands] )) ||
+_niri__subcmd__msg__subcmd__version_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg version commands' commands "$@"
 }
-(( $+functions[_niri__msg__windows_commands] )) ||
-_niri__msg__windows_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__windows_commands] )) ||
+_niri__subcmd__msg__subcmd__windows_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg windows commands' commands "$@"
 }
-(( $+functions[_niri__msg__workspaces_commands] )) ||
-_niri__msg__workspaces_commands() {
+(( $+functions[_niri__subcmd__msg__subcmd__workspaces_commands] )) ||
+_niri__subcmd__msg__subcmd__workspaces_commands() {
     local commands; commands=()
     _describe -t commands 'niri msg workspaces commands' commands "$@"
 }
-(( $+functions[_niri__panic_commands] )) ||
-_niri__panic_commands() {
+(( $+functions[_niri__subcmd__panic_commands] )) ||
+_niri__subcmd__panic_commands() {
     local commands; commands=()
     _describe -t commands 'niri panic commands' commands "$@"
 }
-(( $+functions[_niri__validate_commands] )) ||
-_niri__validate_commands() {
+(( $+functions[_niri__subcmd__validate_commands] )) ||
+_niri__subcmd__validate_commands() {
     local commands; commands=()
     _describe -t commands 'niri validate commands' commands "$@"
 }
