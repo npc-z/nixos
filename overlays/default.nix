@@ -19,18 +19,6 @@
       };
     })
 
-    # FIXME: https://github.com/NixOS/nixpkgs/issues/540288
-    # Build failure: vulkan-validation-layers
-    (final: prev: {
-      vulkan-validation-layers = prev.vulkan-validation-layers.overrideAttrs (old: {
-        cmakeFlags =
-          [
-            "-DUPDATE_DEPS=OFF"
-          ]
-          ++ old.cmakeFlags;
-      });
-    })
-
     # =============================================================
     #                     示例 3 个
     # 参考
