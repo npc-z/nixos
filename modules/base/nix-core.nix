@@ -5,6 +5,10 @@
 }: {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    # NOTE: Electron version 40.10.5 is EOL
+    "electron-40.10.5"
+  ];
 
   nix = {
     # this is useful for nixd(lsp of nix)

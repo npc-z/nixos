@@ -11,9 +11,6 @@
     XMODIFIERS = "@im=fcitx";
   };
 
-  nixpkgs.config.permittedInsecurePackages = [
-  ];
-
   environment.systemPackages = with pkgs; [
     gcc
     cmake

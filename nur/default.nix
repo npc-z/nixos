@@ -8,11 +8,6 @@
     inputs.nur.modules.nixos.default
   ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-    # NOTE: Electron version 40.10.5 is EOL
-    "electron-40.10.5"
-  ];
-
   # https://github.com/nix-community/NUR
   # https://nur.nix-community.org/
   environment.systemPackages = [
