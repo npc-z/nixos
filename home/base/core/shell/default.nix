@@ -35,8 +35,13 @@
     gs = "git status";
 
     # log
-    gl = "git lg";
-    glh = "git lg | head -n 30";
+    # gl = "git lg";
+    gl = "git lg | head -n 10";
+    gl1 = "git lg | head -n 10";
+    gl2 = "git lg | head -n 20";
+    gl3 = "git lg | head -n 30";
+    gl4 = "git lg | head -n 40";
+    gl5 = "git lg | head -n 50";
 
     # diff
     gd = "git diff";
