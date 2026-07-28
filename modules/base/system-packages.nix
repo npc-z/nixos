@@ -10,7 +10,7 @@
 
     # python
     uv # python project package manager
-    pipx
+    # pipx # FIXME: test failed
 
     python314
     python314Packages.pip
