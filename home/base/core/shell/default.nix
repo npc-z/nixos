@@ -141,7 +141,7 @@ in {
       ${networkFunc}
       ${shellEnv}
 
-      eval "$(devenv hook zsh)"
+      eval "$(devenv hook bash)"
     '';
   };
 
