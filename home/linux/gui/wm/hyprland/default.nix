@@ -22,6 +22,7 @@ in {
   };
 
   imports = [
+    ./../addons/noctalia.nix
     ./../addons/hyprlock.nix
 
     ./../xdg-portal.nix

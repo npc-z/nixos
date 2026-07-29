@@ -77,7 +77,7 @@
 
     # niri
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia/cachix"; # the cachix branch always points to the latest cached commit
       # inputs.nixpkgs.follows = "nixpkgs"; # To use the binary cache, you have to omit inputs.nixpkgs.follows
     };
 

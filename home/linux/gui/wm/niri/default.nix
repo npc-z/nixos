@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -15,6 +14,7 @@ in {
   imports = [
     ./../addons/hyprlock.nix
     ./../addons/swayidle.nix
+    ./../addons/noctalia.nix
 
     ./../xdg-portal.nix
   ];
@@ -28,8 +28,6 @@ in {
       niri
       xwayland-satellite
       nirius # Utility commands for the niri wayland compositor
-
-      inputs.noctalia.packages.${stdenv.hostPlatform.system}.default
     ];
   };
 }
