@@ -16,11 +16,6 @@
   shellEnv = ''
     export TERM=xterm-256color
     export PATH="$PATH:${localBin}:${goBin}:${rustBin}"
-    export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-    # https://opencode.ai/docs/lsp/#built-in
-    # disable automatic LSP server downloads
-    export OPENCODE_DISABLE_LSP_DOWNLOAD=true
-
   '';
 
   shellAliases = {

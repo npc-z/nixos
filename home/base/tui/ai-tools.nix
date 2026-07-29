@@ -33,6 +33,12 @@ in {
   in {
     programs.agent-skills.enable = true;
 
+    home.sessionVariables = mkIf cfg.opencode.enable {
+      # https://opencode.ai/docs/lsp/#built-in
+      # disable automatic LSP server downloads
+      OPENCODE_DISABLE_LSP_DOWNLOAD = true;
+    };
+
     programs.opencode = mkIf cfg.opencode.enable {
       enable = true;
       package = llmAgentsPkgs.opencode;
