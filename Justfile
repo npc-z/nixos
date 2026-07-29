@@ -198,8 +198,3 @@ stow: _stow-common
 gen-niri-competions:
     niri completions zsh | sed "s/line\[2\]/line[1]/g; /'::command/d" > home/base/core/shell/scripts/niri.zsh
 
-
-# Check packages against Hydra without updating
-safe-update-nix:
-  nix run github:sircam-html/safe-update-nix -- --check
-
