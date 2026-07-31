@@ -15,7 +15,10 @@
 
   home.packages = with pkgs; [
     lazygit
+    gh
   ];
+
+  # programs.gh.enable = true;
 
   programs.git = {
     enable = true;
@@ -89,6 +92,7 @@
   # A syntax-highlighting pager in Rust(2019 ~ Now)
   programs.delta = {
     enable = true;
+    enableGitIntegration = true;
     options = {
       diff-so-fancy = true;
       line-numbers = true;

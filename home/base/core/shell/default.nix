@@ -37,6 +37,7 @@
     gl3 = "git lg | head -n 30";
     gl4 = "git lg | head -n 40";
     gl5 = "git lg | head -n 50";
+    glf = "git lg | grep"; # git log filter
 
     # diff
     gd = "git diff";
