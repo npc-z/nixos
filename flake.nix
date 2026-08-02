@@ -75,6 +75,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # scrollable workspace overview plugin, like niri
+    hyprland-scroll-overview = {
+      # git+https to avoid GitHub API rate limits when resolving HEAD
+      url = "git+https://github.com/yayuuu/hyprland-scroll-overview";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # niri
     noctalia = {
       url = "github:noctalia-dev/noctalia/cachix"; # the cachix branch always points to the latest cached commit

@@ -4,3 +4,5 @@ hl.monitor({
     position = "0x0",
     scale = 1,
 })
+
+require("plugins.scrolloverview")

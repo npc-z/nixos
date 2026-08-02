@@ -21,3 +21,4 @@ hl.on("hyprland.start", function()
 end)
 
 require("plugins.hyprbars")
+require("plugins.scrolloverview")

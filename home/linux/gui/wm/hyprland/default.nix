@@ -7,6 +7,8 @@
 }:
 with lib; let
   cfg = config.wm.hyprland;
+
+  scrolloverviewPlugin = import ./scrolloverview.nix {inherit inputs pkgs;};
 in {
   options.wm.hyprland = {
     enable = mkEnableOption "enable hyprland";
@@ -63,6 +65,9 @@ in {
 
         # third-party plugins
         # inputs.hycov.packages.${pkgs.stdenv.hostPlatform.system}.hycov
+
+        # scrollable workspace overview, like niri
+        scrolloverviewPlugin
 
         # official plugin, but WIP
         # pkgs.hyprlandPlugins.hyprscrolling
