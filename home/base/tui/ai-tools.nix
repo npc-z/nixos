@@ -19,6 +19,10 @@ in {
       enable = mkEnableOption "pi-mono" // {default = true;};
     };
 
+    codex = {
+      enable = mkEnableOption "codex" // {default = true;};
+    };
+
     skills = {
       enable = mkEnableOption "the open agent skills tool (npx skills)" // {default = false;};
     };
@@ -48,6 +52,11 @@ in {
           # disable automatic LSP server downloads
           OPENCODE_DISABLE_LSP_DOWNLOAD = true;
         };
+      })
+
+      # codex
+      (mkIf cfg.codex.enable {
+        home.packages = [llmAgentsPkgs.codex];
       })
 
       # pi
