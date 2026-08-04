@@ -1,6 +1,9 @@
 # AGENTS.md
 
-YOU ARE NOT ALLOWED TO FIND OR READ FILES FROM `/nix/store/` PATH!
+## you are not allowed
+
+- DO NOT `grep` OR `rg` IN `/nix/store/` ROOT PATH TO FIND SOMETHING!
+- DO NOT SPAWN SUBAGENT TO WORK!
 
 Guidance for coding agents operating in this repository.
 This repo is a Nix flake for NixOS and nix-darwin hosts, with Home Manager and dotfiles.
@@ -105,7 +108,6 @@ Examples:
 - Keep host-specific details inside `hosts/<host>/`.
 - When wiring modules, follow existing template style from `hosts/default.nix`.
 - Thread shared values through `specialArgs` / `extraSpecialArgs` rather than hardcoding globals.
-- Prefer explicit module imports over dynamic path tricks.
 
 ### Naming conventions
 
