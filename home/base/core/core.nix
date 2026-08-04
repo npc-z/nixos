@@ -1,5 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    # A cat(1) clone with syntax highlighting and Git integration
+    bat
     # network
     arp-scan # ARP scanning and fingerprinting tool
     dig # Domain name server
