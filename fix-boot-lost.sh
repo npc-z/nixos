@@ -33,11 +33,7 @@
   # OK
 
 
-# 4.1 consider proxy network
-# cp /mnt/home/npc/.config/nixos/dotfiles/shell/basic.sh .
-
 # 5, install
 # sudo nixos-install --option substituters "https://mirror.sjtu.edu.cn/nix-channels/store"
 
 # reboot
-
