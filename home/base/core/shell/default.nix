@@ -4,19 +4,8 @@
   pkgs,
   ...
 }: let
-  localBin = "${config.home.homeDirectory}/.local/bin";
-  goBin = "${config.home.homeDirectory}/go/bin";
-  rustBin = "${config.home.homeDirectory}/.cargo/bin";
   networkFunc = builtins.readFile ./scripts/network.sh;
   fzfCfg = builtins.readFile ./scripts/fzf.zsh;
-  # FIXME: https://github.com/YaLTeR/niri/issues/1682#issuecomment-2919386619
-  # niri completions zsh | sed "s/line\[2\]/line[1]/g; /'::command/d" > niri.zsh
-  niriCompletions = builtins.readFile ./scripts/niri.zsh;
-
-  shellEnv = ''
-    export TERM=xterm-256color
-    export PATH="$PATH:${localBin}:${goBin}:${rustBin}"
-  '';
 
   shellAliases = {
     public_ip = let
@@ -100,6 +89,17 @@ in {
   # only works in bash/zsh, not nushell
   home.shellAliases = shellAliases;
 
+  # Mason works if you enable .local/bin
+  home.sessionPath = [
+    "$HOME/.local/bin"
+    "$HOME/go/bin"
+    "$HOME/.cargo/bin"
+  ];
+
+  home.sessionVariables = {
+    TERM = "xterm-256color";
+  };
+
   # Command suggestions, command-not-found and thefuck replacement written in Rust
   programs.pay-respects = {
     enable = true;
@@ -140,7 +140,6 @@ in {
       bind 'TAB:menu-complete'
 
       ${networkFunc}
-      ${shellEnv}
 
       eval "$(devenv hook bash)"
     '';
@@ -181,11 +180,7 @@ in {
 
       ${fzfCfg}
 
-      ${niriCompletions}
-
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-
-      ${shellEnv}
 
       eval "$(devenv hook zsh)"
     '';

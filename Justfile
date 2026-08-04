@@ -191,10 +191,3 @@ stow: _stow-common
     ln -sf ~/.config/nixos/dotfiles/lazygit/.config/lazygit/config.yml "/Users/npc/Library/Application Support/lazygit/config.yml" \
     #
     # ln -sf ~/.config/nixos/dotfiles/mac-mouse-fix/config.plist "/Users/npc/Library/Application Support/com.nuebling.mac-mouse-fix/config.plist" \
-
-
-# https://github.com/niri-wm/niri/issues/1682#issuecomment-4115318288
-# 生成 niri 的 zsh 补全脚本
-gen-niri-competions:
-    niri completions zsh | sed "s/line\[2\]/line[1]/g; /'::command/d" > home/base/core/shell/scripts/niri.zsh
-
