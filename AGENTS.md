@@ -168,5 +168,6 @@ Examples:
 - `just build` exists only for macOS (`nh darwin build --ask .`).
 - Host definitions are centralized in `hosts/default.nix`.
 - Home Manager is integrated via `inputs.home-manager.*Modules.home-manager` in templates.
+- Before evaluating the configuration with `eval` or running the build, use `git add` to add the newly created Nix files to Git tracking; the existing old files do not need to be added again.
 
 When in doubt, prefer the smallest declarative change that can be validated with a targeted host build.

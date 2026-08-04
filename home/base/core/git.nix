@@ -18,6 +18,47 @@
     gh
   ];
 
+  # only works in bash/zsh, not nushell
+  home.shellAliases = {
+    gs = "git status";
+
+    # log
+    # gl = "git lg";
+    gl = "git lg | head -n 10";
+    gl1 = "git lg | head -n 10";
+    gl2 = "git lg | head -n 20";
+    gl3 = "git lg | head -n 30";
+    gl4 = "git lg | head -n 40";
+    gl5 = "git lg | head -n 50";
+    glf = "git lg | grep"; # git log filter
+
+    # diff
+    gd = "git diff";
+    gds = "git diff --staged";
+
+    # branch
+    gco = "git checkout";
+    gcod = "git checkout feature/dev";
+    gcot = "git checkout feature/test";
+    gm = "git merge";
+    gr = "git rebase";
+    gpl = "git pull";
+    gps = "git push";
+    gfa = "git fetch --all";
+
+    ga = "git add .";
+    gac = "git add . && git commit -m \"update $(date \"+%Y-%m-%d %H:%M:%S\")\"";
+    gcm = "git commit -m ";
+    gacp = "gac && git push";
+
+    # git stash
+    gss = "git add . && git stash save";
+    gsl = "git stash list --relative-date";
+    gsa = "git stash apply ";
+
+    lg = "lazygit";
+  };
+
   # programs.gh.enable = true;
 
   programs.git = {

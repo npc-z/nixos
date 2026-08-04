@@ -6,73 +6,6 @@
 }: let
   networkFunc = builtins.readFile ./scripts/network.sh;
   fzfCfg = builtins.readFile ./scripts/fzf.zsh;
-
-  shellAliases = {
-    public_ip = let
-      # api = "https://ipinfo.io/json"; # 备用 API
-      api = "http://ip-api.com/json?lang=zh-CN";
-    in ''curl -s "${api}" | jq'';
-
-    # ##########################################
-    # git alias
-    # ##########################################
-    gs = "git status";
-
-    # log
-    # gl = "git lg";
-    gl = "git lg | head -n 10";
-    gl1 = "git lg | head -n 10";
-    gl2 = "git lg | head -n 20";
-    gl3 = "git lg | head -n 30";
-    gl4 = "git lg | head -n 40";
-    gl5 = "git lg | head -n 50";
-    glf = "git lg | grep"; # git log filter
-
-    # diff
-    gd = "git diff";
-    gds = "git diff --staged";
-
-    # branc
-    gco = "git checkout";
-    gcod = "git checkout feature/dev";
-    gcot = "git checkout feature/test";
-    gm = "git merge";
-    gr = "git rebase";
-    gpl = "git pull";
-    gps = "git push";
-    gfa = "git fetch --all";
-
-    ga = "git add .";
-    gac = "git add . && git commit -m \"update $(date \"+%Y-%m-%d %H:%M:%S\")\"";
-    gcm = "git commit -m ";
-    gacp = "gac && git push";
-
-    # git stash
-    gss = "git add . && git stash save";
-    gsl = "git stash list --relative-date";
-    gsa = "git stash apply ";
-
-    lg = "lazygit";
-
-    # ##########################################
-    # other alias
-    # ##########################################
-
-    cat = "bat --plain";
-
-    # shortcut
-    cls = "clear";
-    sz = "source ~/.config/zsh/.zshrc && echo source .zshrc done";
-    vz = "vim ~/.config/zsh/.zshrc";
-    j = "just";
-
-    # format python files in git repo
-    # 对新文件执行 isort and black, 对旧文件执行 darker
-    gfmtpy = ''git status -s | awk '$1 != "M" {print $2}' | xargs -r isort && git status -s | awk '$1 != "M" {print $2}' | xargs -r black && git status -s | awk '$1 ~ /^M/ {print $2}' | xargs -r darker'';
-
-    vi = "vim";
-    vim = "nvim";
-  };
 in {
   imports = mylib.scanPaths ./.;
 
@@ -85,9 +18,6 @@ in {
     # zsh-fzf-history-search
     zsh-fzf-tab
   ];
-
-  # only works in bash/zsh, not nushell
-  home.shellAliases = shellAliases;
 
   # Mason works if you enable .local/bin
   home.sessionPath = [
