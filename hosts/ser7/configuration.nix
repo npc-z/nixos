@@ -24,6 +24,8 @@
       # NOTE:
       usrEnv.isWayland = true;
 
+      fcitx5.rime.grammarModel.enable = true;
+
       cpu = {
         type = "amd";
         amd = {

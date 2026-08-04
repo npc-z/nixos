@@ -5,7 +5,18 @@
   lib,
   ...
 }: {
-  nixpkgs.overlays = [
+  options.modules.fcitx5.rime.grammarModel = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = ''
+        Include the wanxiang grammar model (wanxiang-lts-zh-hans.gram, ~401MB)
+        in fcitx5-rime shared rime data.
+      '';
+    };
+  };
+
+  config.nixpkgs.overlays = [
     inputs.nix-vscode-extensions.overlays.default
 
     # When applied, the stable nixpkgs set (declared in the flake inputs) will
@@ -18,6 +29,9 @@
         ];
       };
     })
+
+    # fcitx5-rime 注入万象拼音数据（fork + 语法模型开关）
+    (import ./fcitx5 {inherit inputs config lib;})
 
     # =============================================================
     #                     示例 3 个
