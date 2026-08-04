@@ -1,7 +1,35 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "permission": {
-    "webfetch": "allow"
+    "webfetch": "allow",
+    "bash": {
+      "rm -rf *": "deny",
+      "curl * | bash": "ask",
+      "sh -c *": "ask",
+
+      "git commit *": "ask",
+      "git commit": "ask",
+
+      "git push *": "ask",
+      "git push --force *": "deny",
+      "git push --force": "deny",
+      "git push --tags *": "ask",
+
+      "git reset --hard *": "ask",
+      "git clean *": "ask",
+      "git rebase *": "ask",
+      "git branch -D *": "ask",
+      "git tag -d *": "ask",
+
+      "just deploy *": "deny",
+      "just deploy": "deny",
+      "just up *": "ask",
+      "just up": "ask"
+    },
+    "edit": {
+      "**/flake.lock": "deny",
+      "**/AGENTS.md": "ask"
+    }
   },
   "mcp": {},
   "lsp": true
