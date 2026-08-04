@@ -15,9 +15,6 @@
 
     # defaultEditor = true;
     extraPackages = with pkgs; [
-      # formatter for nix
-      alejandra
-
       # Parser generator tool and an incremental parsing library
       tree-sitter
 

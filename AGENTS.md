@@ -96,6 +96,7 @@ Examples:
 
 ## Nix formatting and structure
 
+- Use `alejandra` as the formatter for `nix` files
 - Use 2-space indentation in `.nix` files.
 - End files with a trailing newline.
 - Keep attribute sets readable; group related options together.

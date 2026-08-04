@@ -37,6 +37,8 @@
     # lsp for dev
     nixd # nix
     inputs.tix.packages.${stdenv.hostPlatform.system}.default # nix
+    # formatter for nix
+    alejandra
 
     # just
     just-lsp
