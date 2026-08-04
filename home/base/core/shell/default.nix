@@ -105,7 +105,6 @@ in {
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
-    enableFishIntegration = true;
     options = [
       "--alias"
       "fuck"
@@ -116,7 +115,6 @@ in {
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
-    enableFishIntegration = true;
     historyWidget.command = ""; # 和 atuin Ctrl-R binding 冲突了
   };
 
@@ -124,7 +122,6 @@ in {
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
-    enableFishIntegration = true;
     options = [
       "enhanced"
       "once"

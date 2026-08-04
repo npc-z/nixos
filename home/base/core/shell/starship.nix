@@ -7,7 +7,6 @@
 
   programs.starship = {
     enable = true;
-    enableIonIntegration = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
   };

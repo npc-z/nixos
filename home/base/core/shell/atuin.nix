@@ -7,7 +7,6 @@
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
-    enableNushellIntegration = true;
 
     flags = [
       # https://docs.atuin.sh/configuration/key-binding/#disable-up-arrow
