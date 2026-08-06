@@ -47,6 +47,9 @@
     ];
 
     skills.enable = [
+      "anthropic/frontend-design"
+      "anthropic/webapp-testing"
+
       # This skill helps you discover and install skills from the open agent skills ecosystem.
       "vercel-labs/find-skills"
 
