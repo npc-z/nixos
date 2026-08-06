@@ -26,24 +26,13 @@
     };
   };
 
-  outputs = {
-    self,
-    agent-skills,
-    anthropic-skills,
-    juliusbrussee-caveman,
-    mattpocock-skills,
-    vercel-labs-skills,
-    ...
-  }: {
+  outputs = {self, ...} @ inputs: {
     homeManagerModules.default = {
       imports = [
-        agent-skills.homeManagerModules.default
+        inputs.agent-skills.homeManagerModules.default
         (import ./home-manager.nix {
           inherit
-            anthropic-skills
-            juliusbrussee-caveman
-            mattpocock-skills
-            vercel-labs-skills
+            inputs
             ;
         })
       ];

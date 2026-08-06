@@ -1,38 +1,32 @@
-{
-  anthropic-skills,
-  juliusbrussee-caveman,
-  mattpocock-skills,
-  vercel-labs-skills,
-  ...
-}: {
+{inputs, ...}: {
   programs.agent-skills = {
     sources = {
       anthropic = {
-        path = anthropic-skills;
+        path = inputs.anthropic-skills;
         subdir = "skills";
         idPrefix = "anthropic";
       };
 
       juliusbrussee = {
-        path = juliusbrussee-caveman;
+        path = inputs.juliusbrussee-caveman;
         subdir = "skills";
         idPrefix = "juliusbrussee";
       };
 
       mattpocock-productivity = {
-        path = mattpocock-skills;
+        path = inputs.mattpocock-skills;
         subdir = "skills/productivity";
         idPrefix = "mattpocock-productivity";
       };
 
       mattpocock-engineering = {
-        path = mattpocock-skills;
+        path = inputs.mattpocock-skills;
         subdir = "skills/engineering";
         idPrefix = "mattpocock-engineering";
       };
 
       vercel-labs = {
-        path = vercel-labs-skills;
+        path = inputs.vercel-labs-skills;
         subdir = "skills";
         idPrefix = "vercel-labs";
       };
