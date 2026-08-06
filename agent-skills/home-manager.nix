@@ -31,6 +31,12 @@
         idPrefix = "vercel-labs";
       };
 
+      kotot-vision = {
+        path = inputs.kotot-vision;
+        # subdir = "vision";
+        idPrefix = "kotot-vision";
+      };
+
       # NOTE: 参考仓库可以添加本地自定义 skills
       # https://github.com/mitramejia/nixos-config/blob/main/modules/home/agent-skills.nix
     };
@@ -51,6 +57,8 @@
       "juliusbrussee/caveman-commit"
       # Write code review comments terse and actionable. One line per finding. Location, problem, fix. No throat-clearing.
       "juliusbrussee/caveman-review"
+
+      "kotot-vision/vision"
     ];
 
     targets = {

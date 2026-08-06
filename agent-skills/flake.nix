@@ -24,6 +24,12 @@
       url = "github:juliusbrussee/caveman";
       flake = false;
     };
+
+    # 给无视觉模型补充"看图"能力
+    kotot-vision = {
+      url = "github:kotot/vision";
+      flake = false;
+    };
   };
 
   outputs = {self, ...} @ inputs: {

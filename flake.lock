@@ -7,11 +7,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1785662185,
-        "narHash": "sha256-Dah4m8+KN5nr2pgVgdqU03JrgaD4B06kK2GxYxevDJ8=",
+        "lastModified": 1785909051,
+        "narHash": "sha256-wR7wgld8IVJ2C2CWJtgd56ZFyUK8SEWN/NyCRygwDAg=",
         "owner": "Kyure-A",
         "repo": "agent-skills-nix",
-        "rev": "ffa3f3a827aef884301ae02f598abbba41eeeae2",
+        "rev": "d86bab6d839202d838ed1451a64a94d3f0718f5b",
         "type": "github"
       },
       "original": {
@@ -320,11 +320,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785119578,
-        "narHash": "sha256-3VMVuOJ6fK+RNOXVmqusqUwQ1sDfPeddNKaM2JR/4Y0=",
+        "lastModified": 1785531816,
+        "narHash": "sha256-vkMnV0JIyw+g/NmcfoajlGaAO+9a0ezia+FZohQJrik=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e83dffa86cccb6237fe194d4eeb47f41557749d1",
+        "rev": "bf9ce9fec78f95f374e8dd3b503863a3ec128ebe",
         "type": "github"
       },
       "original": {
@@ -750,16 +750,32 @@
     "juliusbrussee-caveman": {
       "flake": false,
       "locked": {
-        "lastModified": 1785764089,
-        "narHash": "sha256-/Kyqn/EJLiqrSzA8mI4vvHgSVmCycl++tSvJs6vjx7M=",
+        "lastModified": 1785851092,
+        "narHash": "sha256-zYWuv/uPEV5W9AGsmivYuGb4bDAGlVngZ94GbAGcz3M=",
         "owner": "juliusbrussee",
         "repo": "caveman",
-        "rev": "7066cc815414421f1ed29b42293cfb177a11db8c",
+        "rev": "ec83e5bace4c20484d704dea21e12fc4eb94e9aa",
         "type": "github"
       },
       "original": {
         "owner": "juliusbrussee",
         "repo": "caveman",
+        "type": "github"
+      }
+    },
+    "kotot-vision": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783002621,
+        "narHash": "sha256-N9i8LEeEBUWxs2GCraRJyHe+eNjKsZ2NTteMCMproEY=",
+        "owner": "kotot",
+        "repo": "vision",
+        "rev": "1740cbd119cd11cfacf51d29fe911d8c4ba4cf85",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kotot",
+        "repo": "vision",
         "type": "github"
       }
     },
@@ -788,11 +804,11 @@
     "mattpocock-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1785230297,
-        "narHash": "sha256-dQtG6usJWlg/FqTajrjcs8GSdymH92WsgLiUaCfvKPA=",
+        "lastModified": 1785953398,
+        "narHash": "sha256-RwFJdrPnyieN65QrwSfABRuBzMdyUIf/qoJ1M8zLLps=",
         "owner": "mattpocock",
         "repo": "skills",
-        "rev": "2ab958093e83e0ec752e6c1c5932da465bf23e0c",
+        "rev": "8b36d4fb2635b3c21998dcd8144439c9e5ba7302",
         "type": "github"
       },
       "original": {
@@ -970,11 +986,11 @@
     },
     "nixpkgs_7": {
       "locked": {
-        "lastModified": 1785090369,
-        "narHash": "sha256-m0pDuRJG7EDo9ri+4Ksu83VsI+PlxNC9lNBfydejce4=",
+        "lastModified": 1785571196,
+        "narHash": "sha256-KoTsyMQqnXQZq8deCEnu4QkyldkwH/bpMMhUcfMdGIw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "624af665418d3c65d544145b4d34ad696439570e",
+        "rev": "148bab9c1c3c53136ecb44a6ea356a0ed5b39b06",
         "type": "github"
       },
       "original": {
@@ -1123,6 +1139,7 @@
         "agent-skills": "agent-skills",
         "anthropic-skills": "anthropic-skills",
         "juliusbrussee-caveman": "juliusbrussee-caveman",
+        "kotot-vision": "kotot-vision",
         "mattpocock-skills": "mattpocock-skills",
         "vercel-labs-skills": "vercel-labs-skills"
       },
@@ -1243,11 +1260,11 @@
     "vercel-labs-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1785480236,
-        "narHash": "sha256-rj+GpxLDl1S3RoilqC7zlPpnGdMGDmIVVbq25U2pbuE=",
+        "lastModified": 1785943520,
+        "narHash": "sha256-F3KVn4OWpGKxKPzW8L/CnnLv8m51G7aflH65vv4SrtY=",
         "owner": "vercel-labs",
         "repo": "skills",
-        "rev": "1164afa5f0e21ebd01e6fc11249759353f494ad1",
+        "rev": "a4d243c3d4f86cdf9385dd1b6a0733f6937e70b5",
         "type": "github"
       },
       "original": {
