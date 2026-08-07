@@ -14,6 +14,7 @@
 
     profiles.default = {
       settings = {
+        "browser.urlbar.trimURLs" = false; # 地址栏默认显示 http / https 前缀
         "zen.workspaces.continue-where-left-off" = true;
         "zen.workspaces.natural-scroll" = true;
         # "zen.view.compact.hide-tabbar" = false;
