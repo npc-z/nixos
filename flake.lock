@@ -1054,6 +1054,26 @@
         "type": "github"
       }
     },
+    "nur-npc-z": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786346967,
+        "narHash": "sha256-Al3e3AF49DTSWu4f3jZezafNDSGYQWw5ypYhtBxzj/o=",
+        "owner": "npc-z",
+        "repo": "nur-packages",
+        "rev": "a27cf87854442c714d550b512d82251e8ae60a07",
+        "type": "github"
+      },
+      "original": {
+        "owner": "npc-z",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -1107,6 +1127,7 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "noctalia": "noctalia",
         "nur": "nur",
+        "nur-npc-z": "nur-npc-z",
         "rime-wanxiang": "rime-wanxiang",
         "skills-catalog": "skills-catalog",
         "tix": "tix",

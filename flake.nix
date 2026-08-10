@@ -10,12 +10,16 @@
       "https://cache.numtide.com" # Nix packages for AI coding agents and development tools
       # noctalia
       "https://noctalia.cachix.org"
+      # my nur packages
+      "https://npc-z.cachix.org"
     ];
     extra-trusted-public-keys = [
       # llm-agents
       "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=" # Nix packages for AI coding agents and development tools
       # noctalia
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      # my nur packages
+      "npc-z.cachix.org-1:k0E/cLF09sxkG6MNGt9r3ZJCsEMM9/k4UL9O4zXvQ/k="
     ];
   };
 
@@ -39,6 +43,10 @@
 
     # 添加 NUR 仓库
     nur.url = "github:nix-community/NUR";
+    nur-npc-z = {
+      url = "github:npc-z/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";

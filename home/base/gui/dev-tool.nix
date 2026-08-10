@@ -1,6 +1,11 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     # database tool
-    dbeaver-bin
+    # dbeaver-bin
+    inputs.nur-npc-z.packages.${pkgs.stdenv.hostPlatform.system}.dbx-desktop
   ];
 }

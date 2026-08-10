@@ -27,6 +27,26 @@ nix build .#nixosConfigurations.ser7-nixos.config.home-manager.users.npc.program
 注意:`--dry-run` 对**已在本地 store 中的路径是静默的**,所以只在
 "更新了输入、新 derivation 还没进 store" 时才有效。
 
+### 通配版本:对整机 closure 检查(不依赖具体模块路径)
+
+```bash
+nix build .#nixosConfigurations.ser7-nixos.config.system.build.toplevel --dry-run --no-link
+```
+
+适用于包没有对应的 `<programs>` 模块、只是塞在 `home.packages` 等列表里的情况
+(如自打 NUR 包的 dbx-desktop)。输出会分两段:
+
+- `these N paths will be fetched` → 命中缓存,会下载
+- `these N derivations will be built` → 缓存 miss,会本地编译
+
+想只看目标包,管道过滤:
+
+```bash
+nix build .#nixosConfigurations.ser7-nixos.config.system.build.toplevel --dry-run --no-link 2>&1 | rg -i "dbx|will be (built|fetched)"
+```
+
+首次运行较慢(要拉取新 flake 输入 + 求值整个系统),不是卡死。
+
 ## 验证 2:直接向缓存查询 narinfo(不依赖本地状态)
 
 ```bash
@@ -41,6 +61,34 @@ curl -o /dev/null -w "%{http_code}\n" "https://noctalia.cachix.org/<hash>.narinf
 # 3. 或者让 nix 直接查缓存
 nix path-info --store "https://noctalia.cachix.org" /nix/store/<hash>-noctalia-5.0.0
 ```
+
+## narinfo 查询缓存:dry-run 误报 "will be built" 的坑
+
+nix 会把对 substituter 的 narinfo 查询结果持久化在 store 数据库
+(`/nix/var/nix/db`),之后直接复用,不再真正请求远端:
+
+- 查询成功(200)→ 缓存正结果,`narinfo-cache-positive-ttl` 默认 30 天
+- 查询失败(404)→ 缓存负结果,`narinfo-cache-negative-ttl` 默认 1 小时
+
+典型场景(2026-08 的 dbx-desktop):CI 还在构建时先跑过 `--dry-run`,缓存 miss
+被记成负结果;CI 完成后缓存里明明有对应路径(Web UI 可见、narinfo 探测 200、
+derivation 哈希也完全一致),dry-run 却仍报 `will be built`。此时强制本次
+调用忽略负缓存重查:
+
+```bash
+nix build .#nixosConfigurations.ser7-nixos.config.system.build.toplevel \
+  --dry-run --no-link --option narinfo-cache-negative-ttl 0
+```
+
+要点:
+
+- 这个参数不会"删除"缓存记录,只是把本次调用中的负结果视为过期,强制重新查询
+- 重查得到 200 后,nix 会把正结果写回缓存覆盖负条目——之后的普通命令
+  也能正常命中,不需要一直带这个参数
+- 对称地,`--option narinfo-cache-positive-ttl 0` 用于远端刚推送完、本地
+  却仍沿用旧正结果时强制重查
+- nix 没有清空 narinfo 缓存的专用 CLI,TTL 参数就是标准做法
+  (nix.dev 的 "How to force nix to re-check if something exists in the binary cache")
 
 ## 路径组合规则(验证其他 App 时把 `<name>` 换掉)
 
@@ -88,3 +136,5 @@ curl -sL "https://raw.githubusercontent.com/noctalia-dev/noctalia/<rev>/flake.lo
 - 不要在别的 flake 目录下跑 `.#...` 命令——会解析到那个项目的配置(路径对不上或弹奇怪的缓存确认)
 - 远端构建(`remote-test`)用的 `nixos-rebuild` 默认不传 `--accept-flake-config`,flake 的 nixConfig 不会生效
 - 换 `nixos-rebuild` 不会改变缓存行为:它和 `nh` 走同一套 nix 与 flake nixConfig
+- dry-run 报 `will be built` 但缓存其实已有 → 先查 narinfo 正/负缓存,别急着下结论
+  (见上文 "narinfo 查询缓存" 一节)
