@@ -10,28 +10,16 @@
     julia-mono
     dejavu_fonts
 
-    fira-code
-    fira-code-symbols
-
     # https://github.com/subframe7536/maple-font
-    # Maple Mono (Ligature TTF unhinted)
-    maple-mono.truetype
     # Maple Mono NF (Ligature unhinted)
-    maple-mono.NF-unhinted
+    maple-mono.NF-unhinted # Maple Mono NF
     # Maple Mono NF CN (Ligature unhinted)
-    maple-mono.NF-CN-unhinted
-    # Maple Mono Normal NF (Ligature hinted)
-    maple-mono.Normal-NF
-    # Maple Mono Normal (Ligature TTF unhinted)
-    maple-mono.Normal-TTF
-    # Maple Mono Normal NF (No-Ligature hinted)
-    maple-mono.NormalNL-NF
-    # Maple Mono Normal (No-Ligature TTF unhinted)
-    maple-mono.NormalNL-TTF
+    maple-mono.NF-CN-unhinted # Maple Mono NF CN
 
     # icon fonts
-    material-design-icons
-    font-awesome
+    # Nerd Font 已内置这两套图标
+    # material-design-icons
+    # font-awesome
 
     # Noto 系列字体是 Google 主导的，名字的含义是「没有豆腐」（no tofu），因为缺字时显示的方框或者方框被叫作 tofu
     # Noto 系列字族名只支持英文，命名规则是 Noto + Sans 或 Serif + 文字名称。
