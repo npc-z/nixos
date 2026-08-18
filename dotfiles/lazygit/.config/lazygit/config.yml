@@ -12,7 +12,7 @@ git:
   autoRefresh: true
   autoForwardBranches: none
   fetchAll: true # Pass --all flag when running git fetch. Set to false to fetch only origin (or the current branch's upstream remote if there is one)
-  pagers:
+  diffRenderers:
     - colorArg: always
       # pager: diff-so-fancy --word-diff-regex=.
-      pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+      command: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
