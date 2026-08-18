@@ -2,8 +2,8 @@
 
 ## you are not allowed
 
-- DO NOT `grep` OR `rg` IN `/nix/store/` ROOT PATH TO FIND SOMETHING!
-- DO NOT SPAWN SUBAGENT TO WORK!
+- DO NOT `grep` OR `rg` IN `/nix/store/` ROOT PATH TO FIND SOMETHING! Query `/nix/store/` via the nix MCP store tools instead.
+- DO NOT SPAWN SUBAGENT TO WORK! Do the work directly in this session.
 
 Guidance for coding agents operating in this repository.
 This repo is a Nix flake for NixOS and nix-darwin hosts, with Home Manager and dotfiles.
@@ -11,14 +11,13 @@ This repo is a Nix flake for NixOS and nix-darwin hosts, with Home Manager and d
 ## Scope and priorities
 
 - Keep changes declarative and host-aware.
-- Prefer small, reviewable edits over broad rewrites.
-- Do not introduce imperative setup scripts when a module option can express the same intent.
+- Prefer module options over imperative setup scripts.
 - Preserve existing behavior for hosts you are not actively changing.
 
 ## Repository map
 
 - `flake.nix`: flake inputs and outputs wiring.
-- `hosts/default.nix`: central host templates and host registration.
+- `hosts/default.nix`: central host templates, host registration, and Home Manager wiring (`inputs.home-manager.*Modules.home-manager`).
 - `hosts/<host>/`: per-host `configuration.nix` and `home.nix`.
 - `modules/`: reusable NixOS or Home Manager modules.
 - `home/`: Home Manager feature modules.
@@ -26,13 +25,6 @@ This repo is a Nix flake for NixOS and nix-darwin hosts, with Home Manager and d
 - `nur/`: NUR integration.
 - `dotfiles/`: stow-managed source dotfiles.
 - `Justfile`: primary operator commands.
-
-## Cursor and Copilot rules
-
-- No `.cursorrules` file was found.
-- No `.cursor/rules/` directory rules were found.
-- No `.github/copilot-instructions.md` file was found.
-- Follow this file and existing code patterns as the canonical guidance.
 
 ## Build, lint, and test commands
 
@@ -51,22 +43,10 @@ Validation is done by evaluating and building flake outputs.
 - Debug test with verbose logs: `just debug`
 - Remote host test: `just remote-test <host>`
 
-Native equivalents used by `Justfile`:
-
-- `nh os test --ask .`
-- `nh os switch --ask .`
-- `nh os test --ask --verbose .`
-- `nh os test --target-host=npc@<host> --hostname=<host> .`
-
 ### macOS (nix-darwin) workflows
 
 - Build only: `just build`
 - Deploy switch: `just deploy`
-
-Native equivalents used by `Justfile`:
-
-- `nh darwin build --ask .`
-- `nh darwin switch --ask .`
 
 ### Flake checks and targeted builds
 
@@ -86,21 +66,12 @@ Examples:
 - `nix build .#nixosConfigurations.r9000p-nixos.config.system.build.toplevel`
 - `nix build .#darwinConfigurations.work-macbook-pro.system`
 
-### What to run before finishing a change
-
-- If editing one host: run targeted `nix build` for that host.
-- If editing shared module/template code: run builds for all affected hosts.
-- If changing `flake.nix` inputs/outputs: run at least one Linux and one Darwin build when possible.
-
 ## Code style guidelines
 
-## Nix formatting and structure
+### Nix formatting and structure
 
-- Use `alejandra` as the formatter for `nix` files
-- Use 2-space indentation in `.nix` files.
-- End files with a trailing newline.
-- Keep attribute sets readable; group related options together.
-- Prefer multi-line formatting when an attrset or list exceeds comfortable line length.
+- Use `alejandra` as the formatter for `nix` files.
+- Group related options together.
 - Keep comments concise and only for non-obvious intent.
 
 ### Imports and module composition
@@ -135,7 +106,7 @@ Examples:
 ### Package and dependency practices
 
 - Declare dependencies through flake inputs and follow existing `inputs.<name>.follows` patterns.
-- Avoid introducing ad-hoc fetchers when a flake input is appropriate.
+- Use a flake input instead of an ad-hoc fetcher.
 - Keep stable/unstable intent clear when selecting `nixpkgs` channels.
 - Minimize cross-channel mixing unless required by package availability.
 
@@ -144,30 +115,26 @@ Examples:
 - Keep shell snippets POSIX-compatible unless Bash-only features are necessary.
 - Quote paths that may contain spaces.
 - Prefer idempotent commands for file operations.
-- Do not embed destructive commands without strong justification.
+- Embed destructive commands only with strong justification.
 
 ## Change management expectations for agents
 
 - Read nearby files before editing to match local patterns.
-- Do not reformat unrelated files.
-- Do not rename hosts, inputs, or module paths unless the task requires it.
-- Do not remove comments or non-English text unless it is part of the requested change.
+- Reformat only the files a change touches.
+- Rename hosts, inputs, or module paths only when the task requires it.
+- Remove comments or non-English text only when the requested change requires it.
 - When adding new commands/docs, keep them consistent with existing `just` and `nh` usage.
+- Before evaluating or building, `git add` newly created Nix files (existing files are already tracked).
 
 ## Quick verification checklist
 
 - `nix flake show` succeeds.
-- Target host build succeeds.
+- Target host build succeeds:
+  - one host: that host only
+  - shared module/template code: all affected hosts
+  - `flake.nix` inputs/outputs: one Linux and one Darwin build when possible
 - Updated files keep consistent style and indentation.
 - No unrelated files were modified.
 - Documentation reflects actual commands present in `Justfile`.
-
-## Notes specific to this repository
-
-- `just test` on Linux maps to `nh os test --ask .`.
-- `just build` exists only for macOS (`nh darwin build --ask .`).
-- Host definitions are centralized in `hosts/default.nix`.
-- Home Manager is integrated via `inputs.home-manager.*Modules.home-manager` in templates.
-- Before evaluating the configuration with `eval` or running the build, use `git add` to add the newly created Nix files to Git tracking; the existing old files do not need to be added again.
 
 When in doubt, prefer the smallest declarative change that can be validated with a targeted host build.
