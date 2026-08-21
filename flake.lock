@@ -7,11 +7,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1785909051,
-        "narHash": "sha256-wR7wgld8IVJ2C2CWJtgd56ZFyUK8SEWN/NyCRygwDAg=",
+        "lastModified": 1786379373,
+        "narHash": "sha256-zrvcpGFA8zG6yRLBqQH9bNkJap8xMvLNvkuT4+7w6X8=",
         "owner": "Kyure-A",
         "repo": "agent-skills-nix",
-        "rev": "d86bab6d839202d838ed1451a64a94d3f0718f5b",
+        "rev": "1594ba479be81a7cb6dd19faabefcb1ed5b3f964",
         "type": "github"
       },
       "original": {
@@ -23,11 +23,11 @@
     "anthropic-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1786122854,
-        "narHash": "sha256-vTqAu8eRY+8ymbf065SWHHjNX/li3SOR+sWq1npteTM=",
+        "lastModified": 1787068925,
+        "narHash": "sha256-0ZtHTJVHeW8jIprKgCo/yU2ZI2cZxUqD3Riet3UWdt8=",
         "owner": "anthropics",
         "repo": "skills",
-        "rev": "f17010c9bb483898c1d9c9f42dde2b3a98889434",
+        "rev": "0a64e398ec6bb34a494f0c347e8ccae53a862f8e",
         "type": "github"
       },
       "original": {
@@ -750,11 +750,11 @@
     "juliusbrussee-caveman": {
       "flake": false,
       "locked": {
-        "lastModified": 1786187098,
-        "narHash": "sha256-54NN2TsYVVjWXJn6C+tPgCn1IdpecASJXeaMRpWXcFk=",
+        "lastModified": 1787282775,
+        "narHash": "sha256-FagkzOnjW9tqeaAK8NX1X8REsjWRRMqfrvhByEtrAXM=",
         "owner": "juliusbrussee",
         "repo": "caveman",
-        "rev": "11ddc0c9813c8f75365cd5be2f753df08712f154",
+        "rev": "2f49f0e1a352aa810e70056b7930aeb0b3d219b4",
         "type": "github"
       },
       "original": {
@@ -804,11 +804,11 @@
     "mattpocock-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1786045791,
-        "narHash": "sha256-pseSJJb5nBBGPzpxA1GzjGLB9OrT+u0At1saJ4NqZ1E=",
+        "lastModified": 1787222114,
+        "narHash": "sha256-Zg64vWsmtVk7WCH/f+bifju+L8yHeAwYbDNh6Ah43V0=",
         "owner": "mattpocock",
         "repo": "skills",
-        "rev": "84fdeffd12f2ee307994d1eb6feb48173b6e0502",
+        "rev": "0ab1b63a410a03d3627979a109c8695de27af954",
         "type": "github"
       },
       "original": {
@@ -1035,6 +1035,22 @@
         "type": "github"
       }
     },
+    "npc-z-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1787292179,
+        "narHash": "sha256-ei1E2daz8jltl18PzjEyeXgdeNqrDn2cPq9EKS/bwY4=",
+        "owner": "npc-z",
+        "repo": "skills",
+        "rev": "956fec826d9bfe36be94e10d66503459637b77a1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "npc-z",
+        "repo": "skills",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": "flake-parts_3",
@@ -1162,6 +1178,7 @@
         "juliusbrussee-caveman": "juliusbrussee-caveman",
         "kotot-vision": "kotot-vision",
         "mattpocock-skills": "mattpocock-skills",
+        "npc-z-skills": "npc-z-skills",
         "vercel-labs-skills": "vercel-labs-skills"
       },
       "locked": {
@@ -1281,11 +1298,11 @@
     "vercel-labs-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1786141830,
-        "narHash": "sha256-PLt/ECv/rg9viV6JzfEoBfBo+ELsMpcXfS6OZ4saDhk=",
+        "lastModified": 1787084911,
+        "narHash": "sha256-qD+gGPYjgbArf1Nz5rtlJVCS/2KNTuspag/B079l014=",
         "owner": "vercel-labs",
         "repo": "skills",
-        "rev": "941a7bcfeca4bf07913b9fb6f8ed81f20ff5297c",
+        "rev": "435076e78988e1e6ec40d00b0b1d76bdbbc5419a",
         "type": "github"
       },
       "original": {

@@ -30,6 +30,11 @@
       url = "github:kotot/vision";
       flake = false;
     };
+
+    npc-z-skills = {
+      url = "github:npc-z/skills";
+      flake = false;
+    };
   };
 
   outputs = {self, ...} @ inputs: {

@@ -37,6 +37,12 @@
         idPrefix = "kotot-vision";
       };
 
+      npc-z-skills = {
+        path = inputs.npc-z-skills;
+        subdir = "skills";
+        idPrefix = "npc-z-skills";
+      };
+
       # NOTE: 参考仓库可以添加本地自定义 skills
       # https://github.com/mitramejia/nixos-config/blob/main/modules/home/agent-skills.nix
     };
@@ -44,6 +50,7 @@
     skills.enableAll = [
       "mattpocock-productivity"
       "mattpocock-engineering"
+      "npc-z-skills"
     ];
 
     skills.enable = [
