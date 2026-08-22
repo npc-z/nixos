@@ -9,12 +9,12 @@
     final.runCommand "npc-rime-wanxiang" {
       src = inputs.rime-wanxiang;
     } ''
-    mkdir -p $out/share/rime-data
-    cp -r $src/. $out/share/rime-data/
-    chmod -R u+w $out/share/rime-data
-    # 排除非 rime 数据文件。
-    # 注意保留 custom/（/flypy 等运行时切换双拼依赖 shared/custom 里的模板）
-    rm -rf $out/share/rime-data/{.git*,.github,docs,README.md,LICENSE,CHANGELOG.md,mkdocs.yml,release-please-config.json,.release-please-manifest.json,version.txt}
+      mkdir -p $out/share/rime-data
+      cp -r $src/. $out/share/rime-data/
+      chmod -R u+w $out/share/rime-data
+      # 排除非 rime 数据文件。
+      # 注意保留 custom/（/flypy 等运行时切换双拼依赖 shared/custom 里的模板）
+      rm -rf $out/share/rime-data/{.git*,.github,docs,README.md,LICENSE,CHANGELOG.md,mkdocs.yml,release-please-config.json,.release-please-manifest.json,version.txt}
     '';
 
   # 万象语法模型（RIME-LMDG），不在 git 仓库内，需从 release 下载。
@@ -24,7 +24,7 @@
     final.runCommand "wanxiang-grammar-model" {
       src = final.fetchurl {
         url = "https://github.com/amzxyz/RIME-LMDG/releases/download/LTS/wanxiang-lts-zh-hans.gram";
-        sha256 = "sha256-mdab7x5ErrKP9+6Eg5ClfFoQTTsdH0gns+jRR14aCvU=";
+        sha256 = "sha256-xfynz0OvcxTHbIApA2eet2Qokuu4zc+LdRAKqa4N7sw=";
       };
     } ''
       mkdir -p $out/share/rime-data

@@ -1,5 +1,67 @@
 # CHANGELOG
 
+## 2026-08-22 11:16:53 星期六
+
+```log
+• Updated input 'darwin-nixpkgs':
+    'github:NixOS/nixpkgs/70ce234312134a463ba7728e94da2486a1d237ac?narHash=sha256-X44cn5rzytELc3NNoQsh0aLkjWA/QzPfc6HPQmsG3sU%3D' (2026-08-06)
+  → 'github:NixOS/nixpkgs/391b592eb44808b3bd0cb80bb71b63a5a118b8bb?narHash=sha256-WvvHR4kSQLAbtouMC/ruZ5UpLwlUcY3K4FAllMN%2ByGk%3D' (2026-08-20)
+• Updated input 'home-manager':
+    'github:nix-community/home-manager/7834e82588860aaf780cec1366524456a70898d7?narHash=sha256-TIDlLTLI1/pB7IqgjzcKQjpODQsZE2oII4XGG9B6KjI%3D' (2026-08-06)
+  → 'github:nix-community/home-manager/c53d643b3737e2fcd04e6cb3b3580ef50b2087a0?narHash=sha256-djoRr6jBpe35q/0JwAvXpFXg1Ktf%2BX54NU2RLR7wnHw%3D' (2026-08-19)
+• Updated input 'hyprland-contrib':
+    'github:hyprwm/contrib/3dcbce715ae8b93107fa8632db15bf976862a573?narHash=sha256-JP0D8r8o9%2BjnYk0/B5O722La%2BoZeC5iNQ3lonKFTmbQ%3D' (2026-06-30)
+  → 'github:hyprwm/contrib/57baf317e5196a8286b80976771ef55febad8660?narHash=sha256-qSzrIIqQUtEVeVZxQLj/L4p7%2BxKBEtPhgMTzFW2c6P8%3D' (2026-08-21)
+• Updated input 'llm-agents':
+    'github:numtide/llm-agents.nix/67325f6d7e80f103b3ffff0f0bf4993f2b2e2752?narHash=sha256-zAtxksKMjT/6LT2G1khq5FJMVJYGQeJGCvca0gRuGV8%3D' (2026-08-15)
+  → 'github:numtide/llm-agents.nix/bfeaeea9fa97c78361a3b18d6b56f11fcc9c0143?narHash=sha256-DVTVrT7w1wvSzXxNAjRfMMjABAVQ/ocPvPtuOTsbsqs%3D' (2026-08-22)
+• Updated input 'llm-agents/nixpkgs':
+    'github:NixOS/nixpkgs/6b5e5b7a6631f065bf6908986990b37d845f847f?narHash=sha256-smTKQXMLLStzc8zJevMCckbk3My7SvbbLmPYZUJJKW4%3D' (2026-08-13)
+  → 'github:NixOS/nixpkgs/391b592eb44808b3bd0cb80bb71b63a5a118b8bb?narHash=sha256-WvvHR4kSQLAbtouMC/ruZ5UpLwlUcY3K4FAllMN%2ByGk%3D' (2026-08-20)
+• Updated input 'llm-agents/treefmt-nix':
+    'github:numtide/treefmt-nix/ae7910970dddc408fe6ab1c8e4b277bb21d72dc0?narHash=sha256-NLSyTCW4K4ofhNBllt3omPasm6QpralXH1DBZOc91Dw%3D' (2026-08-05)
+  → 'github:numtide/treefmt-nix/27b3b12a8e6375f28ebe122f07d230ca5459bbfa?narHash=sha256-WSFCsDSE5ffgD2MqzkM2CYjeFiKhRF/dJUN8uedb6YE%3D' (2026-08-16)
+• Updated input 'nix-darwin':
+    'github:nix-darwin/nix-darwin/15abb8c98f336cd8bd840d71059adebabe60bf04?narHash=sha256-0tLW8Ff5yt8AH97jw4ZpFJ0OCJ122zIlgWGDmOfU/VU%3D' (2026-07-30)
+  → 'github:nix-darwin/nix-darwin/4cff07de74b50e64bdd68cd4e722ab5b6b35ee48?narHash=sha256-oQFip%2Bv0luP8NIxJzmiW4Wu8bILsbFWom5l0zonl8hQ%3D' (2026-08-16)
+• Updated input 'nix-homebrew':
+    'github:zhaofengli-wip/nix-homebrew/486357ea434dc0061ea52121ff99b1d33096c811?narHash=sha256-rusAj5QBnbSwXG6csns6dwxTeCOGRcj08VmlnhUQ6ZY%3D' (2026-08-08)
+  → 'github:zhaofengli-wip/nix-homebrew/b00218e4aec0e5bf07d61a0bb13f842faa582d7b?narHash=sha256-LslMncqN7uOOH5S88WZtO/EVt2HwD8ltUnfyANk%2BmC0%3D' (2026-08-21)
+• Updated input 'nix-homebrew/brew-src':
+    'github:Homebrew/brew/7b0f22a4ab77567edef114c8dfc423fb96e2fbaa?narHash=sha256-DTL5T9%2BHlblsnXCEdxRpEo/2NBHD3t48BS7r%2BPTf090%3D' (2026-08-02)
+  → 'github:Homebrew/brew/5b90e281d4e0c8fbd6ca4d8358276fb305b8d0bd?narHash=sha256-VBESSoJccikdhxh3vp3SQeG7cZXTOulMvVkoSqNDEhs%3D' (2026-08-17)
+• Updated input 'nix-vscode-extensions':
+    'github:nix-community/nix-vscode-extensions/c7e586ad09d79ab867b055b818d4122334ff6dfe?narHash=sha256-K/jbo7rTV0jRcDdHKL9VxGURqH61OJcCat9al7q9oMg%3D' (2026-08-09)
+  → 'github:nix-community/nix-vscode-extensions/f77d5bd7712b61e4831a5104221d4e0b98d74f86?narHash=sha256-KRs7IfccMjEd8RKRG0fbiZhLTvloXCCWDUC9m4MkV8M%3D' (2026-08-22)
+• Updated input 'nixpkgs':
+    'github:nixos/nixpkgs/f13ff45afd1bb73e640eaa08a7066dbed07e3238?narHash=sha256-zDSUbpoeo/9ZmD2%2BwXnzxoo1%2BuhL8vxc0b8yuYMKYq0%3D' (2026-08-07)
+  → 'github:nixos/nixpkgs/0ae2bc1419c3f345984c2629e72e7a631820fa4d?narHash=sha256-vXNVDVtvfiQuXthP0NHPFdNvvMTkGpx0UP8oddIWbNk%3D' (2026-08-18)
+• Updated input 'nixpkgs-stable':
+    'github:nixos/nixpkgs/ee48b147c18c7de1e6ec97dc74792be42724bed1?narHash=sha256-ZuvZfVW2tB5tXYEcpcfhVXB3N4OhdZLOqOviy4OD4b4%3D' (2026-08-07)
+  → 'github:nixos/nixpkgs/c69ae8fb8faeb3472fd11234ba55a70ac3601f9b?narHash=sha256-lgnV/xeEatfEnPZG0RrXS0fhcr63p3tsVvL1GdaVkJQ%3D' (2026-08-18)
+• Updated input 'noctalia':
+    'github:noctalia-dev/noctalia/ad647ae1bc1a119eaafb849ccce5391e9fdb0918?narHash=sha256-JxVEUqGZH1PzNh4w6p0UjJRycm33uUxX1ryotRErf3A%3D' (2026-08-09)
+  → 'github:noctalia-dev/noctalia/b38bf2dde1195e459b4b2a436bde970001d5d5ce?narHash=sha256-ZLsON94GGmg7cAC/9Oyz0P%2BmPhemdvQIKwLcFEe785k%3D' (2026-08-19)
+• Updated input 'noctalia/nixpkgs':
+    'https://releases.nixos.org/nixos/unstable/nixos-26.11pre1049422.f13ff45afd1b/nixexprs.tar.xz?narHash=sha256-CgKDSHL6rqAAQkkvg1xaZDQXb77%2B4XW73iGcUMJ%2B2w0%3D' (2026-08-07)
+  → 'https://releases.nixos.org/nixos/unstable/nixos-26.11pre1053317.0e251e24a4f2/nixexprs.tar.zst?narHash=sha256-yjGG65gA1jORt0hWxjzrnw3AYkIn8EWolp8vezwXZ3I%3D' (2026-08-13)
+• Updated input 'nur':
+    'github:nix-community/NUR/fb02d08add9898fe42ec75e1b48a1e833a27bc0d?narHash=sha256-ERElFF3kiiNmtdXaGW9pvXGy%2BvCvRuHr1RmRr52QoDs%3D' (2026-08-09)
+  → 'github:nix-community/NUR/86e6d5c98263d0b815e205329eefffb705f989df?narHash=sha256-1uT43CtQur%2BrCNWmzFdMkpcWCjJ3A5P18Gr%2Bu4wFq4A%3D' (2026-08-19)
+• Updated input 'nur/nixpkgs':
+    'github:nixos/nixpkgs/f13ff45afd1bb73e640eaa08a7066dbed07e3238?narHash=sha256-zDSUbpoeo/9ZmD2%2BwXnzxoo1%2BuhL8vxc0b8yuYMKYq0%3D' (2026-08-07)
+  → 'github:nixos/nixpkgs/0ae2bc1419c3f345984c2629e72e7a631820fa4d?narHash=sha256-vXNVDVtvfiQuXthP0NHPFdNvvMTkGpx0UP8oddIWbNk%3D' (2026-08-18)
+• Updated input 'rime-wanxiang':
+    'git+https://github.com/npc-z/rime-wanxiang?ref=refs/heads/wanxiang&rev=1ede8d5a3c53efaf1e4fa7b3d42a5bce7fcfbaed' (2026-08-04)
+  → 'git+https://github.com/npc-z/rime-wanxiang?ref=refs/heads/wanxiang&rev=5fbf79d190e83f7eab3f396ef23d7d6969d2a6b3' (2026-08-11)
+• Updated input 'skills-catalog':
+    'path:./agent-skills'
+  → 'path:./agent-skills'
+• Updated input 'zen-browser':
+    'github:0xc000022070/zen-browser-flake/cf55fc2a2d26819d0dfb4f5e21fad13d70a612e9?narHash=sha256-V5WOJhCGsuSRkz60K8TcALKMiMVCNubfJquMJqoCow0%3D' (2026-08-09)
+  → 'github:0xc000022070/zen-browser-flake/c66ece4c518550545f45dd0633551f23a085e01c?narHash=sha256-NmX0gGqJovFZ4iu5bsAxTdojz6Jz29M4mdsLUZpWY3s%3D' (2026-08-19)
+```
+
 ## 2026-07-26 17:56:39 星期日
 
 ```log
