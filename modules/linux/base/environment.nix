@@ -34,7 +34,7 @@
     swappy # Wayland native snapshot editing tool
 
     # wpsoffice # cant build
-    libreoffice-qt6-fresh
+    libreoffice-qt-stable
 
     # common tools
     vim
