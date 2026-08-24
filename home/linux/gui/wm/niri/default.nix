@@ -26,6 +26,7 @@ in {
     ./../addons/hyprlock.nix
     ./../addons/swayidle.nix
     ./../addons/noctalia.nix
+    ./../addons/wvkbd.nix
 
     ./../xdg-portal.nix
   ];

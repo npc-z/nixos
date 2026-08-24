@@ -26,6 +26,7 @@ in {
   imports = [
     ./../addons/noctalia.nix
     ./../addons/hyprlock.nix
+    ./../addons/wvkbd.nix
 
     ./../xdg-portal.nix
   ];
