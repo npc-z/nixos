@@ -90,6 +90,9 @@
       url = "git+https://github.com/npc-z/rime-wanxiang";
       flake = false;
     };
+
+    # NixKits — 软件、补丁、NixOS 模块与 AI 编码助手的技能合集
+    nixkits.url = "github:Kihara777/NixKits";
   };
 
   outputs = {

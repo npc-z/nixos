@@ -15,6 +15,7 @@
     };
 
     modules = {
+      obs.enable = true;
     };
 
     # This value determines the Home Manager release that your
