@@ -1,5 +1,64 @@
 # CHANGELOG
 
+## 2026-08-29 15:59:15 星期六
+
+```log
+• Updated input 'darwin-nixpkgs':
+    'github:NixOS/nixpkgs/391b592eb44808b3bd0cb80bb71b63a5a118b8bb?narHash=sha256-WvvHR4kSQLAbtouMC/ruZ5UpLwlUcY3K4FAllMN%2ByGk%3D' (2026-08-20)
+  → 'github:NixOS/nixpkgs/c27cdad491a991b11ed731760aa2ef8db0cb0410?narHash=sha256-PYZq1qzCJXC2zGI0mH07vrZBsw6DRBAOX0jN1pPtqOQ%3D' (2026-08-27)
+• Updated input 'home-manager':
+    'github:nix-community/home-manager/ec1a8fdf74ed3f276148ee106299a2ba0e65d51f?narHash=sha256-XL2qfqmocfsvuEGyomZg4nOZfkuSe8vZtrOX99I%2Bb6I%3D' (2026-08-22)
+  → 'github:nix-community/home-manager/99c9ec63390f1d8c14d95d9e8b17cc29cfbd4e11?narHash=sha256-8%2BQ7NOB7RPajRjA4pbCDLzqH%2BMTjnG9x6LUPLfL2joA%3D' (2026-08-27)
+• Updated input 'llm-agents':
+    'github:numtide/llm-agents.nix/b44f002a50d8fe0235285e9211d821fe3bc76e83?narHash=sha256-83WkVUiLWbclHSz8m7v9bVvcUb60fbTmP%2BIJk8t65ow%3D' (2026-08-23)
+  → 'github:numtide/llm-agents.nix/5f98afd0b6aaad05cb0e0e0f6c491131932d0176?narHash=sha256-EAJZnS9fRP8QhkRUJOpOfk7lqsbV6cJUhKC48Hx//NQ%3D' (2026-08-29)
+• Updated input 'llm-agents/flake-parts':
+    'github:hercules-ci/flake-parts/427bf4bd9435fdf21321c8cc628c24efc14c0f7a?narHash=sha256-4dtXQk/NMePegK/nWp5NSeuZKLATItOq61lpEvmXqGw%3D' (2026-08-01)
+  → 'github:hercules-ci/flake-parts/9d0d87172c374f89da73c1cfe6d81ae62feac1f1?narHash=sha256-onL0VLf9vPllmT0H/OlURIU5r5t5WIEl7t4tVNKT0Nw%3D' (2026-08-24)
+• Updated input 'llm-agents/nixpkgs':
+    'github:NixOS/nixpkgs/391b592eb44808b3bd0cb80bb71b63a5a118b8bb?narHash=sha256-WvvHR4kSQLAbtouMC/ruZ5UpLwlUcY3K4FAllMN%2ByGk%3D' (2026-08-20)
+  → 'github:NixOS/nixpkgs/174eb786fb68e3a13e4e535a3deea479a0c07a6a?narHash=sha256-dWLO5AHhKaw6rdWCtTes8hnntT1r0/J5yhQGm0f0ZgU%3D' (2026-08-22)
+• Updated input 'nix-vscode-extensions':
+    'github:nix-community/nix-vscode-extensions/95b3cd9ae6526964fe9d5b01fb28cbe4cca16cca?narHash=sha256-wyaotmjCE/HcAjXJ6%2BPxn3fzrrIO7r/QrIza7h1ZtSg%3D' (2026-08-23)
+  → 'github:nix-community/nix-vscode-extensions/5de3e6f0390b1d4c75978fab1b7c736cd5f7b062?narHash=sha256-2XmS%2BYZjm/KIqO/fLcgFkf/7dRvPgpnuPLEJnKRfrqI%3D' (2026-08-28)
+• Updated input 'nixkits':
+    'github:Kihara777/NixKits/394d718710230a0836ca6ac27e7646c25d855024?narHash=sha256-dNwC7j9wNknzgK6vEKltJW9ZPCvH/E9wStvniTddUjw%3D' (2026-08-24)
+  → 'github:Kihara777/NixKits/3ac86dd8f1e869a7e1880f22f716eaf8530174c8?narHash=sha256-TpBcPUM7fnXtPPsSFrAYAxWyN6m2uNTUv5LqZmRV0bU%3D' (2026-08-27)
+• Updated input 'nixkits/llama-cpp-ver':
+    'https://api.github.com/repos/ggml-org/llama.cpp/releases/latest?narHash=sha256-uew6r5vF5pkFGqBft6hMtfNwkrvPApOmxfuYpBIbw3w%3D'
+  → 'https://api.github.com/repos/ggml-org/llama.cpp/releases/latest?narHash=sha256-WgzTs2VI0Rls/7Nq45IdAtjr%2BKH34MYvYB/U3yOyGFo%3D'
+• Updated input 'nixkits/nixpkgs':
+    'github:NixOS/nixpkgs/56c02bc00adcf003215cc4bd996d6efaf4cff188?narHash=sha256-9i/VTdusq/%2BNM/tz%2BJ1Re%2BojkMB8MBf0QshnYfzHz30%3D' (2026-08-23)
+  → 'github:NixOS/nixpkgs/9fbb54b33e91ee4ca368e35a78e0613c720600b3?narHash=sha256-cV5xEJJK3BvhU8rEd4mC9UsmDi5qscv/kzGPhBRC5WA%3D' (2026-08-26)
+• Updated input 'nixpkgs':
+    'github:nixos/nixpkgs/2c423e03bbafcff28bfadc6781a4a8257f205cb5?narHash=sha256-dt4WdcvsA8/RCe%2BVZZwqU0X%2BXMM3wBbGCWA0/sFWzGo%3D' (2026-08-22)
+  → 'github:nixos/nixpkgs/9fbb54b33e91ee4ca368e35a78e0613c720600b3?narHash=sha256-cV5xEJJK3BvhU8rEd4mC9UsmDi5qscv/kzGPhBRC5WA%3D' (2026-08-26)
+• Updated input 'nixpkgs-stable':
+    'github:nixos/nixpkgs/5880666fd9eb563038431edb35c2d0aa595884e6?narHash=sha256-OURZPknrTjQrlNyxPdqzyqmU/81Wes1CUP/Ft1Rv/YI%3D' (2026-08-20)
+  → 'github:nixos/nixpkgs/d57af924f160a5084293c71c2043f058bd1cdb60?narHash=sha256-7gDpu5hpq0rOYnYMcOWqSzquK4HA/xU8Xf3CjUBOOJA%3D' (2026-08-27)
+• Updated input 'noctalia':
+    'github:noctalia-dev/noctalia/d8ba5a01cac5ba8617bf262249829b4aa5945369?narHash=sha256-tc6SVNlhzN/WPSY5SnZ0D9yHzviiicagpRoqDQJn19w%3D' (2026-08-23)
+  → 'github:noctalia-dev/noctalia/4b03775fac344d87c078431f49e52c1e5b2be528?narHash=sha256-kST4FTVCH5qsMU9FWalSqMxt6JeBnnAT83cMWSeN5Dc%3D' (2026-08-29)
+• Updated input 'nur':
+    'github:nix-community/NUR/b2f4e143eee5bc8a374d53a80dbe6c9f028e8878?narHash=sha256-kVBAbXMN1Kf3k0Kh4zP2cLQ9SiuRrtGSAkaB2wmOEQM%3D' (2026-08-23)
+  → 'github:nix-community/NUR/903373f7d8e9811b60989e4f240c090d96ca6a3a?narHash=sha256-cK%2BP9Bc8qgrjDip28K8dL86qNKmEFdFj8fRH6iXx2qU%3D' (2026-08-29)
+• Updated input 'nur/nixpkgs':
+    'github:nixos/nixpkgs/2c423e03bbafcff28bfadc6781a4a8257f205cb5?narHash=sha256-dt4WdcvsA8/RCe%2BVZZwqU0X%2BXMM3wBbGCWA0/sFWzGo%3D' (2026-08-22)
+  → 'github:nixos/nixpkgs/9fbb54b33e91ee4ca368e35a78e0613c720600b3?narHash=sha256-cV5xEJJK3BvhU8rEd4mC9UsmDi5qscv/kzGPhBRC5WA%3D' (2026-08-26)
+• Updated input 'skills-catalog':
+    'path:./agent-skills'
+  → 'path:./agent-skills'
+• Updated input 'skills-catalog/juliusbrussee-caveman':
+    'github:juliusbrussee/caveman/2f49f0e1a352aa810e70056b7930aeb0b3d219b4?narHash=sha256-FagkzOnjW9tqeaAK8NX1X8REsjWRRMqfrvhByEtrAXM%3D' (2026-08-21)
+  → 'github:juliusbrussee/caveman/17f9f2ec2377b0bfe16b52ee03a462e7f0a02bc8?narHash=sha256-lmzmlPj47lWNRZudMSsdIocS4srZYQeG2bQw800Os7U%3D' (2026-08-25)
+• Updated input 'skills-catalog/mattpocock-skills':
+    'github:mattpocock/skills/5b15a47f2d7150f545fbcacbfe381787fc0230dc?narHash=sha256-FPAAotNqA5aHrFDlj/XddoLs4TDKi%2B4J5H/mvevlOlk%3D' (2026-08-21)
+  → 'github:mattpocock/skills/6654f6b60cd9d5be8b54c6fafe44346dabeb3b76?narHash=sha256-N5tpUIHO2VFeJntBTl6/VLDIVpqoshwFxNJlfXXUwsQ%3D' (2026-08-24)
+• Updated input 'zen-browser':
+    'github:0xc000022070/zen-browser-flake/c66ece4c518550545f45dd0633551f23a085e01c?narHash=sha256-NmX0gGqJovFZ4iu5bsAxTdojz6Jz29M4mdsLUZpWY3s%3D' (2026-08-19)
+  → 'github:0xc000022070/zen-browser-flake/382e4f584c03b750d35849faff70ac1aa44fd6cf?narHash=sha256-Gxk6hObCh1ZQPNXQ6EfLMKwFz9PFKKSDTva3ntUsdvU%3D' (2026-08-28)
+```
+
 ## 2026-08-22 11:16:53 星期六
 
 ```log
