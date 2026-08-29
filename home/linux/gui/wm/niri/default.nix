@@ -24,7 +24,6 @@ in {
 
   imports = [
     ./../addons/hyprlock.nix
-    ./../addons/swayidle.nix
     ./../addons/noctalia.nix
 
     ./../xdg-portal.nix

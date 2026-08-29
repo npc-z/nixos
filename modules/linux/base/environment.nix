@@ -16,7 +16,6 @@
     cmake
 
     polkit
-    swaynotificationcenter
     libnotify # notify-send
     xdg-user-dirs
 
