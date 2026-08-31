@@ -37,6 +37,11 @@ remote-test host:
   nixos-rebuild test --use-remote-sudo --target-host npc@{{host}} --flake ./#{{host}} --elevate=sudo --ask-elevate-password
 
 
+# export noctalia config to dotfiles
+[linux]
+expoet-noctalia-gui-config:
+  noctalia config export > dotfiles/noctalia/settings.toml
+
 # deploy darwin
 [macos]
 deploy: update-mac-self-managed-cfgs

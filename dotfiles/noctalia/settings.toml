@@ -1,8 +1,13 @@
 [bar.default]
 background_opacity = 0.69999998435378075
 capsule = true
-center = [ "media" ]
+capsule_fill = "on_primary"
+capsule_opacity = 0.64999998547136784
+capsule_thickness = 0.74999998696148396
+center = [ "taskbar" ]
+concave_edge_corners = false
 end = [
+    "lyrics",
     "tray",
     "notifications",
     "clipboard",
@@ -11,27 +16,32 @@ end = [
     "volume",
     "brightness",
     "battery",
-    "clock",
-    "session"
+    "session",
+    "clock"
 ]
-margin_edge = 0
 margin_ends = 0
 radius = 0
 shadow = false
-start = [ "launcher", "workspaces", "taskbar" ]
-widget_spacing = 8
+start = [ "launcher", "workspaces" ]
 
-[[control_center.shortcuts]]
-type = "caffeine"
+    [bar.default.dead_zone.actions]
+    scroll_down = "taskbar-cycle next"
 
-[[control_center.shortcuts]]
-type = "nightlight"
+[control_center]
+sidebar = "full"
+sidebar_section = "full"
 
-[[control_center.shortcuts]]
-type = "wallpaper"
+    [[control_center.shortcuts]]
+    type = "caffeine"
 
-[[control_center.shortcuts]]
-type = "session"
+    [[control_center.shortcuts]]
+    type = "nightlight"
+
+    [[control_center.shortcuts]]
+    type = "notification"
+
+    [[control_center.shortcuts]]
+    type = "wallpaper"
 
 [desktop_widgets]
 schema_version = 2
@@ -48,27 +58,29 @@ widget_order = []
 behavior_order = [ "lock", "screen-off" ]
 
     [idle.behavior.lock]
-    action = "command"
-    command = "hyprlock"
+    action = "lock"
     enabled = true
     timeout = 3600.0
 
     [idle.behavior.screen-off]
     action = "screen_off"
-    command = "niri msg action power-off-monitors || hyprctl dispatch dpms off"
     enabled = true
     timeout = 4200.0
 
 [location]
-address = "Shenzen"
+address = "shenzhen"
+
+[lockscreen]
+allow_empty_password = true
+blur_intensity = 0.74999998323619366
 
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
 widget_order = [
-    "lockscreen-widget-0000000000000002",
     "lockscreen-login-box@HDMI-A-1",
     "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002",
     "lockscreen-widget-0000000000000003"
 ]
 
@@ -78,99 +90,154 @@ widget_order = [
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
-    box_height = 0.0
-    box_width = 0.0
+    box_height = 70.0
+    box_width = 400.0
     cx = 960.0
-    cy = 965.0
+    cy = 898.0
     output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "primary"
+        background_opacity = 0.0
+        background_radius = 12.0
+        center_password_text = true
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "compact"
+        show_caps_lock = false
+        show_keyboard_layout = false
+        show_login_button = false
+        show_media = false
+        show_session_buttons = false
+        show_unlock_hint = false
+        show_weather = false
+
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
-    box_height = 112.0
-    box_width = 528.0
-    cx = 976.0
-    cy = 508.0
+    box_height = 320.0
+    box_width = 576.0
+    cx = 928.0
+    cy = 316.0
     output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "clock"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = true
         background_opacity = 0.0
         clock_style = "digital"
-        color = "on_surface"
-        format = "{:%Y / %m / %d}"
+        color = "on_primary"
+        format = "{:%H:%M:%S}"
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
-    box_height = 320.0
-    box_width = 544.0
-    cx = 960.0
-    cy = 316.0
+    box_height = 160.0
+    box_width = 368.0
+    cx = 944.0
+    cy = 524.0
     output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "clock"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = true
         background_opacity = 0.0
-        format = "{: %H:%M:%S}"
+        clock_style = "digital"
+        color = "on_primary"
+        format = "{:%y / %m / %d}"
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
-    box_height = 448.0
-    box_width = 352.0
-    cx = 1696.0
-    cy = 828.0
+    box_height = 96.0
+    box_width = 176.0
+    cx = 960.0
+    cy = 444.0
     output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
-    type = "media_player"
+    type = "clock"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
         background_opacity = 0.0
-        layout = "vertical"
+        color = "on_primary"
+        format = "{:%A}"
 
 [nightlight]
 enabled = true
-temperature_day = 4500
-temperature_night = 3200
 
 [notification]
 position = "bottom_right"
 
+[plugin_settings."h465855hgg/lyrics"]
+lyrics_sources = [
+    "lrclib",
+    "netease",
+    "splayer",
+    "qqmusic",
+    "kugou",
+    "qishui",
+    "apple_music",
+    "spotify",
+    "musixmatch",
+    "SPlayer-Next"
+]
+
 [plugins]
-enabled = []
+auto_update = "all"
+enabled = [ "h465855hgg/lyrics" ]
 
 [shell]
-clipboard_history_max_entries = 200
+clipboard_history_max_entries = 1000
+external_ip_enabled = true
+font_family = "Arial Black"
+lang = "zh-Hans"
+time_format = "{:%H:%M:%S}"
 
     [[shell.session.actions]]
     action = "lock"
+    countdown_seconds = 0.0
     enabled = true
     shortcut = "1"
     variant = "default"
 
     [[shell.session.actions]]
     action = "logout"
+    countdown_seconds = 0.0
     enabled = true
     shortcut = "2"
     variant = "default"
 
     [[shell.session.actions]]
     action = "reboot"
+    countdown_seconds = 0.0
     enabled = true
     shortcut = "4"
     variant = "default"
 
     [[shell.session.actions]]
     action = "shutdown"
+    countdown_seconds = 0.0
     enabled = true
     shortcut = "5"
     variant = "destructive"
 
 [theme]
-builtin = "Nord"
-wallpaper_scheme = "faithful"
+builtin = "Ayu"
+community_palette = "Paradise"
+mode = "auto"
 
 [wallpaper]
 directory = "/home/npc/.config/wallpapers"
+transition_on_startup = true
+
+    [wallpaper.automation]
+    enabled = true
 
     [wallpaper.default]
     path = "/home/npc/.config/wallpapers/arch.png"
@@ -181,26 +248,23 @@ directory = "/home/npc/.config/wallpapers"
     [wallpaper.monitors.HDMI-A-1]
     path = "/home/npc/.config/wallpapers/arch.png"
 
-[weather]
-refresh_minutes = 5
-
-[widget.cat]
-type = "noctalia/bongocat:cat"
-
 [widget.clock]
-format = "{:%y-%m-%d %H:%M:%S}"
+format = "{:%H:%M:%S}"
 
 [widget.launcher]
 glyph = "apps"
 
-[widget.media]
-hide_when_no_media = true
+[widget.lyrics]
+hide_when_paused = true
+show_artist = false
+show_cover = false
+show_glyph = false
+type = "h465855hgg/lyrics:lyrics"
 
 [widget.taskbar]
 only_active_workspace = true
 
-[widget.tray]
-hidden = [ "Blueman", "Network" ]
-
 [widget.workspaces]
 hide_when_empty = true
+label_source = "name"
+max_label_chars = 6
