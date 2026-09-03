@@ -27,6 +27,8 @@
     usbutils
     killall
 
+    bubblewrap # Unprivileged sandboxing tool
+
     # 截图
     grim
     slurp
