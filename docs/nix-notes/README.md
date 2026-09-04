@@ -9,6 +9,7 @@
 | 文件                                         | 内容                                                                                              |
 | -------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | [nix-cache-verify.md](./nix-cache-verify.md) | flake 更新后如何确认能吃到官方二进制缓存(derivation 路径构造、narinfo 查询、锁一致性检查、常见坑) |
+| [niri-noctalia-red-screen-oom.md](./niri-noctalia-red-screen-oom.md) | niri + noctalia 隔夜红屏无法解锁：noctalia 7.3G 泄漏 OOM + hyprlock 缺 PAM + 多锁竞争排查 |
 
 ## 如何添加新笔记
 
