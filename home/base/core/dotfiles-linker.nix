@@ -98,6 +98,7 @@
 
     # opencode
     "opencode/opencode.jsonc".source = linkTo "opencode/opencode.jsonc";
+    "opencode/tui.jsonc".source = linkTo "opencode/tui.jsonc";
 
     # libinput-gestures
     "libinput-gestures.conf".source = linkTo "libinput-gestures/.config/libinput-gestures.conf";

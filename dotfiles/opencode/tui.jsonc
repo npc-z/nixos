@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "attention": {
+    "enabled": true,
+    "notifications": true,
+    "sound": true
+  },
+  "keybinds": {
+    "input_submit": "ctrl+return",
+    "input_newline": "return"
+  }
+}
