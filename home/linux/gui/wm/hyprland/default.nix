@@ -26,8 +26,6 @@ in {
   imports = [
     ./../addons/noctalia.nix
     ./../addons/hyprlock.nix
-
-    ./../xdg-portal.nix
   ];
 
   config = mkIf cfg.enable {
