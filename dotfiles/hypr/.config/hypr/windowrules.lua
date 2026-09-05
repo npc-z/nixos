@@ -21,9 +21,13 @@ hl.window_rule({
     float = true,
 })
 
--- clash-verge
+-- vpn
 hl.window_rule({
     match = { class = "^.*(clash-verge).*$" },
+    float = true,
+})
+hl.window_rule({
+    match = { class = "^([Ss]parkle)$" },
     float = true,
 })
 
@@ -126,6 +130,11 @@ hl.window_rule({
 })
 hl.window_rule({
     match = { class = "^(com.gitee.gmg137.NeteaseCloudMusicGtk4)$" },
+    workspace = "6",
+    float = true,
+})
+hl.window_rule({
+    match = { class = "^top.imsyy.splayer_next$" },
     workspace = "6",
     float = true,
 })

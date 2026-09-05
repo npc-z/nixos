@@ -1,10 +1,17 @@
 hl.config({
     plugin = {
         scrolloverview = {
-            gesture_distance = 300,
-            scale = 0.5,
+            gesture_distance = 200,
+            scale = 0.65,
             workspace_gap = 100,
             layout = "vertical",
+            wallpaper = 0, -- 0: global only, 1: per-workspace only, 2: both
+            blur = false, -- blur only the main overview wallpaper
+
+            shadow = {
+                enabled = true,
+                range = 50,
+            },
         },
     },
 })
