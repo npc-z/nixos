@@ -30,11 +30,19 @@ debug:
   nh os test --ask --verbose . --accept-flake-config
 
 
-# remote build
+# build for remote host
 [linux]
-remote-test host:
-  # e.g. nixos-rebuild test --use-remote-sudo --target-host npc@r9000p-nixos --flake ./#r9000p-nixos --ask-sudo-password
-  nixos-rebuild test --use-remote-sudo --target-host npc@{{host}} --flake ./#{{host}} --elevate=sudo --ask-elevate-password
+build-for-remote host:
+  # e.g. nixos-rebuild build --use-remote-sudo --target-host npc@r9000p-nixos --flake ./#r9000p-nixos --ask-sudo-password
+  nixos-rebuild build --use-remote-sudo --target-host npc@{{host}} --flake ./#{{host}} --elevate=sudo --ask-elevate-password
+
+
+# build by remote host
+[linux]
+build-by-remote host:
+  # e.g. nixos-rebuild build --use-remote-sudo --target-host npc@r9000p-nixos --flake ./#r9000p-nixos --ask-sudo-password
+  # nh os build --ask --verbose --target-host npc@{{host}} . --accept-flake-config
+  nixos-rebuild build --flake . --sudo --build-host npc@{{host}} --accept-flake-config
 
 
 # export noctalia config to dotfiles
