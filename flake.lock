@@ -23,11 +23,11 @@
     "anthropic-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1788287438,
-        "narHash": "sha256-xaxkXFpzH4s2OIOcZqPy+HzfRAy2HbKpagjMhY+uinA=",
+        "lastModified": 1788453433,
+        "narHash": "sha256-sjgPv9tZZVTXPxZWaCOc7JwFceNn3C1ghy8mSHqgqB8=",
         "owner": "anthropics",
         "repo": "skills",
-        "rev": "53048666b05b4799081517d00e09e0a2dd688678",
+        "rev": "41bbe19d1a1a7eaab5e7bb9050a417e5c6cffc8f",
         "type": "github"
       },
       "original": {
@@ -769,11 +769,11 @@
     "juliusbrussee-caveman": {
       "flake": false,
       "locked": {
-        "lastModified": 1788356929,
-        "narHash": "sha256-ovnxzvmLxg+kS2nog6MLVLKD76+SVlqyBs54V3jGmLo=",
+        "lastModified": 1788481872,
+        "narHash": "sha256-i7STNoj3+pSUMsn4bEE6lcbrF2EWNUjAOoQoJWTFO6U=",
         "owner": "juliusbrussee",
         "repo": "caveman",
-        "rev": "3b74643f4d910f496babd4e634b1ba7168816f14",
+        "rev": "367fdb7f0f8f8e7994b5aab632c7ce5014802b32",
         "type": "github"
       },
       "original": {
@@ -835,11 +835,11 @@
     "mattpocock-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1787581197,
-        "narHash": "sha256-N5tpUIHO2VFeJntBTl6/VLDIVpqoshwFxNJlfXXUwsQ=",
+        "lastModified": 1788511407,
+        "narHash": "sha256-dF5i37jHnqfcXD1IRSVzSSm/pfCYSUmOsEhhs5Zx340=",
         "owner": "mattpocock",
         "repo": "skills",
-        "rev": "6654f6b60cd9d5be8b54c6fafe44346dabeb3b76",
+        "rev": "3cca18b368ae95cdbdebbff572ccafa662551015",
         "type": "github"
       },
       "original": {
@@ -1105,11 +1105,11 @@
     "npc-z-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1787292179,
-        "narHash": "sha256-ei1E2daz8jltl18PzjEyeXgdeNqrDn2cPq9EKS/bwY4=",
+        "lastModified": 1788586319,
+        "narHash": "sha256-MxXLJGfQ5Gy3FtEQEibKCltcM5F92NEckgkON5pS9RQ=",
         "owner": "npc-z",
         "repo": "skills",
-        "rev": "956fec826d9bfe36be94e10d66503459637b77a1",
+        "rev": "f16ac1179c4a18b2bc62cacc9bffd02d6f336c3c",
         "type": "github"
       },
       "original": {
