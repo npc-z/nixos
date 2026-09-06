@@ -32,8 +32,6 @@
     # shows the type of files
     file
 
-    localsend
-
     htop
     btop
     cron
