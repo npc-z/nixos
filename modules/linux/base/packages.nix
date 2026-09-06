@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     gcc
     cmake
@@ -42,16 +38,4 @@
     pamixer
     brightnessctl
   ];
-
-  # 使用 home manage 配置也需要开启 zsh
-  programs.zsh.enable = true;
-  programs.nix-ld.enable = true;
-
-  programs = {
-    hyprland = {
-      enable = true;
-      # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      xwayland.enable = true;
-    };
-  };
 }
