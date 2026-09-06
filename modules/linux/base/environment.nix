@@ -29,9 +29,6 @@
 
     bubblewrap # Unprivileged sandboxing tool
 
-    # wpsoffice # cant build
-    libreoffice-qt-stable
-
     # common tools
     vim
     wl-clipboard

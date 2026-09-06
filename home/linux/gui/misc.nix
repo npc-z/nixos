@@ -1,11 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    # English dictionary
-    eudic
-
-    # pdf viewer
-    zathura
-
     # remote desktop software
     rustdesk-flutter
 
