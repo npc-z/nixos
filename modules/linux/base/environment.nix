@@ -29,11 +29,6 @@
 
     bubblewrap # Unprivileged sandboxing tool
 
-    # 截图
-    grim
-    slurp
-    swappy # Wayland native snapshot editing tool
-
     # wpsoffice # cant build
     libreoffice-qt-stable
 
@@ -44,16 +39,12 @@
     # tools
 
     glow
-    imv # view image
-    mpv # view video
-    vlc # Cross-platform media player and streaming server
 
     tldr
     eza
     # shows the type of files
     file
 
-    playerctl
     localsend
 
     htop
@@ -67,7 +58,6 @@
     wlogout
     pamixer
     brightnessctl
-    pavucontrol # PulseAudio Volume Control
   ];
 
   # 使用 home manage 配置也需要开启 zsh
