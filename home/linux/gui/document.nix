@@ -1,4 +1,12 @@
-{pkgs, ...}: {
+{
+  config,
+  myvars,
+  pkgs,
+  ...
+}: let
+  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
+  dotfilesRoot = myvars.thisRepoPathAtNixos + "/dotfiles";
+in {
   home.packages = with pkgs; [
     # pdf viewer
     zathura
@@ -14,4 +22,9 @@
     # https://github.com/readest/readest
     readest
   ];
+
+  xdg.configFile.zathura = {
+    source = mkSymlink "${dotfilesRoot}/zathura/.config/zathura";
+    recursive = true;
+  };
 }

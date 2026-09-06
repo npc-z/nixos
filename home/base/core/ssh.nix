@@ -12,12 +12,5 @@
     else myvars.thisRepoPathAtNixos;
   dotfilesRoot = repoPath + "/dotfiles";
 in {
-  home.packages = with pkgs; [
-    kitty
-  ];
-
-  xdg.configFile.kitty = {
-    source = mkSymlink "${dotfilesRoot}/kitty/.config/kitty";
-    recursive = true;
-  };
+  home.file.".ssh/config".source = mkSymlink "${dotfilesRoot}/ssh/.ssh/config";
 }

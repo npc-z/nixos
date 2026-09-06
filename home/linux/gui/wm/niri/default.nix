@@ -1,11 +1,15 @@
 {
   config,
   lib,
+  myvars,
   pkgs,
   ...
 }:
 with lib; let
   cfg = config.wm.niri;
+
+  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
+  dotfilesRoot = myvars.thisRepoPathAtNixos + "/dotfiles";
 
   # FIXME: https://github.com/YaLTeR/niri/issues/1682#issuecomment-2919386619
   # niri 上游生成的 zsh 补全有问题，构建期用 sed 修复后再安装：
@@ -37,6 +41,11 @@ in {
       xwayland-satellite
       nirius # Utility commands for the niri wayland compositor
     ];
+
+    xdg.configFile.niri = {
+      source = mkSymlink "${dotfilesRoot}/niri";
+      recursive = true;
+    };
 
     # 补全只随 niri 模块安装在 Linux host 上，由 zsh 惰性加载
     home.file."${config.xdg.configHome}/zsh/site-functions/_niri".source = zshCompletion;

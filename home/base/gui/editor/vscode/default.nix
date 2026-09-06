@@ -1,4 +1,18 @@
-{pkgs, ...}: let
+{
+  config,
+  lib,
+  mylib,
+  myvars,
+  pkgs,
+  ...
+}: let
+  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
+  repoPath =
+    if mylib.isDarwin pkgs
+    then myvars.thisRepoPathAtDarwin
+    else myvars.thisRepoPathAtNixos;
+  dotfilesRoot = repoPath + "/dotfiles";
+
   vscodeCliArgs = [
     # https://code.visualstudio.com/docs/configure/settings-sync#_recommended-configure-the-keyring-to-use-with-vs-code
     # For use with any package that implements the Secret Service API
@@ -106,5 +120,31 @@ in {
           commandLineArgs = vscodeCliArgs;
         }
       else pkgs.vscodium;
+  };
+
+  # vscode / vscodium config: linux uses ~/.config/Code|VSCodium, darwin uses App Support
+  xdg.configFile = lib.mkIf (!mylib.isDarwin pkgs) {
+    "Code/User/keybindings.json".source = mkSymlink "${dotfilesRoot}/vscode/.config/Code/User/keybindings.json";
+    "Code/User/settings.json".source = mkSymlink "${dotfilesRoot}/vscode/.config/Code/User/settings.json";
+    "Code/User/snippets" = {
+      source = mkSymlink "${dotfilesRoot}/vscode-snippets";
+      recursive = true;
+    };
+
+    "VSCodium/User/keybindings.json".source = mkSymlink "${dotfilesRoot}/vscode/.config/Code/User/keybindings.json";
+    "VSCodium/User/settings.json".source = mkSymlink "${dotfilesRoot}/vscode/.config/Code/User/settings.json";
+    "VSCodium/User/snippets" = {
+      source = mkSymlink "${dotfilesRoot}/vscode-snippets";
+      recursive = true;
+    };
+  };
+
+  home.file = lib.mkIf (mylib.isDarwin pkgs) {
+    "Library/Application Support/Code/User/settings.json".source = mkSymlink "${dotfilesRoot}/vscode-mac/settings.json";
+    "Library/Application Support/Code/User/keybindings.json".source = mkSymlink "${dotfilesRoot}/vscode-mac/keybindings.json";
+    "Library/Application Support/Code/User/snippets" = {
+      source = mkSymlink "${dotfilesRoot}/vscode-snippets";
+      recursive = true;
+    };
   };
 }

@@ -1,4 +1,12 @@
-{pkgs, ...}: {
+{
+  config,
+  myvars,
+  pkgs,
+  ...
+}: let
+  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
+  dotfilesRoot = myvars.thisRepoPathAtNixos + "/dotfiles";
+in {
   home.packages = with pkgs; [
     # -------- media player --------
     # video player
@@ -31,4 +39,17 @@
     slurp
     swappy # Wayland native snapshot editing tool
   ];
+
+  xdg.configFile = {
+    # audio visualizer
+    cava = {
+      source = mkSymlink "${dotfilesRoot}/cava";
+      recursive = true;
+    };
+    # screenshot annotation editor
+    swappy = {
+      source = mkSymlink "${dotfilesRoot}/swappy/.config/swappy";
+      recursive = true;
+    };
+  };
 }
