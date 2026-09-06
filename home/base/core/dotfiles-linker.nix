@@ -69,7 +69,6 @@
     "scripts"
     "swappy"
     "wallpapers"
-    "wlogout"
     "zathura"
   ];
 

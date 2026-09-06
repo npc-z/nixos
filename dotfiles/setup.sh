@@ -5,7 +5,6 @@
 # hyprland: the Hyprland compositor
 # kitty: for float terminal
 # foot: normal terminal
-# wofi: the application launcher menu
 # pamixer: This helps with audio settings such as volume
 # brightnessctl: used to control monitor bright level
 # swaybg: set wallpaper
@@ -25,7 +24,6 @@ sudo pacman -S \
     hyprland \
     kitty \
     foot \
-    wofi \
     pamixer \
     brightnessctl \
     swaybg \

@@ -51,8 +51,6 @@
     keyd
     stow
     # desktop
-    wofi
-    wlogout
     pamixer
     brightnessctl
   ];
