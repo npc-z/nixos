@@ -769,11 +769,11 @@
     "juliusbrussee-caveman": {
       "flake": false,
       "locked": {
-        "lastModified": 1788481872,
-        "narHash": "sha256-i7STNoj3+pSUMsn4bEE6lcbrF2EWNUjAOoQoJWTFO6U=",
+        "lastModified": 1788600433,
+        "narHash": "sha256-nzkknWaKflpe2h8mG5pSPMU/J5CPSigKSDebxhcvcqE=",
         "owner": "juliusbrussee",
         "repo": "caveman",
-        "rev": "367fdb7f0f8f8e7994b5aab632c7ce5014802b32",
+        "rev": "5184b3d11ac6a1acb7d44b9bfaa31698157cff97",
         "type": "github"
       },
       "original": {
@@ -1105,11 +1105,11 @@
     "npc-z-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1788586319,
-        "narHash": "sha256-MxXLJGfQ5Gy3FtEQEibKCltcM5F92NEckgkON5pS9RQ=",
+        "lastModified": 1788665265,
+        "narHash": "sha256-0KYKs1XyNYEU+fOglMVToVcrAtSHhm+uFqbRInj3A84=",
         "owner": "npc-z",
         "repo": "skills",
-        "rev": "f16ac1179c4a18b2bc62cacc9bffd02d6f336c3c",
+        "rev": "c155b5031cb1d0cf6aaf577c8c9a6a562516b00c",
         "type": "github"
       },
       "original": {
