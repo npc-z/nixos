@@ -1,15 +1,15 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
+    # development toolchain
     gcc
     cmake
 
+    # system essential utilities
     polkit
     libnotify # notify-send
     xdg-user-dirs
 
     lsof
-    fd
-    ripgrep
     udisks
     udiskie
     usbutils
@@ -17,24 +17,13 @@
 
     bubblewrap # Unprivileged sandboxing tool
 
-    # common tools
-    vim
-    # tools
-
-    glow
-
-    tldr
-    eza
-    # shows the type of files
-    file
-
-    htop
-    btop
+    # system services / daemons
     cron
     nethogs
     keyd
-    stow
-    # desktop
+
+    # desktop audio / backlight
+    # pamixer kept system-level: used by root acpid lid-close mute hook
     pamixer
     brightnessctl
   ];
