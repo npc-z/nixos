@@ -264,6 +264,9 @@ type = "h465855hgg/lyrics:lyrics"
 [widget.taskbar]
 only_active_workspace = true
 
+[widget.tray]
+hidden = [ "Network", "Blueman" ]
+
 [widget.workspaces]
 hide_when_empty = true
 label_source = "name"
