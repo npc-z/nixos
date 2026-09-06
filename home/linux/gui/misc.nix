@@ -1,7 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    telegram-desktop
-
     # English dictionary
     eudic
 

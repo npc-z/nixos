@@ -68,14 +68,6 @@
     pamixer
     brightnessctl
     pavucontrol # PulseAudio Volume Control
-    # email
-    thunderbird
-
-    feishu
-    qq
-    wechat-uos
-    # wechat # pr: https://github.com/NixOS/nixpkgs/pull/474257
-    wemeet
   ];
 
   # 使用 home manage 配置也需要开启 zsh
