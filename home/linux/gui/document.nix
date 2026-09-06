@@ -1,11 +1,11 @@
 {
   config,
+  mylib,
   myvars,
   pkgs,
   ...
 }: let
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  dotfilesRoot = myvars.thisRepoPathAtNixos + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
   home.packages = with pkgs; [
     # pdf viewer
@@ -24,7 +24,7 @@ in {
   ];
 
   xdg.configFile.zathura = {
-    source = mkSymlink "${dotfilesRoot}/zathura/";
+    source = link "zathura/";
     recursive = true;
   };
 }

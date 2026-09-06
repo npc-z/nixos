@@ -5,12 +5,7 @@
   pkgs,
   ...
 }: let
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  repoPath =
-    if mylib.isDarwin pkgs
-    then myvars.thisRepoPathAtDarwin
-    else myvars.thisRepoPathAtNixos;
-  dotfilesRoot = repoPath + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
   home.packages = with pkgs; [
     # A cat(1) clone with syntax highlighting and Git integration
@@ -31,7 +26,7 @@ in {
   ];
 
   xdg.configFile.erdtree = {
-    source = mkSymlink "${dotfilesRoot}/erdtree/";
+    source = link "erdtree/";
     recursive = true;
   };
 

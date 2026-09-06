@@ -5,12 +5,7 @@
   pkgs,
   ...
 }: let
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  repoPath =
-    if mylib.isDarwin pkgs
-    then myvars.thisRepoPathAtDarwin
-    else myvars.thisRepoPathAtNixos;
-  dotfilesRoot = repoPath + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
   home.packages = with pkgs; [
     # https://alacritty.org/config-alacritty.html
@@ -18,7 +13,7 @@ in {
   ];
 
   xdg.configFile.alacritty = {
-    source = mkSymlink "${dotfilesRoot}/alacritty/";
+    source = link "alacritty/";
     recursive = true;
   };
 }

@@ -1,11 +1,12 @@
 {
   config,
   inputs,
+  mylib,
   myvars,
+  pkgs,
   ...
 }: let
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  dotfilesRoot = myvars.thisRepoPathAtNixos + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
   imports = [
     inputs.noctalia.homeModules.default
@@ -16,7 +17,7 @@ in {
   };
 
   xdg.configFile.noctalia = {
-    source = mkSymlink "${dotfilesRoot}/noctalia";
+    source = link "noctalia";
     recursive = true;
   };
 }

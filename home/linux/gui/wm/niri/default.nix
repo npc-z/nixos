@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  mylib,
   myvars,
   pkgs,
   ...
@@ -8,8 +9,7 @@
 with lib; let
   cfg = config.wm.niri;
 
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  dotfilesRoot = myvars.thisRepoPathAtNixos + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 
   # FIXME: https://github.com/YaLTeR/niri/issues/1682#issuecomment-2919386619
   # niri 上游生成的 zsh 补全有问题，构建期用 sed 修复后再安装：
@@ -43,7 +43,7 @@ in {
     ];
 
     xdg.configFile.niri = {
-      source = mkSymlink "${dotfilesRoot}/niri";
+      source = link "niri";
       recursive = true;
     };
 

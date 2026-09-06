@@ -1,4 +1,4 @@
-{lib, ...}: {
+{lib, ...}: rec {
   # check if the host platform is linux and x86
   # (isx86Linux pkgs) -> true
   isx86Linux = pkgs: with pkgs.stdenv; hostPlatform.isLinux && hostPlatform.isx86;
@@ -57,5 +57,24 @@
       inherit config;
       system = pkgs.stdenv.hostPlatform.system;
     };
-}
 
+  # dotfiles: reusable bindings for linking the repo dotfiles into the home.
+  #   inherit (mylib.dotfiles { inherit config myvars pkgs; }) mkSymlink dotfilesRoot link;
+  #   - mkSymlink   : config.lib.file.mkOutOfStoreSymlink
+  #   - dotfilesRoot: OS-aware repository dotfiles directory path
+  #   - link path   : out-of-store symlink to "${dotfilesRoot}/${path}"
+  dotfiles = {
+    config,
+    myvars,
+    pkgs,
+  }: let
+    repoPath =
+      if isDarwin pkgs
+      then myvars.thisRepoPathAtDarwin
+      else myvars.thisRepoPathAtNixos;
+  in rec {
+    mkSymlink = config.lib.file.mkOutOfStoreSymlink;
+    dotfilesRoot = repoPath + "/dotfiles";
+    link = path: mkSymlink "${dotfilesRoot}/${path}";
+  };
+}

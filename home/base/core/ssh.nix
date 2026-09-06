@@ -5,12 +5,7 @@
   pkgs,
   ...
 }: let
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  repoPath =
-    if mylib.isDarwin pkgs
-    then myvars.thisRepoPathAtDarwin
-    else myvars.thisRepoPathAtNixos;
-  dotfilesRoot = repoPath + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
-  home.file.".ssh/config".source = mkSymlink "${dotfilesRoot}/ssh/config";
+  home.file.".ssh/config".source = link "ssh/config";
 }

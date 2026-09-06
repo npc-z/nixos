@@ -1,11 +1,11 @@
 {
   config,
+  mylib,
   myvars,
   pkgs,
   ...
 }: let
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  dotfilesRoot = myvars.thisRepoPathAtNixos + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
   home.packages = with pkgs; [
     # clipboard
@@ -28,15 +28,15 @@ in {
     # clipse clipboard manager: only link config files, exclude runtime data
     # (clipboard_history.json, tmp_files/)
     "clipse/config.json" = {
-      source = mkSymlink "${dotfilesRoot}/clipse/config.json";
+      source = link "clipse/config.json";
     };
     "clipse/custom_theme.json" = {
-      source = mkSymlink "${dotfilesRoot}/clipse/custom_theme.json";
+      source = link "clipse/custom_theme.json";
     };
 
     # gamepad mapper
     antimicrox = {
-      source = mkSymlink "${dotfilesRoot}/antimicrox/";
+      source = link "antimicrox/";
       recursive = true;
     };
   };

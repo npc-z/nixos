@@ -1,14 +1,14 @@
 {
   config,
   lib,
+  mylib,
   myvars,
   pkgs,
   ...
 }: let
   cfg = config.home-gui.flameshot;
 
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  dotfilesRoot = myvars.thisRepoPathAtNixos + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
   options.home-gui.flameshot = {
     enable = lib.mkOption {
@@ -26,7 +26,7 @@ in {
     ];
 
     xdg.configFile.flameshot = {
-      source = mkSymlink "${dotfilesRoot}/flameshot";
+      source = link "flameshot";
       recursive = true;
     };
   };

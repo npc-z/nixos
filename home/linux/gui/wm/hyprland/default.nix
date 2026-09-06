@@ -2,6 +2,7 @@
   config,
   inputs,
   lib,
+  mylib,
   myvars,
   pkgs,
   ...
@@ -11,8 +12,7 @@ with lib; let
 
   scrolloverviewPlugin = import ./scrolloverview.nix {inherit inputs pkgs;};
 
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  dotfilesRoot = myvars.thisRepoPathAtNixos + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
   options.wm.hyprland = {
     enable = mkEnableOption "enable hyprland";
@@ -50,27 +50,27 @@ in {
 
     xdg.configFile = {
       # linked individually so Home Manager can also generate files inside .config/hypr/
-      "hypr/animations.lua".source = mkSymlink "${dotfilesRoot}/hypr/animations.lua";
-      "hypr/base.lua".source = mkSymlink "${dotfilesRoot}/hypr/base.lua";
-      "hypr/binds.lua".source = mkSymlink "${dotfilesRoot}/hypr/binds.lua";
-      "hypr/debug.lua".source = mkSymlink "${dotfilesRoot}/hypr/debug.lua";
-      "hypr/execs.lua".source = mkSymlink "${dotfilesRoot}/hypr/execs.lua";
-      "hypr/general.lua".source = mkSymlink "${dotfilesRoot}/hypr/general.lua";
-      "hypr/gesture.lua".source = mkSymlink "${dotfilesRoot}/hypr/gesture.lua";
-      "hypr/hyprlock.conf".source = mkSymlink "${dotfilesRoot}/hypr/hyprlock.conf";
-      "hypr/input.lua".source = mkSymlink "${dotfilesRoot}/hypr/input.lua";
-      "hypr/others.lua".source = mkSymlink "${dotfilesRoot}/hypr/others.lua";
-      "hypr/scratchpad.lua".source = mkSymlink "${dotfilesRoot}/hypr/scratchpad.lua";
-      "hypr/windowrules.lua".source = mkSymlink "${dotfilesRoot}/hypr/windowrules.lua";
-      "hypr/apps".source = mkSymlink "${dotfilesRoot}/hypr/apps";
+      "hypr/animations.lua".source = link "hypr/animations.lua";
+      "hypr/base.lua".source = link "hypr/base.lua";
+      "hypr/binds.lua".source = link "hypr/binds.lua";
+      "hypr/debug.lua".source = link "hypr/debug.lua";
+      "hypr/execs.lua".source = link "hypr/execs.lua";
+      "hypr/general.lua".source = link "hypr/general.lua";
+      "hypr/gesture.lua".source = link "hypr/gesture.lua";
+      "hypr/hyprlock.conf".source = link "hypr/hyprlock.conf";
+      "hypr/input.lua".source = link "hypr/input.lua";
+      "hypr/others.lua".source = link "hypr/others.lua";
+      "hypr/scratchpad.lua".source = link "hypr/scratchpad.lua";
+      "hypr/windowrules.lua".source = link "hypr/windowrules.lua";
+      "hypr/apps".source = link "hypr/apps";
       "hypr/apps".recursive = true;
-      "hypr/hosts".source = mkSymlink "${dotfilesRoot}/hypr/hosts";
+      "hypr/hosts".source = link "hypr/hosts";
       "hypr/hosts".recursive = true;
-      "hypr/plugins".source = mkSymlink "${dotfilesRoot}/hypr/plugins";
+      "hypr/plugins".source = link "hypr/plugins";
       "hypr/plugins".recursive = true;
 
       # multitouch gestures
-      "libinput-gestures.conf".source = mkSymlink "${dotfilesRoot}/libinput-gestures/libinput-gestures.conf";
+      "libinput-gestures.conf".source = link "libinput-gestures/libinput-gestures.conf";
     };
 
     wayland.windowManager.hyprland = {

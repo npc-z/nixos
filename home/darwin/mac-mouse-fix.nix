@@ -1,11 +1,12 @@
 {
   config,
+  mylib,
   myvars,
+  pkgs,
   ...
 }: let
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  dotfilesRoot = myvars.thisRepoPathAtDarwin + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
   home.file."Library/Application Support/com.nuebling.mac-mouse-fix/config.plist".source =
-    mkSymlink "${dotfilesRoot}/mac-mouse-fix/config.plist";
+    link "mac-mouse-fix/config.plist";
 }

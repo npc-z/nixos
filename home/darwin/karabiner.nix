@@ -1,10 +1,11 @@
 {
   config,
+  mylib,
   myvars,
+  pkgs,
   ...
 }: let
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  dotfilesRoot = myvars.thisRepoPathAtDarwin + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
-  xdg.configFile."karabiner/karabiner.json".source = mkSymlink "${dotfilesRoot}/karabiner/karabiner.json";
+  xdg.configFile."karabiner/karabiner.json".source = link "karabiner/karabiner.json";
 }

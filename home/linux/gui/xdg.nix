@@ -1,10 +1,11 @@
 {
   config,
+  mylib,
   myvars,
+  pkgs,
   ...
 }: let
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  dotfilesRoot = myvars.thisRepoPathAtNixos + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
-  xdg.configFile."mimeapps.list".source = mkSymlink "${dotfilesRoot}/xdg/mimeapps.list";
+  xdg.configFile."mimeapps.list".source = link "xdg/mimeapps.list";
 }

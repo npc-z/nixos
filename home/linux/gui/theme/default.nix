@@ -1,5 +1,6 @@
 {
   config,
+  mylib,
   myvars,
   pkgs,
   ...
@@ -10,11 +11,9 @@
   ];
 
   xdg.configFile = let
-    mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-    repoPath = myvars.thisRepoPathAtNixos;
-    dotfilesRoot = repoPath + "/dotfiles";
+    inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
   in {
-    "qt6ct/qt6ct.conf".source = mkSymlink "${dotfilesRoot}/qt6ct/qt6ct.conf";
+    "qt6ct/qt6ct.conf".source = link "qt6ct/qt6ct.conf";
   };
 
   home.pointerCursor = {

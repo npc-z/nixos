@@ -6,12 +6,7 @@
   pkgs,
   ...
 }: let
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  repoPath =
-    if mylib.isDarwin pkgs
-    then myvars.thisRepoPathAtDarwin
-    else myvars.thisRepoPathAtNixos;
-  dotfilesRoot = repoPath + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
   # foot is designed only for Linux
   home.packages = with pkgs;
@@ -23,7 +18,7 @@ in {
 
   xdg.configFile = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     foot = {
-      source = mkSymlink "${dotfilesRoot}/foot/";
+      source = link "foot/";
       recursive = true;
     };
   };

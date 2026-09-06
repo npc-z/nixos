@@ -6,12 +6,7 @@
   myvars,
   ...
 }: let
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  repoPath =
-    if mylib.isDarwin pkgs
-    then myvars.thisRepoPathAtDarwin
-    else myvars.thisRepoPathAtNixos;
-  dotfilesRoot = repoPath + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
   # `programs.git` will generate the config file: ~/.config/git/config
   # to make git use this config file, `~/.gitconfig` should not exist!
@@ -154,13 +149,13 @@ in {
   # lazygit config: path differs between linux (~/.config) and darwin (App Support)
   xdg.configFile = lib.mkIf (!mylib.isDarwin pkgs) {
     lazygit = {
-      source = mkSymlink "${dotfilesRoot}/lazygit/";
+      source = link "lazygit/";
       recursive = true;
     };
   };
 
   home.file = lib.mkIf (mylib.isDarwin pkgs) {
     "Library/Application Support/lazygit/config.yml".source =
-      mkSymlink "${dotfilesRoot}/lazygit/config.yml";
+      link "lazygit/config.yml";
   };
 }

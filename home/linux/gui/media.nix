@@ -1,11 +1,11 @@
 {
   config,
+  mylib,
   myvars,
   pkgs,
   ...
 }: let
-  mkSymlink = config.lib.file.mkOutOfStoreSymlink;
-  dotfilesRoot = myvars.thisRepoPathAtNixos + "/dotfiles";
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
 in {
   home.packages = with pkgs; [
     # -------- media player --------
@@ -43,12 +43,12 @@ in {
   xdg.configFile = {
     # audio visualizer
     cava = {
-      source = mkSymlink "${dotfilesRoot}/cava";
+      source = link "cava";
       recursive = true;
     };
     # screenshot annotation editor
     swappy = {
-      source = mkSymlink "${dotfilesRoot}/swappy/";
+      source = link "swappy/";
       recursive = true;
     };
   };
