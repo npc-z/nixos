@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkDir;
 in {
   imports = [
     inputs.noctalia.homeModules.default
@@ -16,8 +16,5 @@ in {
     enable = true;
   };
 
-  xdg.configFile.noctalia = {
-    source = link "noctalia";
-    recursive = true;
-  };
+  xdg.configFile.noctalia = linkDir "noctalia";
 }

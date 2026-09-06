@@ -11,9 +11,9 @@
   ];
 
   xdg.configFile = let
-    inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+    inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkFile;
   in {
-    "qt6ct/qt6ct.conf".source = link "qt6ct/qt6ct.conf";
+    "qt6ct/qt6ct.conf" = linkFile "qt6ct/qt6ct.conf";
   };
 
   home.pointerCursor = {

@@ -6,7 +6,7 @@
   myvars,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkDir linkFile;
 in {
   # `programs.git` will generate the config file: ~/.config/git/config
   # to make git use this config file, `~/.gitconfig` should not exist!
@@ -148,14 +148,10 @@ in {
 
   # lazygit config: path differs between linux (~/.config) and darwin (App Support)
   xdg.configFile = lib.mkIf (!mylib.isDarwin pkgs) {
-    lazygit = {
-      source = link "lazygit/";
-      recursive = true;
-    };
+    lazygit = linkDir "lazygit/";
   };
 
   home.file = lib.mkIf (mylib.isDarwin pkgs) {
-    "Library/Application Support/lazygit/config.yml".source =
-      link "lazygit/config.yml";
+    "Library/Application Support/lazygit/config.yml" = linkFile "lazygit/config.yml";
   };
 }

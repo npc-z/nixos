@@ -6,15 +6,12 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkDir linkFile;
   rimeBuildDir = "${config.home.homeDirectory}/.local/share/fcitx5/rime/build";
   rimeStateFile = "${config.home.homeDirectory}/.local/state/fcitx5-rime-build-path";
   rimeDataPath = "${pkgs.fcitx5-rime}";
 in {
-  home.file.".local/share/fcitx5/themes" = {
-    recursive = true;
-    source = link "fcitx5/themes";
-  };
+  home.file.".local/share/fcitx5/themes" = linkDir "fcitx5/themes";
 
   # rime 数据（万象拼音 fork + 语法模型）由 overlays/fcitx5 通过 rimeDataPkgs
   # 注入 fcitx5-rime 的共享数据目录，源在 flake.nix 的 inputs.rime-wanxiang
@@ -31,18 +28,19 @@ in {
   '';
 
   xdg.configFile = {
-    "fcitx5/config".source = link "fcitx5/config";
-    "fcitx5/profile" = {
-      source = link "fcitx5/profile";
-      # NOTE: 下面这个说法有待观察
-      # every time fcitx5 switch input method, it will modify ~/.config/fcitx5/profile,
-      # so we need to force replace it in every rebuild to avoid file conflict.
-      force = true;
-    };
+    "fcitx5/config" = linkFile "fcitx5/config";
+    "fcitx5/profile" =
+      linkFile "fcitx5/profile"
+      // {
+        # NOTE: 下面这个说法有待观察
+        # every time fcitx5 switch input method, it will modify ~/.config/fcitx5/profile,
+        # so we need to force replace it in every rebuild to avoid file conflict.
+        force = true;
+      };
 
-    "fcitx5/conf/classicui.conf".source = link "fcitx5/classicui.conf";
+    "fcitx5/conf/classicui.conf" = linkFile "fcitx5/classicui.conf";
 
-    "fcitx5/conf/rime.conf".source = link "fcitx5/rime.conf";
+    "fcitx5/conf/rime.conf" = linkFile "fcitx5/rime.conf";
   };
 
   i18n.inputMethod = {

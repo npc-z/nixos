@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkDir;
 in {
   # foot is designed only for Linux
   home.packages = with pkgs;
@@ -17,9 +17,6 @@ in {
     else [];
 
   xdg.configFile = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
-    foot = {
-      source = link "foot/";
-      recursive = true;
-    };
+    foot = linkDir "foot/";
   };
 }

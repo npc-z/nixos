@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkDir;
 in {
   home.packages = with pkgs; [
     # A cat(1) clone with syntax highlighting and Git integration
@@ -25,10 +25,7 @@ in {
     mkcert # Simple tool for making locally-trusted development certificates
   ];
 
-  xdg.configFile.erdtree = {
-    source = link "erdtree/";
-    recursive = true;
-  };
+  xdg.configFile.erdtree = linkDir "erdtree/";
 
   home.shellAliases = {
     # Fuzzy search for Nix packages

@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkDir linkFile;
 in {
   home.packages = with pkgs; [
     # clipboard
@@ -27,17 +27,10 @@ in {
   xdg.configFile = {
     # clipse clipboard manager: only link config files, exclude runtime data
     # (clipboard_history.json, tmp_files/)
-    "clipse/config.json" = {
-      source = link "clipse/config.json";
-    };
-    "clipse/custom_theme.json" = {
-      source = link "clipse/custom_theme.json";
-    };
+    "clipse/config.json" = linkFile "clipse/config.json";
+    "clipse/custom_theme.json" = linkFile "clipse/custom_theme.json";
 
     # gamepad mapper
-    antimicrox = {
-      source = link "antimicrox/";
-      recursive = true;
-    };
+    antimicrox = linkDir "antimicrox/";
   };
 }

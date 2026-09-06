@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkDir;
 in {
   home.packages = with pkgs; [
     # -------- media player --------
@@ -42,14 +42,8 @@ in {
 
   xdg.configFile = {
     # audio visualizer
-    cava = {
-      source = link "cava";
-      recursive = true;
-    };
+    cava = linkDir "cava";
     # screenshot annotation editor
-    swappy = {
-      source = link "swappy/";
-      recursive = true;
-    };
+    swappy = linkDir "swappy/";
   };
 }

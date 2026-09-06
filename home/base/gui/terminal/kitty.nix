@@ -5,14 +5,11 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkDir;
 in {
   home.packages = with pkgs; [
     kitty
   ];
 
-  xdg.configFile.kitty = {
-    source = link "kitty/";
-    recursive = true;
-  };
+  xdg.configFile.kitty = linkDir "kitty/";
 }

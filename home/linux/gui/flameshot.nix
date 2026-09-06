@@ -8,7 +8,7 @@
 }: let
   cfg = config.home-gui.flameshot;
 
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkDir;
 in {
   options.home-gui.flameshot = {
     enable = lib.mkOption {
@@ -25,9 +25,6 @@ in {
       flameshot
     ];
 
-    xdg.configFile.flameshot = {
-      source = link "flameshot";
-      recursive = true;
-    };
+    xdg.configFile.flameshot = linkDir "flameshot";
   };
 }

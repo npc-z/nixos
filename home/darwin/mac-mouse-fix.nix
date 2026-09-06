@@ -5,8 +5,8 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkFile;
 in {
-  home.file."Library/Application Support/com.nuebling.mac-mouse-fix/config.plist".source =
-    link "mac-mouse-fix/config.plist";
+  home.file."Library/Application Support/com.nuebling.mac-mouse-fix/config.plist" =
+    linkFile "mac-mouse-fix/config.plist";
 }

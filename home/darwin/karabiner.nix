@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkFile;
 in {
-  xdg.configFile."karabiner/karabiner.json".source = link "karabiner/karabiner.json";
+  xdg.configFile."karabiner/karabiner.json" = linkFile "karabiner/karabiner.json";
 }

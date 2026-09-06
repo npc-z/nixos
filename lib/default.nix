@@ -76,5 +76,14 @@
     mkSymlink = config.lib.file.mkOutOfStoreSymlink;
     dotfilesRoot = repoPath + "/dotfiles";
     link = path: mkSymlink "${dotfilesRoot}/${path}";
+    # link a whole config directory recursively
+    linkDir = path: {
+      source = link path;
+      recursive = true;
+    };
+    # link a single config file
+    linkFile = path: {
+      source = link path;
+    };
   };
 }

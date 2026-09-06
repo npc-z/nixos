@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkFile;
 in {
-  xdg.configFile."mimeapps.list".source = link "xdg/mimeapps.list";
+  xdg.configFile."mimeapps.list" = linkFile "xdg/mimeapps.list";
 }

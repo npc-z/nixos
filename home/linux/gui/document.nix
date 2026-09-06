@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkDir;
 in {
   home.packages = with pkgs; [
     # pdf viewer
@@ -23,8 +23,5 @@ in {
     readest
   ];
 
-  xdg.configFile.zathura = {
-    source = link "zathura/";
-    recursive = true;
-  };
+  xdg.configFile.zathura = linkDir "zathura/";
 }

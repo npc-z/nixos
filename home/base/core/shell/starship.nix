@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkFile;
 in {
   home = {
     sessionVariables = {
@@ -19,7 +19,5 @@ in {
     enableZshIntegration = true;
   };
 
-  xdg.configFile."starship.toml" = {
-    source = link "starship/starship.toml";
-  };
+  xdg.configFile."starship.toml" = linkFile "starship/starship.toml";
 }

@@ -10,7 +10,7 @@
   inherit (lib) mkEnableOption mkIf;
   cfg = config.modules.ai-tools;
 
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkFile;
 in {
   options.modules.ai-tools.opencode.enable = mkEnableOption "opencode" // {default = true;};
 
@@ -27,8 +27,8 @@ in {
     };
 
     xdg.configFile = {
-      "opencode/opencode.jsonc".source = link "opencode/opencode.jsonc";
-      "opencode/tui.jsonc".source = link "opencode/tui.jsonc";
+      "opencode/opencode.jsonc" = linkFile "opencode/opencode.jsonc";
+      "opencode/tui.jsonc" = linkFile "opencode/tui.jsonc";
     };
   });
 }

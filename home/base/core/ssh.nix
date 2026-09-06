@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkFile;
 in {
-  home.file.".ssh/config".source = link "ssh/config";
+  home.file.".ssh/config" = linkFile "ssh/config";
 }

@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkDir linkFile;
 
   vscodeCliArgs = [
     # https://code.visualstudio.com/docs/configure/settings-sync#_recommended-configure-the-keyring-to-use-with-vs-code
@@ -119,27 +119,18 @@ in {
 
   # vscode / vscodium config: linux uses ~/.config/Code|VSCodium, darwin uses App Support
   xdg.configFile = lib.mkIf (!mylib.isDarwin pkgs) {
-    "Code/User/keybindings.json".source = link "vscode/Code/User/keybindings.json";
-    "Code/User/settings.json".source = link "vscode/Code/User/settings.json";
-    "Code/User/snippets" = {
-      source = link "vscode-snippets";
-      recursive = true;
-    };
+    "Code/User/keybindings.json" = linkFile "vscode/Code/User/keybindings.json";
+    "Code/User/settings.json" = linkFile "vscode/Code/User/settings.json";
+    "Code/User/snippets" = linkDir "vscode-snippets";
 
-    "VSCodium/User/keybindings.json".source = link "vscode/Code/User/keybindings.json";
-    "VSCodium/User/settings.json".source = link "vscode/Code/User/settings.json";
-    "VSCodium/User/snippets" = {
-      source = link "vscode-snippets";
-      recursive = true;
-    };
+    "VSCodium/User/keybindings.json" = linkFile "vscode/Code/User/keybindings.json";
+    "VSCodium/User/settings.json" = linkFile "vscode/Code/User/settings.json";
+    "VSCodium/User/snippets" = linkDir "vscode-snippets";
   };
 
   home.file = lib.mkIf (mylib.isDarwin pkgs) {
-    "Library/Application Support/Code/User/settings.json".source = link "vscode-mac/settings.json";
-    "Library/Application Support/Code/User/keybindings.json".source = link "vscode-mac/keybindings.json";
-    "Library/Application Support/Code/User/snippets" = {
-      source = link "vscode-snippets";
-      recursive = true;
-    };
+    "Library/Application Support/Code/User/settings.json" = linkFile "vscode-mac/settings.json";
+    "Library/Application Support/Code/User/keybindings.json" = linkFile "vscode-mac/keybindings.json";
+    "Library/Application Support/Code/User/snippets" = linkDir "vscode-snippets";
   };
 }

@@ -5,10 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (mylib.dotfiles {inherit config myvars pkgs;}) link;
+  inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkDir;
 in {
-  xdg.configFile.wallpapers = {
-    source = link "wallpapers/";
-    recursive = true;
-  };
+  xdg.configFile.wallpapers = linkDir "wallpapers/";
 }
