@@ -3,14 +3,6 @@
   pkgs,
   ...
 }: {
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  environment.variables = {
-    EDITOR = "nvim";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
-  };
-
   environment.systemPackages = with pkgs; [
     gcc
     cmake
@@ -31,8 +23,6 @@
 
     # common tools
     vim
-    wl-clipboard
-    clipse
     # tools
 
     glow
