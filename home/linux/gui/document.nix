@@ -24,7 +24,7 @@ in {
   ];
 
   xdg.configFile.zathura = {
-    source = mkSymlink "${dotfilesRoot}/zathura/.config/zathura";
+    source = mkSymlink "${dotfilesRoot}/zathura/";
     recursive = true;
   };
 }

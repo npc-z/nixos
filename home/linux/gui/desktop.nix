@@ -28,15 +28,15 @@ in {
     # clipse clipboard manager: only link config files, exclude runtime data
     # (clipboard_history.json, tmp_files/)
     "clipse/config.json" = {
-      source = mkSymlink "${dotfilesRoot}/clipse/.config/clipse/config.json";
+      source = mkSymlink "${dotfilesRoot}/clipse/config.json";
     };
     "clipse/custom_theme.json" = {
-      source = mkSymlink "${dotfilesRoot}/clipse/.config/clipse/custom_theme.json";
+      source = mkSymlink "${dotfilesRoot}/clipse/custom_theme.json";
     };
 
     # gamepad mapper
     antimicrox = {
-      source = mkSymlink "${dotfilesRoot}/antimicrox/.config/antimicrox";
+      source = mkSymlink "${dotfilesRoot}/antimicrox/";
       recursive = true;
     };
   };

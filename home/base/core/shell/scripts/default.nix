@@ -13,7 +13,7 @@
   dotfilesRoot = repoPath + "/dotfiles";
 in {
   xdg.configFile.scripts = {
-    source = mkSymlink "${dotfilesRoot}/scripts/.config/scripts";
+    source = mkSymlink "${dotfilesRoot}/scripts/";
     recursive = true;
   };
 }

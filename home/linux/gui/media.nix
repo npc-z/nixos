@@ -48,7 +48,7 @@ in {
     };
     # screenshot annotation editor
     swappy = {
-      source = mkSymlink "${dotfilesRoot}/swappy/.config/swappy";
+      source = mkSymlink "${dotfilesRoot}/swappy/";
       recursive = true;
     };
   };

@@ -13,7 +13,7 @@
   dotfilesRoot = repoPath + "/dotfiles";
 in {
   xdg.configFile.wallpapers = {
-    source = mkSymlink "${dotfilesRoot}/wallpapers/.config/wallpapers";
+    source = mkSymlink "${dotfilesRoot}/wallpapers/";
     recursive = true;
   };
 }

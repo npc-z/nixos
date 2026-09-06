@@ -18,7 +18,7 @@ in {
   ];
 
   xdg.configFile.alacritty = {
-    source = mkSymlink "${dotfilesRoot}/alacritty/.config/alacritty";
+    source = mkSymlink "${dotfilesRoot}/alacritty/";
     recursive = true;
   };
 }

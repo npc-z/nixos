@@ -23,7 +23,7 @@ in {
 
   xdg.configFile = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     foot = {
-      source = mkSymlink "${dotfilesRoot}/foot/.config/foot";
+      source = mkSymlink "${dotfilesRoot}/foot/";
       recursive = true;
     };
   };

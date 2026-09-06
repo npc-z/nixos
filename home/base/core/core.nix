@@ -31,7 +31,7 @@ in {
   ];
 
   xdg.configFile.erdtree = {
-    source = mkSymlink "${dotfilesRoot}/erdtree/.config/erdtree";
+    source = mkSymlink "${dotfilesRoot}/erdtree/";
     recursive = true;
   };
 

@@ -17,7 +17,7 @@ in {
   ];
 
   xdg.configFile.kitty = {
-    source = mkSymlink "${dotfilesRoot}/kitty/.config/kitty";
+    source = mkSymlink "${dotfilesRoot}/kitty/";
     recursive = true;
   };
 }

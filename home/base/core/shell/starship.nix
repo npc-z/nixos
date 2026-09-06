@@ -25,6 +25,6 @@ in {
   };
 
   xdg.configFile."starship.toml" = {
-    source = mkSymlink "${dotfilesRoot}/starship/.config/starship.toml";
+    source = mkSymlink "${dotfilesRoot}/starship/starship.toml";
   };
 }

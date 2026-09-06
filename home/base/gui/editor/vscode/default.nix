@@ -124,15 +124,15 @@ in {
 
   # vscode / vscodium config: linux uses ~/.config/Code|VSCodium, darwin uses App Support
   xdg.configFile = lib.mkIf (!mylib.isDarwin pkgs) {
-    "Code/User/keybindings.json".source = mkSymlink "${dotfilesRoot}/vscode/.config/Code/User/keybindings.json";
-    "Code/User/settings.json".source = mkSymlink "${dotfilesRoot}/vscode/.config/Code/User/settings.json";
+    "Code/User/keybindings.json".source = mkSymlink "${dotfilesRoot}/vscode/Code/User/keybindings.json";
+    "Code/User/settings.json".source = mkSymlink "${dotfilesRoot}/vscode/Code/User/settings.json";
     "Code/User/snippets" = {
       source = mkSymlink "${dotfilesRoot}/vscode-snippets";
       recursive = true;
     };
 
-    "VSCodium/User/keybindings.json".source = mkSymlink "${dotfilesRoot}/vscode/.config/Code/User/keybindings.json";
-    "VSCodium/User/settings.json".source = mkSymlink "${dotfilesRoot}/vscode/.config/Code/User/settings.json";
+    "VSCodium/User/keybindings.json".source = mkSymlink "${dotfilesRoot}/vscode/Code/User/keybindings.json";
+    "VSCodium/User/settings.json".source = mkSymlink "${dotfilesRoot}/vscode/Code/User/settings.json";
     "VSCodium/User/snippets" = {
       source = mkSymlink "${dotfilesRoot}/vscode-snippets";
       recursive = true;

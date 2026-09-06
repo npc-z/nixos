@@ -12,5 +12,5 @@
     else myvars.thisRepoPathAtNixos;
   dotfilesRoot = repoPath + "/dotfiles";
 in {
-  home.file.".ssh/config".source = mkSymlink "${dotfilesRoot}/ssh/.ssh/config";
+  home.file.".ssh/config".source = mkSymlink "${dotfilesRoot}/ssh/config";
 }

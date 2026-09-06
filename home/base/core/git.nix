@@ -154,13 +154,13 @@ in {
   # lazygit config: path differs between linux (~/.config) and darwin (App Support)
   xdg.configFile = lib.mkIf (!mylib.isDarwin pkgs) {
     lazygit = {
-      source = mkSymlink "${dotfilesRoot}/lazygit/.config/lazygit";
+      source = mkSymlink "${dotfilesRoot}/lazygit/";
       recursive = true;
     };
   };
 
   home.file = lib.mkIf (mylib.isDarwin pkgs) {
     "Library/Application Support/lazygit/config.yml".source =
-      mkSymlink "${dotfilesRoot}/lazygit/.config/lazygit/config.yml";
+      mkSymlink "${dotfilesRoot}/lazygit/config.yml";
   };
 }
