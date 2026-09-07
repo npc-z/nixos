@@ -20,6 +20,8 @@ in {
     # netease-cloud-music-gtk
     # Simple Netease Cloud Music player
     nur.repos.ccicnce113424.splayer-next
+    # Linux desktop lyrics overlay for MPRIS players
+    kotonoha
 
     # -------- playback / audio control --------
     # media control (play/pause/next/prev)
@@ -45,5 +47,7 @@ in {
     cava = linkDir "cava";
     # screenshot annotation editor
     swappy = linkDir "swappy/";
+    # desktop lyrics overlay for MPRIS players
+    kotonoha = linkDir "kotonoha";
   };
 }

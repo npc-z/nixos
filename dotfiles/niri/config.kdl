@@ -454,6 +454,15 @@ window-rule {
     }
 }
 
+window-rule {
+     // kotonoha: desktop lyric
+    match app-id="python3" title="kotonoha"
+    match app-id="python3" title="查找歌词"
+
+    open-floating true
+}
+
+
 // Floating Noctalia settings window.
 window-rule {
   match app-id="dev.noctalia.Noctalia"

@@ -7,7 +7,6 @@ capsule_thickness = 0.74999998696148396
 center = [ "taskbar" ]
 concave_edge_corners = false
 end = [
-    "lyrics",
     "tray",
     "notifications",
     "clipboard",
@@ -190,7 +189,7 @@ lyrics_sources = [
 
 [plugins]
 auto_update = "all"
-enabled = [ "h465855hgg/lyrics" ]
+enabled = []
 
 [shell]
 clipboard_history_max_entries = 1000
@@ -253,13 +252,6 @@ format = "{:%H:%M:%S}"
 
 [widget.launcher]
 glyph = "apps"
-
-[widget.lyrics]
-hide_when_paused = true
-show_artist = false
-show_cover = false
-show_glyph = false
-type = "h465855hgg/lyrics:lyrics"
 
 [widget.taskbar]
 only_active_workspace = true
