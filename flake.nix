@@ -8,6 +8,7 @@
     extra-substituters = [
       # llm-agents
       "https://cache.numtide.com" # Nix packages for AI coding agents and development tools
+      "https://deepseek-harness-nix.cachix.org"
       # noctalia
       "https://noctalia.cachix.org"
       # my nur packages
@@ -16,6 +17,8 @@
     extra-trusted-public-keys = [
       # llm-agents
       "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=" # Nix packages for AI coding agents and development tools
+      # deepseek-harness-nix
+      "deepseek-harness-nix.cachix.org-1:5NrkwLN9veNMhiINtU5ZeV4isXFhFsOwn6Ms7J1M+TA="
       # noctalia
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       # my nur packages
@@ -58,6 +61,7 @@
 
     # Nix packages for AI coding agents and development tools
     llm-agents.url = "github:numtide/llm-agents.nix";
+    deepseek-harness.url = "github:moraxyc/deepseek-harness.nix";
     # manage skills
     skills-catalog.url = "path:./agent-skills";
 

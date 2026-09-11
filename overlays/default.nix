@@ -22,6 +22,8 @@
     # NixKits — 软件、补丁、NixOS 模块与 AI 编码助手的技能合集
     inputs.nixkits.overlays.default
 
+    inputs.deepseek-harness.overlays.default
+
     # When applied, the stable nixpkgs set (declared in the flake inputs) will
     # be accessible through 'pkgs.stable', e.g. `pkgs.stable.cowsay`
     (final: _prev: {
