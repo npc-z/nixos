@@ -67,7 +67,7 @@
       "caveman-review" # Write code review comments terse and actionable. One line per finding. Location, problem, fix. No throat-clearing.
 
       # kotot-vision
-      "vision" # help to understand images for model that cannot see images.
+      # "vision" # help to understand images for model that cannot see images.
     ];
 
     targets = {
