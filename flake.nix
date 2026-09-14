@@ -3,7 +3,7 @@
 
   # the nixConfig here only affects the flake itself, not the system configuration!
   nixConfig = {
-    abort-on-warn = true;
+    # abort-on-warn = true;
     # extra-substituters will be appended to the default substituters when fetching packages
     extra-substituters = [
       # llm-agents
@@ -97,6 +97,11 @@
 
     # NixKits — 软件、补丁、NixOS 模块与 AI 编码助手的技能合集
     nixkits.url = "github:Kihara777/NixKits";
+
+    dbx = {
+      url = "github:t8y2/dbx";
+      # inputs.nixpkgs.follows = "nixpkgs"; # use the pre-built binary cache, so omit inputs.nixpkgs.follows
+    };
   };
 
   outputs = {
