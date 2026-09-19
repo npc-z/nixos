@@ -12,7 +12,7 @@ in {
     zathura
 
     # English dictionary
-    eudic
+    # eudic # FIXME: miss match sha256
 
     # office suite
     # wpsoffice # cant build
