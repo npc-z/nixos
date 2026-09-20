@@ -480,7 +480,7 @@ binds {
     Mod+Shift+Return  { spawn "alacritty"; }
 
     Mod+P hotkey-overlay-title="toggle noctalia-shell launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }

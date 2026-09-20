@@ -57,7 +57,7 @@ hl.bind("SUPER + B", hl.dsp.exec_cmd("noctalia msg bar-toggle"))
 -- hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("killall -SIGUSR2 .waybar-wrapped"))
 hl.bind("SUPER + P", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind("SUPER + CTRL + P", hl.dsp.window.pin())
-hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("noctalia msg session lock"))
 
 -- windows
 -- move focus
