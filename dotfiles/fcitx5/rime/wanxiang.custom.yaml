@@ -1,0 +1,13 @@
+# 万象拼音个人 patch，由 home/linux/base/fcitx5/default.nix 链接到
+# ~/.local/share/fcitx5/rime/wanxiang.custom.yaml，patch 共享数据里的 wanxiang.schema.yaml。
+patch:
+  speller/algebra:
+    __patch:
+      - wanxiang_algebra:/模糊音_en_eng # en/eng 前后鼻音混淆
+      - wanxiang_algebra:/模糊音_in_ing # in/ing 前后鼻音混淆
+      - wanxiang_algebra:/base/小鹤双拼
+  # 上游 wanxiang.schema.yaml 里这两条逗号/句号翻页绑定默认是注释掉的，
+  # 这里追加回 key_binder/bindings 列表末尾。
+  key_binder/bindings/+:
+    - { when: paging, accept: comma, send: Page_Up }
+    - { when: has_menu, accept: period, send: Page_Down }

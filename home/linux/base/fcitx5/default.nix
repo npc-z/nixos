@@ -11,14 +11,29 @@
   rimeStateFile = "${config.home.homeDirectory}/.local/state/fcitx5-rime-build-path";
   rimeDataPath = "${pkgs.fcitx5-rime}";
 in {
-  home.file.".local/share/fcitx5/themes" = linkDir "fcitx5/themes";
+  home.file = {
+    ".local/share/fcitx5/themes" = linkDir "fcitx5/themes";
 
-  # rime 数据（万象拼音 fork + 语法模型）由 overlays/fcitx5 通过 rimeDataPkgs
-  # 注入 fcitx5-rime 的共享数据目录，源在 flake.nix 的 inputs.rime-wanxiang
+    # 万象拼音的共享数据与语法模型由 overlays/fcitx5 通过 rimeDataPkgs 注入
+    # fcitx5-rime（nixpkgs 的 rime-wanxiang），个人 patch 只能放用户目录。
+    # 用 linkFile 而不是 home.file 默认的 store 链接：librime 只在"源文件比
+    # build 产物新"时重建，store 文件 mtime 恒为 0，改 patch 不会生效。
+    #
+    # default.custom.yaml 是必需的：nixpkgs 把上游 default.yaml 改名为
+    # wanxiang_suggested_default.yaml，共享目录里的 default.yaml 是空的，
+    # 不 include 回来 schema_list 就为空（没有任何可用方案）。
+    ".local/share/fcitx5/rime/wanxiang.custom.yaml" =
+      linkFile "fcitx5/rime/wanxiang.custom.yaml";
+    ".local/share/fcitx5/rime/default.custom.yaml" =
+      linkFile "fcitx5/rime/default.custom.yaml";
+  };
 
-  # librime 只在"源文件比 build 产物新"时才增量重建，而 nix store 文件 mtime 恒为 0，
-  # 所以共享数据更新后必须全量部署才能生效。这里在 fcitx5-rime store 路径
-  # （随 fork/语法模型变化）改变时自动清除 build/，下次 fcitx5 启动即全量重建。
+  # 部署产物 build/*.yaml 的新旧只按 mtime 判断（librime 的 __build_info/timestamps），
+  # 而 store 文件 mtime 恒为 0：nixpkgs 更新 rime-wanxiang / 语法模型 / librime 后内容
+  # 变了也不会重建，必须清掉 build/ 才会重新部署。用户目录的两个 patch 是 out-of-store
+  # symlink（mtime 真实），librime 自己能发现改动，不依赖这里；这段只兜住 store 侧
+  # （共享数据与引擎版本）的变化，故 key 用含 librime 的 fcitx5-rime 路径。
+  # 词典 .table.bin/.prism.bin 按内容校验，不受影响。
   home.activation.cleanRimeBuild = lib.hm.dag.entryBefore ["checkLinkTargets"] ''
     if [ -f "${rimeStateFile}" ] && [ "$(cat "${rimeStateFile}")" != "${rimeDataPath}" ]; then
       rm -rf "${rimeBuildDir}"

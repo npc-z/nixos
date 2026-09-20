@@ -89,13 +89,6 @@
     tix.url = "github:JRMurr/tix";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions/master";
 
-    # 万象拼音 (personal fork)，作为 fcitx5-rime 的共享 rime 数据
-    # git+https to avoid GitHub API rate limits when resolving HEAD
-    rime-wanxiang = {
-      url = "git+https://github.com/npc-z/rime-wanxiang";
-      flake = false;
-    };
-
     # NixKits — 软件、补丁、NixOS 模块与 AI 编码助手的技能合集
     nixkits.url = "github:Kihara777/NixKits";
   };

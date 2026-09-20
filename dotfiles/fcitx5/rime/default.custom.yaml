@@ -1,0 +1,6 @@
+# nixpkgs 的 rime-wanxiang 把上游的 default.yaml 改名为
+# wanxiang_suggested_default.yaml（避免与 rime-data 的 default.yaml 冲突），
+# 所以共享数据目录里的 default.yaml 是空的，schema_list 为空、没有可用方案。
+# 这里把它整份 include 回来：schema_list、menu、switcher、key_binder 都来自于此。
+patch:
+  __include: wanxiang_suggested_default:/

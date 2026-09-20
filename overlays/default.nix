@@ -40,8 +40,8 @@
       };
     })
 
-    # fcitx5-rime 注入万象拼音数据（fork + 语法模型开关）
-    (import ./fcitx5 {inherit inputs config lib;})
+    # fcitx5-rime 注入万象拼音数据（nixpkgs rime-wanxiang + 语法模型开关）
+    (import ./fcitx5 {inherit config lib;})
 
     # =============================================================
     #                     示例 3 个

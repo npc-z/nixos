@@ -1189,22 +1189,6 @@
         "type": "github"
       }
     },
-    "rime-wanxiang": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1786455576,
-        "narHash": "sha256-7+Uvc79K0qbZssZZ/nznzrb0sRXRJ8PG/Iw+HANV/a8=",
-        "ref": "refs/heads/wanxiang",
-        "rev": "5fbf79d190e83f7eab3f396ef23d7d6969d2a6b3",
-        "revCount": 1251,
-        "type": "git",
-        "url": "https://github.com/npc-z/rime-wanxiang"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://github.com/npc-z/rime-wanxiang"
-      }
-    },
     "root": {
       "inputs": {
         "darwin-nixpkgs": "darwin-nixpkgs",
@@ -1222,7 +1206,6 @@
         "noctalia": "noctalia",
         "nur": "nur",
         "nur-npc-z": "nur-npc-z",
-        "rime-wanxiang": "rime-wanxiang",
         "skills-catalog": "skills-catalog",
         "tix": "tix",
         "zen-browser": "zen-browser"
