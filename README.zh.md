@@ -56,7 +56,7 @@
 核心：
 
 - **nixpkgs** — `nixos-unstable`（最新滚动版本）
-- **nixpkgs-stable** — `nixos-26.05`（稳定包，以 `pkgs.stable` 暴露）
+- **multiverse** — 按需访问任意 nixpkgs 版本或发行版，以 `pkgs.mvs` 暴露（如 `(pkgs.mvs.at "26.05").hello`）
 - **home-manager** — 用户环境管理
 - **nix-darwin** + **nix-homebrew** — macOS 系统管理（Apple Silicon，含 Rosetta）
 

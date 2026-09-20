@@ -24,13 +24,18 @@
 
     inputs.deepseek-harness.overlays.default
 
-    # When applied, the stable nixpkgs set (declared in the flake inputs) will
-    # be accessible through 'pkgs.stable', e.g. `pkgs.stable.cowsay`
+    # Any version of any nixpkgs package
+    # e.g.
+    # (pkgs.mvs.at "26.05").hello
+    # pkgs.mvs.versions.hello."2.12.2"
     (final: _prev: {
-      stable = import inputs.nixpkgs-stable {
-        system = final.system;
+      mvs = inputs.multiverse.lib.mkMultiverse {
+        system = final.stdenv.hostPlatform.system;
         config.allowUnfree = true;
         config.permittedInsecurePackages = [
+        ];
+        overlays = [
+          # whatever overlays you want to apply to every revision
         ];
       };
     })

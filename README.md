@@ -56,7 +56,7 @@ Both NixOS hosts run Wayland desktops (Hyprland and niri with the Noctalia shell
 Core:
 
 - **nixpkgs** — `nixos-unstable` (latest rolling release)
-- **nixpkgs-stable** — `nixos-26.05` (stable packages, exposed as `pkgs.stable`)
+- **multiverse** — Any nixpkgs version or release on demand, exposed as `pkgs.mvs` (e.g. `(pkgs.mvs.at "26.05").hello`)
 - **home-manager** — User environment management
 - **nix-darwin** + **nix-homebrew** — macOS system management (Apple Silicon, with Rosetta)
 
