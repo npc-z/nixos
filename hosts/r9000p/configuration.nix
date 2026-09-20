@@ -25,8 +25,15 @@
           zenpower.enable = true;
         };
       };
-      # FIXME: config gpu
-      # gpu.type = "hybrid-nv";
+
+      gpu = {
+        # type = "amd";
+        type = "hybrid-nv";
+        busId = {
+          nvidia = "PCI:1:0:0";
+          amd = "PCI:6:0:0";
+        };
+      };
 
       game = {
         enable = true;

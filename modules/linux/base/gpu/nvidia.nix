@@ -17,6 +17,10 @@
 
   cfg = config.modules.gpu;
   env = config.modules.usrEnv;
+  isHybrid = cfg.type == "hybrid-nv";
+
+  # nixpkgs' strMatching busId options default to "" and treat empty as unset
+  busId = option: lib.optionalString (isHybrid && cfg.busId.${option} != null) cfg.busId.${option};
 in {
   config = mkIf (builtins.elem cfg.type ["nvidia" "hybrid-nv"]) {
     # nvidia drivers are unfree software
@@ -59,7 +63,7 @@ in {
           #GBM_BACKEND = "nvidia-drm"; # breaks firefox apparently
         })
 
-        (mkIf (env.isWayland && (cfg.type == "hybrid-nv")) {
+        (mkIf (env.isWayland && isHybrid) {
           #__NV_PRIME_RENDER_OFFLOAD = "1";
           #WLR_DRM_DEVICES = mkDefault "/dev/dri/card1:/dev/dri/card0";
         })
@@ -87,12 +91,14 @@ in {
         package = mkDefault nvidiaPackage;
         modesetting.enable = mkDefault true;
 
-        prime.offload = let
-          isHybrid = cfg.type == "hybrid-nv";
-        in {
+        prime.offload = {
           enable = isHybrid;
           enableOffloadCmd = isHybrid;
         };
+
+        prime.nvidiaBusId = busId "nvidia";
+        prime.amdgpuBusId = busId "amd";
+        prime.intelBusId = busId "intel";
 
         powerManagement = {
           enable = mkDefault true;
