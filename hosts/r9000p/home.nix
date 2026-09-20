@@ -15,7 +15,10 @@
     };
 
     modules = {
-      obs.enable = true;
+      obs = {
+        enable = true;
+        nvenc = true;
+      };
     };
 
     # This value determines the Home Manager release that your
