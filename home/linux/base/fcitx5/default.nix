@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   mylib,
   myvars,
@@ -10,6 +11,11 @@
   rimeBuildDir = "${config.home.homeDirectory}/.local/share/fcitx5/rime/build";
   rimeStateFile = "${config.home.homeDirectory}/.local/state/fcitx5-rime-build-path";
   rimeDataPath = "${pkgs.fcitx5-rime}";
+
+  # 完整版（默认）：
+  fcitx5-vinput = inputs.fcitx5-vinput.packages."${pkgs.stdenv.hostPlatform.system}".default;
+  # 或者极简 Lite 版（纯云端 ASR + LLM，零 ONNX 运行时依赖）：
+  # fcitx5-vinput = inputs.fcitx5-vinput.packages."${pkgs.stdenv.hostPlatform.system}".fcitx5-vinput-lite;
 in {
   home.file = {
     ".local/share/fcitx5/themes" = linkDir "fcitx5/themes";
@@ -58,6 +64,25 @@ in {
     "fcitx5/conf/rime.conf" = linkFile "fcitx5/rime.conf";
   };
 
+  home.packages = [
+    fcitx5-vinput
+  ];
+
+  systemd.user.services.vinput-daemon = {
+    Unit = {
+      Description = "Vinput Voice Input Daemon";
+      After = ["pipewire.service"];
+    };
+
+    Service = {
+      Type = "dbus";
+      BusName = "org.fcitx.Vinput";
+      ExecStart = "${fcitx5-vinput}/bin/vinput-daemon";
+    };
+
+    Install.WantedBy = ["default.target"];
+  };
+
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
@@ -69,6 +94,8 @@ in {
       qt6Packages.fcitx5-configtool
       qt6Packages.fcitx5-chinese-addons
       fcitx5-gtk # gtk im module
+      # 语音输入
+      fcitx5-vinput
     ];
   };
 }

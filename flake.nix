@@ -13,6 +13,8 @@
       "https://noctalia.cachix.org"
       # my nur packages
       "https://npc-z.cachix.org"
+      # Voice input for Fcitx5
+      "https://fcitx5-vinput.cachix.org"
     ];
     extra-trusted-public-keys = [
       # llm-agents
@@ -23,6 +25,8 @@
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       # my nur packages
       "npc-z.cachix.org-1:k0E/cLF09sxkG6MNGt9r3ZJCsEMM9/k4UL9O4zXvQ/k="
+      # Voice input for Fcitx5
+      "fcitx5-vinput.cachix.org-1:XpX3AA6+dDIX4qJhb1QM7sbTwX6/qSlGvW8Z5NK6XdU="
     ];
   };
 
@@ -91,6 +95,11 @@
 
     # NixKits — 软件、补丁、NixOS 模块与 AI 编码助手的技能合集
     nixkits.url = "github:Kihara777/NixKits";
+
+    # Voice input for Fcitx5
+    fcitx5-vinput = {
+      url = "github:xifan2333/fcitx5-vinput";
+    };
   };
 
   outputs = {
