@@ -18,8 +18,6 @@
   # fcitx5-vinput = inputs.fcitx5-vinput.packages."${pkgs.stdenv.hostPlatform.system}".fcitx5-vinput-lite;
 in {
   home.file = {
-    ".local/share/fcitx5/themes" = linkDir "fcitx5/themes";
-
     # 万象拼音的共享数据与语法模型由 overlays/fcitx5 通过 rimeDataPkgs 注入
     # fcitx5-rime（nixpkgs 的 rime-wanxiang），个人 patch 只能放用户目录。
     # 用 linkFile 而不是 home.file 默认的 store 链接：librime 只在"源文件比

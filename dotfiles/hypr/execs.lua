@@ -6,7 +6,6 @@ hl.on("hyprland.start", function()
     -- home-manager handled dbus-update-activation-environment
 
     hl.exec_cmd("noctalia")
-    hl.exec_cmd("fcitx5 -d --replace")
     hl.exec_cmd("brightnessctl s 50%")
     hl.exec_cmd("pamixer --set-volume 50")
     hl.exec_cmd("foot --server")
