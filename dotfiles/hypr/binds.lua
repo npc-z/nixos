@@ -108,8 +108,8 @@ end)
 hl.bind("SUPER + J", hl.dsp.focus({ workspace = "m+1" }))
 hl.bind("SUPER + K", hl.dsp.focus({ workspace = "m-1" }))
 -- mouse side buttons
-hl.bind("mouse:276", hl.dsp.focus({ workspace = "m+1" }))
-hl.bind("mouse:275", hl.dsp.focus({ workspace = "m-1" }))
+hl.bind("mouse:276", hl.dsp.focus({ workspace = "m-1" }))
+hl.bind("mouse:275", hl.dsp.focus({ workspace = "m+1" }))
 
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0

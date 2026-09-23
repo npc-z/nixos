@@ -150,7 +150,8 @@ hl.window_rule({
 })
 hl.window_rule({
     match = { class = "^.*(Nautilus).*$" },
-    workspace = "7",
+    -- workspace = "7",
+    float = true,
 })
 
 -- steam / gaming workspace 10
