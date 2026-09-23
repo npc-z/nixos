@@ -3,7 +3,7 @@
 
   # the nixConfig here only affects the flake itself, not the system configuration!
   nixConfig = {
-    # abort-on-warn = true;
+    abort-on-warn = true;
     # extra-substituters will be appended to the default substituters when fetching packages
     extra-substituters = [
       # llm-agents
@@ -31,7 +31,7 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
     # Any version of any nixpkgs package
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
 
