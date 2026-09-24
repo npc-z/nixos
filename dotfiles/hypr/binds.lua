@@ -11,6 +11,9 @@ local reader = "zathura"
 local web_browser = "zen"
 local mainMod = "SUPER"
 
+hl.bind(mainMod .. "SHIFT + D", hl.dsp.exec_cmd("systemctl --user start dsh-web.service && notify-send start dsh"))
+hl.bind(mainMod .. "SHIFT + CTRL + D", hl.dsp.exec_cmd("systemctl --user stop dsh-web.service && notify-send stop dsh"))
+
 hl.bind("Print", hl.dsp.exec_cmd("grim -g \"$(slurp -d)\" - | swappy -f -"))
 
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"), { repeating = true, locked = true })

@@ -18,10 +18,11 @@ in {
     services.dsh = {
       enable = true;
       port = 3080;
+      autoStart = false;
       # Serve one of the profiles declared above: the module's `nix-web`
       # fallback composes `pkgs.dsh.presets.web` through `.override`, which
       # re-invokes the preset lambda and rejects composition arguments.
-      profile = config.programs.dsh.profiles.web-ui.materializedName;
+      profile = "nix-web-ui";
     };
 
     programs.dsh = {

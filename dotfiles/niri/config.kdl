@@ -505,6 +505,9 @@ binds {
     XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
 
+    Mod+Shift+D { spawn-sh "systemctl --user start dsh-web.service && notify-send start dsh"; }
+    Mod+Shift+Ctrl+D { spawn-sh "systemctl --user stop dsh-web.service && notify-send stop dsh"; }
+
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
 
