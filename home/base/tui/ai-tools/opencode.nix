@@ -15,20 +15,18 @@ in {
   options.modules.ai-tools.opencode.enable = mkEnableOption "opencode" // {default = true;};
 
   config = mkIf cfg.enable (mkIf cfg.opencode.enable {
-    programs.opencode = {
-      enable = true;
-      package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
+    home.shellAliases = {
+      opencode = "opencode2";
     };
 
-    home.sessionVariables = {
-      # https://opencode.ai/docs/lsp/#built-in
-      # disable automatic LSP server downloads
-      OPENCODE_DISABLE_LSP_DOWNLOAD = true;
+    programs.opencode = {
+      enable = true;
+      package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode2;
     };
 
     xdg.configFile = {
       "opencode/opencode.jsonc" = linkFile "opencode/opencode.jsonc";
-      "opencode/tui.jsonc" = linkFile "opencode/tui.jsonc";
+      "opencode/cli.json" = linkFile "opencode/cli.json";
     };
   });
 }

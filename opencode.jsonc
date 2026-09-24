@@ -1,12 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
-    "nixos-mcp": {
-      "enabled": true,
-      "type": "local",
-      "command": [
-        "mcp-nixos"
-      ]
+    "servers": {
+      "nixos-mcp": {
+        "type": "local",
+        "command": ["mcp-nixos"],
+        "disabled": false
+      }
     }
   }
 }

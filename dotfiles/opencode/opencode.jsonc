@@ -1,36 +1,35 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "permission": {
-    "webfetch": "allow",
-    "bash": {
-      "rm -rf *": "deny",
-      "curl * | bash": "ask",
-      "sh -c *": "ask",
+  // V2 permission rules are ordered and the last matching rule wins,
+  // so broad rules come first and their specific exceptions after them.
+  "permissions": [
+    {"action": "webfetch", "resource": "*", "effect": "allow"},
 
-      "git commit *": "ask",
-      "git commit": "ask",
+    {"action": "shell", "resource": "rm -rf *", "effect": "deny"},
+    {"action": "shell", "resource": "curl * | bash", "effect": "ask"},
+    {"action": "shell", "resource": "sh -c *", "effect": "ask"},
 
-      "git push *": "ask",
-      "git push --force *": "deny",
-      "git push --force": "deny",
-      "git push --tags *": "ask",
+    {"action": "shell", "resource": "git commit *", "effect": "ask"},
+    {"action": "shell", "resource": "git commit", "effect": "ask"},
 
-      "git reset --hard *": "ask",
-      "git clean *": "ask",
-      "git rebase *": "ask",
-      "git branch -D *": "ask",
-      "git tag -d *": "ask",
+    {"action": "shell", "resource": "git push *", "effect": "ask"},
+    {"action": "shell", "resource": "git push --force *", "effect": "deny"},
+    {"action": "shell", "resource": "git push --force", "effect": "deny"},
+    {"action": "shell", "resource": "git push --tags *", "effect": "ask"},
 
-      "just deploy *": "deny",
-      "just deploy": "deny",
-      "just up *": "ask",
-      "just up": "ask"
-    },
-    "edit": {
-      "**/flake.lock": "deny",
-      "**/AGENTS.md": "ask"
-    }
-  },
-  "mcp": {},
-  "lsp": true
+    {"action": "shell", "resource": "git reset --hard *", "effect": "ask"},
+    {"action": "shell", "resource": "git clean *", "effect": "ask"},
+    {"action": "shell", "resource": "git rebase *", "effect": "ask"},
+    {"action": "shell", "resource": "git branch -D *", "effect": "ask"},
+    {"action": "shell", "resource": "git tag -d *", "effect": "ask"},
+
+    {"action": "shell", "resource": "just deploy *", "effect": "deny"},
+    {"action": "shell", "resource": "just deploy", "effect": "deny"},
+    {"action": "shell", "resource": "just up *", "effect": "ask"},
+    {"action": "shell", "resource": "just up", "effect": "ask"},
+
+    {"action": "edit", "resource": "**/flake.lock", "effect": "deny"},
+    {"action": "edit", "resource": "**/AGENTS.md", "effect": "ask"}
+  ],
+  "mcp": {}
 }
