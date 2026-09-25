@@ -37,12 +37,10 @@
       graphviz # Graph visualization tools
 
       # sql
-      vimPlugins.nvim-dbee # not support on darwin
-      sleek
+      sleek # CLI tool for formatting SQL
     ];
 
     plugins = with pkgs.vimPlugins; [
-      # nvim-dbee not work, put it at extraPackages
     ];
   };
 }
