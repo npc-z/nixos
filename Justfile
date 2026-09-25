@@ -30,6 +30,13 @@ debug:
   nh os test --ask --verbose . --accept-flake-config
 
 
+# 校验 darwin 配置：在 Linux 上做 eval + 整图实例化（真构建需要 macOS runner 或 remote builder）
+[linux]
+check-darwin:
+  nix build --dry-run .#darwinConfigurations.work-macbook-pro.config.system.build.toplevel
+  nix build --dry-run .#darwinConfigurations.work-macbook-pro.config.home-manager.users.npc.home.activationPackage
+
+
 # build for remote host
 [linux]
 build-for-remote host:

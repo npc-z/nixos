@@ -13,9 +13,8 @@ in {
   imports = [inputs.deepseek-harness.homeModules.default];
 
   config = mkIf cfg.enable (mkIf cfg.deepseek.enable {
-    # home.packages = [inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.dsh];
-
-    services.dsh = {
+    # service only works on Linux
+    services.dsh = mkIf pkgs.stdenv.hostPlatform.isLinux {
       enable = true;
       port = 3080;
       autoStart = false;

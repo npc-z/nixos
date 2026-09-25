@@ -32,6 +32,7 @@ There is no unit-test suite; validation means evaluating and building flake outp
 - Flake inputs: `just up`, `just upp <input>`.
 - One host: `nix build .#nixosConfigurations.ser7-nixos.config.system.build.toplevel` (or `r9000p-nixos`), `nix build .#darwinConfigurations.work-macbook-pro.system`.
 - Remote hosts: `just build-for-remote <host>`, `just build-by-remote <host>`.
+- Darwin on Linux: `just check-darwin` evaluates and instantiates the aarch64-darwin graph, which catches assertions and Linux-only packages; a real darwin build needs a macOS runner or remote builder.
 - Options and units: `nix eval .#nixosConfigurations.<host>.config…` for the effective value; Home Manager ones sit under `home-manager.users.<user>`.
 
 ## Code style

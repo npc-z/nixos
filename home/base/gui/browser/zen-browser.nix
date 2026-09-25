@@ -1,4 +1,9 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     # Use the twilight package to guarantee reproducibility,
     # the artifacts of that package are re-uploaded to this repository.
@@ -24,7 +29,8 @@
         # "zen.urlbar.behavior" = "float";
       };
 
-      sine = {
+      # sine only works on Linux
+      sine = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
         enable = true;
         mods = [
           "253a3a74-0cc4-47b7-8b82-996a64f030d5" # Floating History
