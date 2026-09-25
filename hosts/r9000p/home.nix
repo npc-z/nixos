@@ -15,6 +15,8 @@
     };
 
     modules = {
+      fcitx5.vinput.enable = true;
+
       obs = {
         enable = true;
         nvenc = true;
