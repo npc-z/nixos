@@ -16,13 +16,13 @@ in {
 
       enableBashIntegration = mkOption {
         type = types.bool;
-        default = true;
+        default = false;
         description = "Whether to enable tirith integration for bash.";
       };
 
       enableZshIntegration = mkOption {
         type = types.bool;
-        default = true;
+        default = false;
         description = "Whether to enable tirith integration for zsh.";
       };
     };
