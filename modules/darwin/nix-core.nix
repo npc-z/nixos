@@ -4,10 +4,4 @@
     automatic = true;
     options = "--delete-older-than 7d";
   };
-
-  nix.settings = {
-    # NOTE: Disable auto-optimise-store because of this issue:
-    # https://github.com/NixOS/nix/issues/7273
-    auto-optimise-store = false;
-  };
 }
