@@ -4,67 +4,67 @@ capsule = true
 capsule_fill = "on_primary"
 capsule_opacity = 0.64999998547136784
 capsule_thickness = 0.74999998696148396
-center = [ "taskbar" ]
+center = ["taskbar"]
 concave_edge_corners = false
 end = [
-    "tray",
-    "notifications",
-    "clipboard",
-    "network",
-    "bluetooth",
-    "volume",
-    "brightness",
-    "battery",
-    "session",
-    "clock"
+  "tray",
+  "notifications",
+  "clipboard",
+  "network",
+  "bluetooth",
+  "volume",
+  "brightness",
+  "battery",
+  "clock",
+  "session",
 ]
 margin_ends = 0
 radius = 0
 shadow = false
-start = [ "launcher", "workspaces" ]
+start = ["launcher", "workspaces"]
 
-    [bar.default.dead_zone.actions]
-    scroll_down = "taskbar-cycle next"
+[bar.default.dead_zone.actions]
+scroll_down = "taskbar-cycle next"
 
 [control_center]
 sidebar = "full"
 sidebar_section = "full"
 
-    [[control_center.shortcuts]]
-    type = "caffeine"
+[[control_center.shortcuts]]
+type = "caffeine"
 
-    [[control_center.shortcuts]]
-    type = "nightlight"
+[[control_center.shortcuts]]
+type = "nightlight"
 
-    [[control_center.shortcuts]]
-    type = "notification"
+[[control_center.shortcuts]]
+type = "notification"
 
-    [[control_center.shortcuts]]
-    type = "wallpaper"
+[[control_center.shortcuts]]
+type = "wallpaper"
 
 [desktop_widgets]
 schema_version = 2
 widget_order = []
 
-    [desktop_widgets.grid]
-    cell_size = 16
-    major_interval = 4
-    visible = true
+[desktop_widgets.grid]
+cell_size = 16
+major_interval = 4
+visible = true
 
-    [desktop_widgets.widget]
+[desktop_widgets.widget]
 
 [idle]
-behavior_order = [ "lock", "screen-off" ]
+behavior_order = ["lock", "screen-off"]
 
-    [idle.behavior.lock]
-    action = "lock"
-    enabled = true
-    timeout = 3600.0
+[idle.behavior.lock]
+action = "lock"
+enabled = true
+timeout = 3600.0
 
-    [idle.behavior.screen-off]
-    action = "screen_off"
-    enabled = true
-    timeout = 4200.0
+[idle.behavior.screen-off]
+action = "screen_off"
+enabled = true
+timeout = 4200.0
 
 [location]
 address = "shenzhen"
@@ -77,95 +77,178 @@ blur_intensity = 0.74999998323619366
 enabled = true
 schema_version = 2
 widget_order = [
-    "lockscreen-login-box@HDMI-A-1",
-    "lockscreen-widget-0000000000000001",
-    "lockscreen-widget-0000000000000002",
-    "lockscreen-widget-0000000000000003"
+  "lockscreen-login-box@eDP-2",
+  "lockscreen-login-box@HDMI-A-1",
+  "lockscreen-widget-0000000000000001",
+  "lockscreen-widget-0000000000000002",
+  "lockscreen-widget-0000000000000003",
+  "lockscreen-clock-time@eDP-2",
+  "lockscreen-clock-date@eDP-2",
+  "lockscreen-clock-weekday@eDP-2",
 ]
 
-    [lockscreen_widgets.grid]
-    cell_size = 16
-    major_interval = 4
-    visible = true
+[lockscreen_widgets.grid]
+cell_size = 16
+major_interval = 4
+visible = true
 
-    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
-    box_height = 70.0
-    box_width = 400.0
-    cx = 960.0
-    cy = 898.0
-    output = "HDMI-A-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "login_box"
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+box_height = 70.0
+box_width = 400.0
+cx = 960.0
+cy = 898.0
+output = "HDMI-A-1"
+placement_height = 1080.0
+placement_width = 1920.0
+rotation = 0.0
+type = "login_box"
 
-        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
-        background_color = "primary"
-        background_opacity = 0.0
-        background_radius = 12.0
-        center_password_text = true
-        input_opacity = 1.0
-        input_radius = 6.0
-        layout = "compact"
-        show_caps_lock = false
-        show_keyboard_layout = false
-        show_login_button = false
-        show_media = false
-        show_session_buttons = false
-        show_unlock_hint = false
-        show_weather = false
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+background_color = "primary"
+background_opacity = 0.0
+background_radius = 12.0
+center_password_text = true
+input_opacity = 1.0
+input_radius = 6.0
+layout = "compact"
+show_caps_lock = false
+show_keyboard_layout = false
+show_login_button = false
+show_media = false
+show_session_buttons = false
+show_unlock_hint = false
+show_weather = false
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
-    box_height = 320.0
-    box_width = 576.0
-    cx = 928.0
-    cy = 316.0
-    output = "HDMI-A-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "clock"
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-2"]
+box_height = 70.0
+box_width = 400.0
+cx = 853.5
+cy = 885.0
+output = "eDP-2"
+placement_height = 1067.0
+placement_width = 1707.0
+rotation = 0.0
+type = "login_box"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
-        background = true
-        background_opacity = 0.0
-        clock_style = "digital"
-        color = "on_primary"
-        format = "{:%H:%M:%S}"
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-2".settings]
+background_color = "primary"
+background_opacity = 0.0
+background_radius = 12.0
+center_password_text = true
+input_opacity = 1.0
+input_radius = 6.0
+layout = "compact"
+show_caps_lock = false
+show_keyboard_layout = false
+show_login_button = false
+show_media = false
+show_session_buttons = false
+show_unlock_hint = false
+show_weather = false
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
-    box_height = 160.0
-    box_width = 368.0
-    cx = 944.0
-    cy = 524.0
-    output = "HDMI-A-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "clock"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+box_height = 320.0
+box_width = 576.0
+cx = 928.0
+cy = 316.0
+output = "HDMI-A-1"
+placement_height = 1080.0
+placement_width = 1920.0
+rotation = 0.0
+type = "clock"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
-        background = true
-        background_opacity = 0.0
-        clock_style = "digital"
-        color = "on_primary"
-        format = "{:%y / %m / %d}"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+background = true
+background_opacity = 0.0
+clock_style = "digital"
+color = "on_primary"
+format = "{:%H:%M:%S}"
 
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
-    box_height = 96.0
-    box_width = 176.0
-    cx = 960.0
-    cy = 444.0
-    output = "HDMI-A-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "clock"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+box_height = 160.0
+box_width = 368.0
+cx = 944.0
+cy = 524.0
+output = "HDMI-A-1"
+placement_height = 1080.0
+placement_width = 1920.0
+rotation = 0.0
+type = "clock"
 
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
-        background_opacity = 0.0
-        color = "on_primary"
-        format = "{:%A}"
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+background = true
+background_opacity = 0.0
+clock_style = "digital"
+color = "on_primary"
+format = "{:%y / %m / %d}"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+box_height = 96.0
+box_width = 176.0
+cx = 960.0
+cy = 444.0
+output = "HDMI-A-1"
+placement_height = 1080.0
+placement_width = 1920.0
+rotation = 0.0
+type = "clock"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+background_opacity = 0.0
+color = "on_primary"
+format = "{:%A}"
+
+[lockscreen_widgets.widget."lockscreen-clock-time@eDP-2"]
+box_height = 320.0
+box_width = 576.0
+cx = 825.0
+cy = 316.0
+output = "eDP-2"
+placement_height = 1067.0
+placement_width = 1707.0
+rotation = 0.0
+type = "clock"
+
+[lockscreen_widgets.widget."lockscreen-clock-time@eDP-2".settings]
+background = true
+background_opacity = 0.0
+clock_style = "digital"
+color = "on_primary"
+format = "{:%H:%M:%S}"
+
+[lockscreen_widgets.widget."lockscreen-clock-date@eDP-2"]
+box_height = 160.0
+box_width = 368.0
+cx = 839.5
+cy = 524.0
+output = "eDP-2"
+placement_height = 1067.0
+placement_width = 1707.0
+rotation = 0.0
+type = "clock"
+
+[lockscreen_widgets.widget."lockscreen-clock-date@eDP-2".settings]
+background = true
+background_opacity = 0.0
+clock_style = "digital"
+color = "on_primary"
+format = "{:%y / %m / %d}"
+
+[lockscreen_widgets.widget."lockscreen-clock-weekday@eDP-2"]
+box_height = 96.0
+box_width = 176.0
+cx = 853.5
+cy = 444.0
+output = "eDP-2"
+placement_height = 1067.0
+placement_width = 1707.0
+rotation = 0.0
+type = "clock"
+
+[lockscreen_widgets.widget."lockscreen-clock-weekday@eDP-2".settings]
+background_opacity = 0.0
+color = "on_primary"
+format = "{:%A}"
 
 [nightlight]
 enabled = true
@@ -175,16 +258,16 @@ position = "bottom_right"
 
 [plugin_settings."h465855hgg/lyrics"]
 lyrics_sources = [
-    "lrclib",
-    "netease",
-    "splayer",
-    "qqmusic",
-    "kugou",
-    "qishui",
-    "apple_music",
-    "spotify",
-    "musixmatch",
-    "SPlayer-Next"
+  "lrclib",
+  "netease",
+  "splayer",
+  "qqmusic",
+  "kugou",
+  "qishui",
+  "apple_music",
+  "spotify",
+  "musixmatch",
+  "SPlayer-Next",
 ]
 
 [plugins]
@@ -198,33 +281,33 @@ font_family = "Arial Black"
 lang = "zh-Hans"
 time_format = "{:%H:%M:%S}"
 
-    [[shell.session.actions]]
-    action = "lock"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "1"
-    variant = "default"
+[[shell.session.actions]]
+action = "lock"
+countdown_seconds = 0.0
+enabled = true
+shortcut = "1"
+variant = "default"
 
-    [[shell.session.actions]]
-    action = "logout"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "2"
-    variant = "default"
+[[shell.session.actions]]
+action = "logout"
+countdown_seconds = 0.0
+enabled = true
+shortcut = "2"
+variant = "default"
 
-    [[shell.session.actions]]
-    action = "reboot"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "4"
-    variant = "default"
+[[shell.session.actions]]
+action = "reboot"
+countdown_seconds = 0.0
+enabled = true
+shortcut = "4"
+variant = "default"
 
-    [[shell.session.actions]]
-    action = "shutdown"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "5"
-    variant = "destructive"
+[[shell.session.actions]]
+action = "shutdown"
+countdown_seconds = 0.0
+enabled = true
+shortcut = "5"
+variant = "destructive"
 
 [theme]
 builtin = "Ayu"
@@ -235,17 +318,17 @@ mode = "auto"
 directory = "/home/npc/.config/wallpapers"
 transition_on_startup = true
 
-    [wallpaper.automation]
-    enabled = true
+[wallpaper.automation]
+enabled = true
 
-    [wallpaper.default]
-    path = "/home/npc/.config/wallpapers/arch.png"
+[wallpaper.default]
+path = "/home/npc/.config/wallpapers/arch.png"
 
-    [wallpaper.last]
-    path = "/home/npc/.config/wallpapers/arch.png"
+[wallpaper.last]
+path = "/home/npc/.config/wallpapers/arch.png"
 
-    [wallpaper.monitors.HDMI-A-1]
-    path = "/home/npc/.config/wallpapers/arch.png"
+[wallpaper.monitors.HDMI-A-1]
+path = "/home/npc/.config/wallpapers/arch.png"
 
 [widget.clock]
 format = "{:%H:%M:%S}"
@@ -257,9 +340,12 @@ glyph = "apps"
 only_active_workspace = true
 
 [widget.tray]
-hidden = [ "Network", "Blueman" ]
+hidden = ["Network", "Blueman"]
 
 [widget.workspaces]
 hide_when_empty = true
 label_source = "name"
 max_label_chars = 6
+
+[osd.kinds]
+keyboard_layout = false
