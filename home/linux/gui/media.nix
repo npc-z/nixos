@@ -22,6 +22,8 @@ in {
     nur.repos.ccicnce113424.splayer-next
     # Linux desktop lyrics overlay for MPRIS players
     kotonoha
+    # 专注于绚丽的歌词动画效果播放器
+    folia-major
 
     # -------- playback / audio control --------
     # media control (play/pause/next/prev)

@@ -430,6 +430,7 @@ window-rule {
     match app-id="netease-cloud-music"
     match app-id="com.github.neithern.g4music"
     match app-id="top.imsyy.splayer_next"
+    match app-id="folia"
 
     open-on-workspace "6  "
     open-focused true

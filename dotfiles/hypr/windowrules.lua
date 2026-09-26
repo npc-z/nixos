@@ -139,6 +139,12 @@ hl.window_rule({
     float = true,
 })
 
+hl.window_rule({
+    match = { class = "folia" },
+    workspace = "6",
+    float = true,
+})
+
 -- file managers workspace 7
 hl.window_rule({
     match = { class = "^(nemo)$" },
