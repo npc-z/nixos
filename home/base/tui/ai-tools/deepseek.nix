@@ -18,31 +18,33 @@ in {
       enable = true;
       port = 3080;
       autoStart = false;
-      # Serve one of the profiles declared above: the module's `nix-web`
-      # fallback composes `pkgs.dsh.presets.web` through `.override`, which
-      # re-invokes the preset lambda and rejects composition arguments.
-      profile = "nix-web-ui";
+      profile = "nix-web";
     };
 
     programs.dsh = {
       enable = true;
 
-      profiles.tui = {
-        bundles = [
-          pkgs.dsh.bundles.notification
-          pkgs.dsh.bundles.tui
-        ];
+      desktop = {
+        enable = true;
+        profile = "nix-desktop";
       };
 
-      profiles.web-ui = {
+      profiles.desktop = {
+        bundles = [
+        ];
+        mode = "mutable";
+      };
+
+      profiles.web = {
         bundles = [
           pkgs.dsh.bundles.notification
           pkgs.dsh.bundles.web-ui
         ];
+        mode = "mutable";
       };
 
       # defaultProfile = "nix-tui";
-      defaultProfile = "nix-web-ui";
+      defaultProfile = config.programs.dsh.profiles.web.materializedName;
     };
   });
 }
