@@ -39,6 +39,8 @@
     inputs.tix.packages.${stdenv.hostPlatform.system}.default # nix
     # formatter for nix
     alejandra
+    # Runs programs without installing them
+    comma
 
     # just
     just-lsp
