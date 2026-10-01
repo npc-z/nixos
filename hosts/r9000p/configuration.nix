@@ -10,11 +10,25 @@
       hostName = "r9000p-nixos";
     };
 
+    # only build CUDA device code for this laptop's GPU (RTX 3060 Laptop = sm_86);
+    # the nixpkgs default targets 9 architectures and multiplies compile time
+    nixpkgs.config.cudaCapabilities = ["8.6"];
+
     modules = {
       # NOTE:
       usrEnv.isWayland = true;
 
       fcitx5.rime.grammarModel.enable = true;
+
+      llama-cpp = {
+        enable = true;
+        host = "0.0.0.0"; # 容器要从 docker0 访问，不能只绑回环
+        cuda.enable = true; # RTX 3060 Laptop
+        # contextSize = 32768; # 6GB 显存放不下模型自带的 262144 上下文
+        contextSize = 16384; # for unsloth/Qwen3-4B-Instruct-2507-GGUF:Q4_K_M
+        modelsMax = 1; # 6GB 显存同时只驻留一个模型，避免 2B+4B 挤爆
+        autoStart = false; # 不随机启动，需要时 systemctl start llama-cpp
+      };
 
       cpu = {
         type = "amd";
