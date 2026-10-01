@@ -331,7 +331,7 @@ path = "/home/npc/.config/wallpapers/arch.png"
 path = "/home/npc/.config/wallpapers/arch.png"
 
 [widget.clock]
-format = "{:%H:%M:%S}"
+format = "{:%A %m/%d %H:%M:%S}"
 
 [widget.launcher]
 glyph = "apps"
@@ -349,3 +349,25 @@ max_label_chars = 6
 
 [osd.kinds]
 keyboard_layout = false
+
+[widget.network]
+show_label = false
+
+[widget.network.actions]
+right = "none"
+
+[widget.bluetooth]
+hide_when_no_connected_device = true
+
+[widget.bluetooth.actions]
+right = "none"
+
+[widget.brightness]
+show_label = false
+
+[dock]
+auto_hide = true
+enabled = true
+magnification_scale = 2.0
+position = "left"
+reserve_space = false
