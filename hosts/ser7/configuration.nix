@@ -37,10 +37,6 @@
       };
       gpu.type = "amd";
 
-      ollama = {
-        # enable = true;
-      };
-
       game = {
         enable = true;
       };
