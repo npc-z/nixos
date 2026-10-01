@@ -91,19 +91,19 @@ layout {
         off
     }
 
-    border {
-        width 4
-        active-color "#FFC4C4"
-        inactive-color "#234C6A"
-        urgent-color "#9b0000"
-    }
+    // border {
+    //     width 4
+    //     active-color "#FFC4C4"
+    //     inactive-color "#234C6A"
+    //     urgent-color "#9b0000"
+    // }
 
-    gaps 8
+    gaps 4
     struts {
-        left -8
-        right -8
-        top -8
-        bottom -8
+        left -4
+        right -4
+        top -4
+        bottom -4
     }
 }
 
@@ -436,9 +436,22 @@ window-rule {
     open-focused true
     open-floating true
     open-maximized false
+    border {
+        off
+    }
 
     default-column-width { proportion 0.7; }
     default-window-height { proportion 0.7; }
+}
+
+window-rule {
+    match app-id="folia"
+    background-effect {
+        xray false
+        blur false
+        noise 0
+        saturation 0
+    }
 }
 
 window-rule {
@@ -455,8 +468,8 @@ window-rule {
     background-effect {
         xray false
         blur false
-        noise 0.05
-        saturation 2
+        noise 0.0
+        saturation 0
     }
 }
 
