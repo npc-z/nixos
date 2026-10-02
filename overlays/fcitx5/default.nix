@@ -17,7 +17,7 @@
     final.runCommand "wanxiang-grammar-model" {
       src = final.fetchurl {
         url = "https://github.com/amzxyz/RIME-LMDG/releases/download/LTS/wanxiang-lts-zh-hans.gram";
-        sha256 = "sha256-muS3vo5FWBGBJKf7BQl9tqNBPVFamLFKvQK4ogddBUI=";
+        sha256 = "sha256-hzy7s1n89N+LIAGDaD3ci+ezIerEyGT40sf8MTbUJ58=";
       };
     } ''
       mkdir -p $out/share/rime-data

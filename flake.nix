@@ -9,8 +9,6 @@
       # llm-agents
       "https://cache.numtide.com" # Nix packages for AI coding agents and development tools
       "https://deepseek-harness-nix.cachix.org"
-      # noctalia
-      "https://noctalia.cachix.org"
       # my nur packages
       "https://npc-z.cachix.org"
       # Voice input for Fcitx5
@@ -21,8 +19,6 @@
       "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g=" # Nix packages for AI coding agents and development tools
       # deepseek-harness-nix
       "deepseek-harness-nix.cachix.org-1:5NrkwLN9veNMhiINtU5ZeV4isXFhFsOwn6Ms7J1M+TA="
-      # noctalia
-      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       # my nur packages
       "npc-z.cachix.org-1:k0E/cLF09sxkG6MNGt9r3ZJCsEMM9/k4UL9O4zXvQ/k="
       # Voice input for Fcitx5
@@ -82,12 +78,6 @@
       # git+https to avoid GitHub API rate limits when resolving HEAD
       url = "git+https://github.com/yayuuu/hyprland-scroll-overview";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # niri
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/cachix"; # the cachix branch always points to the latest cached commit
-      # inputs.nixpkgs.follows = "nixpkgs"; # To use the binary cache, you have to omit inputs.nixpkgs.follows
     };
 
     tix.url = "github:JRMurr/tix";

@@ -11,15 +11,15 @@
   ];
 
   nix = {
-    # this is useful for nixd(lsp of nix)
-    nixPath = [
-      "nixpkgs=${inputs.nixpkgs}"
-    ];
-
     settings = {
       experimental-features = [
         "nix-command"
         "flakes"
+      ];
+
+      # this is useful for nixd(lsp of nix)
+      nix-path = [
+        "nixpkgs=${inputs.nixpkgs}"
       ];
 
       # given the users in this list the right to specify additional substituters via:
