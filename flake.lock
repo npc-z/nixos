@@ -1114,11 +1114,11 @@
     "npc-z-skills": {
       "flake": false,
       "locked": {
-        "lastModified": 1791373985,
-        "narHash": "sha256-wJPuSBUIvbDtS6CSngQha1VuGrScaK6//ZXMg0Xa7l4=",
+        "lastModified": 1791378065,
+        "narHash": "sha256-JBl/KTDyMirkZz0+DnttSthhHLkf41eppsxUlBD8mQY=",
         "owner": "npc-z",
         "repo": "skills",
-        "rev": "e77ea39289539f0477cad208a88b0e347d5f695a",
+        "rev": "5208366e799360fd6746a84a598b0c38b8b54d21",
         "type": "github"
       },
       "original": {
