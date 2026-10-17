@@ -9,5 +9,8 @@
 
     # remove nix-channel related tools & configs, we use flakes instead.
     channel.enable = false;
+
+    # this saves disk space
+    settings.auto-optimise-store = true;
   };
 }
