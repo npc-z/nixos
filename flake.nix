@@ -11,6 +11,8 @@
       "https://deepseek-harness-nix.cachix.org"
       # my nur packages
       "https://npc-z.cachix.org"
+      # plainly-npc-z
+      "https://plainly-npc-z.cachix.org"
       # Voice input for Fcitx5
       "https://fcitx5-vinput.cachix.org"
     ];
@@ -21,6 +23,8 @@
       "deepseek-harness-nix.cachix.org-1:5NrkwLN9veNMhiINtU5ZeV4isXFhFsOwn6Ms7J1M+TA="
       # my nur packages
       "npc-z.cachix.org-1:k0E/cLF09sxkG6MNGt9r3ZJCsEMM9/k4UL9O4zXvQ/k="
+      # plainly-npc-z
+      "plainly-npc-z.cachix.org-1:F7TqG/U7AJfUZ8McMct3VHbxchqKZSF/oSop0pv9/SE="
       # Voice input for Fcitx5
       "fcitx5-vinput.cachix.org-1:XpX3AA6+dDIX4qJhb1QM7sbTwX6/qSlGvW8Z5NK6XdU="
     ];
@@ -30,6 +34,7 @@
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
     # Any version of any nixpkgs package
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
+    plainly.url = "github:npc-z/plainly";
 
     # home-manager，用于管理用户配置
     home-manager = {

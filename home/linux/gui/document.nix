@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   mylib,
   myvars,
   pkgs,
@@ -13,6 +14,9 @@ in {
 
     # English dictionary
     # eudic # FIXME: miss match sha256
+
+    # learn English by English
+    inputs.plainly.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # office suite
     # wpsoffice # cant build

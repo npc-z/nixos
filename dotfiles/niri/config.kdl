@@ -397,6 +397,7 @@ window-rule {
 
 window-rule {
     match app-id="org.gnome.Nautilus"
+    match app-id="plainly-desktop"
 
     // open-focused true
     open-floating true
@@ -497,6 +498,8 @@ binds {
     Mod+V { spawn-sh "alacritty --class clipse-history -e zsh -c 'clipse $PPID'"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Shift+Return  { spawn "alacritty"; }
+
+    Mod+E { spawn "plainly-panel" "--clipboard"; }
 
     Mod+P hotkey-overlay-title="toggle noctalia-shell launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn-sh "noctalia msg session lock"; }
