@@ -35,6 +35,11 @@
       url = "github:npc-z/skills";
       flake = false;
     };
+
+    TaysiTsuki = {
+      url = "github:MidAutumnMoon/TaysiTsuki";
+      flake = false;
+    };
   };
 
   outputs = {self, ...} @ inputs: {

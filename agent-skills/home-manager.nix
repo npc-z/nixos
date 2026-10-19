@@ -43,6 +43,11 @@
         # idPrefix = "npc-z-skills"; # 添加 idPrefix 会多添加一层同名目录
       };
 
+      prune-comments-and-docs = {
+        path = inputs.TaysiTsuki;
+        subdir = "home/agents/skills/prune-comments-and-docs";
+      };
+
       # NOTE: 参考仓库可以添加本地自定义 skills
       # https://github.com/mitramejia/nixos-config/blob/main/modules/home/agent-skills.nix
     };
@@ -68,6 +73,9 @@
 
       # kotot-vision
       # "vision" # help to understand images for model that cannot see images.
+
+      # TaysiTsuki
+      "prune-comments-and-docs" # 清理注释和文档
     ];
 
     targets = {
