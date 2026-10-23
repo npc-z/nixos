@@ -59,12 +59,12 @@ behavior_order = ["lock", "screen-off"]
 [idle.behavior.lock]
 action = "lock"
 enabled = true
-timeout = 3600.0
+timeout = 600.0
 
 [idle.behavior.screen-off]
 action = "screen_off"
 enabled = true
-timeout = 4200.0
+timeout = 600.0
 
 [location]
 address = "shenzhen"
@@ -312,7 +312,7 @@ variant = "destructive"
 [theme]
 builtin = "Ayu"
 community_palette = "Paradise"
-mode = "auto"
+mode = "light"
 
 [wallpaper]
 directory = "/home/npc/.config/wallpapers"
