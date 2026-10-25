@@ -27,6 +27,7 @@
         # "zen.view.compact.animate-sidebar" = false;
         "zen.welcome-screen.seen" = true;
         # "zen.urlbar.behavior" = "float";
+        "sine.auto-updates" = false;
       };
 
       # sine only works on Linux
