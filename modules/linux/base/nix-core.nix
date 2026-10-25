@@ -13,13 +13,4 @@
     # this saves disk space
     settings.auto-optimise-store = true;
   };
-
-  # FIXME: eMudhra 证书颁发机构 (CA) 中间证书私钥泄漏
-  # 等待上游更新后移除
-  security.pki.caCertificateBlacklist = [
-    "Comodo AAA Services root"
-    "emSign ECC Root CA - G3"
-    "emSign Root CA - C1"
-    "emSign ECC Root CA - C3"
-  ];
 }

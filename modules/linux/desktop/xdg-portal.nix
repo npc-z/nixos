@@ -6,12 +6,13 @@
   xdg.portal = {
     enable = true;
 
+    # xdg-desktop-portal-hyprland 不在此处声明：programs.hyprland 会自动把与
+    # hyprland 包匹配的 portalPackage 加入 extraPortals；重复声明会引入两个不同
+    # 的 portal 构建，systemd user-units 生成时会因同名 unit 符号链接冲突而失败。
     extraPortals = with pkgs; [
       # FileChooser 由 gtk 后端提供，screencast/screenshot 按会话路由
       xdg-desktop-portal-gtk
       xdg-desktop-portal-gnome
-      # for hyprland
-      xdg-desktop-portal-hyprland
     ];
 
     # 兜底：桌面未知或未匹配到具体会话配置时，文件选择走 gtk

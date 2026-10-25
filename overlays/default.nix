@@ -19,9 +19,6 @@
   config.nixpkgs.overlays = [
     inputs.nix-vscode-extensions.overlays.default
 
-    # NixKits — 软件、补丁、NixOS 模块与 AI 编码助手的技能合集
-    inputs.nixkits.overlays.default
-
     inputs.deepseek-harness.overlays.default
 
     # Any version of any nixpkgs package

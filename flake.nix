@@ -88,9 +88,6 @@
     tix.url = "github:JRMurr/tix";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions/master";
 
-    # NixKits — 软件、补丁、NixOS 模块与 AI 编码助手的技能合集
-    nixkits.url = "github:Kihara777/NixKits";
-
     # Voice input for Fcitx5
     fcitx5-vinput = {
       url = "github:xifan2333/fcitx5-vinput";

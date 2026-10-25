@@ -20,7 +20,7 @@ in {
       enable = true;
       package = mkIf cfg.nvenc (pkgs.obs-studio.override {cudaSupport = true;});
       plugins = [
-        pkgs.obs-bilibili-stream
+        pkgs.obs-studio-plugins.obs-bilibili-stream
       ];
     };
   };
