@@ -37,19 +37,10 @@ check-darwin:
   nix build --dry-run .#darwinConfigurations.work-macbook-pro.config.home-manager.users.npc.home.activationPackage
 
 
-# build for remote host
-[linux]
-build-for-remote host:
-  # e.g. nixos-rebuild build --use-remote-sudo --target-host npc@r9000p-nixos --flake ./#r9000p-nixos --ask-sudo-password
-  nixos-rebuild build --use-remote-sudo --target-host npc@{{host}} --flake ./#{{host}} --elevate=sudo --ask-elevate-password
-
-
-# build by remote host
+# Build this host's config on another machine over SSH
 [linux]
 build-by-remote host:
-  # e.g. nixos-rebuild build --use-remote-sudo --target-host npc@r9000p-nixos --flake ./#r9000p-nixos --ask-sudo-password
-  # nh os build --ask --verbose --target-host npc@{{host}} . --accept-flake-config
-  nixos-rebuild build --flake . --sudo --build-host npc@{{host}} --accept-flake-config
+  nixos-rebuild build --flake . --build-host npc@{{host}} --accept-flake-config
 
 
 # export noctalia config to dotfiles
