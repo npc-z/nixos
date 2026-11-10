@@ -2,7 +2,7 @@
   programs = {
     clash-verge = {
       # package = pkgs.clash-nyanpasu;
-      enable = true;
+      # enable = true; # FIXME: cant build now
       # autoStart = true;
       tunMode = true;
       serviceMode = true;
