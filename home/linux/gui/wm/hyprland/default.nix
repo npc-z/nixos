@@ -10,7 +10,8 @@
 with lib; let
   cfg = config.wm.hyprland;
 
-  scrolloverviewPlugin = import ./scrolloverview.nix {inherit inputs pkgs;};
+  # cant build now
+  # scrolloverviewPlugin = import ./scrolloverview.nix {inherit inputs pkgs;};
 
   inherit (mylib.dotfiles {inherit config myvars pkgs;}) linkDir linkFile;
 in {
@@ -73,9 +74,6 @@ in {
     wayland.windowManager.hyprland = {
       # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       enable = true;
-      xwayland.enable = true;
-      systemd.enable = true;
-      systemd.variables = ["--all"];
 
       # Use Lua config format (Hyprland >= 0.55)
       configType = "lua";
@@ -91,7 +89,7 @@ in {
         # inputs.hycov.packages.${pkgs.stdenv.hostPlatform.system}.hycov
 
         # scrollable workspace overview, like niri
-        scrolloverviewPlugin
+        # scrolloverviewPlugin
 
         # official plugin, but WIP
         # pkgs.hyprlandPlugins.hyprscrolling
