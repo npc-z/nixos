@@ -11,6 +11,8 @@ local reader = "zathura"
 local web_browser = "zen"
 local mainMod = "SUPER"
 
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("plainly-panel --clipboard"))
+
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("systemctl --user start dsh-web.service && notify-send start dsh"))
 hl.bind(
     mainMod .. " + SHIFT + CTRL + D",
