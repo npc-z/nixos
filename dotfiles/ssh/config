@@ -31,7 +31,7 @@ Host github.com
 # r9000p-nixos
 Host r9000p-nixos
     # the ip maybe change
-    HostName 10.195.183.74
+    HostName 10.185.22.74
     # Port 22
     User npc
 
@@ -43,7 +43,7 @@ Host r9000p-nixos
 # ser7-nixos
 Host ser7-nixos
     # the ip maybe change
-    HostName 10.195.183.114
+    HostName 10.185.22.114
     # Port 22
     User npc
 
