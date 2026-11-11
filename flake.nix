@@ -92,6 +92,11 @@
     fcitx5-vinput = {
       url = "github:xifan2333/fcitx5-vinput";
     };
+    # 类微信输入法
+    wowtype = {
+      url = "github:Gloridust/WowType";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

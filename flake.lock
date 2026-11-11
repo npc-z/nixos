@@ -1250,6 +1250,7 @@
         "plainly": "plainly",
         "skills-catalog": "skills-catalog",
         "tix": "tix",
+        "wowtype": "wowtype",
         "zen-browser": "zen-browser"
       }
     },
@@ -1465,6 +1466,26 @@
       "original": {
         "owner": "vercel-labs",
         "repo": "skills",
+        "type": "github"
+      }
+    },
+    "wowtype": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794342038,
+        "narHash": "sha256-EXxDBdqky/p0rVbVHNTEiL7ZOHWhwzWzzJ2B/JTmX/k=",
+        "owner": "Gloridust",
+        "repo": "WowType",
+        "rev": "95f8d3f301cced892585bf7137b37656ca7e348d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gloridust",
+        "repo": "WowType",
         "type": "github"
       }
     },
