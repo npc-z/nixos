@@ -16,6 +16,7 @@
 
     modules = {
       fcitx5.vinput.enable = true;
+      fcitx5.rime.enable = true;
 
       obs = {
         enable = true;
