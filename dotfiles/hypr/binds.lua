@@ -66,6 +66,8 @@ hl.bind("SUPER + B", hl.dsp.exec_cmd("noctalia msg bar-toggle"))
 hl.bind("SUPER + P", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
 hl.bind("SUPER + CTRL + P", hl.dsp.window.pin())
 hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("noctalia msg session lock"))
+-- used when noctalia lock crashed
+hl.bind("SUPER + SHIFT + ALT + L", hl.dsp.exec_cmd("hyprlock"))
 
 -- windows
 -- move focus
