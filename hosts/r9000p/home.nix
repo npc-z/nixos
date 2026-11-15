@@ -15,6 +15,10 @@
     };
 
     modules = {
+      fcitx5 = {
+        rime.enable = true;
+      };
+
       obs = {
         enable = true;
         nvenc = true;

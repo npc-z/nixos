@@ -10,7 +10,7 @@
   cfg = config.modules.fcitx5.wowtype;
 in {
   options.modules.fcitx5.wowtype = {
-    enable = mkEnableOption "类微信输入法 wowtype" // {default = true;};
+    enable = mkEnableOption "类微信输入法 wowtype";
   };
 
   config = mkIf cfg.enable {
