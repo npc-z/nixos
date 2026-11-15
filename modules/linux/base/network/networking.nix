@@ -1,8 +1,11 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # 开启热点
-    # https://nixos.wiki/wiki/Internet_Connection_Sharing
-    linux-wifi-hotspot
+    # Set Linux as router in one command. Support Internet sharing, redsocks, Wifi hotspot, IPv6.
+    # NOTE: 创建离线热点
+    # sudo lnxrouter -n --ap wlp2s0 MyAP -p '12345678' --freq-band 2.4 -c 6 --no-virt
+    linux-router
+
     networkmanagerapplet
     iw # Tool to use nl80211
     connect # Make network connection via SOCKS and https proxy
