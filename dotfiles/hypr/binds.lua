@@ -11,12 +11,52 @@ local reader = "zathura"
 local web_browser = "zen"
 local mainMod = "SUPER"
 
+local function pin_nofocus_toggle()
+    local tag = "pin_nofocus"
+
+    local function has_tag(window)
+        for _, t in ipairs(window.tags or {}) do
+            if t == tag then
+                return true
+            end
+        end
+        return false
+    end
+
+    return function()
+        local window = hl.get_active_window()
+        if not window then
+            return
+        end
+
+        if window.floating and window.fullscreen == 0 and not window.pinned and not has_tag(window) then
+            -- Tag the window and mark it as pinned with no_focus
+            hl.dispatch(hl.dsp.window.tag({ tag = "+" .. tag, window = window }))
+            hl.dispatch(hl.dsp.window.pin({ window = window }))
+            hl.dispatch(hl.dsp.window.set_prop({ prop = "no_focus", value = "1", window = window }))
+        else
+            -- Restore all windows that were marked this way
+            for _, marked_window in ipairs(hl.get_windows({ tag = tag })) do
+                hl.dispatch(hl.dsp.window.set_prop({ prop = "no_focus", value = "unset", window = marked_window }))
+                if marked_window.pinned then
+                    hl.dispatch(hl.dsp.window.pin({ window = marked_window }))
+                end
+                hl.dispatch(hl.dsp.window.tag({ tag = "-" .. tag, window = marked_window }))
+            end
+        end
+    end
+end
+hl.bind(mainMod .. " + SHIFT + P", pin_nofocus_toggle())
+
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("plainly-panel --clipboard"))
 
-hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("systemctl --user start dsh-web.service && notify-send start dsh"))
+hl.bind(
+    mainMod .. " + SHIFT + D",
+    hl.dsp.exec_cmd("systemctl --user start dsh-web.service && notify-send \"start dsh\"")
+)
 hl.bind(
     mainMod .. " + SHIFT + CTRL + D",
-    hl.dsp.exec_cmd("systemctl --user stop dsh-web.service && notify-send stop dsh")
+    hl.dsp.exec_cmd("systemctl --user stop dsh-web.service && notify-send \"stop dsh\"")
 )
 
 hl.bind("Print", hl.dsp.exec_cmd("grim -g \"$(slurp -d)\" - | swappy -f -"))
@@ -130,3 +170,33 @@ end
 -- drag / resize with mouse
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-- Windows Magnifier-like cursor zoom
+local MAX_ZOOM = 5
+local MIN_ZOOM = 1
+local ZOOM_TOGGLE_FACTOR = 2.5
+
+---@param offset number
+---@return nil
+local function zoom(offset)
+    hl.dsp.exec_cmd("notify-send hello")
+    local current = hl.get_config("cursor.zoom_factor")
+
+    if offset ~= nil then
+        current = current + offset
+    elseif current ~= MIN_ZOOM then
+        current = MIN_ZOOM
+    else
+        current = ZOOM_TOGGLE_FACTOR
+    end
+    current = math.max(MIN_ZOOM, math.min(MAX_ZOOM, current))
+    hl.config({ cursor = { zoom_factor = current } })
+end
+
+hl.bind("SUPER + Z", zoom)
+hl.bind("SUPER + equal", function()
+    zoom(0.5)
+end)
+hl.bind("SUPER + minus", function()
+    zoom(-0.5)
+end)
