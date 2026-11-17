@@ -33,6 +33,8 @@
     which
 
     just # use Justfile to simplify nix-darwin's commands
+    nvd # Nix/NixOS package version diff tool
+    rom # Flamboyant output monitor for the Nix build tool
 
     # lsp for dev
     nixd # nix
