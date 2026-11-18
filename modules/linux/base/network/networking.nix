@@ -11,22 +11,13 @@
     connect # Make network connection via SOCKS and https proxy
   ];
 
-  # 不从 DHCP 获取 DNS
-  environment.etc."NetworkManager/conf.d/no-dhcp-dns.conf".text = ''
-    [main]
-    dns=none
-  '';
-
   networking = {
-    networkmanager.enable = true;
-    nameservers = [
-      # Adguard
-      "94.140.14.14"
-      "94.140.15.15"
-
-      "1.1.1.1"
-      "8.8.8.8"
-    ];
+    networkmanager = {
+      enable = true;
+      # 只作为“公网 DNS 入口”，让 TUN 开启时查询能进入 mihomo 的 dns-hijack。
+      # DHCP 的校园 DNS 仍保留为后备。
+      insertNameservers = ["223.5.5.5"];
+    };
 
     extraHosts = ''
       # 140.82.113.4	github.com
