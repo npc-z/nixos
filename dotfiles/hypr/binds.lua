@@ -110,32 +110,18 @@ hl.bind("SUPER + ALT + L", hl.dsp.exec_cmd("noctalia msg session lock"))
 hl.bind("SUPER + SHIFT + ALT + L", hl.dsp.exec_cmd("hyprlock"))
 
 -- windows
--- move focus
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + H", hl.dsp.window.bring_to_top())
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + L", hl.dsp.window.bring_to_top())
+-- move focus (scrolling layout message: keeps the tape centered and still
+-- scrolls away from fullscreen windows instead of jumping to another monitor)
+hl.bind(mainMod .. " + H", hl.dsp.layout("focus l"))
+hl.bind(mainMod .. " + L", hl.dsp.layout("focus r"))
 
 -- move window
-hl.bind("SUPER + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
+-- between columns: swap the focused column with its neighbor
+hl.bind("SUPER + SHIFT + H", hl.dsp.layout("swapcol l"))
+hl.bind("SUPER + SHIFT + L", hl.dsp.layout("swapcol r"))
+-- inside a column: reorder with the generic dispatcher
 hl.bind("SUPER + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 hl.bind("SUPER + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
-hl.bind("SUPER + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
-
--- FIXME:
--- zoom in / out
-hl.bind(
-    "SUPER + SHIFT + minus",
-    hl.dsp.exec_cmd(
-        "hyprctl getoption cursor:zoom_factor | grep float | awk '{if($2!=1) system(\"hyprctl keyword cursor:zoom_factor \" $2 - 0.1) }' && hyprctl getoption cursor:zoom_factor | grep float | awk '{print $2}' | xargs notify-send -t 1000"
-    )
-)
-hl.bind(
-    "SUPER + SHIFT + equal",
-    hl.dsp.exec_cmd(
-        "hyprctl getoption cursor:zoom_factor | grep float | awk '{ system(\"hyprctl keyword cursor:zoom_factor \" $2 + 0.1) }' && hyprctl getoption cursor:zoom_factor | grep float | awk '{print $2}' | xargs notify-send -t 1000"
-    )
-)
 
 -- Resize submap
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.submap("resize"))
